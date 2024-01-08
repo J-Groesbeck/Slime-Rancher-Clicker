@@ -9,6 +9,9 @@ function levelUpClick() {
     currentMoney = currentMoney - clickLevelCost
     clickLevelCost = clickLevelCost * 10
     }
+    if(clickLevel = 5) {
+        document.getElementById('level-up-click').style.display === "none"
+    }
 }
 
 function rankUpClick() {
@@ -88,6 +91,7 @@ function rankUpClick() {
         currentMoney = currentMoney - 2000000;
         clickerTangle.style.display = "none";
         clickerMosaic.style.display = "block";
+        document.getElementById('rank-up-click').style.display === "none"
     }
 }
 
@@ -124,15 +128,33 @@ function buyPinkSlimes() {
     document.getElementById("pink-slime-amount").innerText = numOfPinkSlimes
 }
 
+let autoPinkTimer = 1000
+let autoPinkMultiplier = 0.2
+let pinkLevel = 1
+
+function levelUpPink() {
+    let pinkLevelCost = 1000
+    if(currentMoney >= pinkLevelCost) {
+    pinkLevel = pinkLevel + 1
+    autoPinkMultiplier = autoPinkMultiplier + 0.2
+    autoPinkTimer = autoPinkTimer - 200
+    currentMoney = currentMoney - pinkLevelCost
+    pinkLevelCost = pinkLevelCost * 5
+    }
+    if(pinkLevel = 5) {
+        document.getElementById('level-up-pink').style.display === "none"
+    }
+}
+
 let autoPinkAmount = 0
 
 function autoPink() {
-    autoPinkAmount = autoPinkAmount + numOfPinkSlimes * 0.2
+    autoPinkAmount = autoPinkAmount + numOfPinkSlimes * autoPinkMultiplier
     pinkTotal()
 }
 
 autoPink()
-setInterval(autoPink, 1000);
+setInterval(autoPink, autoPinkTimer);
 
 function pinkTotal() {
     pinkAmountTotal = pinkAmount + autoPinkAmount
