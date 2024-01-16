@@ -7,24 +7,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="overflow-x-hidden overflow-y-hidden">
     <!-- This page is a home page with a "start game" option, and the disclaimer that there is no way to save your data, and reloading the page will reset your progress -->
     <div class="row">
-        <div class="col-12 text-center">
-            <h2 id="current-money"></h2>
+        <div class="col-9 text-center">
+            <h1><img src="img/coin.png" class="scales-h1"><span id="current-money"></span></h1>
+        </div>
+        <div class="col-3">
+            <h2>Market resets in <span id="timer"></span></h2>
         </div>
         <div class="col-4">
-            <div class="text-center">Click Here To Generate Pink Plorts!</div>
-            <div class="text-center"><img src="img/pink-slime.png" class="w-75" onclick="clickPink()"
+            <div class="text-center"><img src="img/pink-slime.png" class="clicker-height" onclick="clickPink()"
                     id="click-pink"></img></div>
-            <div class="row">
-                <div class="col-4"></div>
-                <div class="col-8">
-                    <p id="sell-pink"></p>
-                    <button onclick="pinkSell()">Sell</button>
+            <div class="row default-height">
+                <div class="col-4 text-center">
+                    <img src="img/pink-plort.png" class="default-height">
+                </div>
+                <div class="col-4">
+                    <h2>
+                        x<span id="pink-plorts"></span>
+                        <br>
+                        <img src="img/price-up.png" id="stocks-up-pink" class="scales-h2">
+                        <img src="img/price-down.png" id="stocks-down-pink" class="scales-h2">
+                        <img src="img/coin.png" class="scales-h2">
+                        <span id="current-pink-price"></span>
+                    </h2>
+                </div>
+                <div class="col-4">
+                    <button onclick="pinkSell()" class="w-100 h-100">
+                        <h5 class="mb-0">
+                            Sell for<br><img src="img/coin.png" class="scales-h5"><span id="pink-sell-total"></span>
+                        </h5>
+                    </button>
                 </div>
             </div>
         </div>
@@ -32,8 +49,23 @@
 
         </div>
         <div class="col-4">
-            <button onclick="buyPinkSlimes()">test</button>
-            <div id="pink-slime-amount"></div>
+            <div class="row default-height2">
+                <div class="col-3">
+                    <img src="img/pink-slime.png" class="default-height2">
+                </div>
+                <div class="col-5">
+                    <h4>You have: <span id="pink-slime-amount"></span></h4>
+                    <h6>Each produces <span id="pink-level"></span> plort(s) every 5 seconds</h6>
+                </div>
+                <div class="col-4">
+                    <button onclick="buyPinkSlimes()" class="w-100" id="buy-pink-slimes">
+                        <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span id="pink-slime-price"></span></h6>
+                    </button>
+                    <button onclick="levelUpPink()" class="w-100" id="level-up-pink">
+                        <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span id="pink-upgrade-price"></span></h6>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>

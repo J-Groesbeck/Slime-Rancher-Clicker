@@ -1,0 +1,41 @@
+body {
+    background-color: black !important;
+    color: white !important;
+}
+
+#stocks-down-pink,
+#stocks-up-pink {
+    display: none;
+}
+
+.scales-h1 {
+    height: 2.5rem;
+    display: inline;
+}
+
+.scales-h2 {
+    height: 2rem;
+    display: inline;
+}
+
+.scales-h5 {
+    height: 1.25rem;
+    display: inline;
+}
+
+.scales-h6 {
+    height: 1rem;
+    display: inline;
+}
+
+.default-height {
+    height: 5rem !important;
+}
+
+.default-height2 {
+    height: 5.55rem;
+}
+
+.clicker-height {
+    height: 15rem;
+}

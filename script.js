@@ -98,6 +98,31 @@ function rankUpClick() {
     document.getElementById('current-money').innerText = currentMoney
 }
 
+let seconds = 61
+
+function countdown() {
+    seconds = seconds - 1
+    if (seconds < 0) {
+        seconds = 60
+        displayCountdown()
+    } else {
+        displayCountdown()
+    }
+}
+
+function displayCountdown() {
+    if(seconds === 60) {
+        document.getElementById('timer').innerText = `1:00`
+    } else if(seconds >= 10){
+        document.getElementById('timer').innerText = `0:${seconds}`
+    } else {
+        document.getElementById('timer').innerText = `0:0${seconds}`
+    }
+}
+
+countdown()
+setInterval(countdown, 1000);
+
 let pinkAmount = 0
 
 let pinkAmountTotal = 0
@@ -109,18 +134,22 @@ function clickPink() {
 
 let numOfPinkSlimes = 0
 let costOfPinkSlimes = 250
-
+document.getElementById('pink-slime-price').innerHTML = costOfPinkSlimes
 document.getElementById("pink-slime-amount").innerText = numOfPinkSlimes
 
 function buyPinkSlimes() {
-    if (numOfPinkSlimes >= 250) {
+    if (numOfPinkSlimes >= 250 && currentMoney >= costOfPinkSlimes) {
         costOfPinkSlimes = Math.floor(costOfPinkSlimes * 1.1)
-    } else if (numOfPinkSlimes >= 100) {
+        document.getElementById('pink-slime-price').innerHTML = costOfPinkSlimes
+    } else if (numOfPinkSlimes >= 100 && !(numOfPinkSlimes >= 250)) {
         costOfPinkSlimes = 2000
-    } else if (numOfPinkSlimes >= 50) {
+        document.getElementById('pink-slime-price').innerHTML = costOfPinkSlimes
+    } else if (numOfPinkSlimes >= 50 && !(numOfPinkSlimes >= 250)) {
         costOfPinkSlimes = 1000
-    } else if (numOfPinkSlimes >= 10) {
+        document.getElementById('pink-slime-price').innerHTML = costOfPinkSlimes
+    } else if (numOfPinkSlimes >= 10 && !(numOfPinkSlimes >= 250)) {
         costOfPinkSlimes = 500
+        document.getElementById('pink-slime-price').innerHTML = costOfPinkSlimes
     }
     if (currentMoney >= costOfPinkSlimes) {
         currentMoney = currentMoney - costOfPinkSlimes
@@ -130,21 +159,24 @@ function buyPinkSlimes() {
     document.getElementById('current-money').innerText = currentMoney
 }
 
-let autoPinkTimer = 1000
 let autoPinkMultiplier = 0.2
 let pinkLevel = 1
+document.getElementById('pink-level').innerHTML = pinkLevel
+let pinkLevelCost = 1000
+document.getElementById('pink-upgrade-price').innerHTML = pinkLevelCost
 
 function levelUpPink() {
-    let pinkLevelCost = 1000
     if (currentMoney >= pinkLevelCost) {
         pinkLevel = pinkLevel + 1
         autoPinkMultiplier = autoPinkMultiplier + 0.2
-        autoPinkTimer = autoPinkTimer - 200
         currentMoney = currentMoney - pinkLevelCost
         pinkLevelCost = pinkLevelCost * 5
+        document.getElementById('pink-upgrade-price').innerHTML = pinkLevelCost
+        document.getElementById('pink-level').innerHTML = pinkLevel
     }
-    if (pinkLevel = 5) {
-        document.getElementById('level-up-pink').style.display === "none"
+    if (pinkLevel === 5) {
+        document.getElementById('level-up-pink').style.display = "none"
+        document.getElementById('buy-pink-slimes').classList = "w-100 h-100"
     }
     document.getElementById('current-money').innerText = currentMoney
 }
@@ -158,13 +190,14 @@ function autoPink() {
 }
 
 autoPink()
-setInterval(autoPink, autoPinkTimer);
+setInterval(autoPink, 1000);
 
 function pinkTotal() {
     pinkAmountTotal = pinkAmount + autoPinkAmount
     pinkAmountTotal = Math.floor(pinkAmountTotal)
-    var calcPinkSellPrice = pinkAmountTotal * pinkPrice
-    document.getElementById('sell-pink').innerHTML = `Click Here To Sell ${pinkAmountTotal} Pink Plorts at $${pinkPrice} Each for $${calcPinkSellPrice}`
+    document.getElementById('pink-plorts').innerHTML = pinkAmountTotal
+    calcPinkSellPrice = pinkAmountTotal * pinkPrice
+    document.getElementById('pink-sell-total').innerHTML = calcPinkSellPrice
 }
 
 
@@ -177,40 +210,59 @@ function pinkSell() {
     autoPinkAmount = 0
     pinkTotal()
     document.getElementById('current-money').innerText = currentMoney
-    var calcPinkSellPrice = pinkAmountTotal * pinkPrice
-    document.getElementById('sell-pink').innerHTML = `Click Here To Sell ${pinkAmountTotal} Pink Plorts at $${pinkPrice} Each for $${calcPinkSellPrice}`
+    calcPinkSellPrice = pinkAmountTotal * pinkPrice
+    document.getElementById('pink-sell-total').innerHTML = calcPinkSellPrice
 }
 
 let isFirstTime = true
 
 function pinkStocks() {
+    var pinkStocksUp = document.getElementById('stocks-up-pink')
+    var pinkStocksDown = document.getElementById('stocks-down-pink')
     if (isFirstTime) {
         isFirstTime = false
     } else if (numOfPinkSoldTotal >= 2500) {
         pinkPrice = 4
+        pinkStocksUp.style.display = "none"
+        pinkStocksDown.style.display = "inline"
     } else if (numOfPinkSoldTotal >= 400) {
         pinkPrice = Math.max(4, pinkPrice / 2)
+        pinkStocksUp.style.display = "none"
+        pinkStocksDown.style.display = "inline"
     } else if (numOfPinkSoldTotal >= 300) {
         pinkPrice = Math.max(4, pinkPrice / 1.75)
+        pinkStocksUp.style.display = "none"
+        pinkStocksDown.style.display = "inline"
     } else if (numOfPinkSoldTotal >= 200) {
         pinkPrice = Math.max(4, pinkPrice / 1.5)
+        pinkStocksUp.style.display = "none"
+        pinkStocksDown.style.display = "inline"
     } else if (numOfPinkSoldTotal >= 100) {
         pinkPrice = Math.max(4, pinkPrice / 1.25)
+        pinkStocksUp.style.display = "none"
+        pinkStocksDown.style.display = "inline"
     } else if (numOfPinkSoldTotal > 50) {
         pinkPrice = pinkPrice / 1
+        pinkStocksUp.style.display = "none"
+        pinkStocksDown.style.display = "none"
     } else if (numOfPinkSoldTotal <= 50 && numOfPinkSoldTotal !== 0) {
         pinkPrice = Math.min(23, pinkPrice * 1.5)
+        pinkStocksUp.style.display = "inline"
+        pinkStocksDown.style.display = "none"
     } else if (numOfPinkSoldTotal === 0) {
-        pinkPrice = Math.min(23, pinkPrice * 2);
+        pinkPrice = Math.min(23, pinkPrice * 2)
+        pinkStocksUp.style.display = "inline"
+        pinkStocksDown.style.display = "none"
     }
     numOfPinkSoldTotal = 0
     pinkPrice = Math.floor(pinkPrice)
-    var calcPinkSellPrice = pinkAmountTotal * pinkPrice
-    document.getElementById('sell-pink').innerHTML = `Click Here To Sell ${pinkAmountTotal} Pink Plorts at $${pinkPrice} Each for $${calcPinkSellPrice}`
+    calcPinkSellPrice = pinkAmountTotal * pinkPrice
+    document.getElementById('pink-sell-total').innerHTML = calcPinkSellPrice
+    document.getElementById('current-pink-price').innerHTML = pinkPrice
 }
 
 pinkStocks()
-setInterval(pinkStocks, 60000);
+setInterval(pinkStocks, 61000);
 
 var calcPinkSellPrice = pinkAmountTotal * pinkPrice
-document.getElementById('sell-pink').innerHTML = `Click Here To Sell ${pinkAmountTotal} Pink Plorts at $${pinkPrice} Each for $${calcPinkSellPrice}`
+document.getElementById('pink-sell-total').innerHTML = calcPinkSellPrice
