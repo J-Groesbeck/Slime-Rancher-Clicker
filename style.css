@@ -4,7 +4,9 @@ body {
 }
 
 #stocks-down-pink,
-#stocks-up-pink {
+#stocks-up-pink,
+#stocks-down-rock,
+#stocks-up-rock {
     display: none;
 }
 
@@ -38,4 +40,26 @@ body {
 
 .clicker-height {
     height: 15rem;
+}
+
+#click-pink {
+    display: inline;
+}
+
+#click-rock,
+#click-phosphor,
+#click-tabby,
+#click-puddle,
+#click-fire,
+#click-honey,
+#click-boom,
+#click-rad,
+#click-hunter,
+#click-crystal,
+#click-saber,
+#click-dervish,
+#click-quantum,
+#click-tangle,
+#click-mosaic {
+    display: none;
 }

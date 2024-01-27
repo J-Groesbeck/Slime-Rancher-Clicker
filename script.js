@@ -1,102 +1,159 @@
 let currentMoney = 0
 document.getElementById('current-money').innerText = currentMoney
 
+//Leveling and Ranking up player's click
+
 let clickLevel = 1
+document.getElementById('click-level').innerText = clickLevel
+let clickLevelCost = 1000
+document.getElementById('click-level-cost').innerText = clickLevelCost
 
 function levelUpClick() {
-    let clickLevelCost = 1000
     if (currentMoney >= clickLevelCost) {
         clickLevel = clickLevel + 1
         currentMoney = currentMoney - clickLevelCost
         clickLevelCost = clickLevelCost * 10
         document.getElementById('current-money').innerText = currentMoney
+        document.getElementById('click-level-cost').innerText = clickLevelCost
+        document.getElementById('click-level').innerText = clickLevel
     }
-    if (clickLevel = 5) {
-        document.getElementById('level-up-click').style.display === "none"
+    if (clickLevel === 5) {
+        document.getElementById('level-up-click').style.display = 'none'
     }
 }
 
+let clickRankCost = 1000
+document.getElementById('click-rank-cost').innerText = clickRankCost
+var clickerPink = document.getElementById('click-pink');
+clickerPink.style.display = "inline"
+var clickerRock = document.getElementById('click-rock');
+var clickerPhosphor = document.getElementById('click-phosphor');
+var clickerTabby = document.getElementById('click-tabby');
+var clickerPuddle = document.getElementById('click-puddle');
+var clickerFire = document.getElementById('click-fire');
+var clickerHoney = document.getElementById('click-honey');
+var clickerBoom = document.getElementById('click-boom');
+var clickerHunter = document.getElementById('click-hunter');
+var clickerRad = document.getElementById('click-rad');
+var clickerCrystal = document.getElementById('click-crystal');
+var clickerSaber = document.getElementById('click-saber');
+var clickerDervish = document.getElementById('click-dervish');
+var clickerQuantum = document.getElementById('click-quantum');
+var clickerTangle = document.getElementById('click-tangle');
+var clickerMosaic = document.getElementById('click-mosaic');
+
 function rankUpClick() {
-    var clickerPink = document.getElementById('click-pink');
-    var clickerRock = document.getElementById('click-rock');
-    var clickerPhosphor = document.getElementById('click-phosphor');
-    var clickerTabby = document.getElementById('click-tabby');
-    var clickerPuddle = document.getElementById('click-puddle');
-    var clickerFire = document.getElementById('click-fire');
-    var clickerHoney = document.getElementById('click-honey');
-    var clickerBoom = document.getElementById('click-boom');
-    var clickerRad = document.getElementById('click-rad');
-    var clickerHunter = document.getElementById('click-hunter');
-    var clickerCrystal = document.getElementById('click-crystal');
-    var clickerSaber = document.getElementById('click-saber');
-    var clickerDervish = document.getElementById('click-dervish');
-    var clickerQuantum = document.getElementById('click-quantum');
-    var clickerTangle = document.getElementById('click-tangle');
-    var clickerMosaic = document.getElementById('click-mosaic');
-    if (currentMoney >= 1000 && clickerPink.style.display === "block") {
-        currentMoney = currentMoney - 1000
-        clickerPink.style.display = "none"
-        clickerRock.style.display = "block"
-    } else if (currentMoney >= 5000 && clickerRock.style.display === "block") {
-        currentMoney = currentMoney - 5000
-        clickerRock.style.display = "none"
-        clickerPhosphor.style.display = "block"
-    } else if (currentMoney >= 10000 && clickerPhosphor.style.display === "block") {
-        currentMoney = currentMoney - 10000;
-        clickerPhosphor.style.display = "none";
-        clickerTabby.style.display = "block";
-    } else if (currentMoney >= 25000 && clickerTabby.style.display === "block") {
-        currentMoney = currentMoney - 25000;
-        clickerTabby.style.display = "none";
-        clickerPuddle.style.display = "block";
-    } else if (currentMoney >= 50000 && clickerPuddle.style.display === "block") {
-        currentMoney = currentMoney - 50000;
-        clickerPuddle.style.display = "none";
-        clickerFire.style.display = "block";
-    } else if (currentMoney >= 100000 && clickerFire.style.display === "block") {
-        currentMoney = currentMoney - 100000;
-        clickerFire.style.display = "none";
-        clickerHoney.style.display = "block";
-    } else if (currentMoney >= 150000 && clickerHoney.style.display === "block") {
-        currentMoney = currentMoney - 150000;
-        clickerHoney.style.display = "none";
-        clickerBoom.style.display = "block";
-    } else if (currentMoney >= 200000 && clickerBoom.style.display === "block") {
-        currentMoney = currentMoney - 200000;
-        clickerBoom.style.display = "none";
-        clickerRad.style.display = "block";
-    } else if (currentMoney >= 250000 && clickerRad.style.display === "block") {
-        currentMoney = currentMoney - 250000;
-        clickerRad.style.display = "none";
-        clickerHunter.style.display = "block";
-    } else if (currentMoney >= 500000 && clickerHunter.style.display === "block") {
-        currentMoney = currentMoney - 500000;
-        clickerHunter.style.display = "none";
-        clickerCrystal.style.display = "block";
-    } else if (currentMoney >= 1000000 && clickerCrystal.style.display === "block") {
-        currentMoney = currentMoney - 1000000;
-        clickerCrystal.style.display = "none";
-        clickerSaber.style.display = "block";
-    } else if (currentMoney >= 1250000 && clickerSaber.style.display === "block") {
-        currentMoney = currentMoney - 1250000;
-        clickerSaber.style.display = "none";
-        clickerDervish.style.display = "block";
-    } else if (currentMoney >= 1500000 && clickerDervish.style.display === "block") {
-        currentMoney = currentMoney - 1500000;
-        clickerDervish.style.display = "none";
-        clickerQuantum.style.display = "block";
-    } else if (currentMoney >= 1750000 && clickerQuantum.style.display === "block") {
-        currentMoney = currentMoney - 1750000;
-        clickerQuantum.style.display = "none";
-        clickerTangle.style.display = "block";
-    } else if (currentMoney >= 2000000 && clickerTangle.style.display === "block") {
-        currentMoney = currentMoney - 2000000;
-        clickerTangle.style.display = "none";
-        clickerMosaic.style.display = "block";
-        document.getElementById('rank-up-click').style.display === "none"
+    if (currentMoney >= clickRankCost && clickerPink.style.display === 'inline') {
+        currentMoney = currentMoney - clickRankCost;
+        clickerPink.style.display = 'none';
+        clickerRock.style.display = 'inline';
+        clickRankCost = clickRankCost * 4;
+        document.getElementById('click-rank-cost').innerText = clickRankCost;
+        document.getElementById('click-rank').innerText = 'Rock';
+    } else if (currentMoney >= clickRankCost && clickerRock.style.display === 'inline') {
+        currentMoney = currentMoney - clickRankCost;
+        clickerRock.style.display = 'none';
+        clickerPhosphor.style.display = 'inline';
+        clickRankCost = clickRankCost * 4;
+        document.getElementById('click-rank-cost').innerText = clickRankCost;
+        document.getElementById('click-rank').innerText = 'Phosphor';
+    } else if (currentMoney >= clickRankCost && clickerPhosphor.style.display === 'inline') {
+        currentMoney = currentMoney - clickRankCost;
+        clickerPhosphor.style.display = 'none';
+        clickerTabby.style.display = 'inline';
+        clickRankCost = clickRankCost * 4;
+        document.getElementById('click-rank-cost').innerText = clickRankCost;
+        document.getElementById('click-rank').innerText = 'Tabby';
+    } else if (currentMoney >= clickRankCost && clickerTabby.style.display === 'inline') {
+        currentMoney = currentMoney - clickRankCost;
+        clickerTabby.style.display = 'none';
+        clickerPuddle.style.display = 'inline';
+        clickRankCost = clickRankCost * 4;
+        document.getElementById('click-rank-cost').innerText = clickRankCost;
+        document.getElementById('click-rank').innerText = 'Puddle';
+    } else if (currentMoney >= clickRankCost && clickerPuddle.style.display === 'inline') {
+        currentMoney = currentMoney - clickRankCost;
+        clickerPuddle.style.display = 'none';
+        clickerFire.style.display = 'inline';
+        clickRankCost = clickRankCost * 4;
+        document.getElementById('click-rank-cost').innerText = clickRankCost;
+        document.getElementById('click-rank').innerText = 'Fire';
+    } else if (currentMoney >= clickRankCost && clickerFire.style.display === 'inline') {
+        currentMoney = currentMoney - clickRankCost;
+        clickerFire.style.display = 'none';
+        clickerHoney.style.display = 'inline';
+        clickRankCost = clickRankCost * 4;
+        document.getElementById('click-rank-cost').innerText = clickRankCost;
+        document.getElementById('click-rank').innerText = 'Honey';
+    } else if (currentMoney >= clickRankCost && clickerHoney.style.display === 'inline') {
+        currentMoney = currentMoney - clickRankCost;
+        clickerHoney.style.display = 'none';
+        clickerBoom.style.display = 'inline';
+        clickRankCost = clickRankCost * 4;
+        document.getElementById('click-rank-cost').innerText = clickRankCost;
+        document.getElementById('click-rank').innerText = 'Boom';
+    } else if (currentMoney >= clickRankCost && clickerBoom.style.display === 'inline') {
+        currentMoney = currentMoney - clickRankCost;
+        clickerBoom.style.display = 'none';
+        clickerHunter.style.display = 'inline';
+        clickRankCost = clickRankCost * 4;
+        document.getElementById('click-rank-cost').innerText = clickRankCost
+        document.getElementById('click-rank').innerText = 'Hunter';
+    } else if (currentMoney >= clickRankCost && clickerHunter.style.display === 'inline') {
+        currentMoney = currentMoney - clickRankCost;
+        clickerHunter.style.display = 'none';
+        clickerRad.style.display = 'inline';
+        clickRankCost = clickRankCost * 4
+        document.getElementById('click-rank-cost').innerText = clickRankCost
+        document.getElementById('click-rank').innerText = 'Rad';
+    } else if (currentMoney >= clickRankCost && clickerRad.style.display === 'inline') {
+        currentMoney = currentMoney - clickRankCost;
+        clickerRad.style.display = 'none';
+        clickerCrystal.style.display = 'inline';
+        clickRankCost = clickRankCost * 4
+        document.getElementById('click-rank-cost').innerText = clickRankCost
+        document.getElementById('click-rank').innerText = 'Crystal';
+    } else if (currentMoney >= clickRankCost && clickerCrystal.style.display === 'inline') {
+        currentMoney = currentMoney - clickRankCost;
+        clickerCrystal.style.display = 'none';
+        clickerSaber.style.display = 'inline';
+        clickRankCost = clickRankCost * 4
+        document.getElementById('click-rank-cost').innerText = clickRankCost
+        document.getElementById('click-rank').innerText = 'Saber';
+    } else if (currentMoney >= clickRankCost && clickerSaber.style.display === 'inline') {
+        currentMoney = currentMoney - clickRankCost;
+        clickerSaber.style.display = 'none';
+        clickerDervish.style.display = 'inline';
+        clickRankCost = clickRankCost * 4
+        document.getElementById('click-rank-cost').innerText = clickRankCost
+        document.getElementById('click-rank').innerText = 'Dervish';
+    } else if (currentMoney >= clickRankCost && clickerDervish.style.display === 'inline') {
+        currentMoney = currentMoney - clickRankCost;
+        clickerDervish.style.display = 'none';
+        clickerQuantum.style.display = 'inline';
+        clickRankCost = clickRankCost * 4
+        document.getElementById('click-rank-cost').innerText = clickRankCost
+        document.getElementById('click-rank').innerText = 'Quantum';
+    } else if (currentMoney >= clickRankCost && clickerQuantum.style.display === 'inline') {
+        currentMoney = currentMoney - clickRankCost;
+        clickerQuantum.style.display = 'none';
+        clickerTangle.style.display = 'inline';
+        clickRankCost = clickRankCost * 4
+        document.getElementById('click-rank-cost').innerText = clickRankCost
+        document.getElementById('click-rank').innerText = 'Tangle';
+    } else if (currentMoney >= clickRankCost && clickerTangle.style.display === 'inline') {
+        currentMoney = currentMoney - clickRankCost;
+        clickerTangle.style.display = 'none';
+        clickerMosaic.style.display = 'inline';
+        clickRankCost = clickRankCost * 4
+        document.getElementById('click-rank-cost').innerText = clickRankCost
+        document.getElementById('click-rank').innerText = 'Mosaic';
+        document.getElementById('rank-up-click').style.display = 'none'
     }
     document.getElementById('current-money').innerText = currentMoney
 }
+
+//Market Countdown
 
 let seconds = 61
 
@@ -111,9 +168,9 @@ function countdown() {
 }
 
 function displayCountdown() {
-    if(seconds === 60) {
+    if (seconds === 60) {
         document.getElementById('timer').innerText = `1:00`
-    } else if(seconds >= 10){
+    } else if (seconds >= 10) {
         document.getElementById('timer').innerText = `0:${seconds}`
     } else {
         document.getElementById('timer').innerText = `0:0${seconds}`
@@ -122,6 +179,8 @@ function displayCountdown() {
 
 countdown()
 setInterval(countdown, 1000);
+
+//Pink Slime Section
 
 let pinkAmount = 0
 
@@ -135,7 +194,7 @@ function clickPink() {
 let numOfPinkSlimes = 0
 let costOfPinkSlimes = 250
 document.getElementById('pink-slime-price').innerHTML = costOfPinkSlimes
-document.getElementById("pink-slime-amount").innerText = numOfPinkSlimes
+document.getElementById('pink-slime-amount').innerText = numOfPinkSlimes
 
 function buyPinkSlimes() {
     if (numOfPinkSlimes >= 250 && currentMoney >= costOfPinkSlimes) {
@@ -155,7 +214,7 @@ function buyPinkSlimes() {
         currentMoney = currentMoney - costOfPinkSlimes
         numOfPinkSlimes = numOfPinkSlimes + 1
     }
-    document.getElementById("pink-slime-amount").innerText = numOfPinkSlimes
+    document.getElementById('pink-slime-amount').innerText = numOfPinkSlimes
     document.getElementById('current-money').innerText = currentMoney
 }
 
@@ -175,8 +234,8 @@ function levelUpPink() {
         document.getElementById('pink-level').innerHTML = pinkLevel
     }
     if (pinkLevel === 5) {
-        document.getElementById('level-up-pink').style.display = "none"
-        document.getElementById('buy-pink-slimes').classList = "w-100 h-100"
+        document.getElementById('level-up-pink').style.display = 'none'
+        document.getElementById('buy-pink-slimes').classList = 'w-100 h-100'
     }
     document.getElementById('current-money').innerText = currentMoney
 }
@@ -191,6 +250,7 @@ function autoPink() {
 
 autoPink()
 setInterval(autoPink, 1000);
+
 
 function pinkTotal() {
     pinkAmountTotal = pinkAmount + autoPinkAmount
@@ -214,45 +274,45 @@ function pinkSell() {
     document.getElementById('pink-sell-total').innerHTML = calcPinkSellPrice
 }
 
-let isFirstTime = true
+let isFirstTimePink = true
 
 function pinkStocks() {
     var pinkStocksUp = document.getElementById('stocks-up-pink')
     var pinkStocksDown = document.getElementById('stocks-down-pink')
-    if (isFirstTime) {
-        isFirstTime = false
+    if (isFirstTimePink) {
+        isFirstTimePink = false
     } else if (numOfPinkSoldTotal >= 2500) {
         pinkPrice = 4
-        pinkStocksUp.style.display = "none"
-        pinkStocksDown.style.display = "inline"
+        pinkStocksUp.style.display = 'none'
+        pinkStocksDown.style.display = 'inline'
     } else if (numOfPinkSoldTotal >= 400) {
         pinkPrice = Math.max(4, pinkPrice / 2)
-        pinkStocksUp.style.display = "none"
-        pinkStocksDown.style.display = "inline"
+        pinkStocksUp.style.display = 'none'
+        pinkStocksDown.style.display = 'inline'
     } else if (numOfPinkSoldTotal >= 300) {
         pinkPrice = Math.max(4, pinkPrice / 1.75)
-        pinkStocksUp.style.display = "none"
-        pinkStocksDown.style.display = "inline"
+        pinkStocksUp.style.display = 'none'
+        pinkStocksDown.style.display = 'inline'
     } else if (numOfPinkSoldTotal >= 200) {
         pinkPrice = Math.max(4, pinkPrice / 1.5)
-        pinkStocksUp.style.display = "none"
-        pinkStocksDown.style.display = "inline"
+        pinkStocksUp.style.display = 'none'
+        pinkStocksDown.style.display = 'inline'
     } else if (numOfPinkSoldTotal >= 100) {
         pinkPrice = Math.max(4, pinkPrice / 1.25)
-        pinkStocksUp.style.display = "none"
-        pinkStocksDown.style.display = "inline"
+        pinkStocksUp.style.display = 'none'
+        pinkStocksDown.style.display = 'inline'
     } else if (numOfPinkSoldTotal > 50) {
         pinkPrice = pinkPrice / 1
-        pinkStocksUp.style.display = "none"
-        pinkStocksDown.style.display = "none"
+        pinkStocksUp.style.display = 'none'
+        pinkStocksDown.style.display = 'none'
     } else if (numOfPinkSoldTotal <= 50 && numOfPinkSoldTotal !== 0) {
         pinkPrice = Math.min(23, pinkPrice * 1.5)
-        pinkStocksUp.style.display = "inline"
-        pinkStocksDown.style.display = "none"
+        pinkStocksUp.style.display = 'inline'
+        pinkStocksDown.style.display = 'none'
     } else if (numOfPinkSoldTotal === 0) {
         pinkPrice = Math.min(23, pinkPrice * 2)
-        pinkStocksUp.style.display = "inline"
-        pinkStocksDown.style.display = "none"
+        pinkStocksUp.style.display = 'inline'
+        pinkStocksDown.style.display = 'none'
     }
     numOfPinkSoldTotal = 0
     pinkPrice = Math.floor(pinkPrice)
@@ -266,3 +326,149 @@ setInterval(pinkStocks, 61000);
 
 var calcPinkSellPrice = pinkAmountTotal * pinkPrice
 document.getElementById('pink-sell-total').innerHTML = calcPinkSellPrice
+
+//Rock Slime Section
+
+let rockAmount = 0
+
+let rockAmountTotal = 0
+
+function clickRock() {
+    rockAmount = rockAmount + clickLevel
+    rockTotal()
+}
+
+let numOfRockSlimes = 0
+let costOfRockSlimes = 1000
+document.getElementById('rock-slime-price').innerHTML = costOfRockSlimes
+document.getElementById('rock-slime-amount').innerText = numOfRockSlimes
+
+function buyRockSlimes() {
+    if (numOfRockSlimes >= 250 && currentMoney >= costOfRockSlimes) {
+        costOfRockSlimes = Math.floor(costOfRockSlimes * 1.1)
+        document.getElementById('rock-slime-price').innerHTML = costOfRockSlimes
+    } else if (numOfRockSlimes >= 100 && !(numOfRockSlimes >= 250)) {
+        costOfRockSlimes = 8000
+        document.getElementById('rock-slime-price').innerHTML = costOfRockSlimes
+    } else if (numOfRockSlimes >= 50 && !(numOfRockSlimes >= 250)) {
+        costOfRockSlimes = 4000
+        document.getElementById('rock-slime-price').innerHTML = costOfRockSlimes
+    } else if (numOfRockSlimes >= 10 && !(numOfRockSlimes >= 250)) {
+        costOfRockSlimes = 2000
+        document.getElementById('rock-slime-price').innerHTML = costOfRockSlimes
+    }
+    if (currentMoney >= costOfRockSlimes) {
+        currentMoney = currentMoney - costOfRockSlimes
+        numOfRockSlimes = numOfRockSlimes + 1
+    }
+    document.getElementById('rock-slime-amount').innerText = numOfRockSlimes
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoRockMultiplier = 0.2
+let rockLevel = 1
+document.getElementById('rock-level').innerHTML = rockLevel
+let rockLevelCost = 4000
+document.getElementById('rock-upgrade-price').innerHTML = rockLevelCost
+
+function levelUpRock() {
+    if (currentMoney >= rockLevelCost) {
+        rockLevel = rockLevel + 1
+        autoRockMultiplier = autoRockMultiplier + 0.2
+        currentMoney = currentMoney - rockLevelCost
+        rockLevelCost = rockLevelCost * 5
+        document.getElementById('rock-upgrade-price').innerHTML = rockLevelCost
+        document.getElementById('rock-level').innerHTML = rockLevel
+    }
+    if (rockLevel === 5) {
+        document.getElementById('level-up-rock').style.display = 'none'
+        document.getElementById('buy-rock-slimes').classList = 'w-100 h-100'
+    }
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoRockAmount = 0
+let rockPrice = 15
+
+function autoRock() {
+    autoRockAmount = autoRockAmount + numOfRockSlimes * autoRockMultiplier
+    rockTotal()
+}
+
+autoRock()
+setInterval(autoRock, 1000);
+
+
+function rockTotal() {
+    rockAmountTotal = rockAmount + autoRockAmount
+    rockAmountTotal = Math.floor(rockAmountTotal)
+    document.getElementById('rock-plorts').innerHTML = rockAmountTotal
+    calcRockSellPrice = rockAmountTotal * rockPrice
+    document.getElementById('rock-sell-total').innerHTML = calcRockSellPrice
+}
+
+let numOfRockSoldTotal = 0
+
+function rockSell() {
+    numOfRockSoldTotal = numOfRockSoldTotal + rockAmountTotal
+    currentMoney = currentMoney + rockAmountTotal * rockPrice
+    rockAmount = 0
+    autoRockAmount = 0
+    rockTotal()
+    document.getElementById('current-money').innerText = currentMoney
+    calcRockSellPrice = rockAmountTotal * rockPrice
+    document.getElementById('rock-sell-total').innerHTML = calcRockSellPrice
+}
+
+let isFirstTimeRock = true
+
+function rockStocks() {
+    var rockStocksUp = document.getElementById('stocks-up-rock')
+    var rockStocksDown = document.getElementById('stocks-down-rock')
+    if (isFirstTimeRock) {
+        isFirstTimeRock = false
+    } else if (numOfRockSoldTotal >= 2500) {
+        rockPrice = 8
+        rockStocksUp.style.display = 'none'
+        rockStocksDown.style.display = 'inline'
+    } else if (numOfRockSoldTotal >= 400) {
+        rockPrice = Math.max(8, rockPrice / 2)
+        rockStocksUp.style.display = 'none'
+        rockStocksDown.style.display = 'inline'
+    } else if (numOfRockSoldTotal >= 300) {
+        rockPrice = Math.max(8, rockPrice / 1.75)
+        rockStocksUp.style.display = 'none'
+        rockStocksDown.style.display = 'inline'
+    } else if (numOfRockSoldTotal >= 200) {
+        rockPrice = Math.max(8, rockPrice / 1.5)
+        rockStocksUp.style.display = 'none'
+        rockStocksDown.style.display = 'inline'
+    } else if (numOfRockSoldTotal >= 100) {
+        rockPrice = Math.max(8, rockPrice / 1.25)
+        rockStocksUp.style.display = 'none'
+        rockStocksDown.style.display = 'inline'
+    } else if (numOfRockSoldTotal > 50) {
+        rockPrice = rockPrice / 1
+        rockStocksUp.style.display = 'none'
+        rockStocksDown.style.display = 'none'
+    } else if (numOfRockSoldTotal <= 50 && numOfRockSoldTotal !== 0) {
+        rockPrice = Math.min(35, rockPrice * 1.5)
+        rockStocksUp.style.display = 'inline'
+        rockStocksDown.style.display = 'none'
+    } else if (numOfRockSoldTotal === 0) {
+        rockPrice = Math.min(35, rockPrice * 2)
+        rockStocksUp.style.display = 'inline'
+        rockStocksDown.style.display = 'none'
+    }
+    numOfRockSoldTotal = 0
+    rockPrice = Math.floor(rockPrice)
+    calcRockSellPrice = rockAmountTotal * rockPrice
+    document.getElementById('rock-sell-total').innerHTML = calcRockSellPrice
+    document.getElementById('current-rock-price').innerHTML = rockPrice
+}
+
+rockStocks()
+setInterval(rockStocks, 61000);
+
+var calcRockSellPrice = rockAmountTotal * rockPrice
+document.getElementById('rock-sell-total').innerHTML = calcRockSellPrice
