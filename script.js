@@ -617,3 +617,148 @@ setInterval(phosphorStocks, 61000);
 
 var calcPhosphorSellPrice = phosphorAmountTotal * phosphorPrice
 document.getElementById('phosphor-sell-total').innerHTML = calcPhosphorSellPrice
+
+// Tabby Slime Section
+
+let tabbyAmount = 0
+
+let tabbyAmountTotal = 0
+
+function clickTabby() {
+    tabbyAmount = tabbyAmount + clickLevel
+    tabbyTotal()
+}
+
+let numOfTabbySlimes = 0
+let costOfTabbySlimes = 16000
+document.getElementById('tabby-slime-price').innerHTML = costOfTabbySlimes
+document.getElementById('tabby-slime-amount').innerText = numOfTabbySlimes
+
+function buyTabbySlimes() {
+    if (numOfTabbySlimes >= 250 && currentMoney >= costOfTabbySlimes) {
+        costOfTabbySlimes = Math.floor(costOfTabbySlimes * 1.1)
+        document.getElementById('tabby-slime-price').innerHTML = costOfTabbySlimes
+    } else if (numOfTabbySlimes >= 100 && !(numOfTabbySlimes >= 250)) {
+        costOfTabbySlimes = 128000
+        document.getElementById('tabby-slime-price').innerHTML = costOfTabbySlimes
+    } else if (numOfTabbySlimes >= 50 && !(numOfTabbySlimes >= 250)) {
+        costOfTabbySlimes = 64000
+        document.getElementById('tabby-slime-price').innerHTML = costOfTabbySlimes
+    } else if (numOfTabbySlimes >= 10 && !(numOfTabbySlimes >= 250)) {
+        costOfTabbySlimes = 32000
+        document.getElementById('tabby-slime-price').innerHTML = costOfTabbySlimes
+    }
+    if (currentMoney >= costOfTabbySlimes) {
+        currentMoney = currentMoney - costOfTabbySlimes
+        numOfTabbySlimes = numOfTabbySlimes + 1
+    }
+    document.getElementById('tabby-slime-amount').innerText = numOfTabbySlimes
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoTabbyMultiplier = 0.2
+let tabbyLevel = 1
+document.getElementById('tabby-level').innerHTML = tabbyLevel
+let tabbyLevelCost = 64000
+document.getElementById('tabby-upgrade-price').innerHTML = tabbyLevelCost
+
+function levelUpTabby() {
+    if (currentMoney >= tabbyLevelCost) {
+        tabbyLevel = tabbyLevel + 1
+        autoTabbyMultiplier = autoTabbyMultiplier + 0.2
+        currentMoney = currentMoney - tabbyLevelCost
+        tabbyLevelCost = tabbyLevelCost * 5
+        document.getElementById('tabby-upgrade-price').innerHTML = tabbyLevelCost
+        document.getElementById('tabby-level').innerHTML = tabbyLevel
+    }
+    if (tabbyLevel === 5) {
+        document.getElementById('level-up-tabby').style.display = 'none'
+        document.getElementById('buy-tabby-slimes').classList = 'w-100 h-100'
+    }
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoTabbyAmount = 0
+let tabbyPrice = 34
+
+function autoTabby() {
+    autoTabbyAmount = autoTabbyAmount + numOfTabbySlimes * autoTabbyMultiplier
+    tabbyTotal()
+}
+
+autoTabby()
+setInterval(autoTabby, 1000);
+
+function tabbyTotal() {
+    tabbyAmountTotal = tabbyAmount + autoTabbyAmount
+    tabbyAmountTotal = Math.floor(tabbyAmountTotal)
+    document.getElementById('tabby-plorts').innerHTML = tabbyAmountTotal
+    calcTabbySellPrice = tabbyAmountTotal * tabbyPrice
+    document.getElementById('tabby-sell-total').innerHTML = calcTabbySellPrice
+}
+
+let numOfTabbySoldTotal = 0
+
+function tabbySell() {
+    numOfTabbySoldTotal = numOfTabbySoldTotal + tabbyAmountTotal
+    currentMoney = currentMoney + tabbyAmountTotal * tabbyPrice
+    tabbyAmount = 0
+    autoTabbyAmount = 0
+    tabbyTotal()
+    document.getElementById('current-money').innerText = currentMoney
+    calcTabbySellPrice = tabbyAmountTotal * tabbyPrice
+    document.getElementById('tabby-sell-total').innerHTML = calcTabbySellPrice
+}
+
+let isFirstTimeTabby = true
+
+function tabbyStocks() {
+    var tabbyStocksUp = document.getElementById('stocks-up-tabby')
+    var tabbyStocksDown = document.getElementById('stocks-down-tabby')
+    if (isFirstTimeTabby) {
+        isFirstTimeTabby = false
+    } else if (numOfTabbySoldTotal >= 2500) {
+        tabbyPrice = 8
+        tabbyStocksUp.style.display = 'none'
+        tabbyStocksDown.style.display = 'inline'
+    } else if (numOfTabbySoldTotal >= 400) {
+        tabbyPrice = Math.max(24, tabbyPrice / 2)
+        tabbyStocksUp.style.display = 'none'
+        tabbyStocksDown.style.display = 'inline'
+    } else if (numOfTabbySoldTotal >= 300) {
+        tabbyPrice = Math.max(24, tabbyPrice / 1.75)
+        tabbyStocksUp.style.display = 'none'
+        tabbyStocksDown.style.display = 'inline'
+    } else if (numOfTabbySoldTotal >= 200) {
+        tabbyPrice = Math.max(24, tabbyPrice / 1.5)
+        tabbyStocksUp.style.display = 'none'
+        tabbyStocksDown.style.display = 'inline'
+    } else if (numOfTabbySoldTotal >= 100) {
+        tabbyPrice = Math.max(24, tabbyPrice / 1.25)
+        tabbyStocksUp.style.display = 'none'
+        tabbyStocksDown.style.display = 'inline'
+    } else if (numOfTabbySoldTotal > 50) {
+        tabbyPrice = tabbyPrice / 1
+        tabbyStocksUp.style.display = 'none'
+        tabbyStocksDown.style.display = 'none'
+    } else if (numOfTabbySoldTotal <= 50 && numOfTabbySoldTotal !== 0) {
+        tabbyPrice = Math.min(79, tabbyPrice * 1.5)
+        tabbyStocksUp.style.display = 'inline'
+        tabbyStocksDown.style.display = 'none'
+    } else if (numOfTabbySoldTotal === 0) {
+        tabbyPrice = Math.min(79, tabbyPrice * 2)
+        tabbyStocksUp.style.display = 'inline'
+        tabbyStocksDown.style.display = 'none'
+    }
+    numOfTabbySoldTotal = 0
+    tabbyPrice = Math.floor(tabbyPrice)
+    calcTabbySellPrice = tabbyAmountTotal * tabbyPrice
+    document.getElementById('tabby-sell-total').innerHTML = calcTabbySellPrice
+    document.getElementById('current-tabby-price').innerHTML = tabbyPrice
+}
+
+tabbyStocks()
+setInterval(tabbyStocks, 61000);
+
+var calcTabbySellPrice = tabbyAmountTotal * tabbyPrice
+document.getElementById('tabby-sell-total').innerHTML = calcTabbySellPrice

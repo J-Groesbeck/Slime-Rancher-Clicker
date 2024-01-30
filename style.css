@@ -8,7 +8,9 @@ body {
 #stocks-down-rock,
 #stocks-up-rock,
 #stocks-down-phosphor,
-#stocks-up-phosphor {
+#stocks-up-phosphor,
+#stocks-down-tabby,
+#stocks-up-tabby {
     display: none;
 }
 

@@ -24,7 +24,8 @@
                 <div class="text-center">
                     <img src="img/pink-slime.png" class="clicker-height" onclick="clickPink()" id="click-pink"></img>
                     <img src="img/rock-slime.png" class="clicker-height" onclick="clickRock()" id="click-rock"></img>
-                    <img src="img/phosphor-slime.png" class="clicker-height" onclick="clickPhosphor()" id="click-phosphor"></img>
+                    <img src="img/phosphor-slime.png" class="clicker-height" onclick="clickPhosphor()"
+                        id="click-phosphor"></img>
                     <img src="img/" class="clicker-height" onclick="clickTabby()" id="click-tabby"></img>
                     <img src="img/" class="clicker-height" onclick="clickPuddle()" id="click-puddle"></img>
                     <img src="img/" class="clicker-height" onclick="clickFire()" id="click-fire"></img>
@@ -100,11 +101,35 @@
                     <div class="col-4">
                         <button onclick="phosphorSell()" class="w-100 h-100">
                             <h5 class="mb-0">
-                                Sell for<br><img src="img/coin.png" class="scales-h5"><span id="phosphor-sell-total"></span>
+                                Sell for<br><img src="img/coin.png" class="scales-h5"><span
+                                    id="phosphor-sell-total"></span>
                             </h5>
                         </button>
                     </div>
-                </div>                
+                </div>
+                <div class="row default-height">
+                    <div class="col-4 text-center">
+                        <img src="img/tabby-plort.png" class="default-height">
+                    </div>
+                    <div class="col-4">
+                        <h2>
+                            x<span id="tabby-plorts"></span>
+                            <br>
+                            <img src="img/price-up.png" id="stocks-up-tabby" class="scales-h2">
+                            <img src="img/price-down.png" id="stocks-down-tabby" class="scales-h2">
+                            <img src="img/coin.png" class="scales-h2">
+                            <span id="current-tabby-price"></span>
+                        </h2>
+                    </div>
+                    <div class="col-4">
+                        <button onclick="tabbySell()" class="w-100 h-100">
+                            <h5 class="mb-0">
+                                Sell for<br><img src="img/coin.png" class="scales-h5"><span
+                                    id="tabby-sell-total"></span>
+                            </h5>
+                        </button>
+                    </div>
+                </div>
             </div>
             <div class="col-4">
 
@@ -185,7 +210,26 @@
                                     id="phosphor-upgrade-price"></span></h6>
                         </button>
                     </div>
-                </div>                
+                </div>
+                <div class="row default-height2">
+                    <div class="col-3">
+                        <img src="img/tabby-slime.png" class="default-height2">
+                    </div>
+                    <div class="col-5">
+                        <h4>You have: <span id="tabby-slime-amount"></span></h4>
+                        <h6>Each produces <span id="tabby-level"></span> plort(s) every 5 seconds</h6>
+                    </div>
+                    <div class="col-4">
+                        <button onclick="buyTabbySlimes()" class="w-100" id="buy-tabby-slimes">
+                            <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
+                                    id="tabby-slime-price"></span></h6>
+                        </button>
+                        <button onclick="levelUpTabby()" class="w-100" id="level-up-tabby">
+                            <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
+                                    id="tabby-upgrade-price"></span></h6>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
