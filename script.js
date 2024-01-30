@@ -472,3 +472,148 @@ setInterval(rockStocks, 61000);
 
 var calcRockSellPrice = rockAmountTotal * rockPrice
 document.getElementById('rock-sell-total').innerHTML = calcRockSellPrice
+
+// Phosphor Slime Section
+
+let phosphorAmount = 0
+
+let phosphorAmountTotal = 0
+
+function clickPhosphor() {
+    phosphorAmount = phosphorAmount + clickLevel
+    phosphorTotal()
+}
+
+let numOfPhosphorSlimes = 0
+let costOfPhosphorSlimes = 4000
+document.getElementById('phosphor-slime-price').innerHTML = costOfPhosphorSlimes
+document.getElementById('phosphor-slime-amount').innerText = numOfPhosphorSlimes
+
+function buyPhosphorSlimes() {
+    if (numOfPhosphorSlimes >= 250 && currentMoney >= costOfPhosphorSlimes) {
+        costOfPhosphorSlimes = Math.floor(costOfPhosphorSlimes * 1.1)
+        document.getElementById('phosphor-slime-price').innerHTML = costOfPhosphorSlimes
+    } else if (numOfPhosphorSlimes >= 100 && !(numOfPhosphorSlimes >= 250)) {
+        costOfPhosphorSlimes = 32000
+        document.getElementById('phosphor-slime-price').innerHTML = costOfPhosphorSlimes
+    } else if (numOfPhosphorSlimes >= 50 && !(numOfPhosphorSlimes >= 250)) {
+        costOfPhosphorSlimes = 16000
+        document.getElementById('phosphor-slime-price').innerHTML = costOfPhosphorSlimes
+    } else if (numOfPhosphorSlimes >= 10 && !(numOfPhosphorSlimes >= 250)) {
+        costOfPhosphorSlimes = 8000
+        document.getElementById('phosphor-slime-price').innerHTML = costOfPhosphorSlimes
+    }
+    if (currentMoney >= costOfPhosphorSlimes) {
+        currentMoney = currentMoney - costOfPhosphorSlimes
+        numOfPhosphorSlimes = numOfPhosphorSlimes + 1
+    }
+    document.getElementById('phosphor-slime-amount').innerText = numOfPhosphorSlimes
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoPhosphorMultiplier = 0.2
+let phosphorLevel = 1
+document.getElementById('phosphor-level').innerHTML = phosphorLevel
+let phosphorLevelCost = 16000
+document.getElementById('phosphor-upgrade-price').innerHTML = phosphorLevelCost
+
+function levelUpPhosphor() {
+    if (currentMoney >= phosphorLevelCost) {
+        phosphorLevel = phosphorLevel + 1
+        autoPhosphorMultiplier = autoPhosphorMultiplier + 0.2
+        currentMoney = currentMoney - phosphorLevelCost
+        phosphorLevelCost = phosphorLevelCost * 5
+        document.getElementById('phosphor-upgrade-price').innerHTML = phosphorLevelCost
+        document.getElementById('phosphor-level').innerHTML = phosphorLevel
+    }
+    if (phosphorLevel === 5) {
+        document.getElementById('level-up-phosphor').style.display = 'none'
+        document.getElementById('buy-phosphor-slimes').classList = 'w-100 h-100'
+    }
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoPhosphorAmount = 0
+let phosphorPrice = 23
+
+function autoPhosphor() {
+    autoPhosphorAmount = autoPhosphorAmount + numOfPhosphorSlimes * autoPhosphorMultiplier
+    phosphorTotal()
+}
+
+autoPhosphor()
+setInterval(autoPhosphor, 1000);
+
+function phosphorTotal() {
+    phosphorAmountTotal = phosphorAmount + autoPhosphorAmount
+    phosphorAmountTotal = Math.floor(phosphorAmountTotal)
+    document.getElementById('phosphor-plorts').innerHTML = phosphorAmountTotal
+    calcPhosphorSellPrice = phosphorAmountTotal * phosphorPrice
+    document.getElementById('phosphor-sell-total').innerHTML = calcPhosphorSellPrice
+}
+
+let numOfPhosphorSoldTotal = 0
+
+function phosphorSell() {
+    numOfPhosphorSoldTotal = numOfPhosphorSoldTotal + phosphorAmountTotal
+    currentMoney = currentMoney + phosphorAmountTotal * phosphorPrice
+    phosphorAmount = 0
+    autoPhosphorAmount = 0
+    phosphorTotal()
+    document.getElementById('current-money').innerText = currentMoney
+    calcPhosphorSellPrice = phosphorAmountTotal * phosphorPrice
+    document.getElementById('phosphor-sell-total').innerHTML = calcPhosphorSellPrice
+}
+
+let isFirstTimePhosphor = true
+
+function phosphorStocks() {
+    var phosphorStocksUp = document.getElementById('stocks-up-phosphor')
+    var phosphorStocksDown = document.getElementById('stocks-down-phosphor')
+    if (isFirstTimePhosphor) {
+        isFirstTimePhosphor = false
+    } else if (numOfPhosphorSoldTotal >= 2500) {
+        phosphorPrice = 12
+        phosphorStocksUp.style.display = 'none'
+        phosphorStocksDown.style.display = 'inline'
+    } else if (numOfPhosphorSoldTotal >= 400) {
+        phosphorPrice = Math.max(12, phosphorPrice / 2)
+        phosphorStocksUp.style.display = 'none'
+        phosphorStocksDown.style.display = 'inline'
+    } else if (numOfPhosphorSoldTotal >= 300) {
+        phosphorPrice = Math.max(12, phosphorPrice / 1.75)
+        phosphorStocksUp.style.display = 'none'
+        phosphorStocksDown.style.display = 'inline'
+    } else if (numOfPhosphorSoldTotal >= 200) {
+        phosphorPrice = Math.max(12, phosphorPrice / 1.5)
+        phosphorStocksUp.style.display = 'none'
+        phosphorStocksDown.style.display = 'inline'
+    } else if (numOfPhosphorSoldTotal >= 100) {
+        phosphorPrice = Math.max(12, phosphorPrice / 1.25)
+        phosphorStocksUp.style.display = 'none'
+        phosphorStocksDown.style.display = 'inline'
+    } else if (numOfPhosphorSoldTotal > 50) {
+        phosphorPrice = phosphorPrice / 1
+        phosphorStocksUp.style.display = 'none'
+        phosphorStocksDown.style.display = 'none'
+    } else if (numOfPhosphorSoldTotal <= 50 && numOfPhosphorSoldTotal !== 0) {
+        phosphorPrice = Math.min(53, phosphorPrice * 1.5)
+        phosphorStocksUp.style.display = 'inline'
+        phosphorStocksDown.style.display = 'none'
+    } else if (numOfPhosphorSoldTotal === 0) {
+        phosphorPrice = Math.min(53, phosphorPrice * 2)
+        phosphorStocksUp.style.display = 'inline'
+        phosphorStocksDown.style.display = 'none'
+    }
+    numOfPhosphorSoldTotal = 0
+    phosphorPrice = Math.floor(phosphorPrice)
+    calcPhosphorSellPrice = phosphorAmountTotal * phosphorPrice
+    document.getElementById('phosphor-sell-total').innerHTML = calcPhosphorSellPrice
+    document.getElementById('current-phosphor-price').innerHTML = phosphorPrice
+}
+
+phosphorStocks()
+setInterval(phosphorStocks, 61000);
+
+var calcPhosphorSellPrice = phosphorAmountTotal * phosphorPrice
+document.getElementById('phosphor-sell-total').innerHTML = calcPhosphorSellPrice

@@ -83,6 +83,28 @@
                         </button>
                     </div>
                 </div>
+                <div class="row default-height">
+                    <div class="col-4 text-center">
+                        <img src="img/phosphor-plort.png" class="default-height">
+                    </div>
+                    <div class="col-4">
+                        <h2>
+                            x<span id="phosphor-plorts"></span>
+                            <br>
+                            <img src="img/price-up.png" id="stocks-up-phosphor" class="scales-h2">
+                            <img src="img/price-down.png" id="stocks-down-phosphor" class="scales-h2">
+                            <img src="img/coin.png" class="scales-h2">
+                            <span id="current-phosphor-price"></span>
+                        </h2>
+                    </div>
+                    <div class="col-4">
+                        <button onclick="phosphorSell()" class="w-100 h-100">
+                            <h5 class="mb-0">
+                                Sell for<br><img src="img/coin.png" class="scales-h5"><span id="phosphor-sell-total"></span>
+                            </h5>
+                        </button>
+                    </div>
+                </div>                
             </div>
             <div class="col-4">
 
@@ -145,6 +167,25 @@
                         </button>
                     </div>
                 </div>
+                <div class="row default-height2">
+                    <div class="col-3">
+                        <img src="img/phosphor-slime.png" class="default-height2">
+                    </div>
+                    <div class="col-5">
+                        <h4>You have: <span id="phosphor-slime-amount"></span></h4>
+                        <h6>Each produces <span id="phosphor-level"></span> plort(s) every 5 seconds</h6>
+                    </div>
+                    <div class="col-4">
+                        <button onclick="buyPhosphorSlimes()" class="w-100" id="buy-phosphor-slimes">
+                            <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
+                                    id="phosphor-slime-price"></span></h6>
+                        </button>
+                        <button onclick="levelUpPhosphor()" class="w-100" id="level-up-phosphor">
+                            <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
+                                    id="phosphor-upgrade-price"></span></h6>
+                        </button>
+                    </div>
+                </div>                
             </div>
         </div>
     </div>

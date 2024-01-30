@@ -6,7 +6,9 @@ body {
 #stocks-down-pink,
 #stocks-up-pink,
 #stocks-down-rock,
-#stocks-up-rock {
+#stocks-up-rock,
+#stocks-down-phosphor,
+#stocks-up-phosphor {
     display: none;
 }
 
