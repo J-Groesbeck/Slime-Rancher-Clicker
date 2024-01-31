@@ -10,7 +10,45 @@ body {
 #stocks-down-phosphor,
 #stocks-up-phosphor,
 #stocks-down-tabby,
-#stocks-up-tabby {
+#stocks-up-tabby,
+#stocks-down-puddle,
+#stocks-up-puddle,
+#stocks-down-fire,
+#stocks-up-fire,
+#stocks-down-honey,
+#stocks-up-honey,
+#stocks-down-boom,
+#stocks-up-boom,
+#stocks-down-hunter,
+#stocks-up-hunter,
+#stocks-down-rad,
+#stocks-up-rad,
+#stocks-down-crystal,
+#stocks-up-crystal,
+#stocks-down-saber,
+#stocks-up-saber,
+#stocks-down-dervish,
+#stocks-up-dervish,
+#stocks-down-quantum,
+#stocks-up-quantum,
+#stocks-down-tangle,
+#stocks-up-mosaic,
+#stocks-down-mosaic,
+#click-rock,
+#click-phosphor,
+#click-tabby,
+#click-puddle,
+#click-fire,
+#click-honey,
+#click-boom,
+#click-rad,
+#click-hunter,
+#click-crystal,
+#click-saber,
+#click-dervish,
+#click-quantum,
+#click-tangle,
+#click-mosaic {
     display: none;
 }
 
@@ -44,26 +82,4 @@ body {
 
 .clicker-height {
     height: 15rem;
-}
-
-#click-pink {
-    display: inline;
-}
-
-#click-rock,
-#click-phosphor,
-#click-tabby,
-#click-puddle,
-#click-fire,
-#click-honey,
-#click-boom,
-#click-rad,
-#click-hunter,
-#click-crystal,
-#click-saber,
-#click-dervish,
-#click-quantum,
-#click-tangle,
-#click-mosaic {
-    display: none;
 }

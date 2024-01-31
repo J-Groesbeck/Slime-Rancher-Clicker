@@ -722,19 +722,19 @@ function tabbyStocks() {
         tabbyStocksUp.style.display = 'none'
         tabbyStocksDown.style.display = 'inline'
     } else if (numOfTabbySoldTotal >= 400) {
-        tabbyPrice = Math.max(24, tabbyPrice / 2)
+        tabbyPrice = Math.max(16, tabbyPrice / 2)
         tabbyStocksUp.style.display = 'none'
         tabbyStocksDown.style.display = 'inline'
     } else if (numOfTabbySoldTotal >= 300) {
-        tabbyPrice = Math.max(24, tabbyPrice / 1.75)
+        tabbyPrice = Math.max(16, tabbyPrice / 1.75)
         tabbyStocksUp.style.display = 'none'
         tabbyStocksDown.style.display = 'inline'
     } else if (numOfTabbySoldTotal >= 200) {
-        tabbyPrice = Math.max(24, tabbyPrice / 1.5)
+        tabbyPrice = Math.max(16, tabbyPrice / 1.5)
         tabbyStocksUp.style.display = 'none'
         tabbyStocksDown.style.display = 'inline'
     } else if (numOfTabbySoldTotal >= 100) {
-        tabbyPrice = Math.max(24, tabbyPrice / 1.25)
+        tabbyPrice = Math.max(16, tabbyPrice / 1.25)
         tabbyStocksUp.style.display = 'none'
         tabbyStocksDown.style.display = 'inline'
     } else if (numOfTabbySoldTotal > 50) {
@@ -762,3 +762,148 @@ setInterval(tabbyStocks, 61000);
 
 var calcTabbySellPrice = tabbyAmountTotal * tabbyPrice
 document.getElementById('tabby-sell-total').innerHTML = calcTabbySellPrice
+
+// Puddle Slime Section
+
+let puddleAmount = 0
+
+let puddleAmountTotal = 0
+
+function clickPuddle() {
+    puddleAmount = puddleAmount + clickLevel
+    puddleTotal()
+}
+
+let numOfPuddleSlimes = 0
+let costOfPuddleSlimes = 64000
+document.getElementById('puddle-slime-price').innerHTML = costOfPuddleSlimes
+document.getElementById('puddle-slime-amount').innerText = numOfPuddleSlimes
+
+function buyPuddleSlimes() {
+    if (numOfPuddleSlimes >= 250 && currentMoney >= costOfPuddleSlimes) {
+        costOfPuddleSlimes = Math.floor(costOfPuddleSlimes * 1.1)
+        document.getElementById('puddle-slime-price').innerHTML = costOfPuddleSlimes
+    } else if (numOfPuddleSlimes >= 100 && !(numOfPuddleSlimes >= 250)) {
+        costOfPuddleSlimes = 512000
+        document.getElementById('puddle-slime-price').innerHTML = costOfPuddleSlimes
+    } else if (numOfPuddleSlimes >= 50 && !(numOfPuddleSlimes >= 250)) {
+        costOfPuddleSlimes = 256000
+        document.getElementById('puddle-slime-price').innerHTML = costOfPuddleSlimes
+    } else if (numOfPuddleSlimes >= 10 && !(numOfPuddleSlimes >= 250)) {
+        costOfPuddleSlimes = 128000
+        document.getElementById('puddle-slime-price').innerHTML = costOfPuddleSlimes
+    }
+    if (currentMoney >= costOfPuddleSlimes) {
+        currentMoney = currentMoney - costOfPuddleSlimes
+        numOfPuddleSlimes = numOfPuddleSlimes + 1
+    }
+    document.getElementById('puddle-slime-amount').innerText = numOfPuddleSlimes
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoPuddleMultiplier = 0.2
+let puddleLevel = 1
+document.getElementById('puddle-level').innerHTML = puddleLevel
+let puddleLevelCost = 256000
+document.getElementById('puddle-upgrade-price').innerHTML = puddleLevelCost
+
+function levelUpPuddle() {
+    if (currentMoney >= puddleLevelCost) {
+        puddleLevel = puddleLevel + 1
+        autoPuddleMultiplier = autoPuddleMultiplier + 0.2
+        currentMoney = currentMoney - puddleLevelCost
+        puddleLevelCost = puddleLevelCost * 5
+        document.getElementById('puddle-upgrade-price').innerHTML = puddleLevelCost
+        document.getElementById('puddle-level').innerHTML = puddleLevel
+    }
+    if (puddleLevel === 5) {
+        document.getElementById('level-up-puddle').style.display = 'none'
+        document.getElementById('buy-puddle-slimes').classList = 'w-100 h-100'
+    }
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoPuddleAmount = 0
+let puddlePrice = 68
+
+function autoPuddle() {
+    autoPuddleAmount = autoPuddleAmount + numOfPuddleSlimes * autoPuddleMultiplier
+    puddleTotal()
+}
+
+autoPuddle()
+setInterval(autoPuddle, 1000);
+
+function puddleTotal() {
+    puddleAmountTotal = puddleAmount + autoPuddleAmount
+    puddleAmountTotal = Math.floor(puddleAmountTotal)
+    document.getElementById('puddle-plorts').innerHTML = puddleAmountTotal
+    calcPuddleSellPrice = puddleAmountTotal * puddlePrice
+    document.getElementById('puddle-sell-total').innerHTML = calcPuddleSellPrice
+}
+
+let numOfPuddleSoldTotal = 0
+
+function puddleSell() {
+    numOfPuddleSoldTotal = numOfPuddleSoldTotal + puddleAmountTotal
+    currentMoney = currentMoney + puddleAmountTotal * puddlePrice
+    puddleAmount = 0
+    autoPuddleAmount = 0
+    puddleTotal()
+    document.getElementById('current-money').innerText = currentMoney
+    calcPuddleSellPrice = puddleAmountTotal * puddlePrice
+    document.getElementById('puddle-sell-total').innerHTML = calcPuddleSellPrice
+}
+
+let isFirstTimePuddle = true
+
+function puddleStocks() {
+    var puddleStocksUp = document.getElementById('stocks-up-puddle')
+    var puddleStocksDown = document.getElementById('stocks-down-puddle')
+    if (isFirstTimePuddle) {
+        isFirstTimePuddle = false
+    } else if (numOfPuddleSoldTotal >= 2500) {
+        puddlePrice = 8
+        puddleStocksUp.style.display = 'none'
+        puddleStocksDown.style.display = 'inline'
+    } else if (numOfPuddleSoldTotal >= 400) {
+        puddlePrice = Math.max(20, puddlePrice / 2)
+        puddleStocksUp.style.display = 'none'
+        puddleStocksDown.style.display = 'inline'
+    } else if (numOfPuddleSoldTotal >= 300) {
+        puddlePrice = Math.max(20, puddlePrice / 1.75)
+        puddleStocksUp.style.display = 'none'
+        puddleStocksDown.style.display = 'inline'
+    } else if (numOfPuddleSoldTotal >= 200) {
+        puddlePrice = Math.max(20, puddlePrice / 1.5)
+        puddleStocksUp.style.display = 'none'
+        puddleStocksDown.style.display = 'inline'
+    } else if (numOfPuddleSoldTotal >= 100) {
+        puddlePrice = Math.max(20, puddlePrice / 1.25)
+        puddleStocksUp.style.display = 'none'
+        puddleStocksDown.style.display = 'inline'
+    } else if (numOfPuddleSoldTotal > 50) {
+        puddlePrice = puddlePrice / 1
+        puddleStocksUp.style.display = 'none'
+        puddleStocksDown.style.display = 'none'
+    } else if (numOfPuddleSoldTotal <= 50 && numOfPuddleSoldTotal !== 0) {
+        puddlePrice = Math.min(118, puddlePrice * 1.5)
+        puddleStocksUp.style.display = 'inline'
+        puddleStocksDown.style.display = 'none'
+    } else if (numOfPuddleSoldTotal === 0) {
+        puddlePrice = Math.min(118, puddlePrice * 2)
+        puddleStocksUp.style.display = 'inline'
+        puddleStocksDown.style.display = 'none'
+    }
+    numOfPuddleSoldTotal = 0
+    puddlePrice = Math.floor(puddlePrice)
+    calcPuddleSellPrice = puddleAmountTotal * puddlePrice
+    document.getElementById('puddle-sell-total').innerHTML = calcPuddleSellPrice
+    document.getElementById('current-puddle-price').innerHTML = puddlePrice
+}
+
+puddleStocks()
+setInterval(puddleStocks, 61000);
+
+var calcPuddleSellPrice = puddleAmountTotal * puddlePrice
+document.getElementById('puddle-sell-total').innerHTML = calcPuddleSellPrice
