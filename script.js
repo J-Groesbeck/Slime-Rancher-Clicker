@@ -1343,3 +1343,148 @@ setInterval(boomStocks, 61000);
 
 var calcBoomSellPrice = boomAmountTotal * boomPrice
 document.getElementById('boom-sell-total').innerHTML = calcBoomSellPrice
+
+// Hunter Slime Section
+
+let hunterAmount = 0
+let hunterAmountTotal = 0
+
+function clickHunter() {
+    hunterAmount = hunterAmount + clickLevel
+    hunterTotal()
+}
+
+let numOfHunterSlimes = 0
+let costOfHunterSlimes = 16384000
+document.getElementById('hunter-slime-price').innerHTML = costOfHunterSlimes
+document.getElementById('hunter-slime-amount').innerText = numOfHunterSlimes
+
+function buyHunterSlimes() {
+    if (numOfHunterSlimes >= 250 && currentMoney >= costOfHunterSlimes) {
+        costOfHunterSlimes = Math.floor(costOfHunterSlimes * 1.1)
+        document.getElementById('hunter-slime-price').innerHTML = costOfHunterSlimes
+    } else if (numOfHunterSlimes >= 100 && !(numOfHunterSlimes >= 250)) {
+        costOfHunterSlimes = 131072000
+        document.getElementById('hunter-slime-price').innerHTML = costOfHunterSlimes
+    } else if (numOfHunterSlimes >= 50 && !(numOfHunterSlimes >= 250)) {
+        costOfHunterSlimes = 65536000
+        document.getElementById('hunter-slime-price').innerHTML = costOfHunterSlimes
+    } else if (numOfHunterSlimes >= 10 && !(numOfHunterSlimes >= 250)) {
+        costOfHunterSlimes = 32768000
+        document.getElementById('hunter-slime-price').innerHTML = costOfHunterSlimes
+    }
+    if (currentMoney >= costOfHunterSlimes) {
+        currentMoney = currentMoney - costOfHunterSlimes
+        numOfHunterSlimes = numOfHunterSlimes + 1
+    }
+    document.getElementById('hunter-slime-amount').innerText = numOfHunterSlimes
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoHunterMultiplier = 0.2
+let hunterLevel = 1
+document.getElementById('hunter-level').innerHTML = hunterLevel
+let hunterLevelCost = 65536000
+document.getElementById('hunter-upgrade-price').innerHTML = hunterLevelCost
+
+function levelUpHunter() {
+    if (currentMoney >= hunterLevelCost) {
+        hunterLevel = hunterLevel + 1
+        autoHunterMultiplier = autoHunterMultiplier + 0.2
+        currentMoney = currentMoney - hunterLevelCost
+        hunterLevelCost = hunterLevelCost * 5
+        document.getElementById('hunter-upgrade-price').innerHTML = hunterLevelCost
+        document.getElementById('hunter-level').innerHTML = hunterLevel
+    }
+    if (hunterLevel === 5) {
+        document.getElementById('level-up-hunter').style.display = 'none'
+        document.getElementById('buy-hunter-slimes').classList = 'w-100 h-100'
+    }
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoHunterAmount = 0
+let hunterPrice = 345
+
+function autoHunter() {
+    autoHunterAmount = autoHunterAmount + numOfHunterSlimes * autoHunterMultiplier
+    hunterTotal()
+}
+
+autoHunter()
+setInterval(autoHunter, 1000);
+
+
+function hunterTotal() {
+    hunterAmountTotal = hunterAmount + autoHunterAmount
+    hunterAmountTotal = Math.floor(hunterAmountTotal)
+    document.getElementById('hunter-plorts').innerHTML = hunterAmountTotal
+    calcHunterSellPrice = hunterAmountTotal * hunterPrice
+    document.getElementById('hunter-sell-total').innerHTML = calcHunterSellPrice
+}
+
+let numOfHunterSoldTotal = 0
+
+function hunterSell() {
+    numOfHunterSoldTotal = numOfHunterSoldTotal + hunterAmountTotal
+    currentMoney = currentMoney + hunterAmountTotal * hunterPrice
+    hunterAmount = 0
+    autoHunterAmount = 0
+    hunterTotal()
+    document.getElementById('current-money').innerText = currentMoney
+    calcHunterSellPrice = hunterAmountTotal * hunterPrice
+    document.getElementById('hunter-sell-total').innerHTML = calcHunterSellPrice
+}
+
+let isFirstTimeHunter = true
+
+function hunterStocks() {
+    var hunterStocksUp = document.getElementById('stocks-up-hunter')
+    var hunterStocksDown = document.getElementById('stocks-down-hunter')
+    if (isFirstTimeHunter) {
+        isFirstTimeHunter = false
+    } else if (numOfHunterSoldTotal >= 2500) {
+        hunterPrice = 36
+        hunterStocksUp.style.display = 'none'
+        hunterStocksDown.style.display = 'inline'
+    } else if (numOfHunterSoldTotal >= 400) {
+        hunterPrice = Math.max(36, hunterPrice / 2)
+        hunterStocksUp.style.display = 'none'
+        hunterStocksDown.style.display = 'inline'
+    } else if (numOfHunterSoldTotal >= 300) {
+        hunterPrice = Math.max(36, hunterPrice / 1.75)
+        hunterStocksUp.style.display = 'none'
+        hunterStocksDown.style.display = 'inline'
+    } else if (numOfHunterSoldTotal >= 200) {
+        hunterPrice = Math.max(36, hunterPrice / 1.5)
+        hunterStocksUp.style.display = 'none'
+        hunterStocksDown.style.display = 'inline'
+    } else if (numOfHunterSoldTotal >= 100) {
+        hunterPrice = Math.max(36, hunterPrice / 1.25)
+        hunterStocksUp.style.display = 'none'
+        hunterStocksDown.style.display = 'inline'
+    } else if (numOfHunterSoldTotal > 50) {
+        hunterPrice = hunterPrice / 1
+        hunterStocksUp.style.display = 'none'
+        hunterStocksDown.style.display = 'none'
+    } else if (numOfHunterSoldTotal <= 50 && numOfHunterSoldTotal !== 0) {
+        hunterPrice = Math.min(796, hunterPrice * 1.5)
+        hunterStocksUp.style.display = 'inline'
+        hunterStocksDown.style.display = 'none'
+    } else if (numOfHunterSoldTotal === 0) {
+        hunterPrice = Math.min(796, hunterPrice * 2)
+        hunterStocksUp.style.display = 'inline'
+        hunterStocksDown.style.display = 'none'
+    }
+    numOfHunterSoldTotal = 0
+    hunterPrice = Math.floor(hunterPrice)
+    calcHunterSellPrice = hunterAmountTotal * hunterPrice
+    document.getElementById('hunter-sell-total').innerHTML = calcHunterSellPrice
+    document.getElementById('current-hunter-price').innerHTML = hunterPrice
+}
+
+hunterStocks()
+setInterval(hunterStocks, 61000);
+
+var calcHunterSellPrice = hunterAmountTotal * hunterPrice
+document.getElementById('hunter-sell-total').innerHTML = calcHunterSellPrice
