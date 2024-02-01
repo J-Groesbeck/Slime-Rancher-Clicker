@@ -1198,3 +1198,148 @@ setInterval(honeyStocks, 61000);
 
 var calcHoneySellPrice = honeyAmountTotal * honeyPrice
 document.getElementById('honey-sell-total').innerHTML = calcHoneySellPrice
+
+// Boom Slime Section
+
+let boomAmount = 0
+let boomAmountTotal = 0
+
+function clickBoom() {
+    boomAmount = boomAmount + clickLevel
+    boomTotal()
+}
+
+let numOfBoomSlimes = 0
+let costOfBoomSlimes = 4096000
+document.getElementById('boom-slime-price').innerHTML = costOfBoomSlimes
+document.getElementById('boom-slime-amount').innerText = numOfBoomSlimes
+
+function buyBoomSlimes() {
+    if (numOfBoomSlimes >= 250 && currentMoney >= costOfBoomSlimes) {
+        costOfBoomSlimes = Math.floor(costOfBoomSlimes * 1.1)
+        document.getElementById('boom-slime-price').innerHTML = costOfBoomSlimes
+    } else if (numOfBoomSlimes >= 100 && !(numOfBoomSlimes >= 250)) {
+        costOfBoomSlimes = 32768000
+        document.getElementById('boom-slime-price').innerHTML = costOfBoomSlimes
+    } else if (numOfBoomSlimes >= 50 && !(numOfBoomSlimes >= 250)) {
+        costOfBoomSlimes = 16384000
+        document.getElementById('boom-slime-price').innerHTML = costOfBoomSlimes
+    } else if (numOfBoomSlimes >= 10 && !(numOfBoomSlimes >= 250)) {
+        costOfBoomSlimes = 8192000
+        document.getElementById('boom-slime-price').innerHTML = costOfBoomSlimes
+    }
+    if (currentMoney >= costOfBoomSlimes) {
+        currentMoney = currentMoney - costOfBoomSlimes
+        numOfBoomSlimes = numOfBoomSlimes + 1
+    }
+    document.getElementById('boom-slime-amount').innerText = numOfBoomSlimes
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoBoomMultiplier = 0.2
+let boomLevel = 1
+document.getElementById('boom-level').innerHTML = boomLevel
+let boomLevelCost = 16384000
+document.getElementById('boom-upgrade-price').innerHTML = boomLevelCost
+
+function levelUpBoom() {
+    if (currentMoney >= boomLevelCost) {
+        boomLevel = boomLevel + 1
+        autoBoomMultiplier = autoBoomMultiplier + 0.2
+        currentMoney = currentMoney - boomLevelCost
+        boomLevelCost = boomLevelCost * 5
+        document.getElementById('boom-upgrade-price').innerHTML = boomLevelCost
+        document.getElementById('boom-level').innerHTML = boomLevel
+    }
+    if (boomLevel === 5) {
+        document.getElementById('level-up-boom').style.display = 'none'
+        document.getElementById('buy-boom-slimes').classList = 'w-100 h-100'
+    }
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoBoomAmount = 0
+let boomPrice = 230
+
+function autoBoom() {
+    autoBoomAmount = autoBoomAmount + numOfBoomSlimes * autoBoomMultiplier
+    boomTotal()
+}
+
+autoBoom()
+setInterval(autoBoom, 1000);
+
+
+function boomTotal() {
+    boomAmountTotal = boomAmount + autoBoomAmount
+    boomAmountTotal = Math.floor(boomAmountTotal)
+    document.getElementById('boom-plorts').innerHTML = boomAmountTotal
+    calcBoomSellPrice = boomAmountTotal * boomPrice
+    document.getElementById('boom-sell-total').innerHTML = calcBoomSellPrice
+}
+
+let numOfBoomSoldTotal = 0
+
+function boomSell() {
+    numOfBoomSoldTotal = numOfBoomSoldTotal + boomAmountTotal
+    currentMoney = currentMoney + boomAmountTotal * boomPrice
+    boomAmount = 0
+    autoBoomAmount = 0
+    boomTotal()
+    document.getElementById('current-money').innerText = currentMoney
+    calcBoomSellPrice = boomAmountTotal * boomPrice
+    document.getElementById('boom-sell-total').innerHTML = calcBoomSellPrice
+}
+
+let isFirstTimeBoom = true
+
+function boomStocks() {
+    var boomStocksUp = document.getElementById('stocks-up-boom')
+    var boomStocksDown = document.getElementById('stocks-down-boom')
+    if (isFirstTimeBoom) {
+        isFirstTimeBoom = false
+    } else if (numOfBoomSoldTotal >= 2500) {
+        boomPrice = 32
+        boomStocksUp.style.display = 'none'
+        boomStocksDown.style.display = 'inline'
+    } else if (numOfBoomSoldTotal >= 400) {
+        boomPrice = Math.max(32, boomPrice / 2)
+        boomStocksUp.style.display = 'none'
+        boomStocksDown.style.display = 'inline'
+    } else if (numOfBoomSoldTotal >= 300) {
+        boomPrice = Math.max(32, boomPrice / 1.75)
+        boomStocksUp.style.display = 'none'
+        boomStocksDown.style.display = 'inline'
+    } else if (numOfBoomSoldTotal >= 200) {
+        boomPrice = Math.max(32, boomPrice / 1.5)
+        boomStocksUp.style.display = 'none'
+        boomStocksDown.style.display = 'inline'
+    } else if (numOfBoomSoldTotal >= 100) {
+        boomPrice = Math.max(32, boomPrice / 1.25)
+        boomStocksUp.style.display = 'none'
+        boomStocksDown.style.display = 'inline'
+    } else if (numOfBoomSoldTotal > 50) {
+        boomPrice = boomPrice / 1
+        boomStocksUp.style.display = 'none'
+        boomStocksDown.style.display = 'none'
+    } else if (numOfBoomSoldTotal <= 50 && numOfBoomSoldTotal !== 0) {
+        boomPrice = Math.min(531, boomPrice * 1.5)
+        boomStocksUp.style.display = 'inline'
+        boomStocksDown.style.display = 'none'
+    } else if (numOfBoomSoldTotal === 0) {
+        boomPrice = Math.min(531, boomPrice * 2)
+        boomStocksUp.style.display = 'inline'
+        boomStocksDown.style.display = 'none'
+    }
+    numOfBoomSoldTotal = 0
+    boomPrice = Math.floor(boomPrice)
+    calcBoomSellPrice = boomAmountTotal * boomPrice
+    document.getElementById('boom-sell-total').innerHTML = calcBoomSellPrice
+    document.getElementById('current-boom-price').innerHTML = boomPrice
+}
+
+boomStocks()
+setInterval(boomStocks, 61000);
+
+var calcBoomSellPrice = boomAmountTotal * boomPrice
+document.getElementById('boom-sell-total').innerHTML = calcBoomSellPrice
