@@ -718,7 +718,7 @@ function tabbyStocks() {
     if (isFirstTimeTabby) {
         isFirstTimeTabby = false
     } else if (numOfTabbySoldTotal >= 2500) {
-        tabbyPrice = 8
+        tabbyPrice = 16
         tabbyStocksUp.style.display = 'none'
         tabbyStocksDown.style.display = 'inline'
     } else if (numOfTabbySoldTotal >= 400) {
@@ -863,7 +863,7 @@ function puddleStocks() {
     if (isFirstTimePuddle) {
         isFirstTimePuddle = false
     } else if (numOfPuddleSoldTotal >= 2500) {
-        puddlePrice = 8
+        puddlePrice = 20
         puddleStocksUp.style.display = 'none'
         puddleStocksDown.style.display = 'inline'
     } else if (numOfPuddleSoldTotal >= 400) {
@@ -907,3 +907,294 @@ setInterval(puddleStocks, 61000);
 
 var calcPuddleSellPrice = puddleAmountTotal * puddlePrice
 document.getElementById('puddle-sell-total').innerHTML = calcPuddleSellPrice
+
+// Fire Slime Section
+
+let fireAmount = 0
+
+let fireAmountTotal = 0
+
+function clickFire() {
+    fireAmount = fireAmount + clickLevel
+    fireTotal()
+}
+
+let numOfFireSlimes = 0
+let costOfFireSlimes = 256000
+document.getElementById('fire-slime-price').innerHTML = costOfFireSlimes
+document.getElementById('fire-slime-amount').innerText = numOfFireSlimes
+
+function buyFireSlimes() {
+    if (numOfFireSlimes >= 250 && currentMoney >= costOfFireSlimes) {
+        costOfFireSlimes = Math.floor(costOfFireSlimes * 1.1)
+        document.getElementById('fire-slime-price').innerHTML = costOfFireSlimes
+    } else if (numOfFireSlimes >= 100 && !(numOfFireSlimes >= 250)) {
+        costOfFireSlimes = 2048000
+        document.getElementById('fire-slime-price').innerHTML = costOfFireSlimes
+    } else if (numOfFireSlimes >= 50 && !(numOfFireSlimes >= 250)) {
+        costOfFireSlimes = 1024000
+        document.getElementById('fire-slime-price').innerHTML = costOfFireSlimes
+    } else if (numOfFireSlimes >= 10 && !(numOfFireSlimes >= 250)) {
+        costOfFireSlimes = 512000
+        document.getElementById('fire-slime-price').innerHTML = costOfFireSlimes
+    }
+    if (currentMoney >= costOfFireSlimes) {
+        currentMoney = currentMoney - costOfFireSlimes
+        numOfFireSlimes = numOfFireSlimes + 1
+    }
+    document.getElementById('fire-slime-amount').innerText = numOfFireSlimes
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoFireMultiplier = 0.2
+let fireLevel = 1
+document.getElementById('fire-level').innerHTML = fireLevel
+let fireLevelCost = 1024000
+document.getElementById('fire-upgrade-price').innerHTML = fireLevelCost
+
+function levelUpFire() {
+    if (currentMoney >= fireLevelCost) {
+        fireLevel = fireLevel + 1
+        autoFireMultiplier = autoFireMultiplier + 0.2
+        currentMoney = currentMoney - fireLevelCost
+        fireLevelCost = fireLevelCost * 5
+        document.getElementById('fire-upgrade-price').innerHTML = fireLevelCost
+        document.getElementById('fire-level').innerHTML = fireLevel
+    }
+    if (fireLevel === 5) {
+        document.getElementById('level-up-fire').style.display = 'none'
+        document.getElementById('buy-fire-slimes').classList = 'w-100 h-100'
+    }
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoFireAmount = 0
+let firePrice = 102
+
+function autoFire() {
+    autoFireAmount = autoFireAmount + numOfFireSlimes * autoFireMultiplier
+    fireTotal()
+}
+
+autoFire()
+setInterval(autoFire, 1000);
+
+
+function fireTotal() {
+    fireAmountTotal = fireAmount + autoFireAmount
+    fireAmountTotal = Math.floor(fireAmountTotal)
+    document.getElementById('fire-plorts').innerHTML = fireAmountTotal
+    calcFireSellPrice = fireAmountTotal * firePrice
+    document.getElementById('fire-sell-total').innerHTML = calcFireSellPrice
+}
+
+let numOfFireSoldTotal = 0
+
+function fireSell() {
+    numOfFireSoldTotal = numOfFireSoldTotal + fireAmountTotal
+    currentMoney = currentMoney + fireAmountTotal * firePrice
+    fireAmount = 0
+    autoFireAmount = 0
+    fireTotal()
+    document.getElementById('current-money').innerText = currentMoney
+    calcFireSellPrice = fireAmountTotal * firePrice
+    document.getElementById('fire-sell-total').innerHTML = calcFireSellPrice
+}
+
+let isFirstTimeFire = true
+
+function fireStocks() {
+    var fireStocksUp = document.getElementById('stocks-up-fire')
+    var fireStocksDown = document.getElementById('stocks-down-fire')
+    if (isFirstTimeFire) {
+        isFirstTimeFire = false
+    } else if (numOfFireSoldTotal >= 2500) {
+        firePrice = 24
+        fireStocksUp.style.display = 'none'
+        fireStocksDown.style.display = 'inline'
+    } else if (numOfFireSoldTotal >= 400) {
+        firePrice = Math.max(24, firePrice / 2)
+        fireStocksUp.style.display = 'none'
+        fireStocksDown.style.display = 'inline'
+    } else if (numOfFireSoldTotal >= 300) {
+        firePrice = Math.max(24, firePrice / 1.75)
+        fireStocksUp.style.display = 'none'
+        fireStocksDown.style.display = 'inline'
+    } else if (numOfFireSoldTotal >= 200) {
+        firePrice = Math.max(24, firePrice / 1.5)
+        fireStocksUp.style.display = 'none'
+        fireStocksDown.style.display = 'inline'
+    } else if (numOfFireSoldTotal >= 100) {
+        firePrice = Math.max(24, firePrice / 1.25)
+        fireStocksUp.style.display = 'none'
+        fireStocksDown.style.display = 'inline'
+    } else if (numOfFireSoldTotal > 50) {
+        firePrice = firePrice / 1
+        fireStocksUp.style.display = 'none'
+        fireStocksDown.style.display = 'none'
+    } else if (numOfFireSoldTotal <= 50 && numOfFireSoldTotal !== 0) {
+        firePrice = Math.min(236, firePrice * 1.5)
+        fireStocksUp.style.display = 'inline'
+        fireStocksDown.style.display = 'none'
+    } else if (numOfFireSoldTotal === 0) {
+        firePrice = Math.min(236, firePrice * 2)
+        fireStocksUp.style.display = 'inline'
+        fireStocksDown.style.display = 'none'
+    }
+    numOfFireSoldTotal = 0
+    firePrice = Math.floor(firePrice)
+    calcFireSellPrice = fireAmountTotal * firePrice
+    document.getElementById('fire-sell-total').innerHTML = calcFireSellPrice
+    document.getElementById('current-fire-price').innerHTML = firePrice
+}
+
+fireStocks()
+setInterval(fireStocks, 61000);
+
+var calcFireSellPrice = fireAmountTotal * firePrice
+document.getElementById('fire-sell-total').innerHTML = calcFireSellPrice
+
+// Honey Slime Section
+
+let honeyAmount = 0
+let honeyAmountTotal = 0
+
+function clickHoney() {
+    honeyAmount = honeyAmount + clickLevel
+    honeyTotal()
+}
+
+let numOfHoneySlimes = 0
+let costOfHoneySlimes = 1024000
+document.getElementById('honey-slime-price').innerHTML = costOfHoneySlimes
+document.getElementById('honey-slime-amount').innerText = numOfHoneySlimes
+
+function buyHoneySlimes() {
+    if (numOfHoneySlimes >= 250 && currentMoney >= costOfHoneySlimes) {
+        costOfHoneySlimes = Math.floor(costOfHoneySlimes * 1.1)
+        document.getElementById('honey-slime-price').innerHTML = costOfHoneySlimes
+    } else if (numOfHoneySlimes >= 100 && !(numOfHoneySlimes >= 250)) {
+        costOfHoneySlimes = 8192000
+        document.getElementById('honey-slime-price').innerHTML = costOfHoneySlimes
+    } else if (numOfHoneySlimes >= 50 && !(numOfHoneySlimes >= 250)) {
+        costOfHoneySlimes = 4096000
+        document.getElementById('honey-slime-price').innerHTML = costOfHoneySlimes
+    } else if (numOfHoneySlimes >= 10 && !(numOfHoneySlimes >= 250)) {
+        costOfHoneySlimes = 2048000
+        document.getElementById('honey-slime-price').innerHTML = costOfHoneySlimes
+    }
+    if (currentMoney >= costOfHoneySlimes) {
+        currentMoney = currentMoney - costOfHoneySlimes
+        numOfHoneySlimes = numOfHoneySlimes + 1
+    }
+    document.getElementById('honey-slime-amount').innerText = numOfHoneySlimes
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoHoneyMultiplier = 0.2
+let honeyLevel = 1
+document.getElementById('honey-level').innerHTML = honeyLevel
+let honeyLevelCost = 4096000
+document.getElementById('honey-upgrade-price').innerHTML = honeyLevelCost
+
+function levelUpHoney() {
+    if (currentMoney >= honeyLevelCost) {
+        honeyLevel = honeyLevel + 1
+        autoHoneyMultiplier = autoHoneyMultiplier + 0.2
+        currentMoney = currentMoney - honeyLevelCost
+        honeyLevelCost = honeyLevelCost * 5
+        document.getElementById('honey-upgrade-price').innerHTML = honeyLevelCost
+        document.getElementById('honey-level').innerHTML = honeyLevel
+    }
+    if (honeyLevel === 5) {
+        document.getElementById('level-up-honey').style.display = 'none'
+        document.getElementById('buy-honey-slimes').classList = 'w-100 h-100'
+    }
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoHoneyAmount = 0
+let honeyPrice = 153
+
+function autoHoney() {
+    autoHoneyAmount = autoHoneyAmount + numOfHoneySlimes * autoHoneyMultiplier
+    honeyTotal()
+}
+
+autoHoney()
+setInterval(autoHoney, 1000);
+
+
+function honeyTotal() {
+    honeyAmountTotal = honeyAmount + autoHoneyAmount
+    honeyAmountTotal = Math.floor(honeyAmountTotal)
+    document.getElementById('honey-plorts').innerHTML = honeyAmountTotal
+    calcHoneySellPrice = honeyAmountTotal * honeyPrice
+    document.getElementById('honey-sell-total').innerHTML = calcHoneySellPrice
+}
+
+let numOfHoneySoldTotal = 0
+
+function honeySell() {
+    numOfHoneySoldTotal = numOfHoneySoldTotal + honeyAmountTotal
+    currentMoney = currentMoney + honeyAmountTotal * honeyPrice
+    honeyAmount = 0
+    autoHoneyAmount = 0
+    honeyTotal()
+    document.getElementById('current-money').innerText = currentMoney
+    calcHoneySellPrice = honeyAmountTotal * honeyPrice
+    document.getElementById('honey-sell-total').innerHTML = calcHoneySellPrice
+}
+
+let isFirstTimeHoney = true
+
+function honeyStocks() {
+    var honeyStocksUp = document.getElementById('stocks-up-honey')
+    var honeyStocksDown = document.getElementById('stocks-down-honey')
+    if (isFirstTimeHoney) {
+        isFirstTimeHoney = false
+    } else if (numOfHoneySoldTotal >= 2500) {
+        honeyPrice = 28
+        honeyStocksUp.style.display = 'none'
+        honeyStocksDown.style.display = 'inline'
+    } else if (numOfHoneySoldTotal >= 400) {
+        honeyPrice = Math.max(28, honeyPrice / 2)
+        honeyStocksUp.style.display = 'none'
+        honeyStocksDown.style.display = 'inline'
+    } else if (numOfHoneySoldTotal >= 300) {
+        honeyPrice = Math.max(28, honeyPrice / 1.75)
+        honeyStocksUp.style.display = 'none'
+        honeyStocksDown.style.display = 'inline'
+    } else if (numOfHoneySoldTotal >= 200) {
+        honeyPrice = Math.max(28, honeyPrice / 1.5)
+        honeyStocksUp.style.display = 'none'
+        honeyStocksDown.style.display = 'inline'
+    } else if (numOfHoneySoldTotal >= 100) {
+        honeyPrice = Math.max(28, honeyPrice / 1.25)
+        honeyStocksUp.style.display = 'none'
+        honeyStocksDown.style.display = 'inline'
+    } else if (numOfHoneySoldTotal > 50) {
+        honeyPrice = honeyPrice / 1
+        honeyStocksUp.style.display = 'none'
+        honeyStocksDown.style.display = 'none'
+    } else if (numOfHoneySoldTotal <= 50 && numOfHoneySoldTotal !== 0) {
+        honeyPrice = Math.min(354, honeyPrice * 1.5)
+        honeyStocksUp.style.display = 'inline'
+        honeyStocksDown.style.display = 'none'
+    } else if (numOfHoneySoldTotal === 0) {
+        honeyPrice = Math.min(354, honeyPrice * 2)
+        honeyStocksUp.style.display = 'inline'
+        honeyStocksDown.style.display = 'none'
+    }
+    numOfHoneySoldTotal = 0
+    honeyPrice = Math.floor(honeyPrice)
+    calcHoneySellPrice = honeyAmountTotal * honeyPrice
+    document.getElementById('honey-sell-total').innerHTML = calcHoneySellPrice
+    document.getElementById('current-honey-price').innerHTML = honeyPrice
+}
+
+honeyStocks()
+setInterval(honeyStocks, 61000);
+
+var calcHoneySellPrice = honeyAmountTotal * honeyPrice
+document.getElementById('honey-sell-total').innerHTML = calcHoneySellPrice
