@@ -34,6 +34,8 @@ body {
 #stocks-down-tangle,
 #stocks-up-mosaic,
 #stocks-down-mosaic,
+#stocks-up-gold,
+#stocks-down-gold,
 #click-rock,
 #click-phosphor,
 #click-tabby,
@@ -48,7 +50,8 @@ body {
 #click-dervish,
 #click-quantum,
 #click-tangle,
-#click-mosaic {
+#click-mosaic,
+#click-gold {
     display: none;
 }
 
@@ -67,7 +70,8 @@ body {
 #click-dervish,
 #click-quantum,
 #click-tangle,
-#click-mosaic {
+#click-mosaic,
+#click-gold {
     cursor: pointer;
 }
 

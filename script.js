@@ -41,6 +41,7 @@ var clickerDervish = document.getElementById('click-dervish');
 var clickerQuantum = document.getElementById('click-quantum');
 var clickerTangle = document.getElementById('click-tangle');
 var clickerMosaic = document.getElementById('click-mosaic');
+var clickerGold = document.getElementById('click-gold');
 
 function rankUpClick() {
     if (currentMoney >= clickRankCost && clickerPink.style.display === 'inline') {
@@ -148,6 +149,12 @@ function rankUpClick() {
         clickRankCost = clickRankCost * 4
         document.getElementById('click-rank-cost').innerText = clickRankCost
         document.getElementById('click-rank').innerText = 'Mosaic';
+        document.getElementById('rank-up-click').style.display = 'none'
+    } else if (currentMoney >= clickRankCost && clickerMosaic.style.display === 'inline') {
+        currentMoney = currentMoney - clickRankCost;
+        clickerMosaic.style.display = 'none';
+        clickerGold.style.display = 'inline';
+        document.getElementById('click-rank').innerText = 'Gold';
         document.getElementById('rank-up-click').style.display = 'none'
     }
     document.getElementById('current-money').innerText = currentMoney
@@ -1488,3 +1495,148 @@ setInterval(hunterStocks, 61000);
 
 var calcHunterSellPrice = hunterAmountTotal * hunterPrice
 document.getElementById('hunter-sell-total').innerHTML = calcHunterSellPrice
+
+    // Rad Slime Section
+
+let radAmount = 0
+let radAmountTotal = 0
+
+function clickRad() {
+    radAmount = radAmount + clickLevel
+    radTotal()
+}
+
+let numOfRadSlimes = 0
+let costOfRadSlimes = 65536000
+document.getElementById('rad-slime-price').innerHTML = costOfRadSlimes
+document.getElementById('rad-slime-amount').innerText = numOfRadSlimes
+
+function buyRadSlimes() {
+    if (numOfRadSlimes >= 250 && currentMoney >= costOfRadSlimes) {
+        costOfRadSlimes = Math.floor(costOfRadSlimes * 1.1)
+        document.getElementById('rad-slime-price').innerHTML = costOfRadSlimes
+    } else if (numOfRadSlimes >= 100 && !(numOfRadSlimes >= 250)) {
+        costOfRadSlimes = 524288000
+        document.getElementById('rad-slime-price').innerHTML = costOfRadSlimes
+    } else if (numOfRadSlimes >= 50 && !(numOfRadSlimes >= 250)) {
+        costOfRadSlimes = 262144000
+        document.getElementById('rad-slime-price').innerHTML = costOfRadSlimes
+    } else if (numOfRadSlimes >= 10 && !(numOfRadSlimes >= 250)) {
+        costOfRadSlimes = 131072000
+        document.getElementById('rad-slime-price').innerHTML = costOfRadSlimes
+    }
+    if (currentMoney >= costOfRadSlimes) {
+        currentMoney = currentMoney - costOfRadSlimes
+        numOfRadSlimes = numOfRadSlimes + 1
+    }
+    document.getElementById('rad-slime-amount').innerText = numOfRadSlimes
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoRadMultiplier = 0.2
+let radLevel = 1
+document.getElementById('rad-level').innerHTML = radLevel
+let radLevelCost = 262144000
+document.getElementById('rad-upgrade-price').innerHTML = radLevelCost
+
+function levelUpRad() {
+    if (currentMoney >= radLevelCost) {
+        radLevel = radLevel + 1
+        autoRadMultiplier = autoRadMultiplier + 0.2
+        currentMoney = currentMoney - radLevelCost
+        radLevelCost = radLevelCost * 5
+        document.getElementById('rad-upgrade-price').innerHTML = radLevelCost
+        document.getElementById('rad-level').innerHTML = radLevel
+    }
+    if (radLevel === 5) {
+        document.getElementById('level-up-rad').style.display = 'none'
+        document.getElementById('buy-rad-slimes').classList = 'w-100 h-100'
+    }
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoRadAmount = 0
+let radPrice = 518
+
+function autoRad() {
+    autoRadAmount = autoRadAmount + numOfRadSlimes * autoRadMultiplier
+    radTotal()
+}
+
+autoRad()
+setInterval(autoRad, 1000);
+
+
+function radTotal() {
+    radAmountTotal = radAmount + autoRadAmount
+    radAmountTotal = Math.floor(radAmountTotal)
+    document.getElementById('rad-plorts').innerHTML = radAmountTotal
+    calcRadSellPrice = radAmountTotal * radPrice
+    document.getElementById('rad-sell-total').innerHTML = calcRadSellPrice
+}
+
+let numOfRadSoldTotal = 0
+
+function radSell() {
+    numOfRadSoldTotal = numOfRadSoldTotal + radAmountTotal
+    currentMoney = currentMoney + radAmountTotal * radPrice
+    radAmount = 0
+    autoRadAmount = 0
+    radTotal()
+    document.getElementById('current-money').innerText = currentMoney
+    calcRadSellPrice = radAmountTotal * radPrice
+    document.getElementById('rad-sell-total').innerHTML = calcRadSellPrice
+}
+
+let isFirstTimeRad = true
+
+function radStocks() {
+    var radStocksUp = document.getElementById('stocks-up-rad')
+    var radStocksDown = document.getElementById('stocks-down-rad')
+    if (isFirstTimeRad) {
+        isFirstTimeRad = false
+    } else if (numOfRadSoldTotal >= 2500) {
+        radPrice = 40
+        radStocksUp.style.display = 'none'
+        radStocksDown.style.display = 'inline'
+    } else if (numOfRadSoldTotal >= 400) {
+        radPrice = Math.max(40, radPrice / 2)
+        radStocksUp.style.display = 'none'
+        radStocksDown.style.display = 'inline'
+    } else if (numOfRadSoldTotal >= 300) {
+        radPrice = Math.max(40, radPrice / 1.75)
+        radStocksUp.style.display = 'none'
+        radStocksDown.style.display = 'inline'
+    } else if (numOfRadSoldTotal >= 200) {
+        radPrice = Math.max(40, radPrice / 1.5)
+        radStocksUp.style.display = 'none'
+        radStocksDown.style.display = 'inline'
+    } else if (numOfRadSoldTotal >= 100) {
+        radPrice = Math.max(40, radPrice / 1.25)
+        radStocksUp.style.display = 'none'
+        radStocksDown.style.display = 'inline'
+    } else if (numOfRadSoldTotal > 50) {
+        radPrice = radPrice / 1
+        radStocksUp.style.display = 'none'
+        radStocksDown.style.display = 'none'
+    } else if (numOfRadSoldTotal <= 50 && numOfRadSoldTotal !== 0) {
+        radPrice = Math.min(1194, radPrice * 1.5)
+        radStocksUp.style.display = 'inline'
+        radStocksDown.style.display = 'none'
+    } else if (numOfRadSoldTotal === 0) {
+        radPrice = Math.min(1194, radPrice * 2)
+        radStocksUp.style.display = 'inline'
+        radStocksDown.style.display = 'none'
+    }
+    numOfRadSoldTotal = 0
+    radPrice = Math.floor(radPrice)
+    calcRadSellPrice = radAmountTotal * radPrice
+    document.getElementById('rad-sell-total').innerHTML = calcRadSellPrice
+    document.getElementById('current-rad-price').innerHTML = radPrice
+}
+
+radStocks()
+setInterval(radStocks, 61000);
+
+var calcRadSellPrice = radAmountTotal * radPrice
+document.getElementById('rad-sell-total').innerHTML = calcRadSellPrice
