@@ -52,6 +52,25 @@ body {
     display: none;
 }
 
+#click-pink,
+#click-rock,
+#click-phosphor,
+#click-tabby,
+#click-puddle,
+#click-fire,
+#click-honey,
+#click-boom,
+#click-rad,
+#click-hunter,
+#click-crystal,
+#click-saber,
+#click-dervish,
+#click-quantum,
+#click-tangle,
+#click-mosaic {
+    cursor: pointer;
+}
+
 .scales-h1 {
     height: 2.5rem;
     display: inline;
