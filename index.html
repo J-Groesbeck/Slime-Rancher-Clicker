@@ -334,6 +334,94 @@
                         </button>
                     </div>
                 </div>
+                <div class="row default-height">
+                    <div class="col-4 text-center">
+                        <img src="img/quantum-plort.png" class="default-height">
+                    </div>
+                    <div class="col-4">
+                        <h2>
+                            x<span id="quantum-plorts"></span>
+                            <br>
+                            <img src="img/price-up.png" id="stocks-up-quantum" class="scales-h2">
+                            <img src="img/price-down.png" id="stocks-down-quantum" class="scales-h2">
+                            <img src="img/coin.png" class="scales-h2">
+                            <span id="current-quantum-price"></span>
+                        </h2>
+                    </div>
+                    <div class="col-4">
+                        <button onclick="quantumSell()" class="w-100 h-100">
+                            <h5 class="mb-0">
+                                Sell for<br><img src="img/coin.png" class="scales-h5"><span id="quantum-sell-total"></span>
+                            </h5>
+                        </button>
+                    </div>
+                </div>                
+                <div class="row default-height">
+                    <div class="col-4 text-center">
+                        <img src="img/tangle-plort.png" class="default-height">
+                    </div>
+                    <div class="col-4">
+                        <h2>
+                            x<span id="tangle-plorts"></span>
+                            <br>
+                            <img src="img/price-up.png" id="stocks-up-tangle" class="scales-h2">
+                            <img src="img/price-down.png" id="stocks-down-tangle" class="scales-h2">
+                            <img src="img/coin.png" class="scales-h2">
+                            <span id="current-tangle-price"></span>
+                        </h2>
+                    </div>
+                    <div class="col-4">
+                        <button onclick="tangleSell()" class="w-100 h-100">
+                            <h5 class="mb-0">
+                                Sell for<br><img src="img/coin.png" class="scales-h5"><span id="tangle-sell-total"></span>
+                            </h5>
+                        </button>
+                    </div>
+                </div>
+                <div class="row default-height">
+                    <div class="col-4 text-center">
+                        <img src="img/mosaic-plort.png" class="default-height">
+                    </div>
+                    <div class="col-4">
+                        <h2>
+                            x<span id="mosaic-plorts"></span>
+                            <br>
+                            <img src="img/price-up.png" id="stocks-up-mosaic" class="scales-h2">
+                            <img src="img/price-down.png" id="stocks-down-mosaic" class="scales-h2">
+                            <img src="img/coin.png" class="scales-h2">
+                            <span id="current-mosaic-price"></span>
+                        </h2>
+                    </div>
+                    <div class="col-4">
+                        <button onclick="mosaicSell()" class="w-100 h-100">
+                            <h5 class="mb-0">
+                                Sell for<br><img src="img/coin.png" class="scales-h5"><span id="mosaic-sell-total"></span>
+                            </h5>
+                        </button>
+                    </div>
+                </div>
+                <div class="row default-height">
+                    <div class="col-4 text-center">
+                        <img src="img/gold-plort.png" class="default-height">
+                    </div>
+                    <div class="col-4">
+                        <h2>
+                            x<span id="gold-plorts"></span>
+                            <br>
+                            <img src="img/price-up.png" id="stocks-up-gold" class="scales-h2">
+                            <img src="img/price-down.png" id="stocks-down-gold" class="scales-h2">
+                            <img src="img/coin.png" class="scales-h2">
+                            <span id="current-gold-price"></span>
+                        </h2>
+                    </div>
+                    <div class="col-4">
+                        <button onclick="goldSell()" class="w-100 h-100">
+                            <h5 class="mb-0">
+                                Sell for<br><img src="img/coin.png" class="scales-h5"><span id="gold-sell-total"></span>
+                            </h5>
+                        </button>
+                    </div>
+                </div>                
             </div>
             <div class="col-4">
                 <div class="row default-height2">
@@ -546,19 +634,19 @@
                 </div>
                 <div class="row default-height2">
                     <div class="col-3">
-                        <img src="img/dervish-slime.png" class="default-height2">
+                        <img src="img/crystal-slime.png" class="default-height2">
                     </div>
                     <div class="col-5">
-                        <h4>You have: <span id="dervish-slime-amount"></span></h4>
-                        <h6>Each produces <span id="dervish-level"></span> plort(s) every 5 seconds</h6>
+                        <h4>You have: <span id="crystal-slime-amount"></span></h4>
+                        <h6>Each produces <span id="crystal-level"></span> plort(s) every 5 seconds</h6>
                     </div>
                     <div class="col-4">
-                        <button onclick="buyDervishSlimes()" class="w-100" id="buy-dervish-slimes">
-                            <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span id="dervish-slime-price"></span></h6>
+                        <button onclick="buyCrystalSlimes()" class="w-100" id="buy-crystal-slimes">
+                            <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span id="crystal-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpDervish()" class="w-100" id="level-up-dervish">
+                        <button onclick="levelUpCrystal()" class="w-100" id="level-up-crystal">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
-                                    id="dervish-upgrade-price"></span></h6>
+                                    id="crystal-upgrade-price"></span></h6>
                         </button>
                     </div>
                 </div>
@@ -582,19 +670,19 @@
                 </div>
                 <div class="row default-height2">
                     <div class="col-3">
-                        <img src="img/crystal-slime.png" class="default-height2">
+                        <img src="img/dervish-slime.png" class="default-height2">
                     </div>
                     <div class="col-5">
-                        <h4>You have: <span id="crystal-slime-amount"></span></h4>
-                        <h6>Each produces <span id="crystal-level"></span> plort(s) every 5 seconds</h6>
+                        <h4>You have: <span id="dervish-slime-amount"></span></h4>
+                        <h6>Each produces <span id="dervish-level"></span> plort(s) every 5 seconds</h6>
                     </div>
                     <div class="col-4">
-                        <button onclick="buyCrystalSlimes()" class="w-100" id="buy-crystal-slimes">
-                            <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span id="crystal-slime-price"></span></h6>
+                        <button onclick="buyDervishSlimes()" class="w-100" id="buy-dervish-slimes">
+                            <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span id="dervish-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpCrystal()" class="w-100" id="level-up-crystal">
+                        <button onclick="levelUpDervish()" class="w-100" id="level-up-dervish">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
-                                    id="crystal-upgrade-price"></span></h6>
+                                    id="dervish-upgrade-price"></span></h6>
                         </button>
                     </div>
                 </div>

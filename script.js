@@ -1640,3 +1640,580 @@ setInterval(radStocks, 61000);
 
 var calcRadSellPrice = radAmountTotal * radPrice
 document.getElementById('rad-sell-total').innerHTML = calcRadSellPrice
+
+// Crystal Slime Section
+
+let crystalAmount = 0
+let crystalAmountTotal = 0
+
+function clickCrystal() {
+    crystalAmount = crystalAmount + clickLevel
+    crystalTotal()
+}
+
+let numOfCrystalSlimes = 0
+let costOfCrystalSlimes = 262144000
+document.getElementById('crystal-slime-price').innerHTML = costOfCrystalSlimes
+document.getElementById('crystal-slime-amount').innerText = numOfCrystalSlimes
+
+function buyCrystalSlimes() {
+    if (numOfCrystalSlimes >= 250 && currentMoney >= costOfCrystalSlimes) {
+        costOfCrystalSlimes = Math.floor(costOfCrystalSlimes * 1.1)
+        document.getElementById('crystal-slime-price').innerHTML = costOfCrystalSlimes
+    } else if (numOfCrystalSlimes >= 100 && !(numOfCrystalSlimes >= 250)) {
+        costOfCrystalSlimes = 2097152000
+        document.getElementById('crystal-slime-price').innerHTML = costOfCrystalSlimes
+    } else if (numOfCrystalSlimes >= 50 && !(numOfCrystalSlimes >= 250)) {
+        costOfCrystalSlimes = 1048576000
+        document.getElementById('crystal-slime-price').innerHTML = costOfCrystalSlimes
+    } else if (numOfCrystalSlimes >= 10 && !(numOfCrystalSlimes >= 250)) {
+        costOfCrystalSlimes = 524288000
+        document.getElementById('crystal-slime-price').innerHTML = costOfCrystalSlimes
+    }
+    if (currentMoney >= costOfCrystalSlimes) {
+        currentMoney = currentMoney - costOfCrystalSlimes
+        numOfCrystalSlimes = numOfCrystalSlimes + 1
+    }
+    document.getElementById('crystal-slime-amount').innerText = numOfCrystalSlimes
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoCrystalMultiplier = 0.2
+let crystalLevel = 1
+document.getElementById('crystal-level').innerHTML = crystalLevel
+let crystalLevelCost = 1048576000
+document.getElementById('crystal-upgrade-price').innerHTML = crystalLevelCost
+
+function levelUpCrystal() {
+    if (currentMoney >= crystalLevelCost) {
+        crystalLevel = crystalLevel + 1
+        autoCrystalMultiplier = autoCrystalMultiplier + 0.2
+        currentMoney = currentMoney - crystalLevelCost
+        crystalLevelCost = crystalLevelCost * 5
+        document.getElementById('crystal-upgrade-price').innerHTML = crystalLevelCost
+        document.getElementById('crystal-level').innerHTML = crystalLevel
+    }
+    if (crystalLevel === 5) {
+        document.getElementById('level-up-crystal').style.display = 'none'
+        document.getElementById('buy-crystal-slimes').classList = 'w-100 h-100'
+    }
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoCrystalAmount = 0
+let crystalPrice = 777
+
+function autoCrystal() {
+    autoCrystalAmount = autoCrystalAmount + numOfCrystalSlimes * autoCrystalMultiplier
+    crystalTotal()
+}
+
+autoCrystal()
+setInterval(autoCrystal, 1000);
+
+function crystalTotal() {
+    crystalAmountTotal = crystalAmount + autoCrystalAmount
+    crystalAmountTotal = Math.floor(crystalAmountTotal)
+    document.getElementById('crystal-plorts').innerHTML = crystalAmountTotal
+    calcCrystalSellPrice = crystalAmountTotal * crystalPrice
+    document.getElementById('crystal-sell-total').innerHTML = calcCrystalSellPrice
+}
+
+let numOfCrystalSoldTotal = 0
+
+function crystalSell() {
+    numOfCrystalSoldTotal = numOfCrystalSoldTotal + crystalAmountTotal
+    currentMoney = currentMoney + crystalAmountTotal * crystalPrice
+    crystalAmount = 0
+    autoCrystalAmount = 0
+    crystalTotal()
+    document.getElementById('current-money').innerText = currentMoney
+    calcCrystalSellPrice = crystalAmountTotal * crystalPrice
+    document.getElementById('crystal-sell-total').innerHTML = calcCrystalSellPrice
+}
+
+let isFirstTimeCrystal = true
+
+function crystalStocks() {
+    var crystalStocksUp = document.getElementById('stocks-up-crystal')
+    var crystalStocksDown = document.getElementById('stocks-down-crystal')
+    if (isFirstTimeCrystal) {
+        isFirstTimeCrystal = false
+    } else if (numOfCrystalSoldTotal >= 2500) {
+        crystalPrice = 8
+        crystalStocksUp.style.display = 'none'
+        crystalStocksDown.style.display = 'inline'
+    } else if (numOfCrystalSoldTotal >= 400) {
+        crystalPrice = Math.max(44, crystalPrice / 2)
+        crystalStocksUp.style.display = 'none'
+        crystalStocksDown.style.display = 'inline'
+    } else if (numOfCrystalSoldTotal >= 300) {
+        crystalPrice = Math.max(44, crystalPrice / 1.75)
+        crystalStocksUp.style.display = 'none'
+        crystalStocksDown.style.display = 'inline'
+    } else if (numOfCrystalSoldTotal >= 200) {
+        crystalPrice = Math.max(44, crystalPrice / 1.5)
+        crystalStocksUp.style.display = 'none'
+        crystalStocksDown.style.display = 'inline'
+    } else if (numOfCrystalSoldTotal >= 100) {
+        crystalPrice = Math.max(44, crystalPrice / 1.25)
+        crystalStocksUp.style.display = 'none'
+        crystalStocksDown.style.display = 'inline'
+    } else if (numOfCrystalSoldTotal > 50) {
+        crystalPrice = crystalPrice / 1
+        crystalStocksUp.style.display = 'none'
+        crystalStocksDown.style.display = 'none'
+    } else if (numOfCrystalSoldTotal <= 50 && numOfCrystalSoldTotal !== 0) {
+        crystalPrice = Math.min(1791, crystalPrice * 1.5)
+        crystalStocksUp.style.display = 'inline'
+        crystalStocksDown.style.display = 'none'
+    } else if (numOfCrystalSoldTotal === 0) {
+        crystalPrice = Math.min(1791, crystalPrice * 2)
+        crystalStocksUp.style.display = 'inline'
+        crystalStocksDown.style.display = 'none'
+    }
+    numOfCrystalSoldTotal = 0
+    crystalPrice = Math.floor(crystalPrice)
+    calcCrystalSellPrice = crystalAmountTotal * crystalPrice
+    document.getElementById('crystal-sell-total').innerHTML = calcCrystalSellPrice
+    document.getElementById('current-crystal-price').innerHTML = crystalPrice
+}
+
+crystalStocks()
+setInterval(crystalStocks, 61000);
+
+var calcCrystalSellPrice = crystalAmountTotal * crystalPrice
+document.getElementById('crystal-sell-total').innerHTML = calcCrystalSellPrice
+
+// Saber Slime Section
+
+let saberAmount = 0
+let saberAmountTotal = 0
+
+function clickSaber() {
+    saberAmount = saberAmount + clickLevel
+    saberTotal()
+}
+
+let numOfSaberSlimes = 0
+let costOfSaberSlimes = 1048576000
+document.getElementById('saber-slime-price').innerHTML = costOfSaberSlimes
+document.getElementById('saber-slime-amount').innerText = numOfSaberSlimes
+
+function buySaberSlimes() {
+    if (numOfSaberSlimes >= 250 && currentMoney >= costOfSaberSlimes) {
+        costOfSaberSlimes = Math.floor(costOfSaberSlimes * 1.1)
+        document.getElementById('saber-slime-price').innerHTML = costOfSaberSlimes
+    } else if (numOfSaberSlimes >= 100 && !(numOfSaberSlimes >= 250)) {
+        costOfSaberSlimes = 8388608000
+        document.getElementById('saber-slime-price').innerHTML = costOfSaberSlimes
+    } else if (numOfSaberSlimes >= 50 && !(numOfSaberSlimes >= 250)) {
+        costOfSaberSlimes = 4194304000
+        document.getElementById('saber-slime-price').innerHTML = costOfSaberSlimes
+    } else if (numOfSaberSlimes >= 10 && !(numOfSaberSlimes >= 250)) {
+        costOfSaberSlimes = 2097152000
+        document.getElementById('saber-slime-price').innerHTML = costOfSaberSlimes
+    }
+    if (currentMoney >= costOfSaberSlimes) {
+        currentMoney = currentMoney - costOfSaberSlimes
+        numOfSaberSlimes = numOfSaberSlimes + 1
+    }
+    document.getElementById('saber-slime-amount').innerText = numOfSaberSlimes
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoSaberMultiplier = 0.2
+let saberLevel = 1
+document.getElementById('saber-level').innerHTML = saberLevel
+let saberLevelCost = 4194304000
+document.getElementById('saber-upgrade-price').innerHTML = saberLevelCost
+
+function levelUpSaber() {
+    if (currentMoney >= saberLevelCost) {
+        saberLevel = saberLevel + 1
+        autoSaberMultiplier = autoSaberMultiplier + 0.2
+        currentMoney = currentMoney - saberLevelCost
+        saberLevelCost = saberLevelCost * 5
+        document.getElementById('saber-upgrade-price').innerHTML = saberLevelCost
+        document.getElementById('saber-level').innerHTML = saberLevel
+    }
+    if (saberLevel === 5) {
+        document.getElementById('level-up-saber').style.display = 'none'
+        document.getElementById('buy-saber-slimes').classList = 'w-100 h-100'
+    }
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoSaberAmount = 0
+let saberPrice = 1166
+
+function autoSaber() {
+    autoSaberAmount = autoSaberAmount + numOfSaberSlimes * autoSaberMultiplier
+    saberTotal()
+}
+
+autoSaber()
+setInterval(autoSaber, 1000);
+
+function saberTotal() {
+    saberAmountTotal = saberAmount + autoSaberAmount
+    saberAmountTotal = Math.floor(saberAmountTotal)
+    document.getElementById('saber-plorts').innerHTML = saberAmountTotal
+    calcSaberSellPrice = saberAmountTotal * saberPrice
+    document.getElementById('saber-sell-total').innerHTML = calcSaberSellPrice
+}
+
+let numOfSaberSoldTotal = 0
+
+function saberSell() {
+    numOfSaberSoldTotal = numOfSaberSoldTotal + saberAmountTotal
+    currentMoney = currentMoney + saberAmountTotal * saberPrice
+    saberAmount = 0
+    autoSaberAmount = 0
+    saberTotal()
+    document.getElementById('current-money').innerText = currentMoney
+    calcSaberSellPrice = saberAmountTotal * saberPrice
+    document.getElementById('saber-sell-total').innerHTML = calcSaberSellPrice
+}
+
+let isFirstTimeSaber = true
+
+function saberStocks() {
+    var saberStocksUp = document.getElementById('stocks-up-saber')
+    var saberStocksDown = document.getElementById('stocks-down-saber')
+    if (isFirstTimeSaber) {
+        isFirstTimeSaber = false
+    } else if (numOfSaberSoldTotal >= 2500) {
+        saberPrice = 8
+        saberStocksUp.style.display = 'none'
+        saberStocksDown.style.display = 'inline'
+    } else if (numOfSaberSoldTotal >= 400) {
+        saberPrice = Math.max(48, saberPrice / 2)
+        saberStocksUp.style.display = 'none'
+        saberStocksDown.style.display = 'inline'
+    } else if (numOfSaberSoldTotal >= 300) {
+        saberPrice = Math.max(48, saberPrice / 1.75)
+        saberStocksUp.style.display = 'none'
+        saberStocksDown.style.display = 'inline'
+    } else if (numOfSaberSoldTotal >= 200) {
+        saberPrice = Math.max(48, saberPrice / 1.5)
+        saberStocksUp.style.display = 'none'
+        saberStocksDown.style.display = 'inline'
+    } else if (numOfSaberSoldTotal >= 100) {
+        saberPrice = Math.max(48, saberPrice / 1.25)
+        saberStocksUp.style.display = 'none'
+        saberStocksDown.style.display = 'inline'
+    } else if (numOfSaberSoldTotal > 50) {
+        saberPrice = saberPrice / 1
+        saberStocksUp.style.display = 'none'
+        saberStocksDown.style.display = 'none'
+    } else if (numOfSaberSoldTotal <= 50 && numOfSaberSoldTotal !== 0) {
+        saberPrice = Math.min(2687, saberPrice * 1.5)
+        saberStocksUp.style.display = 'inline'
+        saberStocksDown.style.display = 'none'
+    } else if (numOfSaberSoldTotal === 0) {
+        saberPrice = Math.min(2687, saberPrice * 2)
+        saberStocksUp.style.display = 'inline'
+        saberStocksDown.style.display = 'none'
+    }
+    numOfSaberSoldTotal = 0
+    saberPrice = Math.floor(saberPrice)
+    calcSaberSellPrice = saberAmountTotal * saberPrice
+    document.getElementById('saber-sell-total').innerHTML = calcSaberSellPrice
+    document.getElementById('current-saber-price').innerHTML = saberPrice
+}
+
+saberStocks()
+setInterval(saberStocks, 61000);
+
+var calcSaberSellPrice = saberAmountTotal * saberPrice
+document.getElementById('saber-sell-total').innerHTML = calcSaberSellPrice
+
+// Dervish Slime Section
+
+let dervishAmount = 0
+let dervishAmountTotal = 0
+
+function clickDervish() {
+    dervishAmount = dervishAmount + clickLevel
+    dervishTotal()
+}
+
+let numOfDervishSlimes = 0
+let costOfDervishSlimes = 4194304000
+document.getElementById('dervish-slime-price').innerHTML = costOfDervishSlimes
+document.getElementById('dervish-slime-amount').innerText = numOfDervishSlimes
+
+function buyDervishSlimes() {
+    if (numOfDervishSlimes >= 250 && currentMoney >= costOfDervishSlimes) {
+        costOfDervishSlimes = Math.floor(costOfDervishSlimes * 1.1)
+        document.getElementById('dervish-slime-price').innerHTML = costOfDervishSlimes
+    } else if (numOfDervishSlimes >= 100 && !(numOfDervishSlimes >= 250)) {
+        costOfDervishSlimes = 33554432000
+        document.getElementById('dervish-slime-price').innerHTML = costOfDervishSlimes
+    } else if (numOfDervishSlimes >= 50 && !(numOfDervishSlimes >= 250)) {
+        costOfDervishSlimes = 16777216000
+        document.getElementById('dervish-slime-price').innerHTML = costOfDervishSlimes
+    } else if (numOfDervishSlimes >= 10 && !(numOfDervishSlimes >= 250)) {
+        costOfDervishSlimes = 8388608000
+        document.getElementById('dervish-slime-price').innerHTML = costOfDervishSlimes
+    }
+    if (currentMoney >= costOfDervishSlimes) {
+        currentMoney = currentMoney - costOfDervishSlimes
+        numOfDervishSlimes = numOfDervishSlimes + 1
+    }
+    document.getElementById('dervish-slime-amount').innerText = numOfDervishSlimes
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoDervishMultiplier = 0.2
+let dervishLevel = 1
+document.getElementById('dervish-level').innerHTML = dervishLevel
+let dervishLevelCost = 16777216000
+document.getElementById('dervish-upgrade-price').innerHTML = dervishLevelCost
+
+function levelUpDervish() {
+    if (currentMoney >= dervishLevelCost) {
+        dervishLevel = dervishLevel + 1
+        autoDervishMultiplier = autoDervishMultiplier + 0.2
+        currentMoney = currentMoney - dervishLevelCost
+        dervishLevelCost = dervishLevelCost * 5
+        document.getElementById('dervish-upgrade-price').innerHTML = dervishLevelCost
+        document.getElementById('dervish-level').innerHTML = dervishLevel
+    }
+    if (dervishLevel === 5) {
+        document.getElementById('level-up-dervish').style.display = 'none'
+        document.getElementById('buy-dervish-slimes').classList = 'w-100 h-100'
+    }
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoDervishAmount = 0
+let dervishPrice = 1749
+
+function autoDervish() {
+    autoDervishAmount = autoDervishAmount + numOfDervishSlimes * autoDervishMultiplier
+    dervishTotal()
+}
+
+autoDervish()
+setInterval(autoDervish, 1000);
+
+function dervishTotal() {
+    dervishAmountTotal = dervishAmount + autoDervishAmount
+    dervishAmountTotal = Math.floor(dervishAmountTotal)
+    document.getElementById('dervish-plorts').innerHTML = dervishAmountTotal
+    calcDervishSellPrice = dervishAmountTotal * dervishPrice
+    document.getElementById('dervish-sell-total').innerHTML = calcDervishSellPrice
+}
+
+let numOfDervishSoldTotal = 0
+
+function dervishSell() {
+    numOfDervishSoldTotal = numOfDervishSoldTotal + dervishAmountTotal
+    currentMoney = currentMoney + dervishAmountTotal * dervishPrice
+    dervishAmount = 0
+    autoDervishAmount = 0
+    dervishTotal()
+    document.getElementById('current-money').innerText = currentMoney
+    calcDervishSellPrice = dervishAmountTotal * dervishPrice
+    document.getElementById('dervish-sell-total').innerHTML = calcDervishSellPrice
+}
+
+let isFirstTimeDervish = true
+
+function dervishStocks() {
+    var dervishStocksUp = document.getElementById('stocks-up-dervish')
+    var dervishStocksDown = document.getElementById('stocks-down-dervish')
+    if (isFirstTimeDervish) {
+        isFirstTimeDervish = false
+    } else if (numOfDervishSoldTotal >= 2500) {
+        dervishPrice = 8
+        dervishStocksUp.style.display = 'none'
+        dervishStocksDown.style.display = 'inline'
+    } else if (numOfDervishSoldTotal >= 400) {
+        dervishPrice = Math.max(52, dervishPrice / 2)
+        dervishStocksUp.style.display = 'none'
+        dervishStocksDown.style.display = 'inline'
+    } else if (numOfDervishSoldTotal >= 300) {
+        dervishPrice = Math.max(52, dervishPrice / 1.75)
+        dervishStocksUp.style.display = 'none'
+        dervishStocksDown.style.display = 'inline'
+    } else if (numOfDervishSoldTotal >= 200) {
+        dervishPrice = Math.max(52, dervishPrice / 1.5)
+        dervishStocksUp.style.display = 'none'
+        dervishStocksDown.style.display = 'inline'
+    } else if (numOfDervishSoldTotal >= 100) {
+        dervishPrice = Math.max(52, dervishPrice / 1.25)
+        dervishStocksUp.style.display = 'none'
+        dervishStocksDown.style.display = 'inline'
+    } else if (numOfDervishSoldTotal > 50) {
+        dervishPrice = dervishPrice / 1
+        dervishStocksUp.style.display = 'none'
+        dervishStocksDown.style.display = 'none'
+    } else if (numOfDervishSoldTotal <= 50 && numOfDervishSoldTotal !== 0) {
+        dervishPrice = Math.min(4030, dervishPrice * 1.5)
+        dervishStocksUp.style.display = 'inline'
+        dervishStocksDown.style.display = 'none'
+    } else if (numOfDervishSoldTotal === 0) {
+        dervishPrice = Math.min(4030, dervishPrice * 2)
+        dervishStocksUp.style.display = 'inline'
+        dervishStocksDown.style.display = 'none'
+    }
+    numOfDervishSoldTotal = 0
+    dervishPrice = Math.floor(dervishPrice)
+    calcDervishSellPrice = dervishAmountTotal * dervishPrice
+    document.getElementById('dervish-sell-total').innerHTML = calcDervishSellPrice
+    document.getElementById('current-dervish-price').innerHTML = dervishPrice
+}
+
+dervishStocks()
+setInterval(dervishStocks, 61000);
+
+var calcDervishSellPrice = dervishAmountTotal * dervishPrice
+document.getElementById('dervish-sell-total').innerHTML = calcDervishSellPrice
+
+// Quantum Slime Section
+
+let quantumAmount = 0
+let quantumAmountTotal = 0
+
+function clickQuantum() {
+    quantumAmount = quantumAmount + clickLevel
+    quantumTotal()
+}
+
+let numOfQuantumSlimes = 0
+let costOfQuantumSlimes = 1000
+document.getElementById('quantum-slime-price').innerHTML = costOfQuantumSlimes
+document.getElementById('quantum-slime-amount').innerText = numOfQuantumSlimes
+
+function buyQuantumSlimes() {
+    if (numOfQuantumSlimes >= 250 && currentMoney >= costOfQuantumSlimes) {
+        costOfQuantumSlimes = Math.floor(costOfQuantumSlimes * 1.1)
+        document.getElementById('quantum-slime-price').innerHTML = costOfQuantumSlimes
+    } else if (numOfQuantumSlimes >= 100 && !(numOfQuantumSlimes >= 250)) {
+        costOfQuantumSlimes = 8000
+        document.getElementById('quantum-slime-price').innerHTML = costOfQuantumSlimes
+    } else if (numOfQuantumSlimes >= 50 && !(numOfQuantumSlimes >= 250)) {
+        costOfQuantumSlimes = 4000
+        document.getElementById('quantum-slime-price').innerHTML = costOfQuantumSlimes
+    } else if (numOfQuantumSlimes >= 10 && !(numOfQuantumSlimes >= 250)) {
+        costOfQuantumSlimes = 2000
+        document.getElementById('quantum-slime-price').innerHTML = costOfQuantumSlimes
+    }
+    if (currentMoney >= costOfQuantumSlimes) {
+        currentMoney = currentMoney - costOfQuantumSlimes
+        numOfQuantumSlimes = numOfQuantumSlimes + 1
+    }
+    document.getElementById('quantum-slime-amount').innerText = numOfQuantumSlimes
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoQuantumMultiplier = 0.2
+let quantumLevel = 1
+document.getElementById('quantum-level').innerHTML = quantumLevel
+let quantumLevelCost = 4000
+document.getElementById('quantum-upgrade-price').innerHTML = quantumLevelCost
+
+function levelUpQuantum() {
+    if (currentMoney >= quantumLevelCost) {
+        quantumLevel = quantumLevel + 1
+        autoQuantumMultiplier = autoQuantumMultiplier + 0.2
+        currentMoney = currentMoney - quantumLevelCost
+        quantumLevelCost = quantumLevelCost * 5
+        document.getElementById('quantum-upgrade-price').innerHTML = quantumLevelCost
+        document.getElementById('quantum-level').innerHTML = quantumLevel
+    }
+    if (quantumLevel === 5) {
+        document.getElementById('level-up-quantum').style.display = 'none'
+        document.getElementById('buy-quantum-slimes').classList = 'w-100 h-100'
+    }
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoQuantumAmount = 0
+let quantumPrice = 15
+
+function autoQuantum() {
+    autoQuantumAmount = autoQuantumAmount + numOfQuantumSlimes * autoQuantumMultiplier
+    quantumTotal()
+}
+
+autoQuantum()
+setInterval(autoQuantum, 1000);
+
+function quantumTotal() {
+    quantumAmountTotal = quantumAmount + autoQuantumAmount
+    quantumAmountTotal = Math.floor(quantumAmountTotal)
+    document.getElementById('quantum-plorts').innerHTML = quantumAmountTotal
+    calcQuantumSellPrice = quantumAmountTotal * quantumPrice
+    document.getElementById('quantum-sell-total').innerHTML = calcQuantumSellPrice
+}
+
+let numOfQuantumSoldTotal = 0
+
+function quantumSell() {
+    numOfQuantumSoldTotal = numOfQuantumSoldTotal + quantumAmountTotal
+    currentMoney = currentMoney + quantumAmountTotal * quantumPrice
+    quantumAmount = 0
+    autoQuantumAmount = 0
+    quantumTotal()
+    document.getElementById('current-money').innerText = currentMoney
+    calcQuantumSellPrice = quantumAmountTotal * quantumPrice
+    document.getElementById('quantum-sell-total').innerHTML = calcQuantumSellPrice
+}
+
+let isFirstTimeQuantum = true
+
+function quantumStocks() {
+    var quantumStocksUp = document.getElementById('stocks-up-quantum')
+    var quantumStocksDown = document.getElementById('stocks-down-quantum')
+    if (isFirstTimeQuantum) {
+        isFirstTimeQuantum = false
+    } else if (numOfQuantumSoldTotal >= 2500) {
+        quantumPrice = 8
+        quantumStocksUp.style.display = 'none'
+        quantumStocksDown.style.display = 'inline'
+    } else if (numOfQuantumSoldTotal >= 400) {
+        quantumPrice = Math.max(8, quantumPrice / 2)
+        quantumStocksUp.style.display = 'none'
+        quantumStocksDown.style.display = 'inline'
+    } else if (numOfQuantumSoldTotal >= 300) {
+        quantumPrice = Math.max(8, quantumPrice / 1.75)
+        quantumStocksUp.style.display = 'none'
+        quantumStocksDown.style.display = 'inline'
+    } else if (numOfQuantumSoldTotal >= 200) {
+        quantumPrice = Math.max(8, quantumPrice / 1.5)
+        quantumStocksUp.style.display = 'none'
+        quantumStocksDown.style.display = 'inline'
+    } else if (numOfQuantumSoldTotal >= 100) {
+        quantumPrice = Math.max(8, quantumPrice / 1.25)
+        quantumStocksUp.style.display = 'none'
+        quantumStocksDown.style.display = 'inline'
+    } else if (numOfQuantumSoldTotal > 50) {
+        quantumPrice = quantumPrice / 1
+        quantumStocksUp.style.display = 'none'
+        quantumStocksDown.style.display = 'none'
+    } else if (numOfQuantumSoldTotal <= 50 && numOfQuantumSoldTotal !== 0) {
+        quantumPrice = Math.min(35, quantumPrice * 1.5)
+        quantumStocksUp.style.display = 'inline'
+        quantumStocksDown.style.display = 'none'
+    } else if (numOfQuantumSoldTotal === 0) {
+        quantumPrice = Math.min(35, quantumPrice * 2)
+        quantumStocksUp.style.display = 'inline'
+        quantumStocksDown.style.display = 'none'
+    }
+    numOfQuantumSoldTotal = 0
+    quantumPrice = Math.floor(quantumPrice)
+    calcQuantumSellPrice = quantumAmountTotal * quantumPrice
+    document.getElementById('quantum-sell-total').innerHTML = calcQuantumSellPrice
+    document.getElementById('current-quantum-price').innerHTML = quantumPrice
+}
+
+quantumStocks()
+setInterval(quantumStocks, 61000);
+
+var calcQuantumSellPrice = quantumAmountTotal * quantumPrice
+document.getElementById('quantum-sell-total').innerHTML = calcQuantumSellPrice
+
