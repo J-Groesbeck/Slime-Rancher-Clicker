@@ -2028,7 +2028,7 @@ function dervishStocks() {
     if (isFirstTimeDervish) {
         isFirstTimeDervish = false
     } else if (numOfDervishSoldTotal >= 2500) {
-        dervishPrice = 8
+        dervishPrice = 52
         dervishStocksUp.style.display = 'none'
         dervishStocksDown.style.display = 'inline'
     } else if (numOfDervishSoldTotal >= 400) {
@@ -2084,7 +2084,7 @@ function clickQuantum() {
 }
 
 let numOfQuantumSlimes = 0
-let costOfQuantumSlimes = 1000
+let costOfQuantumSlimes = 16777216000
 document.getElementById('quantum-slime-price').innerHTML = costOfQuantumSlimes
 document.getElementById('quantum-slime-amount').innerText = numOfQuantumSlimes
 
@@ -2093,13 +2093,13 @@ function buyQuantumSlimes() {
         costOfQuantumSlimes = Math.floor(costOfQuantumSlimes * 1.1)
         document.getElementById('quantum-slime-price').innerHTML = costOfQuantumSlimes
     } else if (numOfQuantumSlimes >= 100 && !(numOfQuantumSlimes >= 250)) {
-        costOfQuantumSlimes = 8000
+        costOfQuantumSlimes = 134217728000
         document.getElementById('quantum-slime-price').innerHTML = costOfQuantumSlimes
     } else if (numOfQuantumSlimes >= 50 && !(numOfQuantumSlimes >= 250)) {
-        costOfQuantumSlimes = 4000
+        costOfQuantumSlimes = 67108864000
         document.getElementById('quantum-slime-price').innerHTML = costOfQuantumSlimes
     } else if (numOfQuantumSlimes >= 10 && !(numOfQuantumSlimes >= 250)) {
-        costOfQuantumSlimes = 2000
+        costOfQuantumSlimes = 33554432000
         document.getElementById('quantum-slime-price').innerHTML = costOfQuantumSlimes
     }
     if (currentMoney >= costOfQuantumSlimes) {
@@ -2113,7 +2113,7 @@ function buyQuantumSlimes() {
 let autoQuantumMultiplier = 0.2
 let quantumLevel = 1
 document.getElementById('quantum-level').innerHTML = quantumLevel
-let quantumLevelCost = 4000
+let quantumLevelCost = 67108864000
 document.getElementById('quantum-upgrade-price').innerHTML = quantumLevelCost
 
 function levelUpQuantum() {
@@ -2133,7 +2133,7 @@ function levelUpQuantum() {
 }
 
 let autoQuantumAmount = 0
-let quantumPrice = 15
+let quantumPrice = 2624
 
 function autoQuantum() {
     autoQuantumAmount = autoQuantumAmount + numOfQuantumSlimes * autoQuantumMultiplier
@@ -2172,23 +2172,23 @@ function quantumStocks() {
     if (isFirstTimeQuantum) {
         isFirstTimeQuantum = false
     } else if (numOfQuantumSoldTotal >= 2500) {
-        quantumPrice = 8
+        quantumPrice = 56
         quantumStocksUp.style.display = 'none'
         quantumStocksDown.style.display = 'inline'
     } else if (numOfQuantumSoldTotal >= 400) {
-        quantumPrice = Math.max(8, quantumPrice / 2)
+        quantumPrice = Math.max(56, quantumPrice / 2)
         quantumStocksUp.style.display = 'none'
         quantumStocksDown.style.display = 'inline'
     } else if (numOfQuantumSoldTotal >= 300) {
-        quantumPrice = Math.max(8, quantumPrice / 1.75)
+        quantumPrice = Math.max(56, quantumPrice / 1.75)
         quantumStocksUp.style.display = 'none'
         quantumStocksDown.style.display = 'inline'
     } else if (numOfQuantumSoldTotal >= 200) {
-        quantumPrice = Math.max(8, quantumPrice / 1.5)
+        quantumPrice = Math.max(56, quantumPrice / 1.5)
         quantumStocksUp.style.display = 'none'
         quantumStocksDown.style.display = 'inline'
     } else if (numOfQuantumSoldTotal >= 100) {
-        quantumPrice = Math.max(8, quantumPrice / 1.25)
+        quantumPrice = Math.max(56, quantumPrice / 1.25)
         quantumStocksUp.style.display = 'none'
         quantumStocksDown.style.display = 'inline'
     } else if (numOfQuantumSoldTotal > 50) {
@@ -2196,11 +2196,11 @@ function quantumStocks() {
         quantumStocksUp.style.display = 'none'
         quantumStocksDown.style.display = 'none'
     } else if (numOfQuantumSoldTotal <= 50 && numOfQuantumSoldTotal !== 0) {
-        quantumPrice = Math.min(35, quantumPrice * 1.5)
+        quantumPrice = Math.min(6045, quantumPrice * 1.5)
         quantumStocksUp.style.display = 'inline'
         quantumStocksDown.style.display = 'none'
     } else if (numOfQuantumSoldTotal === 0) {
-        quantumPrice = Math.min(35, quantumPrice * 2)
+        quantumPrice = Math.min(6045, quantumPrice * 2)
         quantumStocksUp.style.display = 'inline'
         quantumStocksDown.style.display = 'none'
     }
@@ -2216,4 +2216,436 @@ setInterval(quantumStocks, 61000);
 
 var calcQuantumSellPrice = quantumAmountTotal * quantumPrice
 document.getElementById('quantum-sell-total').innerHTML = calcQuantumSellPrice
+
+// Tangle Slime Section
+
+let tangleAmount = 0
+let tangleAmountTotal = 0
+
+function clickTangle() {
+    tangleAmount = tangleAmount + clickLevel
+    tangleTotal()
+}
+
+let numOfTangleSlimes = 0
+let costOfTangleSlimes = 67108864000
+document.getElementById('tangle-slime-price').innerHTML = costOfTangleSlimes
+document.getElementById('tangle-slime-amount').innerText = numOfTangleSlimes
+
+function buyTangleSlimes() {
+    if (numOfTangleSlimes >= 250 && currentMoney >= costOfTangleSlimes) {
+        costOfTangleSlimes = Math.floor(costOfTangleSlimes * 1.1)
+        document.getElementById('tangle-slime-price').innerHTML = costOfTangleSlimes
+    } else if (numOfTangleSlimes >= 100 && !(numOfTangleSlimes >= 250)) {
+        costOfTangleSlimes = 536870912000
+        document.getElementById('tangle-slime-price').innerHTML = costOfTangleSlimes
+    } else if (numOfTangleSlimes >= 50 && !(numOfTangleSlimes >= 250)) {
+        costOfTangleSlimes = 268435456000
+        document.getElementById('tangle-slime-price').innerHTML = costOfTangleSlimes
+    } else if (numOfTangleSlimes >= 10 && !(numOfTangleSlimes >= 250)) {
+        costOfTangleSlimes = 134217728000
+        document.getElementById('tangle-slime-price').innerHTML = costOfTangleSlimes
+    }
+    if (currentMoney >= costOfTangleSlimes) {
+        currentMoney = currentMoney - costOfTangleSlimes
+        numOfTangleSlimes = numOfTangleSlimes + 1
+    }
+    document.getElementById('tangle-slime-amount').innerText = numOfTangleSlimes
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoTangleMultiplier = 0.2
+let tangleLevel = 1
+document.getElementById('tangle-level').innerHTML = tangleLevel
+let tangleLevelCost = 268435456000
+document.getElementById('tangle-upgrade-price').innerHTML = tangleLevelCost
+
+function levelUpTangle() {
+    if (currentMoney >= tangleLevelCost) {
+        tangleLevel = tangleLevel + 1
+        autoTangleMultiplier = autoTangleMultiplier + 0.2
+        currentMoney = currentMoney - tangleLevelCost
+        tangleLevelCost = tangleLevelCost * 5
+        document.getElementById('tangle-upgrade-price').innerHTML = tangleLevelCost
+        document.getElementById('tangle-level').innerHTML = tangleLevel
+    }
+    if (tangleLevel === 5) {
+        document.getElementById('level-up-tangle').style.display = 'none'
+        document.getElementById('buy-tangle-slimes').classList = 'w-100 h-100'
+    }
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoTangleAmount = 0
+let tanglePrice = 3936
+
+function autoTangle() {
+    autoTangleAmount = autoTangleAmount + numOfTangleSlimes * autoTangleMultiplier
+    tangleTotal()
+}
+
+autoTangle()
+setInterval(autoTangle, 1000);
+
+function tangleTotal() {
+    tangleAmountTotal = tangleAmount + autoTangleAmount
+    tangleAmountTotal = Math.floor(tangleAmountTotal)
+    document.getElementById('tangle-plorts').innerHTML = tangleAmountTotal
+    calcTangleSellPrice = tangleAmountTotal * tanglePrice
+    document.getElementById('tangle-sell-total').innerHTML = calcTangleSellPrice
+}
+
+let numOfTangleSoldTotal = 0
+
+function tangleSell() {
+    numOfTangleSoldTotal = numOfTangleSoldTotal + tangleAmountTotal
+    currentMoney = currentMoney + tangleAmountTotal * tanglePrice
+    tangleAmount = 0
+    autoTangleAmount = 0
+    tangleTotal()
+    document.getElementById('current-money').innerText = currentMoney
+    calcTangleSellPrice = tangleAmountTotal * tanglePrice
+    document.getElementById('tangle-sell-total').innerHTML = calcTangleSellPrice
+}
+
+let isFirstTimeTangle = true
+
+function tangleStocks() {
+    var tangleStocksUp = document.getElementById('stocks-up-tangle')
+    var tangleStocksDown = document.getElementById('stocks-down-tangle')
+    if (isFirstTimeTangle) {
+        isFirstTimeTangle = false
+    } else if (numOfTangleSoldTotal >= 2500) {
+        tanglePrice = 60
+        tangleStocksUp.style.display = 'none'
+        tangleStocksDown.style.display = 'inline'
+    } else if (numOfTangleSoldTotal >= 400) {
+        tanglePrice = Math.max(60, tanglePrice / 2)
+        tangleStocksUp.style.display = 'none'
+        tangleStocksDown.style.display = 'inline'
+    } else if (numOfTangleSoldTotal >= 300) {
+        tanglePrice = Math.max(60, tanglePrice / 1.75)
+        tangleStocksUp.style.display = 'none'
+        tangleStocksDown.style.display = 'inline'
+    } else if (numOfTangleSoldTotal >= 200) {
+        tanglePrice = Math.max(60, tanglePrice / 1.5)
+        tangleStocksUp.style.display = 'none'
+        tangleStocksDown.style.display = 'inline'
+    } else if (numOfTangleSoldTotal >= 100) {
+        tanglePrice = Math.max(60, tanglePrice / 1.25)
+        tangleStocksUp.style.display = 'none'
+        tangleStocksDown.style.display = 'inline'
+    } else if (numOfTangleSoldTotal > 50) {
+        tanglePrice = tanglePrice / 1
+        tangleStocksUp.style.display = 'none'
+        tangleStocksDown.style.display = 'none'
+    } else if (numOfTangleSoldTotal <= 50 && numOfTangleSoldTotal !== 0) {
+        tanglePrice = Math.min(9068, tanglePrice * 1.5)
+        tangleStocksUp.style.display = 'inline'
+        tangleStocksDown.style.display = 'none'
+    } else if (numOfTangleSoldTotal === 0) {
+        tanglePrice = Math.min(9068, tanglePrice * 2)
+        tangleStocksUp.style.display = 'inline'
+        tangleStocksDown.style.display = 'none'
+    }
+    numOfTangleSoldTotal = 0
+    tanglePrice = Math.floor(tanglePrice)
+    calcTangleSellPrice = tangleAmountTotal * tanglePrice
+    document.getElementById('tangle-sell-total').innerHTML = calcTangleSellPrice
+    document.getElementById('current-tangle-price').innerHTML = tanglePrice
+}
+
+tangleStocks()
+setInterval(tangleStocks, 61000);
+
+var calcTangleSellPrice = tangleAmountTotal * tanglePrice
+document.getElementById('tangle-sell-total').innerHTML = calcTangleSellPrice
+
+// Mosaic Slime Section
+
+let mosaicAmount = 0
+let mosaicAmountTotal = 0
+
+function clickMosaic() {
+    mosaicAmount = mosaicAmount + clickLevel
+    mosaicTotal()
+}
+
+let numOfMosaicSlimes = 0
+let costOfMosaicSlimes = 268435456000
+document.getElementById('mosaic-slime-price').innerHTML = costOfMosaicSlimes
+document.getElementById('mosaic-slime-amount').innerText = numOfMosaicSlimes
+
+function buyMosaicSlimes() {
+    if (numOfMosaicSlimes >= 250 && currentMoney >= costOfMosaicSlimes) {
+        costOfMosaicSlimes = Math.floor(costOfMosaicSlimes * 1.1)
+        document.getElementById('mosaic-slime-price').innerHTML = costOfMosaicSlimes
+    } else if (numOfMosaicSlimes >= 100 && !(numOfMosaicSlimes >= 250)) {
+        costOfMosaicSlimes = 2147483648000
+        document.getElementById('mosaic-slime-price').innerHTML = costOfMosaicSlimes
+    } else if (numOfMosaicSlimes >= 50 && !(numOfMosaicSlimes >= 250)) {
+        costOfMosaicSlimes = 1073741824000
+        document.getElementById('mosaic-slime-price').innerHTML = costOfMosaicSlimes
+    } else if (numOfMosaicSlimes >= 10 && !(numOfMosaicSlimes >= 250)) {
+        costOfMosaicSlimes = 536870912000
+        document.getElementById('mosaic-slime-price').innerHTML = costOfMosaicSlimes
+    }
+    if (currentMoney >= costOfMosaicSlimes) {
+        currentMoney = currentMoney - costOfMosaicSlimes
+        numOfMosaicSlimes = numOfMosaicSlimes + 1
+    }
+    document.getElementById('mosaic-slime-amount').innerText = numOfMosaicSlimes
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoMosaicMultiplier = 0.2
+let mosaicLevel = 1
+document.getElementById('mosaic-level').innerHTML = mosaicLevel
+let mosaicLevelCost = 1073741824000
+document.getElementById('mosaic-upgrade-price').innerHTML = mosaicLevelCost
+
+function levelUpMosaic() {
+    if (currentMoney >= mosaicLevelCost) {
+        mosaicLevel = mosaicLevel + 1
+        autoMosaicMultiplier = autoMosaicMultiplier + 0.2
+        currentMoney = currentMoney - mosaicLevelCost
+        mosaicLevelCost = mosaicLevelCost * 5
+        document.getElementById('mosaic-upgrade-price').innerHTML = mosaicLevelCost
+        document.getElementById('mosaic-level').innerHTML = mosaicLevel
+    }
+    if (mosaicLevel === 5) {
+        document.getElementById('level-up-mosaic').style.display = 'none'
+        document.getElementById('buy-mosaic-slimes').classList = 'w-100 h-100'
+    }
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoMosaicAmount = 0
+let mosaicPrice = 5904
+
+function autoMosaic() {
+    autoMosaicAmount = autoMosaicAmount + numOfMosaicSlimes * autoMosaicMultiplier
+    mosaicTotal()
+}
+
+autoMosaic()
+setInterval(autoMosaic, 1000);
+
+function mosaicTotal() {
+    mosaicAmountTotal = mosaicAmount + autoMosaicAmount
+    mosaicAmountTotal = Math.floor(mosaicAmountTotal)
+    document.getElementById('mosaic-plorts').innerHTML = mosaicAmountTotal
+    calcMosaicSellPrice = mosaicAmountTotal * mosaicPrice
+    document.getElementById('mosaic-sell-total').innerHTML = calcMosaicSellPrice
+}
+
+let numOfMosaicSoldTotal = 0
+
+function mosaicSell() {
+    numOfMosaicSoldTotal = numOfMosaicSoldTotal + mosaicAmountTotal
+    currentMoney = currentMoney + mosaicAmountTotal * mosaicPrice
+    mosaicAmount = 0
+    autoMosaicAmount = 0
+    mosaicTotal()
+    document.getElementById('current-money').innerText = currentMoney
+    calcMosaicSellPrice = mosaicAmountTotal * mosaicPrice
+    document.getElementById('mosaic-sell-total').innerHTML = calcMosaicSellPrice
+}
+
+let isFirstTimeMosaic = true
+
+function mosaicStocks() {
+    var mosaicStocksUp = document.getElementById('stocks-up-mosaic')
+    var mosaicStocksDown = document.getElementById('stocks-down-mosaic')
+    if (isFirstTimeMosaic) {
+        isFirstTimeMosaic = false
+    } else if (numOfMosaicSoldTotal >= 2500) {
+        mosaicPrice = 64
+        mosaicStocksUp.style.display = 'none'
+        mosaicStocksDown.style.display = 'inline'
+    } else if (numOfMosaicSoldTotal >= 400) {
+        mosaicPrice = Math.max(64, mosaicPrice / 2)
+        mosaicStocksUp.style.display = 'none'
+        mosaicStocksDown.style.display = 'inline'
+    } else if (numOfMosaicSoldTotal >= 300) {
+        mosaicPrice = Math.max(64, mosaicPrice / 1.75)
+        mosaicStocksUp.style.display = 'none'
+        mosaicStocksDown.style.display = 'inline'
+    } else if (numOfMosaicSoldTotal >= 200) {
+        mosaicPrice = Math.max(64, mosaicPrice / 1.5)
+        mosaicStocksUp.style.display = 'none'
+        mosaicStocksDown.style.display = 'inline'
+    } else if (numOfMosaicSoldTotal >= 100) {
+        mosaicPrice = Math.max(64, mosaicPrice / 1.25)
+        mosaicStocksUp.style.display = 'none'
+        mosaicStocksDown.style.display = 'inline'
+    } else if (numOfMosaicSoldTotal > 50) {
+        mosaicPrice = mosaicPrice / 1
+        mosaicStocksUp.style.display = 'none'
+        mosaicStocksDown.style.display = 'none'
+    } else if (numOfMosaicSoldTotal <= 50 && numOfMosaicSoldTotal !== 0) {
+        mosaicPrice = Math.min(13602, mosaicPrice * 1.5)
+        mosaicStocksUp.style.display = 'inline'
+        mosaicStocksDown.style.display = 'none'
+    } else if (numOfMosaicSoldTotal === 0) {
+        mosaicPrice = Math.min(13602, mosaicPrice * 2)
+        mosaicStocksUp.style.display = 'inline'
+        mosaicStocksDown.style.display = 'none'
+    }
+    numOfMosaicSoldTotal = 0
+    mosaicPrice = Math.floor(mosaicPrice)
+    calcMosaicSellPrice = mosaicAmountTotal * mosaicPrice
+    document.getElementById('mosaic-sell-total').innerHTML = calcMosaicSellPrice
+    document.getElementById('current-mosaic-price').innerHTML = mosaicPrice
+}
+
+mosaicStocks()
+setInterval(mosaicStocks, 61000);
+
+var calcMosaicSellPrice = mosaicAmountTotal * mosaicPrice
+document.getElementById('mosaic-sell-total').innerHTML = calcMosaicSellPrice
+
+// Gold Slime Section
+
+let goldAmount = 0
+let goldAmountTotal = 0
+
+function clickGold() {
+    goldAmount = goldAmount + clickLevel
+    goldTotal()
+}
+
+let numOfGoldSlimes = 0
+let costOfGoldSlimes = 1073741824000
+document.getElementById('gold-slime-price').innerHTML = costOfGoldSlimes
+document.getElementById('gold-slime-amount').innerText = numOfGoldSlimes
+
+function buyGoldSlimes() {
+    if (numOfGoldSlimes >= 250 && currentMoney >= costOfGoldSlimes) {
+        costOfGoldSlimes = Math.floor(costOfGoldSlimes * 1.1)
+        document.getElementById('gold-slime-price').innerHTML = costOfGoldSlimes
+    } else if (numOfGoldSlimes >= 100 && !(numOfGoldSlimes >= 250)) {
+        costOfGoldSlimes = 8589934600000
+        document.getElementById('gold-slime-price').innerHTML = costOfGoldSlimes
+    } else if (numOfGoldSlimes >= 50 && !(numOfGoldSlimes >= 250)) {
+        costOfGoldSlimes = 4294967296000
+        document.getElementById('gold-slime-price').innerHTML = costOfGoldSlimes
+    } else if (numOfGoldSlimes >= 10 && !(numOfGoldSlimes >= 250)) {
+        costOfGoldSlimes = 2147483648000
+        document.getElementById('gold-slime-price').innerHTML = costOfGoldSlimes
+    }
+    if (currentMoney >= costOfGoldSlimes) {
+        currentMoney = currentMoney - costOfGoldSlimes
+        numOfGoldSlimes = numOfGoldSlimes + 1
+    }
+    document.getElementById('gold-slime-amount').innerText = numOfGoldSlimes
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoGoldMultiplier = 0.2
+let goldLevel = 1
+document.getElementById('gold-level').innerHTML = goldLevel
+let goldLevelCost = 4294967296000
+document.getElementById('gold-upgrade-price').innerHTML = goldLevelCost
+
+function levelUpGold() {
+    if (currentMoney >= goldLevelCost) {
+        goldLevel = goldLevel + 1
+        autoGoldMultiplier = autoGoldMultiplier + 0.2
+        currentMoney = currentMoney - goldLevelCost
+        goldLevelCost = goldLevelCost * 5
+        document.getElementById('gold-upgrade-price').innerHTML = goldLevelCost
+        document.getElementById('gold-level').innerHTML = goldLevel
+    }
+    if (goldLevel === 5) {
+        document.getElementById('level-up-gold').style.display = 'none'
+        document.getElementById('buy-gold-slimes').classList = 'w-100 h-100'
+    }
+    document.getElementById('current-money').innerText = currentMoney
+}
+
+let autoGoldAmount = 0
+let goldPrice = 8856
+
+function autoGold() {
+    autoGoldAmount = autoGoldAmount + numOfGoldSlimes * autoGoldMultiplier
+    goldTotal()
+}
+
+autoGold()
+setInterval(autoGold, 1000);
+
+function goldTotal() {
+    goldAmountTotal = goldAmount + autoGoldAmount
+    goldAmountTotal = Math.floor(goldAmountTotal)
+    document.getElementById('gold-plorts').innerHTML = goldAmountTotal
+    calcGoldSellPrice = goldAmountTotal * goldPrice
+    document.getElementById('gold-sell-total').innerHTML = calcGoldSellPrice
+}
+
+let numOfGoldSoldTotal = 0
+
+function goldSell() {
+    numOfGoldSoldTotal = numOfGoldSoldTotal + goldAmountTotal
+    currentMoney = currentMoney + goldAmountTotal * goldPrice
+    goldAmount = 0
+    autoGoldAmount = 0
+    goldTotal()
+    document.getElementById('current-money').innerText = currentMoney
+    calcGoldSellPrice = goldAmountTotal * goldPrice
+    document.getElementById('gold-sell-total').innerHTML = calcGoldSellPrice
+}
+
+let isFirstTimeGold = true
+
+function goldStocks() {
+    var goldStocksUp = document.getElementById('stocks-up-gold')
+    var goldStocksDown = document.getElementById('stocks-down-gold')
+    if (isFirstTimeGold) {
+        isFirstTimeGold = false
+    } else if (numOfGoldSoldTotal >= 2500) {
+        goldPrice = 68
+        goldStocksUp.style.display = 'none'
+        goldStocksDown.style.display = 'inline'
+    } else if (numOfGoldSoldTotal >= 400) {
+        goldPrice = Math.max(68, goldPrice / 2)
+        goldStocksUp.style.display = 'none'
+        goldStocksDown.style.display = 'inline'
+    } else if (numOfGoldSoldTotal >= 300) {
+        goldPrice = Math.max(68, goldPrice / 1.75)
+        goldStocksUp.style.display = 'none'
+        goldStocksDown.style.display = 'inline'
+    } else if (numOfGoldSoldTotal >= 200) {
+        goldPrice = Math.max(68, goldPrice / 1.5)
+        goldStocksUp.style.display = 'none'
+        goldStocksDown.style.display = 'inline'
+    } else if (numOfGoldSoldTotal >= 100) {
+        goldPrice = Math.max(68, goldPrice / 1.25)
+        goldStocksUp.style.display = 'none'
+        goldStocksDown.style.display = 'inline'
+    } else if (numOfGoldSoldTotal > 50) {
+        goldPrice = goldPrice / 1
+        goldStocksUp.style.display = 'none'
+        goldStocksDown.style.display = 'none'
+    } else if (numOfGoldSoldTotal <= 50 && numOfGoldSoldTotal !== 0) {
+        goldPrice = Math.min(30000, goldPrice * 1.5)
+        goldStocksUp.style.display = 'inline'
+        goldStocksDown.style.display = 'none'
+    } else if (numOfGoldSoldTotal === 0) {
+        goldPrice = Math.min(30000, goldPrice * 2)
+        goldStocksUp.style.display = 'inline'
+        goldStocksDown.style.display = 'none'
+    }
+    numOfGoldSoldTotal = 0
+    goldPrice = Math.floor(goldPrice)
+    calcGoldSellPrice = goldAmountTotal * goldPrice
+    document.getElementById('gold-sell-total').innerHTML = calcGoldSellPrice
+    document.getElementById('current-gold-price').innerHTML = goldPrice
+}
+
+goldStocks()
+setInterval(goldStocks, 61000);
+
+var calcGoldSellPrice = goldAmountTotal * goldPrice
+document.getElementById('gold-sell-total').innerHTML = calcGoldSellPrice
 
