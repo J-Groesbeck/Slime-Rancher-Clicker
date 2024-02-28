@@ -2648,3 +2648,18 @@ setInterval(goldStocks, 61000);
 
 var calcGoldSellPrice = goldAmountTotal * goldPrice
 document.getElementById('gold-sell-total').innerText = calcGoldSellPrice.toLocaleString()
+
+function playGenerationSound() {
+    var snd = new Audio("");
+    snd.play();
+}
+
+function playSellSound() {
+    var snd = new Audio("");
+    snd.play();
+}
+
+function playPurchaseSound() {
+    var snd = new Audio("");
+    snd.play();
+}
