@@ -2642,7 +2642,6 @@ function goldStocks() {
     document.getElementById('gold-sell-total').innerText = calcGoldSellPrice.toLocaleString()
     document.getElementById('current-gold-price').innerText = goldPrice.toLocaleString()
 }
-
 goldStocks()
 setInterval(goldStocks, 61000);
 
@@ -2662,4 +2661,15 @@ function playSellSound() {
 function playPurchaseSound() {
     var snd = new Audio("");
     snd.play();
+}
+
+function luckySlime() {
+    let randomNumber = Math.floor(Math.random() * 1000)
+    if (randomNumber === 0) {
+        currentMoney = currentMoney * 1.5
+        document.getElementById('luckyPopup').classList.remove('d-none') // add a popup when it triggers telling you what happened
+        setTimeout(() => {
+            document.getElementById('luckyPopup').classList.add('d-none')
+          }, 10000);
+    }
 }
