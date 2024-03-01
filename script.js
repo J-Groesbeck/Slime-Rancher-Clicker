@@ -1496,7 +1496,7 @@ setInterval(hunterStocks, 61000);
 var calcHunterSellPrice = hunterAmountTotal * hunterPrice
 document.getElementById('hunter-sell-total').innerText = calcHunterSellPrice.toLocaleString()
 
-    // Rad Slime Section
+// Rad Slime Section
 
 let radAmount = 0
 let radAmountTotal = 0
@@ -2498,7 +2498,6 @@ function mosaicStocks() {
     document.getElementById('mosaic-sell-total').innerText = calcMosaicSellPrice.toLocaleString()
     document.getElementById('current-mosaic-price').innerText = mosaicPrice.toLocaleString()
 }
-
 mosaicStocks()
 setInterval(mosaicStocks, 61000);
 
@@ -2649,27 +2648,59 @@ var calcGoldSellPrice = goldAmountTotal * goldPrice
 document.getElementById('gold-sell-total').innerText = calcGoldSellPrice.toLocaleString()
 
 function playGenerationSound() {
-    var snd = new Audio("");
+    let snd = null
+    let isFirstTime = true
+    if (isFirstTime) {
+        snd = new Audio("sfx/generation.wav");
+        isFirstTime = false
+    }
     snd.play();
 }
 
 function playSellSound() {
-    var snd = new Audio("");
+    let snd = null
+    let isFirstTime = true
+    if (isFirstTime) {
+        snd = new Audio("sfx/sell.wav");
+        isFirstTime = false
+    }
     snd.play();
 }
 
 function playPurchaseSound() {
-    var snd = new Audio("");
+    let snd = null
+    let isFirstTime = true
+    if (isFirstTime) {
+        snd = new Audio("sfx/buy.wav");
+        isFirstTime = false
+    }
+    snd.play();
+}
+
+function playPurchaseUpgradeSound() {
+    let snd = null
+    let isFirstTime = true
+    if (isFirstTime) {
+        snd = new Audio("sfx/upgrade.wav");
+        isFirstTime = false
+    }
     snd.play();
 }
 
 function luckySlime() {
     let randomNumber = Math.floor(Math.random() * 1000)
     if (randomNumber === 0) {
-        currentMoney = currentMoney * 1.5
+        currentMoney = currentMoney * 2
+        document.getElementById('current-money').innerText = currentMoney.toLocaleString()
         document.getElementById('luckyPopup').classList.remove('d-none') // add a popup when it triggers telling you what happened
+        let isFirstTime = true
+        if (isFirstTime) {
+            snd = new Audio("sfx/lucky_coins.wav");
+            isFirstTime = false
+        }
+        snd.play();
         setTimeout(() => {
             document.getElementById('luckyPopup').classList.add('d-none')
-          }, 10000);
+        }, 5000);
     }
 }

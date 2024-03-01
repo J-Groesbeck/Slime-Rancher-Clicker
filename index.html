@@ -13,6 +13,13 @@
 <body class="overflow-x-hidden">
     <!-- This page will be a home page with a "start game" option, and the disclaimer that there is no way to save your data, and reloading the page will reset your progress -->
     <div class="container-fluid">
+        <div id="luckyPopup" class="d-none">
+            <div class="row text-center">
+                <div class="col-12"><img src="img/pink-slime.png" class="lucky-height"></div>
+                <h1>Congrats! You found a lucky slime!</h1>
+                <h3>It has given you enough gold to double your current amount!</h3>
+            </div>
+        </div>
         <div class="row">
             <div class="col-9 text-center">
                 <h1><img src="img/coin.png" class="scales-h1"><span id="current-money"></span></h1>
@@ -23,23 +30,23 @@
             <div class="col-4">
                 <div class="text-center">
                     <img src="img/pink-slime.png" class="clicker-height" onclick="clickPink(); playGenerationSound(); luckySlime()" id="click-pink"></img>
-                    <img src="img/rock-slime.png" class="clicker-height" onclick="clickRock(); playGenerationSound()" id="click-rock"></img>
-                    <img src="img/phosphor-slime.png" class="clicker-height" onclick="clickPhosphor(); playGenerationSound()"
+                    <img src="img/rock-slime.png" class="clicker-height" onclick="clickRock(); playGenerationSound(); luckySlime()" id="click-rock"></img>
+                    <img src="img/phosphor-slime.png" class="clicker-height" onclick="clickPhosphor(); playGenerationSound(); luckySlime()"
                         id="click-phosphor"></img>
-                    <img src="img/tabby-slime.png" class="clicker-height" onclick="clickTabby(); playGenerationSound()" id="click-tabby"></img>
-                    <img src="img/puddle-slime.png" class="clicker-height" onclick="clickPuddle(); playGenerationSound()" id="click-puddle"></img>
-                    <img src="img/fire-slime.png" class="clicker-height" onclick="clickFire(); playGenerationSound()" id="click-fire"></img>
-                    <img src="img/honey-slime.png" class="clicker-height" onclick="clickHoney(); playGenerationSound()" id="click-honey"></img>
-                    <img src="img/boom-slime.png" class="clicker-height" onclick="clickBoom(); playGenerationSound()" id="click-boom"></img>
-                    <img src="img/hunter-slime.png" class="clicker-height" onclick="clickHunter(); playGenerationSound()" id="click-hunter"></img>
-                    <img src="img/rad-slime.png" class="clicker-height" onclick="clickRad(); playGenerationSound()" id="click-rad"></img>
-                    <img src="img/crystal-slime.png" class="clicker-height" onclick="clickCrystal(); playGenerationSound()" id="click-crystal"></img>
-                    <img src="img/saber-slime.png" class="clicker-height" onclick="clickSaber(); playGenerationSound()" id="click-saber"></img>
-                    <img src="img/dervish-slime.png" class="clicker-height" onclick="clickDervish(); playGenerationSound()" id="click-dervish"></img>
-                    <img src="img/quantum-slime.png" class="clicker-height" onclick="clickQuantum(); playGenerationSound()" id="click-quantum"></img>
-                    <img src="img/tangle-slime.png" class="clicker-height" onclick="clickTangle(); playGenerationSound()" id="click-tangle"></img>
-                    <img src="img/mosaic-slime.png" class="clicker-height" onclick="clickMosaic(); playGenerationSound()" id="click-mosaic"></img>
-                    <img src="img/gold-slime.png" class="clicker-height" onclick="clickGold(); playGenerationSound()" id="click-gold"></img>
+                    <img src="img/tabby-slime.png" class="clicker-height" onclick="clickTabby(); playGenerationSound(); luckySlime()" id="click-tabby"></img>
+                    <img src="img/puddle-slime.png" class="clicker-height" onclick="clickPuddle(); playGenerationSound(); luckySlime()" id="click-puddle"></img>
+                    <img src="img/fire-slime.png" class="clicker-height" onclick="clickFire(); playGenerationSound(); luckySlime()" id="click-fire"></img>
+                    <img src="img/honey-slime.png" class="clicker-height" onclick="clickHoney(); playGenerationSound(); luckySlime()" id="click-honey"></img>
+                    <img src="img/boom-slime.png" class="clicker-height" onclick="clickBoom(); playGenerationSound(); luckySlime()" id="click-boom"></img>
+                    <img src="img/hunter-slime.png" class="clicker-height" onclick="clickHunter(); playGenerationSound(); luckySlime()" id="click-hunter"></img>
+                    <img src="img/rad-slime.png" class="clicker-height" onclick="clickRad(); playGenerationSound(); luckySlime()" id="click-rad"></img>
+                    <img src="img/crystal-slime.png" class="clicker-height" onclick="clickCrystal(); playGenerationSound(); luckySlime()" id="click-crystal"></img>
+                    <img src="img/saber-slime.png" class="clicker-height" onclick="clickSaber(); playGenerationSound(); luckySlime()" id="click-saber"></img>
+                    <img src="img/dervish-slime.png" class="clicker-height" onclick="clickDervish(); playGenerationSound(); luckySlime()" id="click-dervish"></img>
+                    <img src="img/quantum-slime.png" class="clicker-height" onclick="clickQuantum(); playGenerationSound(); luckySlime()" id="click-quantum"></img>
+                    <img src="img/tangle-slime.png" class="clicker-height" onclick="clickTangle(); playGenerationSound(); luckySlime()" id="click-tangle"></img>
+                    <img src="img/mosaic-slime.png" class="clicker-height" onclick="clickMosaic(); playGenerationSound(); luckySlime()" id="click-mosaic"></img>
+                    <img src="img/gold-slime.png" class="clicker-height" onclick="clickGold(); playGenerationSound(); luckySlime()" id="click-gold"></img>
                 </div>
                 <div class="row default-height">
                     <div class="col-4 text-center">
@@ -443,7 +450,7 @@
                             <h6 class="mb-0">Rank Up For<br><img src="img/coin.png" class="scales-h6"><span
                                     id="click-rank-cost"></span></h6>
                         </button>
-                        <button onclick="levelUpClick(); playPurchaseSound()" class="w-100" id="level-up-click">
+                        <button onclick="levelUpClick(); playPurchaseUpgradeSound()" class="w-100" id="level-up-click">
                             <h6 class="mb-0">Upgrade For<br><img src="img/coin.png" class="scales-h6"><span
                                     id="click-level-cost"></span></h6>
                         </button>
@@ -455,14 +462,14 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="pink-slime-amount"></span></h4>
-                        <h6>Each produces <span id="pink-level"></span> plort(s) every 5 seconds</h6>
+                        <h6>Each pink slime produces <span id="pink-level"></span> pink plort(s) every 5 seconds</h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyPinkSlimes(); playPurchaseSound()" class="w-100" id="buy-pink-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="pink-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpPink(); playPurchaseSound()" class="w-100" id="level-up-pink">
+                        <button onclick="levelUpPink(); playPurchaseUpgradeSound()" class="w-100" id="level-up-pink">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="pink-upgrade-price"></span></h6>
                         </button>
@@ -474,14 +481,14 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="rock-slime-amount"></span></h4>
-                        <h6>Each produces <span id="rock-level"></span> plort(s) every 5 seconds</h6>
+                        <h6>Each rock slime produces <span id="rock-level"></span> rock plort(s) every 5 seconds</h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyRockSlimes(); playPurchaseSound()" class="w-100" id="buy-rock-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="rock-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpRock(); playPurchaseSound()" class="w-100" id="level-up-rock">
+                        <button onclick="levelUpRock(); playPurchaseUpgradeSound()" class="w-100" id="level-up-rock">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="rock-upgrade-price"></span></h6>
                         </button>
@@ -493,14 +500,14 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="phosphor-slime-amount"></span></h4>
-                        <h6>Each produces <span id="phosphor-level"></span> plort(s) every 5 seconds</h6>
+                        <h6>Each phosphor slime produces <span id="phosphor-level"></span> phosphor plort(s) every 5 secs</h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyPhosphorSlimes(); playPurchaseSound()" class="w-100" id="buy-phosphor-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="phosphor-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpPhosphor(); playPurchaseSound()" class="w-100" id="level-up-phosphor">
+                        <button onclick="levelUpPhosphor(); playPurchaseUpgradeSound()" class="w-100" id="level-up-phosphor">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="phosphor-upgrade-price"></span></h6>
                         </button>
@@ -512,14 +519,14 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="tabby-slime-amount"></span></h4>
-                        <h6>Each produces <span id="tabby-level"></span> plort(s) every 5 seconds</h6>
+                        <h6>Each tabby slime produces <span id="tabby-level"></span> tabby plort(s) every 5 seconds</h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyTabbySlimes(); playPurchaseSound()" class="w-100" id="buy-tabby-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="tabby-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpTabby(); playPurchaseSound()" class="w-100" id="level-up-tabby">
+                        <button onclick="levelUpTabby(); playPurchaseUpgradeSound()" class="w-100" id="level-up-tabby">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="tabby-upgrade-price"></span></h6>
                         </button>
@@ -531,14 +538,14 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="puddle-slime-amount"></span></h4>
-                        <h6>Each produces <span id="puddle-level"></span> plort(s) every 5 seconds</h6>
+                        <h6>Each puddle slime produces <span id="puddle-level"></span> puddle plort(s) every 5 seconds</h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyPuddleSlimes(); playPurchaseSound()" class="w-100" id="buy-puddle-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="puddle-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpPuddle(); playPurchaseSound()" class="w-100" id="level-up-puddle">
+                        <button onclick="levelUpPuddle(); playPurchaseUpgradeSound()" class="w-100" id="level-up-puddle">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="puddle-upgrade-price"></span></h6>
                         </button>
@@ -550,14 +557,14 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="fire-slime-amount"></span></h4>
-                        <h6>Each produces <span id="fire-level"></span> plort(s) every 5 seconds</h6>
+                        <h6>Each fire slime produces <span id="fire-level"></span> fire plort(s) every 5 seconds</h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyFireSlimes(); playPurchaseSound()" class="w-100" id="buy-fire-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="fire-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpFire(); playPurchaseSound()" class="w-100" id="level-up-fire">
+                        <button onclick="levelUpFire(); playPurchaseUpgradeSound()" class="w-100" id="level-up-fire">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="fire-upgrade-price"></span></h6>
                         </button>
@@ -569,14 +576,14 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="honey-slime-amount"></span></h4>
-                        <h6>Each produces <span id="honey-level"></span> plort(s) every 5 seconds</h6>
+                        <h6>Each honey slime produces <span id="honey-level"></span> honey plort(s) every 5 seconds</h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyHoneySlimes(); playPurchaseSound()" class="w-100" id="buy-honey-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="honey-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpHoney(); playPurchaseSound()" class="w-100" id="level-up-honey">
+                        <button onclick="levelUpHoney(); playPurchaseUpgradeSound()" class="w-100" id="level-up-honey">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="honey-upgrade-price"></span></h6>
                         </button>
@@ -588,14 +595,14 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="boom-slime-amount"></span></h4>
-                        <h6>Each produces <span id="boom-level"></span> plort(s) every 5 seconds</h6>
+                        <h6>Each boom slime produces <span id="boom-level"></span> boom plort(s) every 5 seconds</h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyBoomSlimes(); playPurchaseSound()" class="w-100" id="buy-boom-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="boom-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpBoom(); playPurchaseSound()" class="w-100" id="level-up-boom">
+                        <button onclick="levelUpBoom(); playPurchaseUpgradeSound()" class="w-100" id="level-up-boom">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="boom-upgrade-price"></span></h6>
                         </button>
@@ -607,14 +614,14 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="hunter-slime-amount"></span></h4>
-                        <h6>Each produces <span id="hunter-level"></span> plort(s) every 5 seconds</h6>
+                        <h6>Each hunter slime produces <span id="hunter-level"></span> hunter plort(s) every 5 seconds</h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyHunterSlimes(); playPurchaseSound()" class="w-100" id="buy-hunter-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="hunter-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpHunter(); playPurchaseSound()" class="w-100" id="level-up-hunter">
+                        <button onclick="levelUpHunter(); playPurchaseUpgradeSound()" class="w-100" id="level-up-hunter">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="hunter-upgrade-price"></span></h6>
                         </button>
@@ -626,14 +633,14 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="rad-slime-amount"></span></h4>
-                        <h6>Each produces <span id="rad-level"></span> plort(s) every 5 seconds</h6>
+                        <h6>Each rad slime produces <span id="rad-level"></span> rad plort(s) every 5 seconds</h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyRadSlimes(); playPurchaseSound()" class="w-100" id="buy-rad-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="rad-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpRad(); playPurchaseSound()" class="w-100" id="level-up-rad">
+                        <button onclick="levelUpRad(); playPurchaseUpgradeSound()" class="w-100" id="level-up-rad">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="rad-upgrade-price"></span></h6>
                         </button>
@@ -645,14 +652,14 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="crystal-slime-amount"></span></h4>
-                        <h6>Each produces <span id="crystal-level"></span> plort(s) every 5 seconds</h6>
+                        <h6>Each crystal slime produces <span id="crystal-level"></span> crystal plort(s) every 5 seconds</h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyCrystalSlimes(); playPurchaseSound()" class="w-100" id="buy-crystal-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="crystal-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpCrystal(); playPurchaseSound()" class="w-100" id="level-up-crystal">
+                        <button onclick="levelUpCrystal(); playPurchaseUpgradeSound()" class="w-100" id="level-up-crystal">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="crystal-upgrade-price"></span></h6>
                         </button>
@@ -664,14 +671,14 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="saber-slime-amount"></span></h4>
-                        <h6>Each produces <span id="saber-level"></span> plort(s) every 5 seconds</h6>
+                        <h6>Each saber slime produces <span id="saber-level"></span> saber plort(s) every 5 seconds</h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buySaberSlimes(); playPurchaseSound()" class="w-100" id="buy-saber-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="saber-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpSaber(); playPurchaseSound()" class="w-100" id="level-up-saber">
+                        <button onclick="levelUpSaber(); playPurchaseUpgradeSound()" class="w-100" id="level-up-saber">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="saber-upgrade-price"></span></h6>
                         </button>
@@ -683,14 +690,14 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="dervish-slime-amount"></span></h4>
-                        <h6>Each produces <span id="dervish-level"></span> plort(s) every 5 seconds</h6>
+                        <h6>Each dervish slime produces <span id="dervish-level"></span> dervish plort(s) every 5 seconds</h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyDervishSlimes(); playPurchaseSound()" class="w-100" id="buy-dervish-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="dervish-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpDervish(); playPurchaseSound()" class="w-100" id="level-up-dervish">
+                        <button onclick="levelUpDervish(); playPurchaseUpgradeSound()" class="w-100" id="level-up-dervish">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="dervish-upgrade-price"></span></h6>
                         </button>
@@ -702,14 +709,14 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="quantum-slime-amount"></span></h4>
-                        <h6>Each produces <span id="quantum-level"></span> plort(s) every 5 seconds</h6>
+                        <h6>Each quantum slime produces <span id="quantum-level"></span> quantum plort(s) every 5 seconds</h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyQuantumSlimes(); playPurchaseSound()" class="w-100" id="buy-quantum-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="quantum-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpQuantum(); playPurchaseSound()" class="w-100" id="level-up-quantum">
+                        <button onclick="levelUpQuantum(); playPurchaseUpgradeSound()" class="w-100" id="level-up-quantum">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="quantum-upgrade-price"></span></h6>
                         </button>
@@ -722,14 +729,14 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="tangle-slime-amount"></span></h4>
-                        <h6>Each produces <span id="tangle-level"></span> plort(s) every 5 seconds</h6>
+                        <h6>Each tangle slime produces <span id="tangle-level"></span> tangle plort(s) every 5 seconds</h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyTangleSlimes(); playPurchaseSound()" class="w-100" id="buy-tangle-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="tangle-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpTangle(); playPurchaseSound()" class="w-100" id="level-up-tangle">
+                        <button onclick="levelUpTangle(); playPurchaseUpgradeSound()" class="w-100" id="level-up-tangle">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="tangle-upgrade-price"></span></h6>
                         </button>
@@ -742,14 +749,14 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="mosaic-slime-amount"></span></h4>
-                        <h6>Each produces <span id="mosaic-level"></span> plort(s) every 5 seconds</h6>
+                        <h6>Each mosaic slime produces <span id="mosaic-level"></span> mosaic plort(s) every 5 seconds</h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyMosaicSlimes(); playPurchaseSound()" class="w-100" id="buy-mosaic-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="mosaic-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpMosaic(); playPurchaseSound()" class="w-100" id="level-up-mosaic">
+                        <button onclick="levelUpMosaic(); playPurchaseUpgradeSound()" class="w-100" id="level-up-mosaic">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="mosaic-upgrade-price"></span></h6>
                         </button>
@@ -762,14 +769,14 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="gold-slime-amount"></span></h4>
-                        <h6>Each produces <span id="gold-level"></span> plort(s) every 5 seconds</h6>
+                        <h6>Each gold slime produces <span id="gold-level"></span> gold plort(s) every 5 seconds</h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyGoldSlimes(); playPurchaseSound()" class="w-100" id="buy-gold-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="gold-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpGold(); playPurchaseSound()" class="w-100" id="level-up-gold">
+                        <button onclick="levelUpGold(); playPurchaseUpgradeSound()" class="w-100" id="level-up-gold">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="gold-upgrade-price"></span></h6>
                         </button>

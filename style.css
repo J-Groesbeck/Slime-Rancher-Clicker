@@ -107,3 +107,15 @@ body {
 .clicker-height {
     height: 15rem;
 }
+
+.lucky-height {
+    height: 10rem;
+}
+
+#luckyPopup {
+    position: fixed;
+    z-index: 9999;
+    background-color: brown;
+    top: 5rem;
+    width: 100%;
+}
