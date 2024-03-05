@@ -119,3 +119,7 @@ body {
     top: 5rem;
     width: 100%;
 }
+
+.clicker-height:active {
+    transform: scale(1.05);
+}

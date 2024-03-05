@@ -220,6 +220,11 @@ document.getElementById('pink-slime-price').innerText = costOfPinkSlimes.toLocal
 document.getElementById('pink-slime-amount').innerText = numOfPinkSlimes.toLocaleString()
 
 function buyPinkSlimes() {
+        if (currentMoney >= costOfPinkSlimes) {
+        currentMoney = currentMoney - costOfPinkSlimes
+        numOfPinkSlimes = numOfPinkSlimes + 1
+        playPurchaseSound()
+    }
     if (numOfPinkSlimes >= 250 && currentMoney >= costOfPinkSlimes) {
         costOfPinkSlimes = Math.floor(costOfPinkSlimes * 1.1)
         document.getElementById('pink-slime-price').innerText = costOfPinkSlimes.toLocaleString()
@@ -232,11 +237,6 @@ function buyPinkSlimes() {
     } else if (numOfPinkSlimes >= 10 && !(numOfPinkSlimes >= 250)) {
         costOfPinkSlimes = 500
         document.getElementById('pink-slime-price').innerText = costOfPinkSlimes.toLocaleString()
-    }
-    if (currentMoney >= costOfPinkSlimes) {
-        currentMoney = currentMoney - costOfPinkSlimes
-        numOfPinkSlimes = numOfPinkSlimes + 1
-        playPurchaseSound()
     }
     document.getElementById('pink-slime-amount').innerText = numOfPinkSlimes.toLocaleString()
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
@@ -2722,7 +2722,6 @@ function playPurchaseUpgradeSound() {
 
 function luckySlime() {
     let randomNumber = Math.floor(Math.random() * 1000)
-    randomNumber = 0
     if (randomNumber === 0) {
         currentMoney = currentMoney * 2
         document.getElementById('current-money').innerText = currentMoney.toLocaleString()
@@ -2733,4 +2732,104 @@ function luckySlime() {
             document.getElementById('luckyPopup').classList.add('d-none')
         }, 5000);
     }
+}
+
+// save the game when appropriate button is clicked
+function saveGame {
+    localStorage.setItem("money", currentMoney); // saves current money
+
+    localStorage.setItem("click-rank", ); // saves current click rank, need to make variable for this to save
+    localStorage.setItem("click-level", clickLevel); // saves current click level
+
+    localStorage.setItem("pink-plorts", currentMoney); // saves current pink plort amount
+    localStorage.setItem("money", currentMoney); // saves current pink sell price
+    localStorage.setItem("money", currentMoney); // saves current pink slime amount
+    localStorage.setItem("money", currentMoney); // saves current pink slime level
+
+    localStorage.setItem("money", currentMoney); // saves current rock plort amount
+    localStorage.setItem("money", currentMoney); // saves current rock sell price
+    localStorage.setItem("money", currentMoney); // saves current rock slime amount
+    localStorage.setItem("money", currentMoney); // saves current rock slime level
+
+    localStorage.setItem("money", currentMoney); // saves current phosphor plort amount
+    localStorage.setItem("money", currentMoney); // saves current phosphor sell price
+    localStorage.setItem("money", currentMoney); // saves current phosphor slime amount
+    localStorage.setItem("money", currentMoney); // saves current phosphor slime level
+
+    localStorage.setItem("money", currentMoney); // saves current tabby plort amount
+    localStorage.setItem("money", currentMoney); // saves current tabby sell price
+    localStorage.setItem("money", currentMoney); // saves current tabby slime amount
+    localStorage.setItem("money", currentMoney); // saves current tabby slime level
+
+    localStorage.setItem("money", currentMoney); // saves current puddle plort amount
+    localStorage.setItem("money", currentMoney); // saves current puddle sell price
+    localStorage.setItem("money", currentMoney); // saves current puddle slime amount
+    localStorage.setItem("money", currentMoney); // saves current puddle slime level
+
+    localStorage.setItem("money", currentMoney); // saves current fire plort amount
+    localStorage.setItem("money", currentMoney); // saves current fire sell price
+    localStorage.setItem("money", currentMoney); // saves current fire slime amount
+    localStorage.setItem("money", currentMoney); // saves current fire slime level
+
+    localStorage.setItem("money", currentMoney); // saves current honey plort amount
+    localStorage.setItem("money", currentMoney); // saves current honey sell price
+    localStorage.setItem("money", currentMoney); // saves current honey slime amount
+    localStorage.setItem("money", currentMoney); // saves current honey slime level
+
+    localStorage.setItem("money", currentMoney); // saves current honey plort amount
+    localStorage.setItem("money", currentMoney); // saves current honey sell price
+    localStorage.setItem("money", currentMoney); // saves current honey slime amount
+    localStorage.setItem("money", currentMoney); // saves current honey slime level
+
+    localStorage.setItem("money", currentMoney); // saves current boom plort amount
+    localStorage.setItem("money", currentMoney); // saves current boom sell price
+    localStorage.setItem("money", currentMoney); // saves current boom slime amount
+    localStorage.setItem("money", currentMoney); // saves current boom slime level
+
+    localStorage.setItem("money", currentMoney); // saves current hunter plort amount
+    localStorage.setItem("money", currentMoney); // saves current hunter sell price
+    localStorage.setItem("money", currentMoney); // saves current hunter slime amount
+    localStorage.setItem("money", currentMoney); // saves current hunter slime level
+
+    localStorage.setItem("money", currentMoney); // saves current rad plort amount
+    localStorage.setItem("money", currentMoney); // saves current rad sell price
+    localStorage.setItem("money", currentMoney); // saves current rad slime amount
+    localStorage.setItem("money", currentMoney); // saves current rad slime level
+
+    localStorage.setItem("money", currentMoney); // saves current crystal plort amount
+    localStorage.setItem("money", currentMoney); // saves current crystal sell price
+    localStorage.setItem("money", currentMoney); // saves current crystal slime amount
+    localStorage.setItem("money", currentMoney); // saves current crystal slime level
+
+    localStorage.setItem("money", currentMoney); // saves current saber plort amount
+    localStorage.setItem("money", currentMoney); // saves current saber sell price
+    localStorage.setItem("money", currentMoney); // saves current saber slime amount
+    localStorage.setItem("money", currentMoney); // saves current saber slime level
+
+    localStorage.setItem("money", currentMoney); // saves current dervish plort amount
+    localStorage.setItem("money", currentMoney); // saves current dervish sell price
+    localStorage.setItem("money", currentMoney); // saves current dervish slime amount
+    localStorage.setItem("money", currentMoney); // saves current dervish slime level
+
+    localStorage.setItem("money", currentMoney); // saves current quantum plort amount
+    localStorage.setItem("money", currentMoney); // saves current quantum sell price
+    localStorage.setItem("money", currentMoney); // saves current quantum slime amount
+    localStorage.setItem("money", currentMoney); // saves current quantum slime level
+
+    localStorage.setItem("money", currentMoney); // saves current tangle plort amount
+    localStorage.setItem("money", currentMoney); // saves current tangle sell price
+    localStorage.setItem("money", currentMoney); // saves current tangle slime amount
+    localStorage.setItem("money", currentMoney); // saves current tangle slime level
+
+    localStorage.setItem("money", currentMoney); // saves current mosaic plort amount
+    localStorage.setItem("money", currentMoney); // saves current mosaic sell price
+    localStorage.setItem("money", currentMoney); // saves current mosaic slime amount
+    localStorage.setItem("money", currentMoney); // saves current mosaic slime level
+
+    localStorage.setItem("money", currentMoney); // saves current gold plort amount
+    localStorage.setItem("money", currentMoney); // saves current gold sell price
+    localStorage.setItem("money", currentMoney); // saves current gold slime amount
+    localStorage.setItem("money", currentMoney); // saves current gold slime level
+    
+    //check levels for hiding buttons on load
 }
