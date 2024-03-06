@@ -23,6 +23,7 @@ function levelUpClick() {
     }
 }
 
+let clickRank = 1
 let clickRankCost = 1000
 document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
 var clickerPink = document.getElementById('click-pink');
@@ -53,6 +54,7 @@ function rankUpClick() {
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString();
         document.getElementById('click-rank').innerText = 'Rock';
         playPurchaseUpgradeSound()
+        clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerRock.style.display === 'inline') {
         currentMoney = currentMoney - clickRankCost;
         clickerRock.style.display = 'none';
@@ -61,6 +63,7 @@ function rankUpClick() {
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString();
         document.getElementById('click-rank').innerText = 'Phosphor';
         playPurchaseUpgradeSound()
+        clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerPhosphor.style.display === 'inline') {
         currentMoney = currentMoney - clickRankCost;
         clickerPhosphor.style.display = 'none';
@@ -69,6 +72,7 @@ function rankUpClick() {
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString();
         document.getElementById('click-rank').innerText = 'Tabby';
         playPurchaseUpgradeSound()
+        clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerTabby.style.display === 'inline') {
         currentMoney = currentMoney - clickRankCost;
         clickerTabby.style.display = 'none';
@@ -77,6 +81,7 @@ function rankUpClick() {
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString();
         document.getElementById('click-rank').innerText = 'Puddle';
         playPurchaseUpgradeSound()
+        clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerPuddle.style.display === 'inline') {
         currentMoney = currentMoney - clickRankCost;
         clickerPuddle.style.display = 'none';
@@ -85,6 +90,7 @@ function rankUpClick() {
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString();
         document.getElementById('click-rank').innerText = 'Fire';
         playPurchaseUpgradeSound()
+        clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerFire.style.display === 'inline') {
         currentMoney = currentMoney - clickRankCost;
         clickerFire.style.display = 'none';
@@ -93,6 +99,7 @@ function rankUpClick() {
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString();
         document.getElementById('click-rank').innerText = 'Honey';
         playPurchaseUpgradeSound()
+        clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerHoney.style.display === 'inline') {
         currentMoney = currentMoney - clickRankCost;
         clickerHoney.style.display = 'none';
@@ -101,6 +108,7 @@ function rankUpClick() {
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString();
         document.getElementById('click-rank').innerText = 'Boom';
         playPurchaseUpgradeSound()
+        clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerBoom.style.display === 'inline') {
         currentMoney = currentMoney - clickRankCost;
         clickerBoom.style.display = 'none';
@@ -109,6 +117,7 @@ function rankUpClick() {
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
         document.getElementById('click-rank').innerText = 'Hunter';
         playPurchaseUpgradeSound()
+        clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerHunter.style.display === 'inline') {
         currentMoney = currentMoney - clickRankCost;
         clickerHunter.style.display = 'none';
@@ -117,6 +126,7 @@ function rankUpClick() {
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
         document.getElementById('click-rank').innerText = 'Rad';
         playPurchaseUpgradeSound()
+        clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerRad.style.display === 'inline') {
         currentMoney = currentMoney - clickRankCost;
         clickerRad.style.display = 'none';
@@ -125,6 +135,7 @@ function rankUpClick() {
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
         document.getElementById('click-rank').innerText = 'Crystal';
         playPurchaseUpgradeSound()
+        clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerCrystal.style.display === 'inline') {
         currentMoney = currentMoney - clickRankCost;
         clickerCrystal.style.display = 'none';
@@ -133,6 +144,7 @@ function rankUpClick() {
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
         document.getElementById('click-rank').innerText = 'Saber';
         playPurchaseUpgradeSound()
+        clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerSaber.style.display === 'inline') {
         currentMoney = currentMoney - clickRankCost;
         clickerSaber.style.display = 'none';
@@ -141,6 +153,7 @@ function rankUpClick() {
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
         document.getElementById('click-rank').innerText = 'Dervish';
         playPurchaseUpgradeSound()
+        clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerDervish.style.display === 'inline') {
         currentMoney = currentMoney - clickRankCost;
         clickerDervish.style.display = 'none';
@@ -149,6 +162,7 @@ function rankUpClick() {
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
         document.getElementById('click-rank').innerText = 'Quantum';
         playPurchaseUpgradeSound()
+        clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerQuantum.style.display === 'inline') {
         currentMoney = currentMoney - clickRankCost;
         clickerQuantum.style.display = 'none';
@@ -157,6 +171,7 @@ function rankUpClick() {
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
         document.getElementById('click-rank').innerText = 'Tangle';
         playPurchaseUpgradeSound()
+        clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerTangle.style.display === 'inline') {
         currentMoney = currentMoney - clickRankCost;
         clickerTangle.style.display = 'none';
@@ -165,6 +180,7 @@ function rankUpClick() {
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
         document.getElementById('click-rank').innerText = 'Mosaic';
         playPurchaseUpgradeSound()
+        clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerMosaic.style.display === 'inline') {
         currentMoney = currentMoney - clickRankCost;
         clickerMosaic.style.display = 'none';
@@ -172,8 +188,96 @@ function rankUpClick() {
         document.getElementById('click-rank').innerText = 'Gold';
         document.getElementById('rank-up-click').style.display = 'none'
         playPurchaseUpgradeSound()
+        clickRank = clickRank + 1
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
+}
+
+// checks the rank when loading saves
+
+function checkRank() {
+    switch (clickRank) {
+        case 2:
+            clickerPink.style.display = 'none';
+            clickerRock.style.display = 'inline';
+            document.getElementById('click-rank').innerText = 'Rock';
+            break;
+        case 3:
+            clickerRock.style.display = 'none';
+            clickerPhosphor.style.display = 'inline';
+            document.getElementById('click-rank').innerText = 'Phosphor';
+            break;
+        case 4:
+            clickerPhosphor.style.display = 'none';
+            clickerTabby.style.display = 'inline';
+            document.getElementById('click-rank').innerText = 'Tabby';
+            break;
+        case 5:
+            clickerTabby.style.display = 'none';
+            clickerPuddle.style.display = 'inline';
+            document.getElementById('click-rank').innerText = 'Puddle';
+            break;
+        case 6:
+            clickerPuddle.style.display = 'none';
+            clickerFire.style.display = 'inline';
+            document.getElementById('click-rank').innerText = 'Fire';
+            break;
+        case 7:
+            clickerFire.style.display = 'none';
+            clickerHoney.style.display = 'inline';
+            document.getElementById('click-rank').innerText = 'Honey';
+            break;
+        case 8:
+            clickerHoney.style.display = 'none';
+            clickerBoom.style.display = 'inline';
+            document.getElementById('click-rank').innerText = 'Boom';
+            break;
+        case 9:
+            clickerBoom.style.display = 'none';
+            clickerHunter.style.display = 'inline';
+            document.getElementById('click-rank').innerText = 'Hunter';
+            break;
+        case 10:
+            clickerHunter.style.display = 'none';
+            clickerRad.style.display = 'inline';
+            document.getElementById('click-rank').innerText = 'Rad';
+            break;
+        case 11:
+            clickerRad.style.display = 'none';
+            clickerCrystal.style.display = 'inline';
+            document.getElementById('click-rank').innerText = 'Crystal';
+            break;
+        case 12:
+            clickerCrystal.style.display = 'none';
+            clickerSaber.style.display = 'inline';
+            document.getElementById('click-rank').innerText = 'Saber';
+            break;
+        case 13:
+            clickerSaber.style.display = 'none';
+            clickerDervish.style.display = 'inline';
+            document.getElementById('click-rank').innerText = 'Dervish';
+            break;
+        case 14:
+            clickerDervish.style.display = 'none';
+            clickerQuantum.style.display = 'inline';
+            document.getElementById('click-rank').innerText = 'Quantum';
+            break;
+        case 15:
+            clickerQuantum.style.display = 'none';
+            clickerTangle.style.display = 'inline';
+            document.getElementById('click-rank').innerText = 'Tangle';
+            break;
+        case 16:
+            clickerTangle.style.display = 'none';
+            clickerMosaic.style.display = 'inline';
+            document.getElementById('click-rank').innerText = 'Mosaic';
+            break;
+        case 17:
+            clickerMosaic.style.display = 'none';
+            clickerGold.style.display = 'inline';
+            document.getElementById('click-rank').innerText = 'Gold';
+            break;
+    }
 }
 
 //Market Countdown
@@ -2737,14 +2841,16 @@ function luckySlime() {
 // save the game when appropriate button is clicked, and before the page is closed
 function saveGame() {
     localStorage.setItem("money", currentMoney); // saves current money
-    
-    localStorage.setItem("click-rank",); // saves current click rank, need to make variable for this to save
+
+    localStorage.setItem("click-rank", clickRank); // saves current click rank, need to make variable for this to save
     localStorage.setItem("click-level", clickLevel); // saves current click level
 
     localStorage.setItem("pink-plorts", pinkAmountTotal); // saves current pink plort amount
     localStorage.setItem("pink-price", pinkPrice); // saves current pink sell price
     localStorage.setItem("pink-slimes", numOfPinkSlimes); // saves current pink slime amount
+    localStorage.setItem("pink-slime-price", costOfPinkSlimes) // saves current pink slime cost
     localStorage.setItem("pink-level", pinkLevel); // saves current pink slime level
+    localStorage.setItem("pink-level-price", pinkLevelCost); // saves current pink slime level cost
 
     localStorage.setItem("rock-plorts", rockAmountTotal); // saves current rock plort amount
     localStorage.setItem("rock-price", rockPrice); // saves current rock sell price
@@ -2828,10 +2934,30 @@ function saveGame() {
 }
 
 // add functionality for a warning to save the game before closing it
-
+addEventListener("pagehide", () => {
+    // Display a message to notify the user to save before closing the page
+    alert("Remember to save your game before closing the page!");
+});
+// Above does not work :)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
 // load the game if there are saved values
 function loadSave() { //triggers on loading of page
     //replace variables with previously saved values
+    currentMoney = parseInt(localStorage.getItem("money"));
+    document.getElementById('current-money').innerText = currentMoney.toLocaleString()
+
+    clickRank = parseInt(localStorage.getItem("click-rank"));
+    checkRank()
+    clickLevel = parseInt(localStorage.getItem("click-level"));
+    document.getElementById('click-level').innerText = clickLevel
+    if (clickLevel === 5) {
+        document.getElementById('level-up-click').style.display = 'none'
+    }
+
+    
     //check levels, if 5 then hide like normal
+}
+
+function resetSave() {
+
 }
