@@ -2943,21 +2943,418 @@ addEventListener("pagehide", () => {
 // load the game if there are saved values
 function loadSave() { //triggers on loading of page
     //replace variables with previously saved values
-    currentMoney = parseInt(localStorage.getItem("money"));
-    document.getElementById('current-money').innerText = currentMoney.toLocaleString()
+    if (localStorage.getItem("pink-price")) {
+        currentMoney = parseInt(localStorage.getItem("money"));
+        document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 
-    clickRank = parseInt(localStorage.getItem("click-rank"));
-    checkRank()
-    clickLevel = parseInt(localStorage.getItem("click-level"));
-    document.getElementById('click-level').innerText = clickLevel
-    if (clickLevel === 5) {
-        document.getElementById('level-up-click').style.display = 'none'
+        clickRank = parseInt(localStorage.getItem("click-rank"));
+        checkRank()
+        clickLevel = parseInt(localStorage.getItem("click-level"));
+        document.getElementById('click-level').innerText = clickLevel
+        if (clickLevel === 5) {
+            document.getElementById('level-up-click').style.display = 'none'
+        }
+
+        pinkAmountTotal = parseInt(localStorage.getItem("pink-plorts"));
+        document.getElementById('pink-plorts').innerText = pinkAmountTotal.toLocaleString()
+        pinkPrice = parseInt(localStorage.getItem("pink-price"));
+        document.getElementById('current-pink-price').innerText = pinkPrice.toLocaleString()
+        numOfPinkSlimes = parseInt(localStorage.getItem("pink-slimes"));
+        document.getElementById('pink-slime-amount').innerText = numOfPinkSlimes.toLocaleString()
+        costOfPinkSlimes = parseInt(localStorage.getItem("pink-slime-price"));
+        document.getElementById('pink-slime-price').innerText = costOfPinkSlimes.toLocaleString()
+        pinkLevel = parseInt(localStorage.getItem("pink-level"));
+        document.getElementById('pink-level').innerText = pinkLevel.toLocaleString()
+        if (pinkLevel === 5) {
+            document.getElementById('level-up-pink').style.display = 'none'
+            document.getElementById('buy-pink-slimes').classList = 'w-100 h-100'
+        }
+        pinkLevelCost = parseInt(localStorage.getItem("pink-level-price"));
+        document.getElementById('pink-upgrade-price').innerText = pinkLevelCost.toLocaleString()
+
+        rockAmountTotal = parseInt(localStorage.getItem("rock-plorts"));
+        document.getElementById('rock-plorts').innerText = rockAmountTotal.toLocaleString()
+        rockPrice = parseInt(localStorage.getItem("rock-price"));
+        document.getElementById('current-rock-price').innerText = rockPrice.toLocaleString()
+        numOfRockSlimes = parseInt(localStorage.getItem("rock-slimes"));
+        document.getElementById('rock-slime-amount').innerText = numOfRockSlimes.toLocaleString()
+        costOfRockSlimes = parseInt(localStorage.getItem("rock-slime-price"));
+        document.getElementById('rock-slime-price').innerText = costOfRockSlimes.toLocaleString()
+        rockLevel = parseInt(localStorage.getItem("rock-level"));
+        document.getElementById('rock-level').innerText = rockLevel.toLocaleString()
+        if (rockLevel === 5) {
+            document.getElementById('level-up-rock').style.display = 'none'
+            document.getElementById('buy-rock-slimes').classList = 'w-100 h-100'
+        }
+        rockLevelCost = parseInt(localStorage.getItem("rock-level-price"));
+        document.getElementById('rock-upgrade-price').innerText = rockLevelCost.toLocaleString()
+
+        phosphorAmountTotal = parseInt(localStorage.getItem("phosphor-plorts"));
+        document.getElementById('phosphor-plorts').innerText = phosphorAmountTotal.toLocaleString()
+        phosphorPrice = parseInt(localStorage.getItem("phosphor-price"));
+        document.getElementById('current-phosphor-price').innerText = phosphorPrice.toLocaleString()
+        numOfPhosphorSlimes = parseInt(localStorage.getItem("phosphor-slimes"));
+        document.getElementById('phosphor-slime-amount').innerText = numOfPhosphorSlimes.toLocaleString()
+        costOfPhosphorSlimes = parseInt(localStorage.getItem("phosphor-slime-price"));
+        document.getElementById('phosphor-slime-price').innerText = costOfPhosphorSlimes.toLocaleString()
+        phosphorLevel = parseInt(localStorage.getItem("phosphor-level"));
+        document.getElementById('phosphor-level').innerText = phosphorLevel.toLocaleString()
+        if (phosphorLevel === 5) {
+            document.getElementById('level-up-phosphor').style.display = 'none'
+            document.getElementById('buy-phosphor-slimes').classList = 'w-100 h-100'
+        }
+        phosphorLevelCost = parseInt(localStorage.getItem("phosphor-level-price"));
+        document.getElementById('phosphor-upgrade-price').innerText = phosphorLevelCost.toLocaleString()
+
+        tabbyAmountTotal = parseInt(localStorage.getItem("tabby-plorts"));
+        document.getElementById('tabby-plorts').innerText = tabbyAmountTotal.toLocaleString()
+        tabbyPrice = parseInt(localStorage.getItem("tabby-price"));
+        document.getElementById('current-tabby-price').innerText = tabbyPrice.toLocaleString()
+        numOfTabbySlimes = parseInt(localStorage.getItem("tabby-slimes"));
+        document.getElementById('tabby-slime-amount').innerText = numOfTabbySlimes.toLocaleString()
+        costOfTabbySlimes = parseInt(localStorage.getItem("tabby-slime-price"));
+        document.getElementById('tabby-slime-price').innerText = costOfTabbySlimes.toLocaleString()
+        tabbyLevel = parseInt(localStorage.getItem("tabby-level"));
+        document.getElementById('tabby-level').innerText = tabbyLevel.toLocaleString()
+        if (tabbyLevel === 5) {
+            document.getElementById('level-up-tabby').style.display = 'none'
+            document.getElementById('buy-tabby-slimes').classList = 'w-100 h-100'
+        }
+        tabbyLevelCost = parseInt(localStorage.getItem("tabby-level-price"));
+        document.getElementById('tabby-upgrade-price').innerText = tabbyLevelCost.toLocaleString()
+
+        puddleAmountTotal = parseInt(localStorage.getItem("puddle-plorts"));
+        document.getElementById('puddle-plorts').innerText = puddleAmountTotal.toLocaleString()
+        puddlePrice = parseInt(localStorage.getItem("puddle-price"));
+        document.getElementById('current-puddle-price').innerText = puddlePrice.toLocaleString()
+        numOfPuddleSlimes = parseInt(localStorage.getItem("puddle-slimes"));
+        document.getElementById('puddle-slime-amount').innerText = numOfPuddleSlimes.toLocaleString()
+        costOfPuddleSlimes = parseInt(localStorage.getItem("puddle-slime-price"));
+        document.getElementById('puddle-slime-price').innerText = costOfPuddleSlimes.toLocaleString()
+        puddleLevel = parseInt(localStorage.getItem("puddle-level"));
+        document.getElementById('puddle-level').innerText = puddleLevel.toLocaleString()
+        if (puddleLevel === 5) {
+            document.getElementById('level-up-puddle').style.display = 'none'
+            document.getElementById('buy-puddle-slimes').classList = 'w-100 h-100'
+        }
+        puddleLevelCost = parseInt(localStorage.getItem("puddle-level-price"));
+        document.getElementById('puddle-upgrade-price').innerText = puddleLevelCost.toLocaleString()
+
+        fireAmountTotal = parseInt(localStorage.getItem("fire-plorts"));
+        document.getElementById('fire-plorts').innerText = fireAmountTotal.toLocaleString()
+        firePrice = parseInt(localStorage.getItem("fire-price"));
+        document.getElementById('current-fire-price').innerText = firePrice.toLocaleString()
+        numOfFireSlimes = parseInt(localStorage.getItem("fire-slimes"));
+        document.getElementById('fire-slime-amount').innerText = numOfFireSlimes.toLocaleString()
+        costOfFireSlimes = parseInt(localStorage.getItem("fire-slime-price"));
+        document.getElementById('fire-slime-price').innerText = costOfFireSlimes.toLocaleString()
+        fireLevel = parseInt(localStorage.getItem("fire-level"));
+        document.getElementById('fire-level').innerText = fireLevel.toLocaleString()
+        if (fireLevel === 5) {
+            document.getElementById('level-up-fire').style.display = 'none'
+            document.getElementById('buy-fire-slimes').classList = 'w-100 h-100'
+        }
+        fireLevelCost = parseInt(localStorage.getItem("fire-level-price"));
+        document.getElementById('fire-upgrade-price').innerText = fireLevelCost.toLocaleString()
+
+        honeyAmountTotal = parseInt(localStorage.getItem("honey-plorts"));
+        document.getElementById('honey-plorts').innerText = honeyAmountTotal.toLocaleString()
+        honeyPrice = parseInt(localStorage.getItem("honey-price"));
+        document.getElementById('current-honey-price').innerText = honeyPrice.toLocaleString()
+        numOfHoneySlimes = parseInt(localStorage.getItem("honey-slimes"));
+        document.getElementById('honey-slime-amount').innerText = numOfHoneySlimes.toLocaleString()
+        costOfHoneySlimes = parseInt(localStorage.getItem("honey-slime-price"));
+        document.getElementById('honey-slime-price').innerText = costOfHoneySlimes.toLocaleString()
+        honeyLevel = parseInt(localStorage.getItem("honey-level"));
+        document.getElementById('honey-level').innerText = honeyLevel.toLocaleString()
+        if (honeyLevel === 5) {
+            document.getElementById('level-up-honey').style.display = 'none'
+            document.getElementById('buy-honey-slimes').classList = 'w-100 h-100'
+        }
+        honeyLevelCost = parseInt(localStorage.getItem("honey-level-price"));
+        document.getElementById('honey-upgrade-price').innerText = honeyLevelCost.toLocaleString()
+
+        boomAmountTotal = parseInt(localStorage.getItem("boom-plorts"));
+        document.getElementById('boom-plorts').innerText = boomAmountTotal.toLocaleString()
+        boomPrice = parseInt(localStorage.getItem("boom-price"));
+        document.getElementById('current-boom-price').innerText = boomPrice.toLocaleString()
+        numOfBoomSlimes = parseInt(localStorage.getItem("boom-slimes"));
+        document.getElementById('boom-slime-amount').innerText = numOfBoomSlimes.toLocaleString()
+        costOfBoomSlimes = parseInt(localStorage.getItem("boom-slime-price"));
+        document.getElementById('boom-slime-price').innerText = costOfBoomSlimes.toLocaleString()
+        boomLevel = parseInt(localStorage.getItem("boom-level"));
+        document.getElementById('boom-level').innerText = boomLevel.toLocaleString()
+        if (boomLevel === 5) {
+            document.getElementById('level-up-boom').style.display = 'none'
+            document.getElementById('buy-boom-slimes').classList = 'w-100 h-100'
+        }
+        boomLevelCost = parseInt(localStorage.getItem("boom-level-price"));
+        document.getElementById('boom-upgrade-price').innerText = boomLevelCost.toLocaleString()
+
+        hunterAmountTotal = parseInt(localStorage.getItem("hunter-plorts"));
+        document.getElementById('hunter-plorts').innerText = hunterAmountTotal.toLocaleString()
+        hunterPrice = parseInt(localStorage.getItem("hunter-price"));
+        document.getElementById('current-hunter-price').innerText = hunterPrice.toLocaleString()
+        numOfHunterSlimes = parseInt(localStorage.getItem("hunter-slimes"));
+        document.getElementById('hunter-slime-amount').innerText = numOfHunterSlimes.toLocaleString()
+        costOfHunterSlimes = parseInt(localStorage.getItem("hunter-slime-price"));
+        document.getElementById('hunter-slime-price').innerText = costOfHunterSlimes.toLocaleString()
+        hunterLevel = parseInt(localStorage.getItem("hunter-level"));
+        document.getElementById('hunter-level').innerText = hunterLevel.toLocaleString()
+        if (hunterLevel === 5) {
+            document.getElementById('level-up-hunter').style.display = 'none'
+            document.getElementById('buy-hunter-slimes').classList = 'w-100 h-100'
+        }
+        hunterLevelCost = parseInt(localStorage.getItem("hunter-level-price"));
+        document.getElementById('hunter-upgrade-price').innerText = hunterLevelCost.toLocaleString()
+
+        radAmountTotal = parseInt(localStorage.getItem("rad-plorts"));
+        document.getElementById('rad-plorts').innerText = radAmountTotal.toLocaleString()
+        radPrice = parseInt(localStorage.getItem("rad-price"));
+        document.getElementById('current-rad-price').innerText = radPrice.toLocaleString()
+        numOfRadSlimes = parseInt(localStorage.getItem("rad-slimes"));
+        document.getElementById('rad-slime-amount').innerText = numOfRadSlimes.toLocaleString()
+        costOfRadSlimes = parseInt(localStorage.getItem("rad-slime-price"));
+        document.getElementById('rad-slime-price').innerText = costOfRadSlimes.toLocaleString()
+        radLevel = parseInt(localStorage.getItem("rad-level"));
+        document.getElementById('rad-level').innerText = radLevel.toLocaleString()
+        if (radLevel === 5) {
+            document.getElementById('level-up-rad').style.display = 'none'
+            document.getElementById('buy-rad-slimes').classList = 'w-100 h-100'
+        }
+        radLevelCost = parseInt(localStorage.getItem("rad-level-price"));
+        document.getElementById('rad-upgrade-price').innerText = radLevelCost.toLocaleString()
+
+        crystalAmountTotal = parseInt(localStorage.getItem("crystal-plorts"));
+        document.getElementById('crystal-plorts').innerText = crystalAmountTotal.toLocaleString()
+        crystalPrice = parseInt(localStorage.getItem("crystal-price"));
+        document.getElementById('current-crystal-price').innerText = crystalPrice.toLocaleString()
+        numOfCrystalSlimes = parseInt(localStorage.getItem("crystal-slimes"));
+        document.getElementById('crystal-slime-amount').innerText = numOfCrystalSlimes.toLocaleString()
+        costOfCrystalSlimes = parseInt(localStorage.getItem("crystal-slime-price"));
+        document.getElementById('crystal-slime-price').innerText = costOfCrystalSlimes.toLocaleString()
+        crystalLevel = parseInt(localStorage.getItem("crystal-level"));
+        document.getElementById('crystal-level').innerText = crystalLevel.toLocaleString()
+        if (crystalLevel === 5) {
+            document.getElementById('level-up-crystal').style.display = 'none'
+            document.getElementById('buy-crystal-slimes').classList = 'w-100 h-100'
+        }
+        crystalLevelCost = parseInt(localStorage.getItem("crystal-level-price"));
+        document.getElementById('crystal-upgrade-price').innerText = crystalLevelCost.toLocaleString()
+
+        saberAmountTotal = parseInt(localStorage.getItem("saber-plorts"));
+        document.getElementById('saber-plorts').innerText = saberAmountTotal.toLocaleString()
+        saberPrice = parseInt(localStorage.getItem("saber-price"));
+        document.getElementById('current-saber-price').innerText = saberPrice.toLocaleString()
+        numOfSaberSlimes = parseInt(localStorage.getItem("saber-slimes"));
+        document.getElementById('saber-slime-amount').innerText = numOfSaberSlimes.toLocaleString()
+        costOfSaberSlimes = parseInt(localStorage.getItem("saber-slime-price"));
+        document.getElementById('saber-slime-price').innerText = costOfSaberSlimes.toLocaleString()
+        saberLevel = parseInt(localStorage.getItem("saber-level"));
+        document.getElementById('saber-level').innerText = saberLevel.toLocaleString()
+        if (saberLevel === 5) {
+            document.getElementById('level-up-saber').style.display = 'none'
+            document.getElementById('buy-saber-slimes').classList = 'w-100 h-100'
+        }
+        saberLevelCost = parseInt(localStorage.getItem("saber-level-price"));
+        document.getElementById('saber-upgrade-price').innerText = saberLevelCost.toLocaleString()
+
+        dervishAmountTotal = parseInt(localStorage.getItem("dervish-plorts"));
+        document.getElementById('dervish-plorts').innerText = dervishAmountTotal.toLocaleString()
+        dervishPrice = parseInt(localStorage.getItem("dervish-price"));
+        document.getElementById('current-dervish-price').innerText = dervishPrice.toLocaleString()
+        numOfDervishSlimes = parseInt(localStorage.getItem("dervish-slimes"));
+        document.getElementById('dervish-slime-amount').innerText = numOfDervishSlimes.toLocaleString()
+        costOfDervishSlimes = parseInt(localStorage.getItem("dervish-slime-price"));
+        document.getElementById('dervish-slime-price').innerText = costOfDervishSlimes.toLocaleString()
+        dervishLevel = parseInt(localStorage.getItem("dervish-level"));
+        document.getElementById('dervish-level').innerText = dervishLevel.toLocaleString()
+        if (dervishLevel === 5) {
+            document.getElementById('level-up-dervish').style.display = 'none'
+            document.getElementById('buy-dervish-slimes').classList = 'w-100 h-100'
+        }
+        dervishLevelCost = parseInt(localStorage.getItem("dervish-level-price"));
+        document.getElementById('dervish-upgrade-price').innerText = dervishLevelCost.toLocaleString()
+
+        quantumAmountTotal = parseInt(localStorage.getItem("quantum-plorts"));
+        document.getElementById('quantum-plorts').innerText = quantumAmountTotal.toLocaleString()
+        quantumPrice = parseInt(localStorage.getItem("quantum-price"));
+        document.getElementById('current-quantum-price').innerText = quantumPrice.toLocaleString()
+        numOfQuantumSlimes = parseInt(localStorage.getItem("quantum-slimes"));
+        document.getElementById('quantum-slime-amount').innerText = numOfQuantumSlimes.toLocaleString()
+        costOfQuantumSlimes = parseInt(localStorage.getItem("quantum-slime-price"));
+        document.getElementById('quantum-slime-price').innerText = costOfQuantumSlimes.toLocaleString()
+        quantumLevel = parseInt(localStorage.getItem("quantum-level"));
+        document.getElementById('quantum-level').innerText = quantumLevel.toLocaleString()
+        if (quantumLevel === 5) {
+            document.getElementById('level-up-quantum').style.display = 'none'
+            document.getElementById('buy-quantum-slimes').classList = 'w-100 h-100'
+        }
+        quantumLevelCost = parseInt(localStorage.getItem("quantum-level-price"));
+        document.getElementById('quantum-upgrade-price').innerText = quantumLevelCost.toLocaleString()
+
+        tangleAmountTotal = parseInt(localStorage.getItem("tangle-plorts"));
+        document.getElementById('tangle-plorts').innerText = tangleAmountTotal.toLocaleString()
+        tanglePrice = parseInt(localStorage.getItem("tangle-price"));
+        document.getElementById('current-tangle-price').innerText = tanglePrice.toLocaleString()
+        numOfTangleSlimes = parseInt(localStorage.getItem("tangle-slimes"));
+        document.getElementById('tangle-slime-amount').innerText = numOfTangleSlimes.toLocaleString()
+        costOfTangleSlimes = parseInt(localStorage.getItem("tangle-slime-price"));
+        document.getElementById('tangle-slime-price').innerText = costOfTangleSlimes.toLocaleString()
+        tangleLevel = parseInt(localStorage.getItem("tangle-level"));
+        document.getElementById('tangle-level').innerText = tangleLevel.toLocaleString()
+        if (tangleLevel === 5) {
+            document.getElementById('level-up-tangle').style.display = 'none'
+            document.getElementById('buy-tangle-slimes').classList = 'w-100 h-100'
+        }
+        tangleLevelCost = parseInt(localStorage.getItem("tangle-level-price"));
+        document.getElementById('tangle-upgrade-price').innerText = tangleLevelCost.toLocaleString()
+
+        mosaicAmountTotal = parseInt(localStorage.getItem("mosaic-plorts"));
+        document.getElementById('mosaic-plorts').innerText = mosaicAmountTotal.toLocaleString()
+        mosaicPrice = parseInt(localStorage.getItem("mosaic-price"));
+        document.getElementById('current-mosaic-price').innerText = mosaicPrice.toLocaleString()
+        numOfMosaicSlimes = parseInt(localStorage.getItem("mosaic-slimes"));
+        document.getElementById('mosaic-slime-amount').innerText = numOfMosaicSlimes.toLocaleString()
+        costOfMosaicSlimes = parseInt(localStorage.getItem("mosaic-slime-price"));
+        document.getElementById('mosaic-slime-price').innerText = costOfMosaicSlimes.toLocaleString()
+        mosaicLevel = parseInt(localStorage.getItem("mosaic-level"));
+        document.getElementById('mosaic-level').innerText = mosaicLevel.toLocaleString()
+        if (mosaicLevel === 5) {
+            document.getElementById('level-up-mosaic').style.display = 'none'
+            document.getElementById('buy-mosaic-slimes').classList = 'w-100 h-100'
+        }
+        mosaicLevelCost = parseInt(localStorage.getItem("mosaic-level-price"));
+        document.getElementById('mosaic-upgrade-price').innerText = mosaicLevelCost.toLocaleString()
+
+        goldAmountTotal = parseInt(localStorage.getItem("gold-plorts"));
+        document.getElementById('gold-plorts').innerText = goldAmountTotal.toLocaleString()
+        goldPrice = parseInt(localStorage.getItem("gold-price"));
+        document.getElementById('current-gold-price').innerText = goldPrice.toLocaleString()
+        numOfGoldSlimes = parseInt(localStorage.getItem("gold-slimes"));
+        document.getElementById('gold-slime-amount').innerText = numOfGoldSlimes.toLocaleString()
+        costOfGoldSlimes = parseInt(localStorage.getItem("gold-slime-price"));
+        document.getElementById('gold-slime-price').innerText = costOfGoldSlimes.toLocaleString()
+        goldLevel = parseInt(localStorage.getItem("gold-level"));
+        document.getElementById('gold-level').innerText = goldLevel.toLocaleString()
+        if (goldLevel === 5) {
+            document.getElementById('level-up-gold').style.display = 'none'
+            document.getElementById('buy-gold-slimes').classList = 'w-100 h-100'
+        }
+        goldLevelCost = parseInt(localStorage.getItem("gold-level-price"));
+        document.getElementById('gold-upgrade-price').innerText = goldLevelCost.toLocaleString()
     }
-
-    
-    //check levels, if 5 then hide like normal
 }
 
-function resetSave() {
+loadSave()
 
+function resetSave() {
+    alert("Are you sure you want to reset your progress? This action cannot be reversed"); //pop up with a message when triggered to make sure the player wants this, prolly wont work as intended
+    //reset all values back to zero
+    currentMoney = 0 
+    clickRank = 0 
+    clickLevel = 0
+    pinkAmountTotal = 0 
+    pinkPrice = 0 
+    numOfPinkSlimes = 0 
+    costOfPinkSlimes = 0
+    pinkLevel = 0 
+    pinkLevelCost = 0
+    rockAmountTotal = 0
+    rockPrice = 0 
+    numOfRockSlimes = 0 
+    costOfRockSlimes = 0
+    rockLevel = 0 
+    rockLevelCost = 0
+    phosphorAmountTotal = 0 
+    phosphorPrice = 0 
+    numOfPhosphorSlimes = 0 
+    costOfPhosphorSlimes = 0
+    phosphorLevel = 0
+    phosphorLevelCost = 0
+    tabbyAmountTotal = 0
+    tabbyPrice = 0 
+    numOfTabbySlimes = 0 
+    costOfTabbySlimes = 0
+    tabbyLevel = 0 
+    tabbyLevelCost = 0
+    puddleAmountTotal = 0
+    puddlePrice = 0 
+    numOfPuddleSlimes = 0 
+    costOfPuddleSlimes = 0
+    puddleLevel = 0 
+    puddleLevelCost = 0
+    fireAmountTotal = 0 
+    firePrice = 0 
+    numOfFireSlimes = 0 
+    costOfFireSlimes = 0
+    fireLevel = 0 
+    fireLevelCost = 0
+    honeyAmountTotal = 0
+    honeyPrice = 0 
+    numOfHoneySlimes = 0 
+    costOfHoneySlimes = 0
+    honeyLevel = 0 
+    honeyLevelCost = 0
+    boomAmountTotal = 0
+    boomPrice = 0 
+    numOfBoomSlimes = 0 
+    costOfBoomSlimes = 0
+    boomLevel = 0 
+    boomLevelCost = 0
+    hunterAmountTotal = 0
+    hunterPrice = 0
+    numOfHunterSlimes = 0
+    costOfHunterSlimes = 0
+    hunterLevel = 0
+    hunterLevelCost = 0
+    radAmountTotal = 0 
+    radPrice = 0 
+    numOfRadSlimes = 0 
+    costOfRadSlimes = 0
+    radLevel = 0 
+    radLevelCost = 0
+    crystalAmountTotal = 0 
+    crystalPrice = 0 
+    numOfCrystalSlimes = 0 
+    costOfCrystalSlimes = 0
+    crystalLevel = 0 
+    crystalLevelCost = 0
+    saberAmountTotal = 0 
+    saberPrice = 0 
+    numOfSaberSlimes = 0 
+    costOfSaberSlimes = 0
+    saberLevel = 0 
+    saberLevelCost = 0
+    dervishAmountTotal = 0
+    dervishPrice = 0 
+    numOfDervishSlimes = 0
+    costOfDervishSlimes = 0
+    dervishLevel = 0
+    dervishLevelCost = 0
+    quantumAmountTotal = 0
+    quantumPrice = 0
+    numOfQuantumSlimes = 0
+    costOfQuantumSlimes = 0
+    quantumLevel = 0
+    quantumLevelCost = 0
+    tangleAmountTotal = 0
+    tanglePrice = 0
+    numOfTangleSlimes = 0
+    costOfTangleSlimes = 0
+    tangleLevel = 0
+    tangleLevelCost = 0
+    mosaicAmountTotal = 0
+    mosaicPrice = 0
+    numOfMosaicSlimes = 0 
+    costOfMosaicSlimes = 0
+    mosaicLevel = 0
+    mosaicLevelCost = 0
+    goldAmountTotal = 0 
+    goldPrice = 0 
+    numOfGoldSlimes = 0
+    costOfGoldSlimes = 0
+    goldLevel = 0
+    goldLevelCost = 0
+    saveGame()
 }
