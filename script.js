@@ -1,3 +1,13 @@
+window.addEventListener("beforeunload", (event) => {
+    // Cancel the event as stated by the standard.
+    event.preventDefault();
+    // Chrome requires returnValue to be set.
+    event.returnValue = '';
+    // Display a message to notify the user to save before closing the page
+    return "Remember to save your game before closing the page!";
+});
+// Above does needs to be tested on windows
+
 let currentMoney = 0
 document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 
@@ -2865,13 +2875,6 @@ function saveGame() {
         localStorage.setItem(`${typeArray[i]}-level-price`, levelCosts[i]);
     }
 }
-
-// add functionality for a warning to save the game before closing it
-addEventListener("pagehide", () => {
-    // Display a message to notify the user to save before closing the page
-    alert("Remember to save your game before closing the page!");
-});
-// Above does not work :)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
 // load the game if there are saved values
 function loadSave() { //triggers on loading of page
