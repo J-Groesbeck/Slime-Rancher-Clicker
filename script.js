@@ -2832,7 +2832,7 @@ function luckySlime() {
         for (let i = 0; i < priceArray.length; i++) {
             priceArray[i] = priceArray[i] * 10
             document.getElementById(`current-${typeArray[i]}-price`).innerText = priceArray[i].toLocaleString()
-          }
+        }
         document.getElementById('luckyPopup').classList.remove('d-none') // add a popup when it triggers telling you what happened
         let snd = new Audio("sfx/lucky_coins.wav");
         snd.play();
@@ -2849,92 +2849,21 @@ function saveGame() {
     localStorage.setItem("click-rank", clickRank); // saves current click rank, need to make variable for this to save
     localStorage.setItem("click-level", clickLevel); // saves current click level
 
-    localStorage.setItem("pink-plorts", pinkAmountTotal); // saves current pink plort amount
-    localStorage.setItem("pink-price", pinkPrice); // saves current pink sell price
-    localStorage.setItem("pink-slimes", numOfPinkSlimes); // saves current pink slime amount
-    localStorage.setItem("pink-slime-price", costOfPinkSlimes) // saves current pink slime cost
-    localStorage.setItem("pink-level", pinkLevel); // saves current pink slime level
-    localStorage.setItem("pink-level-price", pinkLevelCost); // saves current pink slime level cost
-
-    localStorage.setItem("rock-plorts", rockAmountTotal); // saves current rock plort amount
-    localStorage.setItem("rock-price", rockPrice); // saves current rock sell price
-    localStorage.setItem("rock-slimes", numOfRockSlimes); // saves current rock slime amount
-    localStorage.setItem("rock-level", rockLevel); // saves current rock slime level
-
-    localStorage.setItem("phosphor-plorts", phosphorAmountTotal); // saves current phosphor plort amount
-    localStorage.setItem("phosphor-price", phosphorPrice); // saves current phosphor sell price
-    localStorage.setItem("phosphor-slimes", numOfPhosphorSlimes); // saves current phosphor slime amount
-    localStorage.setItem("phosphor-level", phosphorLevel); // saves current phosphor slime level
-
-    localStorage.setItem("tabby-plorts", tabbyAmountTotal); // saves current tabby plort amount
-    localStorage.setItem("tabby-price", tabbyPrice); // saves current tabby sell price
-    localStorage.setItem("tabby-slimes", numOfTabbySlimes); // saves current tabby slime amount
-    localStorage.setItem("tabby-level", tabbyLevel); // saves current tabby slime level
-
-    localStorage.setItem("puddle-plorts", puddleAmountTotal); // saves current puddle plort amount
-    localStorage.setItem("puddle-price", puddlePrice); // saves current puddle sell price
-    localStorage.setItem("puddle-slimes", numOfPuddleSlimes); // saves current puddle slime amount
-    localStorage.setItem("puddle-level", puddleLevel); // saves current puddle slime level
-
-    localStorage.setItem("fire-plorts", fireAmountTotal); // saves current fire plort amount
-    localStorage.setItem("fire-price", firePrice); // saves current fire sell price
-    localStorage.setItem("fire-slimes", numOfFireSlimes); // saves current fire slime amount
-    localStorage.setItem("fire-level", fireLevel); // saves current fire slime level
-
-    localStorage.setItem("honey-plorts", honeyAmountTotal); // saves current honey plort amount
-    localStorage.setItem("honey-price", honeyPrice); // saves current honey sell price
-    localStorage.setItem("honey-slimes", numOfHoneySlimes); // saves current honey slime amount
-    localStorage.setItem("honey-level", honeyLevel); // saves current honey slime level
-
-    localStorage.setItem("boom-plorts", boomAmountTotal); // saves current boom plort amount
-    localStorage.setItem("boom-price", boomPrice); // saves current boom sell price
-    localStorage.setItem("boom-slimes", numOfBoomSlimes); // saves current boom slime amount
-    localStorage.setItem("boom-level", boomLevel); // saves current boom slime level
-
-    localStorage.setItem("hunter-plorts", hunterAmountTotal); // saves current hunter plort amount
-    localStorage.setItem("hunter-price", hunterPrice); // saves current hunter sell price
-    localStorage.setItem("hunter-slimes", numOfHunterSlimes); // saves current hunter slime amount
-    localStorage.setItem("hunter-level", hunterLevel); // saves current hunter slime level
-
-    localStorage.setItem("rad-plorts", radAmountTotal); // saves current rad plort amount
-    localStorage.setItem("rad-price", radPrice); // saves current rad sell price
-    localStorage.setItem("rad-slimes", numOfRadSlimes); // saves current rad slime amount
-    localStorage.setItem("rad-level", radLevel); // saves current rad slime level
-
-    localStorage.setItem("crystal-plorts", crystalAmountTotal); // saves current crystal plort amount
-    localStorage.setItem("crystal-price", crystalPrice); // saves current crystal sell price
-    localStorage.setItem("crystal-slimes", numOfCrystalSlimes); // saves current crystal slime amount
-    localStorage.setItem("crystal-level", crystalLevel); // saves current crystal slime level
-
-    localStorage.setItem("saber-plorts", saberAmountTotal); // saves current saber plort amount
-    localStorage.setItem("saber-price", saberPrice); // saves current saber sell price
-    localStorage.setItem("saber-slimes", numOfSaberSlimes); // saves current saber slime amount
-    localStorage.setItem("saber-level", saberLevel); // saves current saber slime level
-
-    localStorage.setItem("dervish-plorts", dervishAmountTotal); // saves current dervish plort amount
-    localStorage.setItem("dervish-price", dervishPrice); // saves current dervish sell price
-    localStorage.setItem("dervish-slimes", numOfDervishSlimes); // saves current dervish slime amount
-    localStorage.setItem("dervish-level", dervishLevel); // saves current dervish slime level
-
-    localStorage.setItem("quantum-plorts", quantumAmountTotal); // saves current quantum plort amount
-    localStorage.setItem("quantum-price", quantumPrice); // saves current quantum sell price
-    localStorage.setItem("quantum-slimes", numOfQuantumSlimes); // saves current quantum slime amount
-    localStorage.setItem("quantum-level", quantumLevel); // saves current quantum slime level
-
-    localStorage.setItem("tangle-plorts", tangleAmountTotal); // saves current tangle plort amount
-    localStorage.setItem("tangle-price", tanglePrice); // saves current tangle sell price
-    localStorage.setItem("tangle-slimes", numOfTangleSlimes); // saves current tangle slime amount
-    localStorage.setItem("tangle-level", tangleLevel); // saves current tangle slime level
-
-    localStorage.setItem("mosaic-plorts", mosaicAmountTotal); // saves current mosaic plort amount
-    localStorage.setItem("mosaic-price", mosaicPrice); // saves current mosaic sell price
-    localStorage.setItem("mosaic-slimes", numOfMosaicSlimes); // saves current mosaic slime amount
-    localStorage.setItem("mosaic-level", mosaicLevel); // saves current mosaic slime level
-
-    localStorage.setItem("gold-plorts", goldAmountTotal); // saves current gold plort amount
-    localStorage.setItem("gold-price", goldPrice); // saves current gold sell price
-    localStorage.setItem("gold-slimes", numOfGoldSlimes); // saves current gold slime amount
-    localStorage.setItem("gold-level", goldLevel); // saves current gold slime level
+    let typeArray = ["pink", "rock", "phosphor", "tabby", "puddle", "fire", "honey", "boom", "hunter", "rad", "crystal", "saber", "dervish", "quantum", "tangle", "mosaic", "gold"];
+    let amountsTotal = [pinkAmountTotal, rockAmountTotal, phosphorAmountTotal, tabbyAmountTotal, puddleAmountTotal, fireAmountTotal, honeyAmountTotal, boomAmountTotal, hunterAmountTotal, radAmountTotal, crystalAmountTotal, saberAmountTotal, dervishAmountTotal, quantumAmountTotal, tangleAmountTotal, mosaicAmountTotal, goldAmountTotal];
+    let prices = [pinkPrice, rockPrice, phosphorPrice, tabbyPrice, puddlePrice, firePrice, honeyPrice, boomPrice, hunterPrice, radPrice, crystalPrice, saberPrice, dervishPrice, quantumPrice, tanglePrice, mosaicPrice, goldPrice];
+    let numOfSlimes = [numOfPinkSlimes, numOfRockSlimes, numOfPhosphorSlimes, numOfTabbySlimes, numOfPuddleSlimes, numOfFireSlimes, numOfHoneySlimes, numOfBoomSlimes, numOfHunterSlimes, numOfRadSlimes, numOfCrystalSlimes, numOfSaberSlimes, numOfDervishSlimes, numOfQuantumSlimes, numOfTangleSlimes, numOfMosaicSlimes, numOfGoldSlimes];
+    let slimeCosts = [costOfPinkSlimes, costOfRockSlimes, costOfPhosphorSlimes, costOfTabbySlimes, costOfPuddleSlimes, costOfFireSlimes, costOfHoneySlimes, costOfBoomSlimes, costOfHunterSlimes, costOfRadSlimes, costOfCrystalSlimes, costOfSaberSlimes, costOfDervishSlimes, costOfQuantumSlimes, costOfTangleSlimes, costOfMosaicSlimes, costOfGoldSlimes];
+    let levels = [pinkLevel, rockLevel, phosphorLevel, tabbyLevel, puddleLevel, fireLevel, honeyLevel, boomLevel, hunterLevel, radLevel, crystalLevel, saberLevel, dervishLevel, quantumLevel, tangleLevel, mosaicLevel, goldLevel];
+    let levelCosts = [pinkLevelCost, rockLevelCost, phosphorLevelCost, tabbyLevelCost, puddleLevelCost, fireLevelCost, honeyLevelCost, boomLevelCost, hunterLevelCost, radLevelCost, crystalLevelCost, saberLevelCost, dervishLevelCost, quantumLevelCost, tangleLevelCost, mosaicLevelCost, goldLevelCost];
+    for (let i = 0; i < typeArray.length; i++) {
+        localStorage.setItem(`${typeArray[i]}-plorts`, amountsTotal[i]);
+        localStorage.setItem(`${typeArray[i]}-price`, prices[i]);
+        localStorage.setItem(`${typeArray[i]}-slimes`, numOfSlimes[i]);
+        localStorage.setItem(`${typeArray[i]}-slime-price`, slimeCosts[i]);
+        localStorage.setItem(`${typeArray[i]}-level`, levels[i]);
+        localStorage.setItem(`${typeArray[i]}-level-price`, levelCosts[i]);
+    }
 }
 
 // add functionality for a warning to save the game before closing it
