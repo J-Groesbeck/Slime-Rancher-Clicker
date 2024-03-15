@@ -2891,7 +2891,7 @@ function loadSave() { //triggers on loading of page
             document.getElementById('level-up-click').style.display = 'none'
         }
 
-        pinkAmountTotal = parseInt(localStorage.getItem("pink-plorts"));
+        pinkAmount = parseInt(localStorage.getItem("pink-plorts"));
         document.getElementById('pink-plorts').innerText = pinkAmountTotal.toLocaleString()
         pinkPrice = parseInt(localStorage.getItem("pink-price"));
         document.getElementById('current-pink-price').innerText = pinkPrice.toLocaleString()
@@ -2908,7 +2908,7 @@ function loadSave() { //triggers on loading of page
         pinkLevelCost = parseInt(localStorage.getItem("pink-level-price"));
         document.getElementById('pink-upgrade-price').innerText = pinkLevelCost.toLocaleString()
 
-        rockAmountTotal = parseInt(localStorage.getItem("rock-plorts"));
+        rockAmount = parseInt(localStorage.getItem("rock-plorts"));
         document.getElementById('rock-plorts').innerText = rockAmountTotal.toLocaleString()
         rockPrice = parseInt(localStorage.getItem("rock-price"));
         document.getElementById('current-rock-price').innerText = rockPrice.toLocaleString()
@@ -2925,7 +2925,7 @@ function loadSave() { //triggers on loading of page
         rockLevelCost = parseInt(localStorage.getItem("rock-level-price"));
         document.getElementById('rock-upgrade-price').innerText = rockLevelCost.toLocaleString()
 
-        phosphorAmountTotal = parseInt(localStorage.getItem("phosphor-plorts"));
+        phosphorAmount = parseInt(localStorage.getItem("phosphor-plorts"));
         document.getElementById('phosphor-plorts').innerText = phosphorAmountTotal.toLocaleString()
         phosphorPrice = parseInt(localStorage.getItem("phosphor-price"));
         document.getElementById('current-phosphor-price').innerText = phosphorPrice.toLocaleString()
@@ -2942,7 +2942,7 @@ function loadSave() { //triggers on loading of page
         phosphorLevelCost = parseInt(localStorage.getItem("phosphor-level-price"));
         document.getElementById('phosphor-upgrade-price').innerText = phosphorLevelCost.toLocaleString()
 
-        tabbyAmountTotal = parseInt(localStorage.getItem("tabby-plorts"));
+        tabbyAmount = parseInt(localStorage.getItem("tabby-plorts"));
         document.getElementById('tabby-plorts').innerText = tabbyAmountTotal.toLocaleString()
         tabbyPrice = parseInt(localStorage.getItem("tabby-price"));
         document.getElementById('current-tabby-price').innerText = tabbyPrice.toLocaleString()
@@ -2959,7 +2959,7 @@ function loadSave() { //triggers on loading of page
         tabbyLevelCost = parseInt(localStorage.getItem("tabby-level-price"));
         document.getElementById('tabby-upgrade-price').innerText = tabbyLevelCost.toLocaleString()
 
-        puddleAmountTotal = parseInt(localStorage.getItem("puddle-plorts"));
+        puddleAmount = parseInt(localStorage.getItem("puddle-plorts"));
         document.getElementById('puddle-plorts').innerText = puddleAmountTotal.toLocaleString()
         puddlePrice = parseInt(localStorage.getItem("puddle-price"));
         document.getElementById('current-puddle-price').innerText = puddlePrice.toLocaleString()
@@ -2976,7 +2976,7 @@ function loadSave() { //triggers on loading of page
         puddleLevelCost = parseInt(localStorage.getItem("puddle-level-price"));
         document.getElementById('puddle-upgrade-price').innerText = puddleLevelCost.toLocaleString()
 
-        fireAmountTotal = parseInt(localStorage.getItem("fire-plorts"));
+        fireAmount = parseInt(localStorage.getItem("fire-plorts"));
         document.getElementById('fire-plorts').innerText = fireAmountTotal.toLocaleString()
         firePrice = parseInt(localStorage.getItem("fire-price"));
         document.getElementById('current-fire-price').innerText = firePrice.toLocaleString()
@@ -2993,7 +2993,7 @@ function loadSave() { //triggers on loading of page
         fireLevelCost = parseInt(localStorage.getItem("fire-level-price"));
         document.getElementById('fire-upgrade-price').innerText = fireLevelCost.toLocaleString()
 
-        honeyAmountTotal = parseInt(localStorage.getItem("honey-plorts"));
+        honeyAmount = parseInt(localStorage.getItem("honey-plorts"));
         document.getElementById('honey-plorts').innerText = honeyAmountTotal.toLocaleString()
         honeyPrice = parseInt(localStorage.getItem("honey-price"));
         document.getElementById('current-honey-price').innerText = honeyPrice.toLocaleString()
@@ -3010,7 +3010,7 @@ function loadSave() { //triggers on loading of page
         honeyLevelCost = parseInt(localStorage.getItem("honey-level-price"));
         document.getElementById('honey-upgrade-price').innerText = honeyLevelCost.toLocaleString()
 
-        boomAmountTotal = parseInt(localStorage.getItem("boom-plorts"));
+        boomAmount = parseInt(localStorage.getItem("boom-plorts"));
         document.getElementById('boom-plorts').innerText = boomAmountTotal.toLocaleString()
         boomPrice = parseInt(localStorage.getItem("boom-price"));
         document.getElementById('current-boom-price').innerText = boomPrice.toLocaleString()
@@ -3027,7 +3027,7 @@ function loadSave() { //triggers on loading of page
         boomLevelCost = parseInt(localStorage.getItem("boom-level-price"));
         document.getElementById('boom-upgrade-price').innerText = boomLevelCost.toLocaleString()
 
-        hunterAmountTotal = parseInt(localStorage.getItem("hunter-plorts"));
+        hunterAmount = parseInt(localStorage.getItem("hunter-plorts"));
         document.getElementById('hunter-plorts').innerText = hunterAmountTotal.toLocaleString()
         hunterPrice = parseInt(localStorage.getItem("hunter-price"));
         document.getElementById('current-hunter-price').innerText = hunterPrice.toLocaleString()
@@ -3044,7 +3044,7 @@ function loadSave() { //triggers on loading of page
         hunterLevelCost = parseInt(localStorage.getItem("hunter-level-price"));
         document.getElementById('hunter-upgrade-price').innerText = hunterLevelCost.toLocaleString()
 
-        radAmountTotal = parseInt(localStorage.getItem("rad-plorts"));
+        radAmount = parseInt(localStorage.getItem("rad-plorts"));
         document.getElementById('rad-plorts').innerText = radAmountTotal.toLocaleString()
         radPrice = parseInt(localStorage.getItem("rad-price"));
         document.getElementById('current-rad-price').innerText = radPrice.toLocaleString()
@@ -3061,7 +3061,7 @@ function loadSave() { //triggers on loading of page
         radLevelCost = parseInt(localStorage.getItem("rad-level-price"));
         document.getElementById('rad-upgrade-price').innerText = radLevelCost.toLocaleString()
 
-        crystalAmountTotal = parseInt(localStorage.getItem("crystal-plorts"));
+        crystalAmount = parseInt(localStorage.getItem("crystal-plorts"));
         document.getElementById('crystal-plorts').innerText = crystalAmountTotal.toLocaleString()
         crystalPrice = parseInt(localStorage.getItem("crystal-price"));
         document.getElementById('current-crystal-price').innerText = crystalPrice.toLocaleString()
@@ -3078,7 +3078,7 @@ function loadSave() { //triggers on loading of page
         crystalLevelCost = parseInt(localStorage.getItem("crystal-level-price"));
         document.getElementById('crystal-upgrade-price').innerText = crystalLevelCost.toLocaleString()
 
-        saberAmountTotal = parseInt(localStorage.getItem("saber-plorts"));
+        saberAmount = parseInt(localStorage.getItem("saber-plorts"));
         document.getElementById('saber-plorts').innerText = saberAmountTotal.toLocaleString()
         saberPrice = parseInt(localStorage.getItem("saber-price"));
         document.getElementById('current-saber-price').innerText = saberPrice.toLocaleString()
@@ -3095,7 +3095,7 @@ function loadSave() { //triggers on loading of page
         saberLevelCost = parseInt(localStorage.getItem("saber-level-price"));
         document.getElementById('saber-upgrade-price').innerText = saberLevelCost.toLocaleString()
 
-        dervishAmountTotal = parseInt(localStorage.getItem("dervish-plorts"));
+        dervishAmount = parseInt(localStorage.getItem("dervish-plorts"));
         document.getElementById('dervish-plorts').innerText = dervishAmountTotal.toLocaleString()
         dervishPrice = parseInt(localStorage.getItem("dervish-price"));
         document.getElementById('current-dervish-price').innerText = dervishPrice.toLocaleString()
@@ -3112,7 +3112,7 @@ function loadSave() { //triggers on loading of page
         dervishLevelCost = parseInt(localStorage.getItem("dervish-level-price"));
         document.getElementById('dervish-upgrade-price').innerText = dervishLevelCost.toLocaleString()
 
-        quantumAmountTotal = parseInt(localStorage.getItem("quantum-plorts"));
+        quantumAmount = parseInt(localStorage.getItem("quantum-plorts"));
         document.getElementById('quantum-plorts').innerText = quantumAmountTotal.toLocaleString()
         quantumPrice = parseInt(localStorage.getItem("quantum-price"));
         document.getElementById('current-quantum-price').innerText = quantumPrice.toLocaleString()
@@ -3129,7 +3129,7 @@ function loadSave() { //triggers on loading of page
         quantumLevelCost = parseInt(localStorage.getItem("quantum-level-price"));
         document.getElementById('quantum-upgrade-price').innerText = quantumLevelCost.toLocaleString()
 
-        tangleAmountTotal = parseInt(localStorage.getItem("tangle-plorts"));
+        tangleAmount = parseInt(localStorage.getItem("tangle-plorts"));
         document.getElementById('tangle-plorts').innerText = tangleAmountTotal.toLocaleString()
         tanglePrice = parseInt(localStorage.getItem("tangle-price"));
         document.getElementById('current-tangle-price').innerText = tanglePrice.toLocaleString()
@@ -3146,7 +3146,7 @@ function loadSave() { //triggers on loading of page
         tangleLevelCost = parseInt(localStorage.getItem("tangle-level-price"));
         document.getElementById('tangle-upgrade-price').innerText = tangleLevelCost.toLocaleString()
 
-        mosaicAmountTotal = parseInt(localStorage.getItem("mosaic-plorts"));
+        mosaicAmount = parseInt(localStorage.getItem("mosaic-plorts"));
         document.getElementById('mosaic-plorts').innerText = mosaicAmountTotal.toLocaleString()
         mosaicPrice = parseInt(localStorage.getItem("mosaic-price"));
         document.getElementById('current-mosaic-price').innerText = mosaicPrice.toLocaleString()
@@ -3163,7 +3163,7 @@ function loadSave() { //triggers on loading of page
         mosaicLevelCost = parseInt(localStorage.getItem("mosaic-level-price"));
         document.getElementById('mosaic-upgrade-price').innerText = mosaicLevelCost.toLocaleString()
 
-        goldAmountTotal = parseInt(localStorage.getItem("gold-plorts"));
+        goldAmount = parseInt(localStorage.getItem("gold-plorts"));
         document.getElementById('gold-plorts').innerText = goldAmountTotal.toLocaleString()
         goldPrice = parseInt(localStorage.getItem("gold-price"));
         document.getElementById('current-gold-price').innerText = goldPrice.toLocaleString()
@@ -3190,103 +3190,103 @@ function resetSave() {
     currentMoney = 0
     clickRank = 0
     clickLevel = 0
-    pinkAmountTotal = 0
+    pinkAmount = 0
     pinkPrice = 0
     numOfPinkSlimes = 0
     costOfPinkSlimes = 0
     pinkLevel = 0
     pinkLevelCost = 0
-    rockAmountTotal = 0
+    rockAmount = 0
     rockPrice = 0
     numOfRockSlimes = 0
     costOfRockSlimes = 0
     rockLevel = 0
     rockLevelCost = 0
-    phosphorAmountTotal = 0
+    phosphorAmount = 0
     phosphorPrice = 0
     numOfPhosphorSlimes = 0
     costOfPhosphorSlimes = 0
     phosphorLevel = 0
     phosphorLevelCost = 0
-    tabbyAmountTotal = 0
+    tabbyAmount = 0
     tabbyPrice = 0
     numOfTabbySlimes = 0
     costOfTabbySlimes = 0
     tabbyLevel = 0
     tabbyLevelCost = 0
-    puddleAmountTotal = 0
+    puddleAmount = 0
     puddlePrice = 0
     numOfPuddleSlimes = 0
     costOfPuddleSlimes = 0
     puddleLevel = 0
     puddleLevelCost = 0
-    fireAmountTotal = 0
+    fireAmount = 0
     firePrice = 0
     numOfFireSlimes = 0
     costOfFireSlimes = 0
     fireLevel = 0
     fireLevelCost = 0
-    honeyAmountTotal = 0
+    honeyAmount = 0
     honeyPrice = 0
     numOfHoneySlimes = 0
     costOfHoneySlimes = 0
     honeyLevel = 0
     honeyLevelCost = 0
-    boomAmountTotal = 0
+    boomAmount = 0
     boomPrice = 0
     numOfBoomSlimes = 0
     costOfBoomSlimes = 0
     boomLevel = 0
     boomLevelCost = 0
-    hunterAmountTotal = 0
+    hunterAmount = 0
     hunterPrice = 0
     numOfHunterSlimes = 0
     costOfHunterSlimes = 0
     hunterLevel = 0
     hunterLevelCost = 0
-    radAmountTotal = 0
+    radAmount = 0
     radPrice = 0
     numOfRadSlimes = 0
     costOfRadSlimes = 0
     radLevel = 0
     radLevelCost = 0
-    crystalAmountTotal = 0
+    crystalAmount = 0
     crystalPrice = 0
     numOfCrystalSlimes = 0
     costOfCrystalSlimes = 0
     crystalLevel = 0
     crystalLevelCost = 0
-    saberAmountTotal = 0
+    saberAmount = 0
     saberPrice = 0
     numOfSaberSlimes = 0
     costOfSaberSlimes = 0
     saberLevel = 0
     saberLevelCost = 0
-    dervishAmountTotal = 0
+    dervishAmount = 0
     dervishPrice = 0
     numOfDervishSlimes = 0
     costOfDervishSlimes = 0
     dervishLevel = 0
     dervishLevelCost = 0
-    quantumAmountTotal = 0
+    quantumAmount = 0
     quantumPrice = 0
     numOfQuantumSlimes = 0
     costOfQuantumSlimes = 0
     quantumLevel = 0
     quantumLevelCost = 0
-    tangleAmountTotal = 0
+    tangleAmount = 0
     tanglePrice = 0
     numOfTangleSlimes = 0
     costOfTangleSlimes = 0
     tangleLevel = 0
     tangleLevelCost = 0
-    mosaicAmountTotal = 0
+    mosaicAmount = 0
     mosaicPrice = 0
     numOfMosaicSlimes = 0
     costOfMosaicSlimes = 0
     mosaicLevel = 0
     mosaicLevelCost = 0
-    goldAmountTotal = 0
+    goldAmount = 0
     goldPrice = 0
     numOfGoldSlimes = 0
     costOfGoldSlimes = 0
