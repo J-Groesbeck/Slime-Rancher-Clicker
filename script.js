@@ -3180,6 +3180,8 @@ function loadSave() { //triggers on loading of page
         tangleTotal()
         mosaicTotal()
         goldTotal()
+    } else {
+        currentMoney = 0
     }
 }
 
@@ -3187,24 +3189,20 @@ loadSave()
 
 function resetSave() {
     alert("Are you sure you want to reset your progress? This action cannot be reversed"); //pop up with a message when triggered to make sure the player wants this, prolly wont work as intended
-    localStorage.removeItem("money", currentMoney); 
+    
     //remove all saved data
-    localStorage.removeItem("click-rank", clickRank);
-    localStorage.removeItem("click-level", clickLevel);
+    localStorage.removeItem("money"); 
+
+    localStorage.removeItem("click-rank");
+    localStorage.removeItem("click-level");
 
     let typeArray = ["pink", "rock", "phosphor", "tabby", "puddle", "fire", "honey", "boom", "hunter", "rad", "crystal", "saber", "dervish", "quantum", "tangle", "mosaic", "gold"];
-    let amountsTotal = [pinkAmountTotal, rockAmountTotal, phosphorAmountTotal, tabbyAmountTotal, puddleAmountTotal, fireAmountTotal, honeyAmountTotal, boomAmountTotal, hunterAmountTotal, radAmountTotal, crystalAmountTotal, saberAmountTotal, dervishAmountTotal, quantumAmountTotal, tangleAmountTotal, mosaicAmountTotal, goldAmountTotal];
-    let prices = [pinkPrice, rockPrice, phosphorPrice, tabbyPrice, puddlePrice, firePrice, honeyPrice, boomPrice, hunterPrice, radPrice, crystalPrice, saberPrice, dervishPrice, quantumPrice, tanglePrice, mosaicPrice, goldPrice];
-    let numOfSlimes = [numOfPinkSlimes, numOfRockSlimes, numOfPhosphorSlimes, numOfTabbySlimes, numOfPuddleSlimes, numOfFireSlimes, numOfHoneySlimes, numOfBoomSlimes, numOfHunterSlimes, numOfRadSlimes, numOfCrystalSlimes, numOfSaberSlimes, numOfDervishSlimes, numOfQuantumSlimes, numOfTangleSlimes, numOfMosaicSlimes, numOfGoldSlimes];
-    let slimeCosts = [costOfPinkSlimes, costOfRockSlimes, costOfPhosphorSlimes, costOfTabbySlimes, costOfPuddleSlimes, costOfFireSlimes, costOfHoneySlimes, costOfBoomSlimes, costOfHunterSlimes, costOfRadSlimes, costOfCrystalSlimes, costOfSaberSlimes, costOfDervishSlimes, costOfQuantumSlimes, costOfTangleSlimes, costOfMosaicSlimes, costOfGoldSlimes];
-    let levels = [pinkLevel, rockLevel, phosphorLevel, tabbyLevel, puddleLevel, fireLevel, honeyLevel, boomLevel, hunterLevel, radLevel, crystalLevel, saberLevel, dervishLevel, quantumLevel, tangleLevel, mosaicLevel, goldLevel];
-    let levelCosts = [pinkLevelCost, rockLevelCost, phosphorLevelCost, tabbyLevelCost, puddleLevelCost, fireLevelCost, honeyLevelCost, boomLevelCost, hunterLevelCost, radLevelCost, crystalLevelCost, saberLevelCost, dervishLevelCost, quantumLevelCost, tangleLevelCost, mosaicLevelCost, goldLevelCost];
     for (let i = 0; i < typeArray.length; i++) {
-        localStorage.removeItem(`${typeArray[i]}-plorts`, amountsTotal[i]);
-        localStorage.removeItem(`${typeArray[i]}-price`, prices[i]);
-        localStorage.removeItem(`${typeArray[i]}-slimes`, numOfSlimes[i]);
-        localStorage.removeItem(`${typeArray[i]}-slime-price`, slimeCosts[i]);
-        localStorage.removeItem(`${typeArray[i]}-level`, levels[i]);
-        localStorage.removeItem(`${typeArray[i]}-level-price`, levelCosts[i]);
+        localStorage.removeItem(`${typeArray[i]}-plorts`);
+        localStorage.removeItem(`${typeArray[i]}-price`);
+        localStorage.removeItem(`${typeArray[i]}-slimes`);
+        localStorage.removeItem(`${typeArray[i]}-slime-price`);
+        localStorage.removeItem(`${typeArray[i]}-level`);
+        localStorage.removeItem(`${typeArray[i]}-level-price`);
     }
 }
