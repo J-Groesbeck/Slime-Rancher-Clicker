@@ -1,12 +1,13 @@
-window.addEventListener("beforeunload", (event) => {
-    // Cancel the event as stated by the standard.
-    event.preventDefault();
-    // Chrome requires returnValue to be set.
-    event.returnValue = '';
-    // Display a message to notify the user to save before closing the page
-    return "Remember to save your game before closing the page!";
-});
-// Above does needs to be tested on windows
+if (window.location.pathname.includes('game.html')) {
+    window.addEventListener("beforeunload", (event) => {
+        // Cancel the event as stated by the standard.
+        event.preventDefault();
+        // Chrome requires returnValue to be set.
+        event.returnValue = '';
+        // Display a message to notify the user to save before closing the page
+        return "Remember to save your game before closing the page!";
+    });
+}
 
 let currentMoney = 0
 document.getElementById('current-money').innerText = currentMoney.toLocaleString()
@@ -3186,111 +3187,24 @@ loadSave()
 
 function resetSave() {
     alert("Are you sure you want to reset your progress? This action cannot be reversed"); //pop up with a message when triggered to make sure the player wants this, prolly wont work as intended
-    //reset all values back to zero
-    currentMoney = 0
-    clickRank = 0
-    clickLevel = 0
-    pinkAmount = 0
-    pinkPrice = 0
-    numOfPinkSlimes = 0
-    costOfPinkSlimes = 0
-    pinkLevel = 0
-    pinkLevelCost = 0
-    rockAmount = 0
-    rockPrice = 0
-    numOfRockSlimes = 0
-    costOfRockSlimes = 0
-    rockLevel = 0
-    rockLevelCost = 0
-    phosphorAmount = 0
-    phosphorPrice = 0
-    numOfPhosphorSlimes = 0
-    costOfPhosphorSlimes = 0
-    phosphorLevel = 0
-    phosphorLevelCost = 0
-    tabbyAmount = 0
-    tabbyPrice = 0
-    numOfTabbySlimes = 0
-    costOfTabbySlimes = 0
-    tabbyLevel = 0
-    tabbyLevelCost = 0
-    puddleAmount = 0
-    puddlePrice = 0
-    numOfPuddleSlimes = 0
-    costOfPuddleSlimes = 0
-    puddleLevel = 0
-    puddleLevelCost = 0
-    fireAmount = 0
-    firePrice = 0
-    numOfFireSlimes = 0
-    costOfFireSlimes = 0
-    fireLevel = 0
-    fireLevelCost = 0
-    honeyAmount = 0
-    honeyPrice = 0
-    numOfHoneySlimes = 0
-    costOfHoneySlimes = 0
-    honeyLevel = 0
-    honeyLevelCost = 0
-    boomAmount = 0
-    boomPrice = 0
-    numOfBoomSlimes = 0
-    costOfBoomSlimes = 0
-    boomLevel = 0
-    boomLevelCost = 0
-    hunterAmount = 0
-    hunterPrice = 0
-    numOfHunterSlimes = 0
-    costOfHunterSlimes = 0
-    hunterLevel = 0
-    hunterLevelCost = 0
-    radAmount = 0
-    radPrice = 0
-    numOfRadSlimes = 0
-    costOfRadSlimes = 0
-    radLevel = 0
-    radLevelCost = 0
-    crystalAmount = 0
-    crystalPrice = 0
-    numOfCrystalSlimes = 0
-    costOfCrystalSlimes = 0
-    crystalLevel = 0
-    crystalLevelCost = 0
-    saberAmount = 0
-    saberPrice = 0
-    numOfSaberSlimes = 0
-    costOfSaberSlimes = 0
-    saberLevel = 0
-    saberLevelCost = 0
-    dervishAmount = 0
-    dervishPrice = 0
-    numOfDervishSlimes = 0
-    costOfDervishSlimes = 0
-    dervishLevel = 0
-    dervishLevelCost = 0
-    quantumAmount = 0
-    quantumPrice = 0
-    numOfQuantumSlimes = 0
-    costOfQuantumSlimes = 0
-    quantumLevel = 0
-    quantumLevelCost = 0
-    tangleAmount = 0
-    tanglePrice = 0
-    numOfTangleSlimes = 0
-    costOfTangleSlimes = 0
-    tangleLevel = 0
-    tangleLevelCost = 0
-    mosaicAmount = 0
-    mosaicPrice = 0
-    numOfMosaicSlimes = 0
-    costOfMosaicSlimes = 0
-    mosaicLevel = 0
-    mosaicLevelCost = 0
-    goldAmount = 0
-    goldPrice = 0
-    numOfGoldSlimes = 0
-    costOfGoldSlimes = 0
-    goldLevel = 0
-    goldLevelCost = 0
-    saveGame()
+    localStorage.removeItem("money", currentMoney); 
+    //remove all saved data
+    localStorage.removeItem("click-rank", clickRank);
+    localStorage.removeItem("click-level", clickLevel);
+
+    let typeArray = ["pink", "rock", "phosphor", "tabby", "puddle", "fire", "honey", "boom", "hunter", "rad", "crystal", "saber", "dervish", "quantum", "tangle", "mosaic", "gold"];
+    let amountsTotal = [pinkAmountTotal, rockAmountTotal, phosphorAmountTotal, tabbyAmountTotal, puddleAmountTotal, fireAmountTotal, honeyAmountTotal, boomAmountTotal, hunterAmountTotal, radAmountTotal, crystalAmountTotal, saberAmountTotal, dervishAmountTotal, quantumAmountTotal, tangleAmountTotal, mosaicAmountTotal, goldAmountTotal];
+    let prices = [pinkPrice, rockPrice, phosphorPrice, tabbyPrice, puddlePrice, firePrice, honeyPrice, boomPrice, hunterPrice, radPrice, crystalPrice, saberPrice, dervishPrice, quantumPrice, tanglePrice, mosaicPrice, goldPrice];
+    let numOfSlimes = [numOfPinkSlimes, numOfRockSlimes, numOfPhosphorSlimes, numOfTabbySlimes, numOfPuddleSlimes, numOfFireSlimes, numOfHoneySlimes, numOfBoomSlimes, numOfHunterSlimes, numOfRadSlimes, numOfCrystalSlimes, numOfSaberSlimes, numOfDervishSlimes, numOfQuantumSlimes, numOfTangleSlimes, numOfMosaicSlimes, numOfGoldSlimes];
+    let slimeCosts = [costOfPinkSlimes, costOfRockSlimes, costOfPhosphorSlimes, costOfTabbySlimes, costOfPuddleSlimes, costOfFireSlimes, costOfHoneySlimes, costOfBoomSlimes, costOfHunterSlimes, costOfRadSlimes, costOfCrystalSlimes, costOfSaberSlimes, costOfDervishSlimes, costOfQuantumSlimes, costOfTangleSlimes, costOfMosaicSlimes, costOfGoldSlimes];
+    let levels = [pinkLevel, rockLevel, phosphorLevel, tabbyLevel, puddleLevel, fireLevel, honeyLevel, boomLevel, hunterLevel, radLevel, crystalLevel, saberLevel, dervishLevel, quantumLevel, tangleLevel, mosaicLevel, goldLevel];
+    let levelCosts = [pinkLevelCost, rockLevelCost, phosphorLevelCost, tabbyLevelCost, puddleLevelCost, fireLevelCost, honeyLevelCost, boomLevelCost, hunterLevelCost, radLevelCost, crystalLevelCost, saberLevelCost, dervishLevelCost, quantumLevelCost, tangleLevelCost, mosaicLevelCost, goldLevelCost];
+    for (let i = 0; i < typeArray.length; i++) {
+        localStorage.removeItem(`${typeArray[i]}-plorts`, amountsTotal[i]);
+        localStorage.removeItem(`${typeArray[i]}-price`, prices[i]);
+        localStorage.removeItem(`${typeArray[i]}-slimes`, numOfSlimes[i]);
+        localStorage.removeItem(`${typeArray[i]}-slime-price`, slimeCosts[i]);
+        localStorage.removeItem(`${typeArray[i]}-level`, levels[i]);
+        localStorage.removeItem(`${typeArray[i]}-level-price`, levelCosts[i]);
+    }
 }
