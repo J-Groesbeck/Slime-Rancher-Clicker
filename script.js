@@ -3188,21 +3188,23 @@ function loadSave() { //triggers on loading of page
 loadSave()
 
 function resetSave() {
-    alert("Are you sure you want to reset your progress? This action cannot be reversed"); //pop up with a message when triggered to make sure the player wants this, prolly wont work as intended
-    
-    //remove all saved data
-    localStorage.removeItem("money"); 
+    // Display a confirmation dialog
+    var confirmation = confirm("Are you sure you want to reset your progress? This action cannot be reversed.");
+    // Check the user's choice
+    if (confirmation) {
+        //remove all saved data
+        localStorage.removeItem("money");
+        localStorage.removeItem("click-rank");
+        localStorage.removeItem("click-level");
 
-    localStorage.removeItem("click-rank");
-    localStorage.removeItem("click-level");
-
-    let typeArray = ["pink", "rock", "phosphor", "tabby", "puddle", "fire", "honey", "boom", "hunter", "rad", "crystal", "saber", "dervish", "quantum", "tangle", "mosaic", "gold"];
-    for (let i = 0; i < typeArray.length; i++) {
-        localStorage.removeItem(`${typeArray[i]}-plorts`);
-        localStorage.removeItem(`${typeArray[i]}-price`);
-        localStorage.removeItem(`${typeArray[i]}-slimes`);
-        localStorage.removeItem(`${typeArray[i]}-slime-price`);
-        localStorage.removeItem(`${typeArray[i]}-level`);
-        localStorage.removeItem(`${typeArray[i]}-level-price`);
+        let typeArray = ["pink", "rock", "phosphor", "tabby", "puddle", "fire", "honey", "boom", "hunter", "rad", "crystal", "saber", "dervish", "quantum", "tangle", "mosaic", "gold"];
+        for (let i = 0; i < typeArray.length; i++) {
+            localStorage.removeItem(`${typeArray[i]}-plorts`);
+            localStorage.removeItem(`${typeArray[i]}-price`);
+            localStorage.removeItem(`${typeArray[i]}-slimes`);
+            localStorage.removeItem(`${typeArray[i]}-slime-price`);
+            localStorage.removeItem(`${typeArray[i]}-level`);
+            localStorage.removeItem(`${typeArray[i]}-level-price`);
+        }
     }
 }
