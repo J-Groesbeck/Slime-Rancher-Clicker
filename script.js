@@ -214,77 +214,77 @@ function checkRank() {
             document.getElementById('click-rank').innerText = 'Rock';
             break;
         case 3:
-            clickerRock.style.display = 'none';
+            clickerPink.style.display = 'none';
             clickerPhosphor.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Phosphor';
             break;
         case 4:
-            clickerPhosphor.style.display = 'none';
+            clickerPink.style.display = 'none';
             clickerTabby.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Tabby';
             break;
         case 5:
-            clickerTabby.style.display = 'none';
+            clickerPink.style.display = 'none';
             clickerPuddle.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Puddle';
             break;
         case 6:
-            clickerPuddle.style.display = 'none';
+            clickerPink.style.display = 'none';
             clickerFire.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Fire';
             break;
         case 7:
-            clickerFire.style.display = 'none';
+            clickerPink.style.display = 'none';
             clickerHoney.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Honey';
             break;
         case 8:
-            clickerHoney.style.display = 'none';
+            clickerPink.style.display = 'none';
             clickerBoom.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Boom';
             break;
         case 9:
-            clickerBoom.style.display = 'none';
+            clickerPink.style.display = 'none';
             clickerHunter.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Hunter';
             break;
         case 10:
-            clickerHunter.style.display = 'none';
+            clickerPink.style.display = 'none';
             clickerRad.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Rad';
             break;
         case 11:
-            clickerRad.style.display = 'none';
+            clickerPink.style.display = 'none';
             clickerCrystal.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Crystal';
             break;
         case 12:
-            clickerCrystal.style.display = 'none';
+            clickerPink.style.display = 'none';
             clickerSaber.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Saber';
             break;
         case 13:
-            clickerSaber.style.display = 'none';
+            clickerPink.style.display = 'none';
             clickerDervish.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Dervish';
             break;
         case 14:
-            clickerDervish.style.display = 'none';
+            clickerPink.style.display = 'none';
             clickerQuantum.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Quantum';
             break;
         case 15:
-            clickerQuantum.style.display = 'none';
+            clickerPink.style.display = 'none';
             clickerTangle.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Tangle';
             break;
         case 16:
-            clickerTangle.style.display = 'none';
+            clickerPink.style.display = 'none';
             clickerMosaic.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Mosaic';
             break;
         case 17:
-            clickerMosaic.style.display = 'none';
+            clickerPink.style.display = 'none';
             clickerGold.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Gold';
             break;
