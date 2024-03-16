@@ -339,6 +339,7 @@ function buyPinkSlimes() {
         currentMoney = currentMoney - costOfPinkSlimes
         numOfPinkSlimes = numOfPinkSlimes + 1
         playPurchaseSound()
+        calcPPS()
     }
     if (numOfPinkSlimes >= 250 && currentMoney >= costOfPinkSlimes) {
         costOfPinkSlimes = Math.floor(costOfPinkSlimes * 1.1)
@@ -357,21 +358,20 @@ function buyPinkSlimes() {
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
 
-let autoPinkMultiplier = 0.2
 let pinkLevel = 1
-document.getElementById('pink-level').innerText = pinkLevel
+let autoPinkMultiplier = 0.2 * pinkLevel
 let pinkLevelCost = 1000
 document.getElementById('pink-upgrade-price').innerText = pinkLevelCost.toLocaleString()
 
 function levelUpPink() {
     if (currentMoney >= pinkLevelCost) {
         pinkLevel = pinkLevel + 1
-        autoPinkMultiplier = autoPinkMultiplier + 0.2
+        autoPinkMultiplier = 0.2 * pinkLevel
         currentMoney = currentMoney - pinkLevelCost
         pinkLevelCost = pinkLevelCost * 5
         document.getElementById('pink-upgrade-price').innerText = pinkLevelCost.toLocaleString()
-        document.getElementById('pink-level').innerText = pinkLevel
         playPurchaseUpgradeSound()
+        calcPPS()
     }
     if (pinkLevel === 5) {
         document.getElementById('level-up-pink').style.display = 'none'
@@ -379,6 +379,12 @@ function levelUpPink() {
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
+
+function calcPPS() {
+    let pinkPerSec = numOfPinkSlimes * autoPinkMultiplier
+    document.getElementById('pink-per-second').innerText = pinkPerSec
+}
+calcPPS()
 
 let autoPinkAmount = 0
 let pinkPrice = 7
@@ -2900,7 +2906,8 @@ function loadSave() { //triggers on loading of page
         costOfPinkSlimes = parseInt(localStorage.getItem("pink-slime-price"));
         document.getElementById('pink-slime-price').innerText = costOfPinkSlimes.toLocaleString()
         pinkLevel = parseInt(localStorage.getItem("pink-level"));
-        document.getElementById('pink-level').innerText = pinkLevel.toLocaleString()
+        autoPinkMultiplier = 0.2 * pinkLevel
+        calcPPS()
         if (pinkLevel === 5) {
             document.getElementById('level-up-pink').style.display = 'none'
             document.getElementById('buy-pink-slimes').classList = 'w-100 h-100'
