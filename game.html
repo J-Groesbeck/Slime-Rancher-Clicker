@@ -52,8 +52,8 @@
                         onclick="clickBoom(); playGenerationSound(); luckySlime()" id="click-boom"></img>
                     <img src="img/hunter-slime.png" class="h-100"
                         onclick="clickHunter(); playGenerationSound(); luckySlime()" id="click-hunter"></img>
-                    <img src="img/rad-slime.png" class="h-100"
-                        onclick="clickRad(); playGenerationSound(); luckySlime()" id="click-rad"></img>
+                    <img src="img/rad-slime.png" class="h-100" onclick="clickRad(); playGenerationSound(); luckySlime()"
+                        id="click-rad"></img>
                     <img src="img/crystal-slime.png" class="h-100"
                         onclick="clickCrystal(); playGenerationSound(); luckySlime()" id="click-crystal"></img>
                     <img src="img/saber-slime.png" class="h-100"
@@ -69,7 +69,7 @@
                     <img src="img/gold-slime.png" class="h-100"
                         onclick="clickGold(); playGenerationSound(); luckySlime()" id="click-gold"></img>
                 </div>
-                <div class="row default-height" height="5rem">
+                <div class="row default-height">
                     <div class="col-3 text-center">
                         <img src="img/rock-plort.png" class="h-100">
                     </div>
@@ -504,7 +504,9 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="rock-slime-amount"></span></h4>
-                        <h6>Each rock slime produces <span id="rock-level"></span> rock plort(s) every 5 seconds</h6>
+                        <h6>
+                            <span id="rock-per-second"></span> pink plorts/second
+                        </h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyRockSlimes()" class="w-100" id="buy-rock-slimes">
@@ -523,8 +525,9 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="phosphor-slime-amount"></span></h4>
-                        <h6>Each phosphor slime produces <span id="phosphor-level"></span> phosphor plort(s) every 5
-                            secs</h6>
+                        <h6>
+                            <span id="phosphor-per-second"></span> phosphor plorts/second
+                        </h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyPhosphorSlimes()" class="w-100" id="buy-phosphor-slimes">
@@ -543,7 +546,9 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="tabby-slime-amount"></span></h4>
-                        <h6>Each tabby slime produces <span id="tabby-level"></span> tabby plort(s) every 5 seconds</h6>
+                        <h6>
+                            <span id="tabby-per-second"></span> tabby plorts/second
+                        </h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyTabbySlimes()" class="w-100" id="buy-tabby-slimes">
@@ -562,7 +567,8 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="puddle-slime-amount"></span></h4>
-                        <h6>Each puddle slime produces <span id="puddle-level"></span> puddle plort(s) every 5 seconds
+                        <h6>
+                            <span id="puddle-per-second"></span> puddle plorts/second
                         </h6>
                     </div>
                     <div class="col-4">
@@ -582,7 +588,9 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="fire-slime-amount"></span></h4>
-                        <h6>Each fire slime produces <span id="fire-level"></span> fire plort(s) every 5 seconds</h6>
+                        <h6>
+                            <span id="fire-per-second"></span> fire plorts/second
+                        </h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyFireSlimes()" class="w-100" id="buy-fire-slimes">
@@ -601,7 +609,9 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="honey-slime-amount"></span></h4>
-                        <h6>Each honey slime produces <span id="honey-level"></span> honey plort(s) every 5 seconds</h6>
+                        <h6>
+                            <span id="honey-per-second"></span> honey plorts/second
+                        </h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyHoneySlimes()" class="w-100" id="buy-honey-slimes">
@@ -620,7 +630,9 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="boom-slime-amount"></span></h4>
-                        <h6>Each boom slime produces <span id="boom-level"></span> boom plort(s) every 5 seconds</h6>
+                        <h6>
+                            <span id="boom-per-second"></span> boom plorts/second
+                        </h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyBoomSlimes()" class="w-100" id="buy-boom-slimes">
@@ -639,7 +651,8 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="hunter-slime-amount"></span></h4>
-                        <h6>Each hunter slime produces <span id="hunter-level"></span> hunter plort(s) every 5 seconds
+                        <h6>
+                            <span id="hunter-per-second"></span> hunter plorts/second
                         </h6>
                     </div>
                     <div class="col-4">
@@ -659,7 +672,9 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="rad-slime-amount"></span></h4>
-                        <h6>Each rad slime produces <span id="rad-level"></span> rad plort(s) every 5 seconds</h6>
+                        <h6>
+                            <span id="rad-per-second"></span> rad plorts/second
+                        </h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyRadSlimes()" class="w-100" id="buy-rad-slimes">
@@ -678,8 +693,9 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="crystal-slime-amount"></span></h4>
-                        <h6>Each crystal slime produces <span id="crystal-level"></span> crystal plort(s) every 5
-                            seconds</h6>
+                        <h6>
+                            <span id="crystal-per-second"></span> crystal plorts/second
+                        </h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyCrystalSlimes()" class="w-100" id="buy-crystal-slimes">
@@ -698,7 +714,9 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="saber-slime-amount"></span></h4>
-                        <h6>Each saber slime produces <span id="saber-level"></span> saber plort(s) every 5 seconds</h6>
+                        <h6>
+                            <span id="saber-per-second"></span> saber plorts/second
+                        </h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buySaberSlimes()" class="w-100" id="buy-saber-slimes">
@@ -717,8 +735,9 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="dervish-slime-amount"></span></h4>
-                        <h6>Each dervish slime produces <span id="dervish-level"></span> dervish plort(s) every 5
-                            seconds</h6>
+                        <h6>
+                            <span id="dervish-per-second"></span> dervish plorts/second
+                        </h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyDervishSlimes()" class="w-100" id="buy-dervish-slimes">
@@ -737,8 +756,9 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="quantum-slime-amount"></span></h4>
-                        <h6>Each quantum slime produces <span id="quantum-level"></span> quantum plort(s) every 5
-                            seconds</h6>
+                        <h6>
+                            <span id="quantum-per-second"></span> quantum plorts/second
+                        </h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyQuantumSlimes()" class="w-100" id="buy-quantum-slimes">
@@ -758,7 +778,8 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="tangle-slime-amount"></span></h4>
-                        <h6>Each tangle slime produces <span id="tangle-level"></span> tangle plort(s) every 5 seconds
+                        <h6>
+                            <span id="tangle-per-second"></span> tangle plorts/second
                         </h6>
                     </div>
                     <div class="col-4">
@@ -779,7 +800,8 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="mosaic-slime-amount"></span></h4>
-                        <h6>Each mosaic slime produces <span id="mosaic-level"></span> mosaic plort(s) every 5 seconds
+                        <h6>
+                            <span id="mosaic-per-second"></span> mosaic plorts/second
                         </h6>
                     </div>
                     <div class="col-4">
@@ -800,7 +822,9 @@
                     </div>
                     <div class="col-5">
                         <h4>You have: <span id="gold-slime-amount"></span></h4>
-                        <h6>Each gold slime produces <span id="gold-level"></span> gold plort(s) every 5 seconds</h6>
+                        <h6>
+                            <span id="gold-per-second"></span> gold plorts/second
+                        </h6>
                     </div>
                     <div class="col-4">
                         <button onclick="buyGoldSlimes()" class="w-100" id="buy-gold-slimes">

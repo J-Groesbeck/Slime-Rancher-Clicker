@@ -490,6 +490,12 @@ document.getElementById('rock-slime-price').innerText = costOfRockSlimes.toLocal
 document.getElementById('rock-slime-amount').innerText = numOfRockSlimes.toLocaleString()
 
 function buyRockSlimes() {
+    if (currentMoney >= costOfRockSlimes) {
+        currentMoney = currentMoney - costOfRockSlimes
+        numOfRockSlimes = numOfRockSlimes + 1
+        playPurchaseSound()
+        calcRPS()
+    }
     if (numOfRockSlimes >= 250 && currentMoney >= costOfRockSlimes) {
         costOfRockSlimes = Math.floor(costOfRockSlimes * 1.1)
         document.getElementById('rock-slime-price').innerText = costOfRockSlimes.toLocaleString()
@@ -503,30 +509,24 @@ function buyRockSlimes() {
         costOfRockSlimes = 2000
         document.getElementById('rock-slime-price').innerText = costOfRockSlimes.toLocaleString()
     }
-    if (currentMoney >= costOfRockSlimes) {
-        currentMoney = currentMoney - costOfRockSlimes
-        numOfRockSlimes = numOfRockSlimes + 1
-        playPurchaseSound()
-    }
     document.getElementById('rock-slime-amount').innerText = numOfRockSlimes.toLocaleString()
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
 
-let autoRockMultiplier = 0.2
 let rockLevel = 1
-document.getElementById('rock-level').innerText = rockLevel
+let autoRockMultiplier = 0.2 * rockLevel
 let rockLevelCost = 4000
 document.getElementById('rock-upgrade-price').innerText = rockLevelCost.toLocaleString()
 
 function levelUpRock() {
     if (currentMoney >= rockLevelCost) {
         rockLevel = rockLevel + 1
-        autoRockMultiplier = autoRockMultiplier + 0.2
+        autoRockMultiplier = 0.2 * rockLevel
         currentMoney = currentMoney - rockLevelCost
         rockLevelCost = rockLevelCost * 5
         document.getElementById('rock-upgrade-price').innerText = rockLevelCost.toLocaleString()
-        document.getElementById('rock-level').innerText = rockLevel
         playPurchaseUpgradeSound()
+        calcRPS()
     }
     if (rockLevel === 5) {
         document.getElementById('level-up-rock').style.display = 'none'
@@ -534,6 +534,12 @@ function levelUpRock() {
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
+
+function calcRPS() {
+    let rockPerSec = numOfRockSlimes * autoRockMultiplier
+    document.getElementById('rock-per-second').innerText = rockPerSec
+}
+calcRPS()
 
 let autoRockAmount = 0
 let rockPrice = 15
@@ -638,6 +644,12 @@ document.getElementById('phosphor-slime-price').innerText = costOfPhosphorSlimes
 document.getElementById('phosphor-slime-amount').innerText = numOfPhosphorSlimes.toLocaleString()
 
 function buyPhosphorSlimes() {
+    if (currentMoney >= costOfPhosphorSlimes) {
+        currentMoney = currentMoney - costOfPhosphorSlimes
+        numOfPhosphorSlimes = numOfPhosphorSlimes + 1
+        playPurchaseSound()
+        calcPhPS()
+    }
     if (numOfPhosphorSlimes >= 250 && currentMoney >= costOfPhosphorSlimes) {
         costOfPhosphorSlimes = Math.floor(costOfPhosphorSlimes * 1.1)
         document.getElementById('phosphor-slime-price').innerText = costOfPhosphorSlimes.toLocaleString()
@@ -651,30 +663,24 @@ function buyPhosphorSlimes() {
         costOfPhosphorSlimes = 8000
         document.getElementById('phosphor-slime-price').innerText = costOfPhosphorSlimes.toLocaleString()
     }
-    if (currentMoney >= costOfPhosphorSlimes) {
-        currentMoney = currentMoney - costOfPhosphorSlimes
-        numOfPhosphorSlimes = numOfPhosphorSlimes + 1
-        playPurchaseSound()
-    }
     document.getElementById('phosphor-slime-amount').innerText = numOfPhosphorSlimes.toLocaleString()
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
 
-let autoPhosphorMultiplier = 0.2
 let phosphorLevel = 1
-document.getElementById('phosphor-level').innerText = phosphorLevel
+let autoPhosphorMultiplier = 0.2 * phosphorLevel
 let phosphorLevelCost = 16000
 document.getElementById('phosphor-upgrade-price').innerText = phosphorLevelCost.toLocaleString()
 
 function levelUpPhosphor() {
     if (currentMoney >= phosphorLevelCost) {
         phosphorLevel = phosphorLevel + 1
-        autoPhosphorMultiplier = autoPhosphorMultiplier + 0.2
+        autoPhosphorMultiplier = 0.2 * phosphorLevel
         currentMoney = currentMoney - phosphorLevelCost
         phosphorLevelCost = phosphorLevelCost * 5
         document.getElementById('phosphor-upgrade-price').innerText = phosphorLevelCost.toLocaleString()
-        document.getElementById('phosphor-level').innerText = phosphorLevel
         playPurchaseUpgradeSound()
+        calcPhPS()
     }
     if (phosphorLevel === 5) {
         document.getElementById('level-up-phosphor').style.display = 'none'
@@ -682,6 +688,12 @@ function levelUpPhosphor() {
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
+
+function calcPhPS() {
+    let phosphorPerSec = numOfPhosphorSlimes * autoPhosphorMultiplier
+    document.getElementById('phosphor-per-second').innerText = phosphorPerSec
+}
+calcPhPS()
 
 let autoPhosphorAmount = 0
 let phosphorPrice = 23
@@ -785,6 +797,12 @@ document.getElementById('tabby-slime-price').innerText = costOfTabbySlimes.toLoc
 document.getElementById('tabby-slime-amount').innerText = numOfTabbySlimes.toLocaleString()
 
 function buyTabbySlimes() {
+    if (currentMoney >= costOfTabbySlimes) {
+        currentMoney = currentMoney - costOfTabbySlimes
+        numOfTabbySlimes = numOfTabbySlimes + 1
+        playPurchaseSound()
+        calcTPS()
+    }
     if (numOfTabbySlimes >= 250 && currentMoney >= costOfTabbySlimes) {
         costOfTabbySlimes = Math.floor(costOfTabbySlimes * 1.1)
         document.getElementById('tabby-slime-price').innerText = costOfTabbySlimes.toLocaleString()
@@ -798,30 +816,24 @@ function buyTabbySlimes() {
         costOfTabbySlimes = 32000
         document.getElementById('tabby-slime-price').innerText = costOfTabbySlimes.toLocaleString()
     }
-    if (currentMoney >= costOfTabbySlimes) {
-        currentMoney = currentMoney - costOfTabbySlimes
-        numOfTabbySlimes = numOfTabbySlimes + 1
-        playPurchaseSound()
-    }
     document.getElementById('tabby-slime-amount').innerText = numOfTabbySlimes.toLocaleString()
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
 
-let autoTabbyMultiplier = 0.2
 let tabbyLevel = 1
-document.getElementById('tabby-level').innerText = tabbyLevel
+let autoTabbyMultiplier = 0.2 * tabbyLevel
 let tabbyLevelCost = 64000
 document.getElementById('tabby-upgrade-price').innerText = tabbyLevelCost.toLocaleString()
 
 function levelUpTabby() {
     if (currentMoney >= tabbyLevelCost) {
         tabbyLevel = tabbyLevel + 1
-        autoTabbyMultiplier = autoTabbyMultiplier + 0.2
+        autoTabbyMultiplier = 0.2 * tabbyLevel
         currentMoney = currentMoney - tabbyLevelCost
         tabbyLevelCost = tabbyLevelCost * 5
         document.getElementById('tabby-upgrade-price').innerText = tabbyLevelCost.toLocaleString()
-        document.getElementById('tabby-level').innerText = tabbyLevel
         playPurchaseUpgradeSound()
+        calcTPS()
     }
     if (tabbyLevel === 5) {
         document.getElementById('level-up-tabby').style.display = 'none'
@@ -829,6 +841,12 @@ function levelUpTabby() {
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
+
+function calcTPS() {
+    let tabbyPerSec = numOfTabbySlimes * autoTabbyMultiplier
+    document.getElementById('tabby-per-second').innerText = tabbyPerSec
+}
+calcTPS()
 
 let autoTabbyAmount = 0
 let tabbyPrice = 34
@@ -932,6 +950,12 @@ document.getElementById('puddle-slime-price').innerText = costOfPuddleSlimes.toL
 document.getElementById('puddle-slime-amount').innerText = numOfPuddleSlimes.toLocaleString()
 
 function buyPuddleSlimes() {
+    if (currentMoney >= costOfPuddleSlimes) {
+        currentMoney = currentMoney - costOfPuddleSlimes
+        numOfPuddleSlimes = numOfPuddleSlimes + 1
+        playPurchaseSound()
+        calcPuPS()
+    }
     if (numOfPuddleSlimes >= 250 && currentMoney >= costOfPuddleSlimes) {
         costOfPuddleSlimes = Math.floor(costOfPuddleSlimes * 1.1)
         document.getElementById('puddle-slime-price').innerText = costOfPuddleSlimes.toLocaleString()
@@ -945,30 +969,24 @@ function buyPuddleSlimes() {
         costOfPuddleSlimes = 128000
         document.getElementById('puddle-slime-price').innerText = costOfPuddleSlimes.toLocaleString()
     }
-    if (currentMoney >= costOfPuddleSlimes) {
-        currentMoney = currentMoney - costOfPuddleSlimes
-        numOfPuddleSlimes = numOfPuddleSlimes + 1
-        playPurchaseSound()
-    }
     document.getElementById('puddle-slime-amount').innerText = numOfPuddleSlimes.toLocaleString()
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
 
-let autoPuddleMultiplier = 0.2
 let puddleLevel = 1
-document.getElementById('puddle-level').innerText = puddleLevel.toLocaleString()
+let autoPuddleMultiplier = 0.2 * puddleLevel
 let puddleLevelCost = 256000
 document.getElementById('puddle-upgrade-price').innerText = puddleLevelCost.toLocaleString()
 
 function levelUpPuddle() {
     if (currentMoney >= puddleLevelCost) {
         puddleLevel = puddleLevel + 1
-        autoPuddleMultiplier = autoPuddleMultiplier + 0.2
+        autoPuddleMultiplier = 0.2 * puddleLevel
         currentMoney = currentMoney - puddleLevelCost
         puddleLevelCost = puddleLevelCost * 5
         document.getElementById('puddle-upgrade-price').innerText = puddleLevelCost.toLocaleString()
-        document.getElementById('puddle-level').innerText = puddleLevel
         playPurchaseUpgradeSound()
+        calcPuPS()
     }
     if (puddleLevel === 5) {
         document.getElementById('level-up-puddle').style.display = 'none'
@@ -976,6 +994,12 @@ function levelUpPuddle() {
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
+
+function calcPuPS() {
+    let puddlePerSec = numOfPuddleSlimes * autoPuddleMultiplier
+    document.getElementById('puddle-per-second').innerText = puddlePerSec
+}
+calcPuPS()
 
 let autoPuddleAmount = 0
 let puddlePrice = 68
@@ -1079,6 +1103,12 @@ document.getElementById('fire-slime-price').innerText = costOfFireSlimes.toLocal
 document.getElementById('fire-slime-amount').innerText = numOfFireSlimes.toLocaleString()
 
 function buyFireSlimes() {
+    if (currentMoney >= costOfFireSlimes) {
+        currentMoney = currentMoney - costOfFireSlimes
+        numOfFireSlimes = numOfFireSlimes + 1
+        playPurchaseSound()
+        calcFPS()
+    }
     if (numOfFireSlimes >= 250 && currentMoney >= costOfFireSlimes) {
         costOfFireSlimes = Math.floor(costOfFireSlimes * 1.1)
         document.getElementById('fire-slime-price').innerText = costOfFireSlimes.toLocaleString()
@@ -1092,30 +1122,24 @@ function buyFireSlimes() {
         costOfFireSlimes = 512000
         document.getElementById('fire-slime-price').innerText = costOfFireSlimes.toLocaleString()
     }
-    if (currentMoney >= costOfFireSlimes) {
-        currentMoney = currentMoney - costOfFireSlimes
-        numOfFireSlimes = numOfFireSlimes + 1
-        playPurchaseSound()
-    }
     document.getElementById('fire-slime-amount').innerText = numOfFireSlimes.toLocaleString()
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
 
-let autoFireMultiplier = 0.2
 let fireLevel = 1
-document.getElementById('fire-level').innerText = fireLevel.toLocaleString()
+let autoFireMultiplier = 0.2 * fireLevel
 let fireLevelCost = 1024000
 document.getElementById('fire-upgrade-price').innerText = fireLevelCost.toLocaleString()
 
 function levelUpFire() {
     if (currentMoney >= fireLevelCost) {
         fireLevel = fireLevel + 1
-        autoFireMultiplier = autoFireMultiplier + 0.2
+        autoFireMultiplier = 0.2 * fireLevel
         currentMoney = currentMoney - fireLevelCost
         fireLevelCost = fireLevelCost * 5
         document.getElementById('fire-upgrade-price').innerText = fireLevelCost.toLocaleString()
-        document.getElementById('fire-level').innerText = fireLevel
         playPurchaseUpgradeSound()
+        calcFPS()
     }
     if (fireLevel === 5) {
         document.getElementById('level-up-fire').style.display = 'none'
@@ -1123,6 +1147,12 @@ function levelUpFire() {
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
+
+function calcFPS() {
+    let firePerSec = numOfFireSlimes * autoFireMultiplier
+    document.getElementById('fire-per-second').innerText = firePerSec
+}
+calcFPS()
 
 let autoFireAmount = 0
 let firePrice = 102
@@ -1226,6 +1256,12 @@ document.getElementById('honey-slime-price').innerText = costOfHoneySlimes.toLoc
 document.getElementById('honey-slime-amount').innerText = numOfHoneySlimes.toLocaleString()
 
 function buyHoneySlimes() {
+    if (currentMoney >= costOfHoneySlimes) {
+        currentMoney = currentMoney - costOfHoneySlimes
+        numOfHoneySlimes = numOfHoneySlimes + 1
+        playPurchaseSound()
+        calcHPS()
+    }
     if (numOfHoneySlimes >= 250 && currentMoney >= costOfHoneySlimes) {
         costOfHoneySlimes = Math.floor(costOfHoneySlimes * 1.1)
         document.getElementById('honey-slime-price').innerText = costOfHoneySlimes.toLocaleString()
@@ -1239,30 +1275,24 @@ function buyHoneySlimes() {
         costOfHoneySlimes = 2048000
         document.getElementById('honey-slime-price').innerText = costOfHoneySlimes.toLocaleString()
     }
-    if (currentMoney >= costOfHoneySlimes) {
-        currentMoney = currentMoney - costOfHoneySlimes
-        numOfHoneySlimes = numOfHoneySlimes + 1
-        playPurchaseSound()
-    }
     document.getElementById('honey-slime-amount').innerText = numOfHoneySlimes.toLocaleString()
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
 
-let autoHoneyMultiplier = 0.2
 let honeyLevel = 1
-document.getElementById('honey-level').innerText = honeyLevel
+let autoHoneyMultiplier = 0.2 * honeyLevel
 let honeyLevelCost = 4096000
 document.getElementById('honey-upgrade-price').innerText = honeyLevelCost.toLocaleString()
 
 function levelUpHoney() {
     if (currentMoney >= honeyLevelCost) {
         honeyLevel = honeyLevel + 1
-        autoHoneyMultiplier = autoHoneyMultiplier + 0.2
+        autoHoneyMultiplier = 0.2 * honeyLevel
         currentMoney = currentMoney - honeyLevelCost
         honeyLevelCost = honeyLevelCost * 5
         document.getElementById('honey-upgrade-price').innerText = honeyLevelCost.toLocaleString()
-        document.getElementById('honey-level').innerText = honeyLevel
         playPurchaseUpgradeSound()
+        calcHPS()
     }
     if (honeyLevel === 5) {
         document.getElementById('level-up-honey').style.display = 'none'
@@ -1270,6 +1300,12 @@ function levelUpHoney() {
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
+
+function calcHPS() {
+    let honeyPerSec = numOfHoneySlimes * autoHoneyMultiplier
+    document.getElementById('honey-per-second').innerText = honeyPerSec
+}
+calcHPS()
 
 let autoHoneyAmount = 0
 let honeyPrice = 153
@@ -1373,6 +1409,12 @@ document.getElementById('boom-slime-price').innerText = costOfBoomSlimes.toLocal
 document.getElementById('boom-slime-amount').innerText = numOfBoomSlimes.toLocaleString()
 
 function buyBoomSlimes() {
+    if (currentMoney >= costOfBoomSlimes) {
+        currentMoney = currentMoney - costOfBoomSlimes
+        numOfBoomSlimes = numOfBoomSlimes + 1
+        playPurchaseSound()
+        calcBPS()
+    }
     if (numOfBoomSlimes >= 250 && currentMoney >= costOfBoomSlimes) {
         costOfBoomSlimes = Math.floor(costOfBoomSlimes * 1.1)
         document.getElementById('boom-slime-price').innerText = costOfBoomSlimes.toLocaleString()
@@ -1386,30 +1428,24 @@ function buyBoomSlimes() {
         costOfBoomSlimes = 8192000
         document.getElementById('boom-slime-price').innerText = costOfBoomSlimes.toLocaleString()
     }
-    if (currentMoney >= costOfBoomSlimes) {
-        currentMoney = currentMoney - costOfBoomSlimes
-        numOfBoomSlimes = numOfBoomSlimes + 1
-        playPurchaseSound()
-    }
     document.getElementById('boom-slime-amount').innerText = numOfBoomSlimes.toLocaleString()
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
 
-let autoBoomMultiplier = 0.2
 let boomLevel = 1
-document.getElementById('boom-level').innerText = boomLevel
+let autoBoomMultiplier = 0.2 * boomLevel
 let boomLevelCost = 16384000
 document.getElementById('boom-upgrade-price').innerText = boomLevelCost.toLocaleString()
 
 function levelUpBoom() {
     if (currentMoney >= boomLevelCost) {
         boomLevel = boomLevel + 1
-        autoBoomMultiplier = autoBoomMultiplier + 0.2
+        autoBoomMultiplier = 0.2 * boomLevel
         currentMoney = currentMoney - boomLevelCost
         boomLevelCost = boomLevelCost * 5
         document.getElementById('boom-upgrade-price').innerText = boomLevelCost.toLocaleString()
-        document.getElementById('boom-level').innerText = boomLevel
         playPurchaseUpgradeSound()
+        calcBPS()
     }
     if (boomLevel === 5) {
         document.getElementById('level-up-boom').style.display = 'none'
@@ -1417,6 +1453,12 @@ function levelUpBoom() {
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
+
+function calcBPS() {
+    let boomPerSec = numOfBoomSlimes * autoBoomMultiplier
+    document.getElementById('boom-per-second').innerText = boomPerSec
+}
+calcBPS()
 
 let autoBoomAmount = 0
 let boomPrice = 230
@@ -1520,6 +1562,12 @@ document.getElementById('hunter-slime-price').innerText = costOfHunterSlimes.toL
 document.getElementById('hunter-slime-amount').innerText = numOfHunterSlimes.toLocaleString()
 
 function buyHunterSlimes() {
+    if (currentMoney >= costOfHunterSlimes) {
+        currentMoney = currentMoney - costOfHunterSlimes
+        numOfHunterSlimes = numOfHunterSlimes + 1
+        playPurchaseSound()
+        calcHuPS()
+    }
     if (numOfHunterSlimes >= 250 && currentMoney >= costOfHunterSlimes) {
         costOfHunterSlimes = Math.floor(costOfHunterSlimes * 1.1)
         document.getElementById('hunter-slime-price').innerText = costOfHunterSlimes.toLocaleString()
@@ -1533,30 +1581,24 @@ function buyHunterSlimes() {
         costOfHunterSlimes = 32768000
         document.getElementById('hunter-slime-price').innerText = costOfHunterSlimes.toLocaleString()
     }
-    if (currentMoney >= costOfHunterSlimes) {
-        currentMoney = currentMoney - costOfHunterSlimes
-        numOfHunterSlimes = numOfHunterSlimes + 1
-        playPurchaseSound()
-    }
     document.getElementById('hunter-slime-amount').innerText = numOfHunterSlimes.toLocaleString()
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
 
-let autoHunterMultiplier = 0.2
 let hunterLevel = 1
-document.getElementById('hunter-level').innerText = hunterLevel
+let autoHunterMultiplier = 0.2 * hunterLevel
 let hunterLevelCost = 65536000
 document.getElementById('hunter-upgrade-price').innerText = hunterLevelCost.toLocaleString()
 
 function levelUpHunter() {
     if (currentMoney >= hunterLevelCost) {
         hunterLevel = hunterLevel + 1
-        autoHunterMultiplier = autoHunterMultiplier + 0.2
+        autoHunterMultiplier = 0.2 * hunterLevel
         currentMoney = currentMoney - hunterLevelCost
         hunterLevelCost = hunterLevelCost * 5
         document.getElementById('hunter-upgrade-price').innerText = hunterLevelCost.toLocaleString()
-        document.getElementById('hunter-level').innerText = hunterLevel
         playPurchaseUpgradeSound()
+        calcHuPS()
     }
     if (hunterLevel === 5) {
         document.getElementById('level-up-hunter').style.display = 'none'
@@ -1564,6 +1606,12 @@ function levelUpHunter() {
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
+
+function calcHuPS() {
+    let hunterPerSec = numOfHunterSlimes * autoHunterMultiplier
+    document.getElementById('hunter-per-second').innerText = hunterPerSec
+}
+calcHuPS()
 
 let autoHunterAmount = 0
 let hunterPrice = 345
@@ -1667,6 +1715,12 @@ document.getElementById('rad-slime-price').innerText = costOfRadSlimes.toLocaleS
 document.getElementById('rad-slime-amount').innerText = numOfRadSlimes.toLocaleString()
 
 function buyRadSlimes() {
+    if (currentMoney >= costOfRadSlimes) {
+        currentMoney = currentMoney - costOfRadSlimes
+        numOfRadSlimes = numOfRadSlimes + 1
+        playPurchaseSound()
+        calcRaPS()
+    }
     if (numOfRadSlimes >= 250 && currentMoney >= costOfRadSlimes) {
         costOfRadSlimes = Math.floor(costOfRadSlimes * 1.1)
         document.getElementById('rad-slime-price').innerText = costOfRadSlimes.toLocaleString()
@@ -1680,30 +1734,24 @@ function buyRadSlimes() {
         costOfRadSlimes = 131072000
         document.getElementById('rad-slime-price').innerText = costOfRadSlimes.toLocaleString()
     }
-    if (currentMoney >= costOfRadSlimes) {
-        currentMoney = currentMoney - costOfRadSlimes
-        numOfRadSlimes = numOfRadSlimes + 1
-        playPurchaseSound()
-    }
     document.getElementById('rad-slime-amount').innerText = numOfRadSlimes.toLocaleString()
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
 
-let autoRadMultiplier = 0.2
 let radLevel = 1
-document.getElementById('rad-level').innerText = radLevel
+let autoRadMultiplier = 0.2 * radLevel
 let radLevelCost = 262144000
 document.getElementById('rad-upgrade-price').innerText = radLevelCost.toLocaleString()
 
 function levelUpRad() {
     if (currentMoney >= radLevelCost) {
         radLevel = radLevel + 1
-        autoRadMultiplier = autoRadMultiplier + 0.2
+        autoRadMultiplier = 0.2 * radLevel
         currentMoney = currentMoney - radLevelCost
         radLevelCost = radLevelCost * 5
         document.getElementById('rad-upgrade-price').innerText = radLevelCost.toLocaleString()
-        document.getElementById('rad-level').innerText = radLevel
         playPurchaseUpgradeSound()
+        calcRaPS()
     }
     if (radLevel === 5) {
         document.getElementById('level-up-rad').style.display = 'none'
@@ -1711,6 +1759,12 @@ function levelUpRad() {
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
+
+function calcRaPS() {
+    let radPerSec = numOfRadSlimes * autoRadMultiplier
+    document.getElementById('rad-per-second').innerText = radPerSec
+}
+calcRaPS()
 
 let autoRadAmount = 0
 let radPrice = 518
@@ -1814,6 +1868,12 @@ document.getElementById('crystal-slime-price').innerText = costOfCrystalSlimes.t
 document.getElementById('crystal-slime-amount').innerText = numOfCrystalSlimes.toLocaleString()
 
 function buyCrystalSlimes() {
+    if (currentMoney >= costOfCrystalSlimes) {
+        currentMoney = currentMoney - costOfCrystalSlimes
+        numOfCrystalSlimes = numOfCrystalSlimes + 1
+        playPurchaseSound()
+        calcCPS()
+    }
     if (numOfCrystalSlimes >= 250 && currentMoney >= costOfCrystalSlimes) {
         costOfCrystalSlimes = Math.floor(costOfCrystalSlimes * 1.1)
         document.getElementById('crystal-slime-price').innerText = costOfCrystalSlimes.toLocaleString()
@@ -1827,30 +1887,24 @@ function buyCrystalSlimes() {
         costOfCrystalSlimes = 524288000
         document.getElementById('crystal-slime-price').innerText = costOfCrystalSlimes.toLocaleString()
     }
-    if (currentMoney >= costOfCrystalSlimes) {
-        currentMoney = currentMoney - costOfCrystalSlimes
-        numOfCrystalSlimes = numOfCrystalSlimes + 1
-        playPurchaseSound()
-    }
     document.getElementById('crystal-slime-amount').innerText = numOfCrystalSlimes.toLocaleString()
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
 
-let autoCrystalMultiplier = 0.2
 let crystalLevel = 1
-document.getElementById('crystal-level').innerText = crystalLevel
+let autoCrystalMultiplier = 0.2 * crystalLevel
 let crystalLevelCost = 1048576000
 document.getElementById('crystal-upgrade-price').innerText = crystalLevelCost.toLocaleString()
 
 function levelUpCrystal() {
     if (currentMoney >= crystalLevelCost) {
         crystalLevel = crystalLevel + 1
-        autoCrystalMultiplier = autoCrystalMultiplier + 0.2
+        autoCrystalMultiplier = 0.2 * crystalLevel
         currentMoney = currentMoney - crystalLevelCost
         crystalLevelCost = crystalLevelCost * 5
         document.getElementById('crystal-upgrade-price').innerText = crystalLevelCost.toLocaleString()
-        document.getElementById('crystal-level').innerText = crystalLevel
         playPurchaseUpgradeSound()
+        calcCPS()
     }
     if (crystalLevel === 5) {
         document.getElementById('level-up-crystal').style.display = 'none'
@@ -1858,6 +1912,12 @@ function levelUpCrystal() {
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
+
+function calcCPS() {
+    let crystalPerSec = numOfCrystalSlimes * autoCrystalMultiplier
+    document.getElementById('crystal-per-second').innerText = crystalPerSec
+}
+calcCPS()
 
 let autoCrystalAmount = 0
 let crystalPrice = 777
@@ -1960,6 +2020,12 @@ document.getElementById('saber-slime-price').innerText = costOfSaberSlimes.toLoc
 document.getElementById('saber-slime-amount').innerText = numOfSaberSlimes.toLocaleString()
 
 function buySaberSlimes() {
+    if (currentMoney >= costOfSaberSlimes) {
+        currentMoney = currentMoney - costOfSaberSlimes
+        numOfSaberSlimes = numOfSaberSlimes + 1
+        playPurchaseSound()
+        calcSPS()
+    }
     if (numOfSaberSlimes >= 250 && currentMoney >= costOfSaberSlimes) {
         costOfSaberSlimes = Math.floor(costOfSaberSlimes * 1.1)
         document.getElementById('saber-slime-price').innerText = costOfSaberSlimes.toLocaleString()
@@ -1973,30 +2039,24 @@ function buySaberSlimes() {
         costOfSaberSlimes = 2097152000
         document.getElementById('saber-slime-price').innerText = costOfSaberSlimes.toLocaleString()
     }
-    if (currentMoney >= costOfSaberSlimes) {
-        currentMoney = currentMoney - costOfSaberSlimes
-        numOfSaberSlimes = numOfSaberSlimes + 1
-        playPurchaseSound()
-    }
     document.getElementById('saber-slime-amount').innerText = numOfSaberSlimes.toLocaleString()
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
 
-let autoSaberMultiplier = 0.2
 let saberLevel = 1
-document.getElementById('saber-level').innerText = saberLevel
+let autoSaberMultiplier = 0.2 * saberLevel
 let saberLevelCost = 4194304000
 document.getElementById('saber-upgrade-price').innerText = saberLevelCost.toLocaleString()
 
 function levelUpSaber() {
     if (currentMoney >= saberLevelCost) {
         saberLevel = saberLevel + 1
-        autoSaberMultiplier = autoSaberMultiplier + 0.2
+        autoSaberMultiplier = 0.2 * saberLevel
         currentMoney = currentMoney - saberLevelCost
         saberLevelCost = saberLevelCost * 5
         document.getElementById('saber-upgrade-price').innerText = saberLevelCost.toLocaleString()
-        document.getElementById('saber-level').innerText = saberLevel
         playPurchaseUpgradeSound()
+        calcSPS()
     }
     if (saberLevel === 5) {
         document.getElementById('level-up-saber').style.display = 'none'
@@ -2004,6 +2064,12 @@ function levelUpSaber() {
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
+
+function calcSPS() {
+    let saberPerSec = numOfSaberSlimes * autoSaberMultiplier
+    document.getElementById('saber-per-second').innerText = saberPerSec
+}
+calcSPS()
 
 let autoSaberAmount = 0
 let saberPrice = 1166
@@ -2106,6 +2172,12 @@ document.getElementById('dervish-slime-price').innerText = costOfDervishSlimes.t
 document.getElementById('dervish-slime-amount').innerText = numOfDervishSlimes.toLocaleString()
 
 function buyDervishSlimes() {
+    if (currentMoney >= costOfDervishSlimes) {
+        currentMoney = currentMoney - costOfDervishSlimes
+        numOfDervishSlimes = numOfDervishSlimes + 1
+        playPurchaseSound()
+        calcDPS()
+    }
     if (numOfDervishSlimes >= 250 && currentMoney >= costOfDervishSlimes) {
         costOfDervishSlimes = Math.floor(costOfDervishSlimes * 1.1)
         document.getElementById('dervish-slime-price').innerText = costOfDervishSlimes.toLocaleString()
@@ -2119,30 +2191,24 @@ function buyDervishSlimes() {
         costOfDervishSlimes = 8388608000
         document.getElementById('dervish-slime-price').innerText = costOfDervishSlimes.toLocaleString()
     }
-    if (currentMoney >= costOfDervishSlimes) {
-        currentMoney = currentMoney - costOfDervishSlimes
-        numOfDervishSlimes = numOfDervishSlimes + 1
-        playPurchaseSound()
-    }
     document.getElementById('dervish-slime-amount').innerText = numOfDervishSlimes.toLocaleString()
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
 
-let autoDervishMultiplier = 0.2
 let dervishLevel = 1
-document.getElementById('dervish-level').innerText = dervishLevel
+let autoDervishMultiplier = 0.2 * dervishLevel
 let dervishLevelCost = 16777216000
 document.getElementById('dervish-upgrade-price').innerText = dervishLevelCost.toLocaleString()
 
 function levelUpDervish() {
     if (currentMoney >= dervishLevelCost) {
         dervishLevel = dervishLevel + 1
-        autoDervishMultiplier = autoDervishMultiplier + 0.2
+        autoDervishMultiplier = 0.2 * dervishLevel
         currentMoney = currentMoney - dervishLevelCost
         dervishLevelCost = dervishLevelCost * 5
         document.getElementById('dervish-upgrade-price').innerText = dervishLevelCost.toLocaleString()
-        document.getElementById('dervish-level').innerText = dervishLevel
         playPurchaseUpgradeSound()
+        calcDPS()
     }
     if (dervishLevel === 5) {
         document.getElementById('level-up-dervish').style.display = 'none'
@@ -2150,6 +2216,12 @@ function levelUpDervish() {
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
+
+function calcDPS() {
+    let dervishPerSec = numOfDervishSlimes * autoDervishMultiplier
+    document.getElementById('dervish-per-second').innerText = dervishPerSec
+}
+calcDPS()
 
 let autoDervishAmount = 0
 let dervishPrice = 1749
@@ -2252,6 +2324,12 @@ document.getElementById('quantum-slime-price').innerText = costOfQuantumSlimes.t
 document.getElementById('quantum-slime-amount').innerText = numOfQuantumSlimes.toLocaleString()
 
 function buyQuantumSlimes() {
+    if (currentMoney >= costOfQuantumSlimes) {
+        currentMoney = currentMoney - costOfQuantumSlimes
+        numOfQuantumSlimes = numOfQuantumSlimes + 1
+        playPurchaseSound()
+        calcQPS()
+    }
     if (numOfQuantumSlimes >= 250 && currentMoney >= costOfQuantumSlimes) {
         costOfQuantumSlimes = Math.floor(costOfQuantumSlimes * 1.1)
         document.getElementById('quantum-slime-price').innerText = costOfQuantumSlimes.toLocaleString()
@@ -2265,30 +2343,24 @@ function buyQuantumSlimes() {
         costOfQuantumSlimes = 33554432000
         document.getElementById('quantum-slime-price').innerText = costOfQuantumSlimes.toLocaleString()
     }
-    if (currentMoney >= costOfQuantumSlimes) {
-        currentMoney = currentMoney - costOfQuantumSlimes
-        numOfQuantumSlimes = numOfQuantumSlimes + 1
-        playPurchaseSound()
-    }
     document.getElementById('quantum-slime-amount').innerText = numOfQuantumSlimes.toLocaleString()
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
 
-let autoQuantumMultiplier = 0.2
 let quantumLevel = 1
-document.getElementById('quantum-level').innerText = quantumLevel
+let autoQuantumMultiplier = 0.2 * quantumLevel
 let quantumLevelCost = 67108864000
 document.getElementById('quantum-upgrade-price').innerText = quantumLevelCost.toLocaleString()
 
 function levelUpQuantum() {
     if (currentMoney >= quantumLevelCost) {
         quantumLevel = quantumLevel + 1
-        autoQuantumMultiplier = autoQuantumMultiplier + 0.2
+        autoQuantumMultiplier = 0.2 * quantumLevel
         currentMoney = currentMoney - quantumLevelCost
         quantumLevelCost = quantumLevelCost * 5
         document.getElementById('quantum-upgrade-price').innerText = quantumLevelCost.toLocaleString()
-        document.getElementById('quantum-level').innerText = quantumLevel
         playPurchaseUpgradeSound()
+        calcQPS()
     }
     if (quantumLevel === 5) {
         document.getElementById('level-up-quantum').style.display = 'none'
@@ -2296,6 +2368,12 @@ function levelUpQuantum() {
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
+
+function calcQPS() {
+    let quantumPerSec = numOfQuantumSlimes * autoQuantumMultiplier
+    document.getElementById('quantum-per-second').innerText = quantumPerSec
+}
+calcQPS()
 
 let autoQuantumAmount = 0
 let quantumPrice = 2624
@@ -2398,6 +2476,12 @@ document.getElementById('tangle-slime-price').innerText = costOfTangleSlimes.toL
 document.getElementById('tangle-slime-amount').innerText = numOfTangleSlimes.toLocaleString()
 
 function buyTangleSlimes() {
+    if (currentMoney >= costOfTangleSlimes) {
+        currentMoney = currentMoney - costOfTangleSlimes
+        numOfTangleSlimes = numOfTangleSlimes + 1
+        playPurchaseSound()
+        calcTanPS()
+    }
     if (numOfTangleSlimes >= 250 && currentMoney >= costOfTangleSlimes) {
         costOfTangleSlimes = Math.floor(costOfTangleSlimes * 1.1)
         document.getElementById('tangle-slime-price').innerText = costOfTangleSlimes.toLocaleString()
@@ -2411,30 +2495,24 @@ function buyTangleSlimes() {
         costOfTangleSlimes = 134217728000
         document.getElementById('tangle-slime-price').innerText = costOfTangleSlimes.toLocaleString()
     }
-    if (currentMoney >= costOfTangleSlimes) {
-        currentMoney = currentMoney - costOfTangleSlimes
-        numOfTangleSlimes = numOfTangleSlimes + 1
-        playPurchaseSound()
-    }
     document.getElementById('tangle-slime-amount').innerText = numOfTangleSlimes.toLocaleString()
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
 
-let autoTangleMultiplier = 0.2
 let tangleLevel = 1
-document.getElementById('tangle-level').innerText = tangleLevel
+let autoTangleMultiplier = 0.2 * tangleLevel
 let tangleLevelCost = 268435456000
 document.getElementById('tangle-upgrade-price').innerText = tangleLevelCost.toLocaleString()
 
 function levelUpTangle() {
     if (currentMoney >= tangleLevelCost) {
         tangleLevel = tangleLevel + 1
-        autoTangleMultiplier = autoTangleMultiplier + 0.2
+        autoTangleMultiplier = 0.2 * tangleLevel
         currentMoney = currentMoney - tangleLevelCost
         tangleLevelCost = tangleLevelCost * 5
         document.getElementById('tangle-upgrade-price').innerText = tangleLevelCost.toLocaleString()
-        document.getElementById('tangle-level').innerText = tangleLevel
         playPurchaseUpgradeSound()
+        calcTanPS()
     }
     if (tangleLevel === 5) {
         document.getElementById('level-up-tangle').style.display = 'none'
@@ -2442,6 +2520,12 @@ function levelUpTangle() {
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
+
+function calcTanPS() {
+    let tanglePerSec = numOfTangleSlimes * autoTangleMultiplier
+    document.getElementById('tangle-per-second').innerText = tanglePerSec
+}
+calcTanPS()
 
 let autoTangleAmount = 0
 let tanglePrice = 3936
@@ -2543,6 +2627,12 @@ document.getElementById('mosaic-slime-price').innerText = costOfMosaicSlimes.toL
 document.getElementById('mosaic-slime-amount').innerText = numOfMosaicSlimes.toLocaleString()
 
 function buyMosaicSlimes() {
+    if (currentMoney >= costOfMosaicSlimes) {
+        currentMoney = currentMoney - costOfMosaicSlimes
+        numOfMosaicSlimes = numOfMosaicSlimes + 1
+        playPurchaseSound()
+        calcMPS()
+    }
     if (numOfMosaicSlimes >= 250 && currentMoney >= costOfMosaicSlimes) {
         costOfMosaicSlimes = Math.floor(costOfMosaicSlimes * 1.1)
         document.getElementById('mosaic-slime-price').innerText = costOfMosaicSlimes.toLocaleString()
@@ -2556,30 +2646,24 @@ function buyMosaicSlimes() {
         costOfMosaicSlimes = 536870912000
         document.getElementById('mosaic-slime-price').innerText = costOfMosaicSlimes.toLocaleString()
     }
-    if (currentMoney >= costOfMosaicSlimes) {
-        currentMoney = currentMoney - costOfMosaicSlimes
-        numOfMosaicSlimes = numOfMosaicSlimes + 1
-        playPurchaseSound()
-    }
     document.getElementById('mosaic-slime-amount').innerText = numOfMosaicSlimes.toLocaleString()
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
 
-let autoMosaicMultiplier = 0.2
 let mosaicLevel = 1
-document.getElementById('mosaic-level').innerText = mosaicLevel
+let autoMosaicMultiplier = 0.2 * mosaicLevel
 let mosaicLevelCost = 1073741824000
 document.getElementById('mosaic-upgrade-price').innerText = mosaicLevelCost.toLocaleString()
 
 function levelUpMosaic() {
     if (currentMoney >= mosaicLevelCost) {
         mosaicLevel = mosaicLevel + 1
-        autoMosaicMultiplier = autoMosaicMultiplier + 0.2
+        autoMosaicMultiplier = 0.2 * mosaicLevel
         currentMoney = currentMoney - mosaicLevelCost
         mosaicLevelCost = mosaicLevelCost * 5
         document.getElementById('mosaic-upgrade-price').innerText = mosaicLevelCost.toLocaleString()
-        document.getElementById('mosaic-level').innerText = mosaicLevel
         playPurchaseUpgradeSound()
+        calcMPS()
     }
     if (mosaicLevel === 5) {
         document.getElementById('level-up-mosaic').style.display = 'none'
@@ -2587,6 +2671,12 @@ function levelUpMosaic() {
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
+
+function calcMPS() {
+    let mosaicPerSec = numOfMosaicSlimes * autoMosaicMultiplier
+    document.getElementById('mosaic-per-second').innerText = mosaicPerSec
+}
+calcMPS()
 
 let autoMosaicAmount = 0
 let mosaicPrice = 5904
@@ -2688,6 +2778,12 @@ document.getElementById('gold-slime-price').innerText = costOfGoldSlimes.toLocal
 document.getElementById('gold-slime-amount').innerText = numOfGoldSlimes.toLocaleString()
 
 function buyGoldSlimes() {
+    if (currentMoney >= costOfGoldSlimes) {
+        currentMoney = currentMoney - costOfGoldSlimes
+        numOfGoldSlimes = numOfGoldSlimes + 1
+        playPurchaseSound()
+        calcGPS()
+    }
     if (numOfGoldSlimes >= 250 && currentMoney >= costOfGoldSlimes) {
         costOfGoldSlimes = Math.floor(costOfGoldSlimes * 1.1)
         document.getElementById('gold-slime-price').innerText = costOfGoldSlimes.toLocaleString()
@@ -2701,30 +2797,24 @@ function buyGoldSlimes() {
         costOfGoldSlimes = 2147483648000
         document.getElementById('gold-slime-price').innerText = costOfGoldSlimes.toLocaleString()
     }
-    if (currentMoney >= costOfGoldSlimes) {
-        currentMoney = currentMoney - costOfGoldSlimes
-        numOfGoldSlimes = numOfGoldSlimes + 1
-        playPurchaseSound()
-    }
     document.getElementById('gold-slime-amount').innerText = numOfGoldSlimes.toLocaleString()
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
 
-let autoGoldMultiplier = 0.2
 let goldLevel = 1
-document.getElementById('gold-level').innerText = goldLevel
+let autoGoldMultiplier = 0.2 * goldLevel
 let goldLevelCost = 4294967296000
 document.getElementById('gold-upgrade-price').innerText = goldLevelCost.toLocaleString()
 
 function levelUpGold() {
     if (currentMoney >= goldLevelCost) {
         goldLevel = goldLevel + 1
-        autoGoldMultiplier = autoGoldMultiplier + 0.2
+        autoGoldMultiplier = 0.2 * goldLevel
         currentMoney = currentMoney - goldLevelCost
         goldLevelCost = goldLevelCost * 5
         document.getElementById('gold-upgrade-price').innerText = goldLevelCost.toLocaleString()
-        document.getElementById('gold-level').innerText = goldLevel
         playPurchaseUpgradeSound()
+        calcGPS()
     }
     if (goldLevel === 5) {
         document.getElementById('level-up-gold').style.display = 'none'
@@ -2732,6 +2822,12 @@ function levelUpGold() {
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
+
+function calcGPS() {
+    let goldPerSec = numOfGoldSlimes * autoGoldMultiplier
+    document.getElementById('gold-per-second').innerText = goldPerSec
+}
+calcGPS()
 
 let autoGoldAmount = 0
 let goldPrice = 8856
@@ -2923,7 +3019,8 @@ function loadSave() { //triggers on loading of page
         costOfRockSlimes = parseInt(localStorage.getItem("rock-slime-price"));
         document.getElementById('rock-slime-price').innerText = costOfRockSlimes.toLocaleString()
         rockLevel = parseInt(localStorage.getItem("rock-level"));
-        document.getElementById('rock-level').innerText = rockLevel.toLocaleString()
+        autoRockMultiplier = 0.2 * rockLevel
+        calcRPS()
         if (rockLevel === 5) {
             document.getElementById('level-up-rock').style.display = 'none'
             document.getElementById('buy-rock-slimes').classList = 'w-100 h-100'
@@ -2938,7 +3035,8 @@ function loadSave() { //triggers on loading of page
         document.getElementById('phosphor-slime-amount').innerText = numOfPhosphorSlimes.toLocaleString()
         costOfPhosphorSlimes = parseInt(localStorage.getItem("phosphor-slime-price"));
         document.getElementById('phosphor-slime-price').innerText = costOfPhosphorSlimes.toLocaleString()
-        phosphorLevel = parseInt(localStorage.getItem("phosphor-level"));
+        autoPhosphorMultiplier = 0.2 * phosphorPrice
+        calcPhPS()
         document.getElementById('phosphor-level').innerText = phosphorLevel.toLocaleString()
         if (phosphorLevel === 5) {
             document.getElementById('level-up-phosphor').style.display = 'none'
@@ -2954,7 +3052,8 @@ function loadSave() { //triggers on loading of page
         document.getElementById('tabby-slime-amount').innerText = numOfTabbySlimes.toLocaleString()
         costOfTabbySlimes = parseInt(localStorage.getItem("tabby-slime-price"));
         document.getElementById('tabby-slime-price').innerText = costOfTabbySlimes.toLocaleString()
-        tabbyLevel = parseInt(localStorage.getItem("tabby-level"));
+        autoTabbyMultiplier = 0.2 * tabbyLevel
+        calcTPS()
         document.getElementById('tabby-level').innerText = tabbyLevel.toLocaleString()
         if (tabbyLevel === 5) {
             document.getElementById('level-up-tabby').style.display = 'none'
@@ -2971,7 +3070,8 @@ function loadSave() { //triggers on loading of page
         costOfPuddleSlimes = parseInt(localStorage.getItem("puddle-slime-price"));
         document.getElementById('puddle-slime-price').innerText = costOfPuddleSlimes.toLocaleString()
         puddleLevel = parseInt(localStorage.getItem("puddle-level"));
-        document.getElementById('puddle-level').innerText = puddleLevel.toLocaleString()
+        autoPuddleMultiplier = 0.2 * puddleLevel
+        calcPuPS()
         if (puddleLevel === 5) {
             document.getElementById('level-up-puddle').style.display = 'none'
             document.getElementById('buy-puddle-slimes').classList = 'w-100 h-100'
@@ -2987,7 +3087,8 @@ function loadSave() { //triggers on loading of page
         costOfFireSlimes = parseInt(localStorage.getItem("fire-slime-price"));
         document.getElementById('fire-slime-price').innerText = costOfFireSlimes.toLocaleString()
         fireLevel = parseInt(localStorage.getItem("fire-level"));
-        document.getElementById('fire-level').innerText = fireLevel.toLocaleString()
+        autoFireMultiplier = 0.2 * fireLevel
+        calcFPS()
         if (fireLevel === 5) {
             document.getElementById('level-up-fire').style.display = 'none'
             document.getElementById('buy-fire-slimes').classList = 'w-100 h-100'
@@ -3003,7 +3104,8 @@ function loadSave() { //triggers on loading of page
         costOfHoneySlimes = parseInt(localStorage.getItem("honey-slime-price"));
         document.getElementById('honey-slime-price').innerText = costOfHoneySlimes.toLocaleString()
         honeyLevel = parseInt(localStorage.getItem("honey-level"));
-        document.getElementById('honey-level').innerText = honeyLevel.toLocaleString()
+        autoHoneyMultiplier = 0.2 * honeyLevel
+        calcHPS()
         if (honeyLevel === 5) {
             document.getElementById('level-up-honey').style.display = 'none'
             document.getElementById('buy-honey-slimes').classList = 'w-100 h-100'
@@ -3019,7 +3121,8 @@ function loadSave() { //triggers on loading of page
         costOfBoomSlimes = parseInt(localStorage.getItem("boom-slime-price"));
         document.getElementById('boom-slime-price').innerText = costOfBoomSlimes.toLocaleString()
         boomLevel = parseInt(localStorage.getItem("boom-level"));
-        document.getElementById('boom-level').innerText = boomLevel.toLocaleString()
+        autoBoomMultiplier = 0.2 * boomLevel
+        calcBPS()
         if (boomLevel === 5) {
             document.getElementById('level-up-boom').style.display = 'none'
             document.getElementById('buy-boom-slimes').classList = 'w-100 h-100'
@@ -3035,7 +3138,8 @@ function loadSave() { //triggers on loading of page
         costOfHunterSlimes = parseInt(localStorage.getItem("hunter-slime-price"));
         document.getElementById('hunter-slime-price').innerText = costOfHunterSlimes.toLocaleString()
         hunterLevel = parseInt(localStorage.getItem("hunter-level"));
-        document.getElementById('hunter-level').innerText = hunterLevel.toLocaleString()
+        autoHunterMultiplier = 0.2 * hunterLevel
+        calcHuPS()
         if (hunterLevel === 5) {
             document.getElementById('level-up-hunter').style.display = 'none'
             document.getElementById('buy-hunter-slimes').classList = 'w-100 h-100'
@@ -3067,7 +3171,8 @@ function loadSave() { //triggers on loading of page
         costOfCrystalSlimes = parseInt(localStorage.getItem("crystal-slime-price"));
         document.getElementById('crystal-slime-price').innerText = costOfCrystalSlimes.toLocaleString()
         crystalLevel = parseInt(localStorage.getItem("crystal-level"));
-        document.getElementById('crystal-level').innerText = crystalLevel.toLocaleString()
+        autoCrystalMultiplier = 0.2 * crystalLevel
+        calcCPS()
         if (crystalLevel === 5) {
             document.getElementById('level-up-crystal').style.display = 'none'
             document.getElementById('buy-crystal-slimes').classList = 'w-100 h-100'
@@ -3083,7 +3188,8 @@ function loadSave() { //triggers on loading of page
         costOfSaberSlimes = parseInt(localStorage.getItem("saber-slime-price"));
         document.getElementById('saber-slime-price').innerText = costOfSaberSlimes.toLocaleString()
         saberLevel = parseInt(localStorage.getItem("saber-level"));
-        document.getElementById('saber-level').innerText = saberLevel.toLocaleString()
+        autoSaberMultiplier = 0.2 * saberLevel
+        calcSPS()
         if (saberLevel === 5) {
             document.getElementById('level-up-saber').style.display = 'none'
             document.getElementById('buy-saber-slimes').classList = 'w-100 h-100'
@@ -3099,7 +3205,8 @@ function loadSave() { //triggers on loading of page
         costOfDervishSlimes = parseInt(localStorage.getItem("dervish-slime-price"));
         document.getElementById('dervish-slime-price').innerText = costOfDervishSlimes.toLocaleString()
         dervishLevel = parseInt(localStorage.getItem("dervish-level"));
-        document.getElementById('dervish-level').innerText = dervishLevel.toLocaleString()
+        autoDervishMultiplier = 0.2 * dervishLevel
+        calcDPS()
         if (dervishLevel === 5) {
             document.getElementById('level-up-dervish').style.display = 'none'
             document.getElementById('buy-dervish-slimes').classList = 'w-100 h-100'
@@ -3115,7 +3222,8 @@ function loadSave() { //triggers on loading of page
         costOfQuantumSlimes = parseInt(localStorage.getItem("quantum-slime-price"));
         document.getElementById('quantum-slime-price').innerText = costOfQuantumSlimes.toLocaleString()
         quantumLevel = parseInt(localStorage.getItem("quantum-level"));
-        document.getElementById('quantum-level').innerText = quantumLevel.toLocaleString()
+        autoQuantumMultiplier = 0.2 * quantumLevel
+        calcQPS()
         if (quantumLevel === 5) {
             document.getElementById('level-up-quantum').style.display = 'none'
             document.getElementById('buy-quantum-slimes').classList = 'w-100 h-100'
@@ -3131,7 +3239,8 @@ function loadSave() { //triggers on loading of page
         costOfTangleSlimes = parseInt(localStorage.getItem("tangle-slime-price"));
         document.getElementById('tangle-slime-price').innerText = costOfTangleSlimes.toLocaleString()
         tangleLevel = parseInt(localStorage.getItem("tangle-level"));
-        document.getElementById('tangle-level').innerText = tangleLevel.toLocaleString()
+        autoTangleMultiplier = 0.2 * tangleLevel
+        calcTPS()
         if (tangleLevel === 5) {
             document.getElementById('level-up-tangle').style.display = 'none'
             document.getElementById('buy-tangle-slimes').classList = 'w-100 h-100'
@@ -3147,7 +3256,8 @@ function loadSave() { //triggers on loading of page
         costOfMosaicSlimes = parseInt(localStorage.getItem("mosaic-slime-price"));
         document.getElementById('mosaic-slime-price').innerText = costOfMosaicSlimes.toLocaleString()
         mosaicLevel = parseInt(localStorage.getItem("mosaic-level"));
-        document.getElementById('mosaic-level').innerText = mosaicLevel.toLocaleString()
+        autoMosaicMultiplier = 0.2 * mosaicLevel
+        calcMPS()
         if (mosaicLevel === 5) {
             document.getElementById('level-up-mosaic').style.display = 'none'
             document.getElementById('buy-mosaic-slimes').classList = 'w-100 h-100'
@@ -3163,7 +3273,8 @@ function loadSave() { //triggers on loading of page
         costOfGoldSlimes = parseInt(localStorage.getItem("gold-slime-price"));
         document.getElementById('gold-slime-price').innerText = costOfGoldSlimes.toLocaleString()
         goldLevel = parseInt(localStorage.getItem("gold-level"));
-        document.getElementById('gold-level').innerText = goldLevel.toLocaleString()
+        autoGoldMultiplier = 0.2 * goldLevel
+        calcGPS()
         if (goldLevel === 5) {
             document.getElementById('level-up-gold').style.display = 'none'
             document.getElementById('buy-gold-slimes').classList = 'w-100 h-100'
