@@ -228,7 +228,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-4" id="second-section">
                 <div class="row default-height">
                     <div class="col-3 text-center">
                         <img src="img/boom-plort.png" class="h-100">
@@ -457,7 +457,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4">
+            <div id="upgrade-menu" class="col-4">
+                <div onclick="expandUpgrades()" class="expand-retract-menu" id="expandMenu">
+                    <img src="img/expand-menu.webp" class="h-100 w-100 p-1">
+                </div>
+                <div onclick="retractUpgrades()" class="expand-retract-menu d-none" id="retractMenu">
+                    <img src="img/retract-menu.png" class="h-100 w-100 p-1">
+                </div>
                 <div class="row default-height2">
                     <div class="col-3 text-center">
                         <img src="img/" class="default-height2">
@@ -645,6 +651,8 @@
                         </button>
                     </div>
                 </div>
+            </div>
+            <div id="upgrade-menu2" class="d-none col-4">
                 <div class="row default-height2">
                     <div class="col-3 text-center">
                         <img src="img/hunter-slime.png" class="default-height2">

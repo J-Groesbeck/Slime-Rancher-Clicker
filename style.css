@@ -101,7 +101,7 @@ body {
 }
 
 .default-height2 {
-    height: 5.55rem;
+    height: 5.6rem;
 }
 
 .clicker-height {
@@ -122,4 +122,19 @@ body {
 
 .clicker-height:active {
     transform: scale(1.05);
+}
+
+#upgrade-menu {
+    position: relative;
+}
+
+.expand-retract-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25px !important;
+    height: 25px !important;
+    background-color: tan;
+    z-index: 99 !important;
+    cursor: pointer;
 }

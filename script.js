@@ -2955,6 +2955,24 @@ function luckySlime() {
     }
 }
 
+let secondSection = document.getElementById('second-section')
+let expandMenuBtn = document.getElementById('expandMenu')
+let retractMenuBtn = document.getElementById('retractMenu')
+let upgradeMenu2 = document.getElementById('upgrade-menu2')
+function expandUpgrades() {
+    secondSection.classList.add('d-none')
+    expandMenuBtn.classList.add('d-none')
+    retractMenuBtn.classList.remove('d-none')
+    upgradeMenu2.classList.remove('d-none')
+}
+
+function retractUpgrades() {
+    secondSection.classList.remove('d-none')
+    expandMenuBtn.classList.remove('d-none')
+    retractMenuBtn.classList.add('d-none')
+    upgradeMenu2.classList.add('d-none')
+}
+
 // save the game when appropriate button is clicked, and before the page is closed
 function saveGame() {
     localStorage.setItem("money", currentMoney); // saves current money
