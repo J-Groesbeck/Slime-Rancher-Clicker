@@ -452,11 +452,11 @@ function pinkStocks() {
         pinkStocksUp.style.display = 'none'
         pinkStocksDown.style.display = 'none'
     } else if (numOfPinkSoldTotal <= 50 && numOfPinkSoldTotal !== 0) {
-        pinkPrice = Math.min(23, pinkPrice * 1.5)
+        pinkPrice = Math.min(25, pinkPrice * 1.5)
         pinkStocksUp.style.display = 'inline'
         pinkStocksDown.style.display = 'none'
     } else if (numOfPinkSoldTotal === 0) {
-        pinkPrice = Math.min(23, pinkPrice * 2)
+        pinkPrice = Math.min(25, pinkPrice * 2)
         pinkStocksUp.style.display = 'inline'
         pinkStocksDown.style.display = 'none'
     }
@@ -582,23 +582,23 @@ function rockStocks() {
     if (isFirstTimeRock) {
         isFirstTimeRock = false
     } else if (numOfRockSoldTotal >= 2500) {
-        rockPrice = 8
+        rockPrice = 15
         rockStocksUp.style.display = 'none'
         rockStocksDown.style.display = 'inline'
     } else if (numOfRockSoldTotal >= 400) {
-        rockPrice = Math.max(8, rockPrice / 2)
+        rockPrice = Math.max(15, rockPrice / 2)
         rockStocksUp.style.display = 'none'
         rockStocksDown.style.display = 'inline'
     } else if (numOfRockSoldTotal >= 300) {
-        rockPrice = Math.max(8, rockPrice / 1.75)
+        rockPrice = Math.max(15, rockPrice / 1.75)
         rockStocksUp.style.display = 'none'
         rockStocksDown.style.display = 'inline'
     } else if (numOfRockSoldTotal >= 200) {
-        rockPrice = Math.max(8, rockPrice / 1.5)
+        rockPrice = Math.max(15, rockPrice / 1.5)
         rockStocksUp.style.display = 'none'
         rockStocksDown.style.display = 'inline'
     } else if (numOfRockSoldTotal >= 100) {
-        rockPrice = Math.max(8, rockPrice / 1.25)
+        rockPrice = Math.max(15, rockPrice / 1.25)
         rockStocksUp.style.display = 'none'
         rockStocksDown.style.display = 'inline'
     } else if (numOfRockSoldTotal > 50) {
@@ -606,11 +606,11 @@ function rockStocks() {
         rockStocksUp.style.display = 'none'
         rockStocksDown.style.display = 'none'
     } else if (numOfRockSoldTotal <= 50 && numOfRockSoldTotal !== 0) {
-        rockPrice = Math.min(35, rockPrice * 1.5)
+        rockPrice = Math.min(75, rockPrice * 1.5)
         rockStocksUp.style.display = 'inline'
         rockStocksDown.style.display = 'none'
     } else if (numOfRockSoldTotal === 0) {
-        rockPrice = Math.min(35, rockPrice * 2)
+        rockPrice = Math.min(75, rockPrice * 2)
         rockStocksUp.style.display = 'inline'
         rockStocksDown.style.display = 'none'
     }
@@ -696,7 +696,7 @@ function calcPhPS() {
 calcPhPS()
 
 let autoPhosphorAmount = 0
-let phosphorPrice = 23
+let phosphorPrice = 75
 
 function autoPhosphor() {
     autoPhosphorAmount = autoPhosphorAmount + numOfPhosphorSlimes * autoPhosphorMultiplier
@@ -735,23 +735,23 @@ function phosphorStocks() {
     if (isFirstTimePhosphor) {
         isFirstTimePhosphor = false
     } else if (numOfPhosphorSoldTotal >= 2500) {
-        phosphorPrice = 12
+        phosphorPrice = 50
         phosphorStocksUp.style.display = 'none'
         phosphorStocksDown.style.display = 'inline'
     } else if (numOfPhosphorSoldTotal >= 400) {
-        phosphorPrice = Math.max(12, phosphorPrice / 2)
+        phosphorPrice = Math.max(50, phosphorPrice / 2)
         phosphorStocksUp.style.display = 'none'
         phosphorStocksDown.style.display = 'inline'
     } else if (numOfPhosphorSoldTotal >= 300) {
-        phosphorPrice = Math.max(12, phosphorPrice / 1.75)
+        phosphorPrice = Math.max(50, phosphorPrice / 1.75)
         phosphorStocksUp.style.display = 'none'
         phosphorStocksDown.style.display = 'inline'
     } else if (numOfPhosphorSoldTotal >= 200) {
-        phosphorPrice = Math.max(12, phosphorPrice / 1.5)
+        phosphorPrice = Math.max(50, phosphorPrice / 1.5)
         phosphorStocksUp.style.display = 'none'
         phosphorStocksDown.style.display = 'inline'
     } else if (numOfPhosphorSoldTotal >= 100) {
-        phosphorPrice = Math.max(12, phosphorPrice / 1.25)
+        phosphorPrice = Math.max(50, phosphorPrice / 1.25)
         phosphorStocksUp.style.display = 'none'
         phosphorStocksDown.style.display = 'inline'
     } else if (numOfPhosphorSoldTotal > 50) {
@@ -759,11 +759,11 @@ function phosphorStocks() {
         phosphorStocksUp.style.display = 'none'
         phosphorStocksDown.style.display = 'none'
     } else if (numOfPhosphorSoldTotal <= 50 && numOfPhosphorSoldTotal !== 0) {
-        phosphorPrice = Math.min(53, phosphorPrice * 1.5)
+        phosphorPrice = Math.min(260, phosphorPrice * 1.5)
         phosphorStocksUp.style.display = 'inline'
         phosphorStocksDown.style.display = 'none'
     } else if (numOfPhosphorSoldTotal === 0) {
-        phosphorPrice = Math.min(53, phosphorPrice * 2)
+        phosphorPrice = Math.min(260, phosphorPrice * 2)
         phosphorStocksUp.style.display = 'inline'
         phosphorStocksDown.style.display = 'none'
     }
@@ -849,7 +849,7 @@ function calcTPS() {
 calcTPS()
 
 let autoTabbyAmount = 0
-let tabbyPrice = 34
+let tabbyPrice = 225
 
 function autoTabby() {
     autoTabbyAmount = autoTabbyAmount + numOfTabbySlimes * autoTabbyMultiplier
@@ -888,23 +888,23 @@ function tabbyStocks() {
     if (isFirstTimeTabby) {
         isFirstTimeTabby = false
     } else if (numOfTabbySoldTotal >= 2500) {
-        tabbyPrice = 16
+        tabbyPrice = 150
         tabbyStocksUp.style.display = 'none'
         tabbyStocksDown.style.display = 'inline'
     } else if (numOfTabbySoldTotal >= 400) {
-        tabbyPrice = Math.max(16, tabbyPrice / 2)
+        tabbyPrice = Math.max(150, tabbyPrice / 2)
         tabbyStocksUp.style.display = 'none'
         tabbyStocksDown.style.display = 'inline'
     } else if (numOfTabbySoldTotal >= 300) {
-        tabbyPrice = Math.max(16, tabbyPrice / 1.75)
+        tabbyPrice = Math.max(150, tabbyPrice / 1.75)
         tabbyStocksUp.style.display = 'none'
         tabbyStocksDown.style.display = 'inline'
     } else if (numOfTabbySoldTotal >= 200) {
-        tabbyPrice = Math.max(16, tabbyPrice / 1.5)
+        tabbyPrice = Math.max(150, tabbyPrice / 1.5)
         tabbyStocksUp.style.display = 'none'
         tabbyStocksDown.style.display = 'inline'
     } else if (numOfTabbySoldTotal >= 100) {
-        tabbyPrice = Math.max(16, tabbyPrice / 1.25)
+        tabbyPrice = Math.max(150, tabbyPrice / 1.25)
         tabbyStocksUp.style.display = 'none'
         tabbyStocksDown.style.display = 'inline'
     } else if (numOfTabbySoldTotal > 50) {
@@ -912,11 +912,11 @@ function tabbyStocks() {
         tabbyStocksUp.style.display = 'none'
         tabbyStocksDown.style.display = 'none'
     } else if (numOfTabbySoldTotal <= 50 && numOfTabbySoldTotal !== 0) {
-        tabbyPrice = Math.min(79, tabbyPrice * 1.5)
+        tabbyPrice = Math.min(730, tabbyPrice * 1.5)
         tabbyStocksUp.style.display = 'inline'
         tabbyStocksDown.style.display = 'none'
     } else if (numOfTabbySoldTotal === 0) {
-        tabbyPrice = Math.min(79, tabbyPrice * 2)
+        tabbyPrice = Math.min(730, tabbyPrice * 2)
         tabbyStocksUp.style.display = 'inline'
         tabbyStocksDown.style.display = 'none'
     }
@@ -1002,7 +1002,7 @@ function calcPuPS() {
 calcPuPS()
 
 let autoPuddleAmount = 0
-let puddlePrice = 68
+let puddlePrice = 720
 
 function autoPuddle() {
     autoPuddleAmount = autoPuddleAmount + numOfPuddleSlimes * autoPuddleMultiplier
@@ -1041,23 +1041,23 @@ function puddleStocks() {
     if (isFirstTimePuddle) {
         isFirstTimePuddle = false
     } else if (numOfPuddleSoldTotal >= 2500) {
-        puddlePrice = 20
+        puddlePrice = 480
         puddleStocksUp.style.display = 'none'
         puddleStocksDown.style.display = 'inline'
     } else if (numOfPuddleSoldTotal >= 400) {
-        puddlePrice = Math.max(20, puddlePrice / 2)
+        puddlePrice = Math.max(480, puddlePrice / 2)
         puddleStocksUp.style.display = 'none'
         puddleStocksDown.style.display = 'inline'
     } else if (numOfPuddleSoldTotal >= 300) {
-        puddlePrice = Math.max(20, puddlePrice / 1.75)
+        puddlePrice = Math.max(480, puddlePrice / 1.75)
         puddleStocksUp.style.display = 'none'
         puddleStocksDown.style.display = 'inline'
     } else if (numOfPuddleSoldTotal >= 200) {
-        puddlePrice = Math.max(20, puddlePrice / 1.5)
+        puddlePrice = Math.max(480, puddlePrice / 1.5)
         puddleStocksUp.style.display = 'none'
         puddleStocksDown.style.display = 'inline'
     } else if (numOfPuddleSoldTotal >= 100) {
-        puddlePrice = Math.max(20, puddlePrice / 1.25)
+        puddlePrice = Math.max(480, puddlePrice / 1.25)
         puddleStocksUp.style.display = 'none'
         puddleStocksDown.style.display = 'inline'
     } else if (numOfPuddleSoldTotal > 50) {
@@ -1065,11 +1065,11 @@ function puddleStocks() {
         puddleStocksUp.style.display = 'none'
         puddleStocksDown.style.display = 'none'
     } else if (numOfPuddleSoldTotal <= 50 && numOfPuddleSoldTotal !== 0) {
-        puddlePrice = Math.min(118, puddlePrice * 1.5)
+        puddlePrice = Math.min(1500, puddlePrice * 1.5)
         puddleStocksUp.style.display = 'inline'
         puddleStocksDown.style.display = 'none'
     } else if (numOfPuddleSoldTotal === 0) {
-        puddlePrice = Math.min(118, puddlePrice * 2)
+        puddlePrice = Math.min(1500, puddlePrice * 2)
         puddleStocksUp.style.display = 'inline'
         puddleStocksDown.style.display = 'none'
     }
@@ -1155,7 +1155,7 @@ function calcFPS() {
 calcFPS()
 
 let autoFireAmount = 0
-let firePrice = 102
+let firePrice = 1125
 
 function autoFire() {
     autoFireAmount = autoFireAmount + numOfFireSlimes * autoFireMultiplier
@@ -1195,23 +1195,23 @@ function fireStocks() {
     if (isFirstTimeFire) {
         isFirstTimeFire = false
     } else if (numOfFireSoldTotal >= 2500) {
-        firePrice = 24
+        firePrice = 750
         fireStocksUp.style.display = 'none'
         fireStocksDown.style.display = 'inline'
     } else if (numOfFireSoldTotal >= 400) {
-        firePrice = Math.max(24, firePrice / 2)
+        firePrice = Math.max(750, firePrice / 2)
         fireStocksUp.style.display = 'none'
         fireStocksDown.style.display = 'inline'
     } else if (numOfFireSoldTotal >= 300) {
-        firePrice = Math.max(24, firePrice / 1.75)
+        firePrice = Math.max(750, firePrice / 1.75)
         fireStocksUp.style.display = 'none'
         fireStocksDown.style.display = 'inline'
     } else if (numOfFireSoldTotal >= 200) {
-        firePrice = Math.max(24, firePrice / 1.5)
+        firePrice = Math.max(750, firePrice / 1.5)
         fireStocksUp.style.display = 'none'
         fireStocksDown.style.display = 'inline'
     } else if (numOfFireSoldTotal >= 100) {
-        firePrice = Math.max(24, firePrice / 1.25)
+        firePrice = Math.max(750, firePrice / 1.25)
         fireStocksUp.style.display = 'none'
         fireStocksDown.style.display = 'inline'
     } else if (numOfFireSoldTotal > 50) {
@@ -1219,11 +1219,11 @@ function fireStocks() {
         fireStocksUp.style.display = 'none'
         fireStocksDown.style.display = 'none'
     } else if (numOfFireSoldTotal <= 50 && numOfFireSoldTotal !== 0) {
-        firePrice = Math.min(236, firePrice * 1.5)
+        firePrice = Math.min(3000, firePrice * 1.5)
         fireStocksUp.style.display = 'inline'
         fireStocksDown.style.display = 'none'
     } else if (numOfFireSoldTotal === 0) {
-        firePrice = Math.min(236, firePrice * 2)
+        firePrice = Math.min(3000, firePrice * 2)
         fireStocksUp.style.display = 'inline'
         fireStocksDown.style.display = 'none'
     }
@@ -1308,7 +1308,7 @@ function calcHPS() {
 calcHPS()
 
 let autoHoneyAmount = 0
-let honeyPrice = 153
+let honeyPrice = 1875
 
 function autoHoney() {
     autoHoneyAmount = autoHoneyAmount + numOfHoneySlimes * autoHoneyMultiplier
@@ -1348,23 +1348,23 @@ function honeyStocks() {
     if (isFirstTimeHoney) {
         isFirstTimeHoney = false
     } else if (numOfHoneySoldTotal >= 2500) {
-        honeyPrice = 28
+        honeyPrice = 1250
         honeyStocksUp.style.display = 'none'
         honeyStocksDown.style.display = 'inline'
     } else if (numOfHoneySoldTotal >= 400) {
-        honeyPrice = Math.max(28, honeyPrice / 2)
+        honeyPrice = Math.max(1250, honeyPrice / 2)
         honeyStocksUp.style.display = 'none'
         honeyStocksDown.style.display = 'inline'
     } else if (numOfHoneySoldTotal >= 300) {
-        honeyPrice = Math.max(28, honeyPrice / 1.75)
+        honeyPrice = Math.max(1250, honeyPrice / 1.75)
         honeyStocksUp.style.display = 'none'
         honeyStocksDown.style.display = 'inline'
     } else if (numOfHoneySoldTotal >= 200) {
-        honeyPrice = Math.max(28, honeyPrice / 1.5)
+        honeyPrice = Math.max(1250, honeyPrice / 1.5)
         honeyStocksUp.style.display = 'none'
         honeyStocksDown.style.display = 'inline'
     } else if (numOfHoneySoldTotal >= 100) {
-        honeyPrice = Math.max(28, honeyPrice / 1.25)
+        honeyPrice = Math.max(1250, honeyPrice / 1.25)
         honeyStocksUp.style.display = 'none'
         honeyStocksDown.style.display = 'inline'
     } else if (numOfHoneySoldTotal > 50) {
@@ -1372,11 +1372,11 @@ function honeyStocks() {
         honeyStocksUp.style.display = 'none'
         honeyStocksDown.style.display = 'none'
     } else if (numOfHoneySoldTotal <= 50 && numOfHoneySoldTotal !== 0) {
-        honeyPrice = Math.min(354, honeyPrice * 1.5)
+        honeyPrice = Math.min(6000, honeyPrice * 1.5)
         honeyStocksUp.style.display = 'inline'
         honeyStocksDown.style.display = 'none'
     } else if (numOfHoneySoldTotal === 0) {
-        honeyPrice = Math.min(354, honeyPrice * 2)
+        honeyPrice = Math.min(6000, honeyPrice * 2)
         honeyStocksUp.style.display = 'inline'
         honeyStocksDown.style.display = 'none'
     }
@@ -1461,7 +1461,7 @@ function calcBPS() {
 calcBPS()
 
 let autoBoomAmount = 0
-let boomPrice = 230
+let boomPrice = 2625
 
 function autoBoom() {
     autoBoomAmount = autoBoomAmount + numOfBoomSlimes * autoBoomMultiplier
@@ -1501,23 +1501,23 @@ function boomStocks() {
     if (isFirstTimeBoom) {
         isFirstTimeBoom = false
     } else if (numOfBoomSoldTotal >= 2500) {
-        boomPrice = 32
+        boomPrice = 1750
         boomStocksUp.style.display = 'none'
         boomStocksDown.style.display = 'inline'
     } else if (numOfBoomSoldTotal >= 400) {
-        boomPrice = Math.max(32, boomPrice / 2)
+        boomPrice = Math.max(1750, boomPrice / 2)
         boomStocksUp.style.display = 'none'
         boomStocksDown.style.display = 'inline'
     } else if (numOfBoomSoldTotal >= 300) {
-        boomPrice = Math.max(32, boomPrice / 1.75)
+        boomPrice = Math.max(1750, boomPrice / 1.75)
         boomStocksUp.style.display = 'none'
         boomStocksDown.style.display = 'inline'
     } else if (numOfBoomSoldTotal >= 200) {
-        boomPrice = Math.max(32, boomPrice / 1.5)
+        boomPrice = Math.max(1750, boomPrice / 1.5)
         boomStocksUp.style.display = 'none'
         boomStocksDown.style.display = 'inline'
     } else if (numOfBoomSoldTotal >= 100) {
-        boomPrice = Math.max(32, boomPrice / 1.25)
+        boomPrice = Math.max(1750, boomPrice / 1.25)
         boomStocksUp.style.display = 'none'
         boomStocksDown.style.display = 'inline'
     } else if (numOfBoomSoldTotal > 50) {
@@ -1525,11 +1525,11 @@ function boomStocks() {
         boomStocksUp.style.display = 'none'
         boomStocksDown.style.display = 'none'
     } else if (numOfBoomSoldTotal <= 50 && numOfBoomSoldTotal !== 0) {
-        boomPrice = Math.min(531, boomPrice * 1.5)
+        boomPrice = Math.min(12500, boomPrice * 1.5)
         boomStocksUp.style.display = 'inline'
         boomStocksDown.style.display = 'none'
     } else if (numOfBoomSoldTotal === 0) {
-        boomPrice = Math.min(531, boomPrice * 2)
+        boomPrice = Math.min(12500, boomPrice * 2)
         boomStocksUp.style.display = 'inline'
         boomStocksDown.style.display = 'none'
     }
@@ -1614,7 +1614,7 @@ function calcHuPS() {
 calcHuPS()
 
 let autoHunterAmount = 0
-let hunterPrice = 345
+let hunterPrice = 9000
 
 function autoHunter() {
     autoHunterAmount = autoHunterAmount + numOfHunterSlimes * autoHunterMultiplier
@@ -1654,23 +1654,23 @@ function hunterStocks() {
     if (isFirstTimeHunter) {
         isFirstTimeHunter = false
     } else if (numOfHunterSoldTotal >= 2500) {
-        hunterPrice = 36
+        hunterPrice = 6000
         hunterStocksUp.style.display = 'none'
         hunterStocksDown.style.display = 'inline'
     } else if (numOfHunterSoldTotal >= 400) {
-        hunterPrice = Math.max(36, hunterPrice / 2)
+        hunterPrice = Math.max(6000, hunterPrice / 2)
         hunterStocksUp.style.display = 'none'
         hunterStocksDown.style.display = 'inline'
     } else if (numOfHunterSoldTotal >= 300) {
-        hunterPrice = Math.max(36, hunterPrice / 1.75)
+        hunterPrice = Math.max(6000, hunterPrice / 1.75)
         hunterStocksUp.style.display = 'none'
         hunterStocksDown.style.display = 'inline'
     } else if (numOfHunterSoldTotal >= 200) {
-        hunterPrice = Math.max(36, hunterPrice / 1.5)
+        hunterPrice = Math.max(6000, hunterPrice / 1.5)
         hunterStocksUp.style.display = 'none'
         hunterStocksDown.style.display = 'inline'
     } else if (numOfHunterSoldTotal >= 100) {
-        hunterPrice = Math.max(36, hunterPrice / 1.25)
+        hunterPrice = Math.max(6000, hunterPrice / 1.25)
         hunterStocksUp.style.display = 'none'
         hunterStocksDown.style.display = 'inline'
     } else if (numOfHunterSoldTotal > 50) {
@@ -1678,11 +1678,11 @@ function hunterStocks() {
         hunterStocksUp.style.display = 'none'
         hunterStocksDown.style.display = 'none'
     } else if (numOfHunterSoldTotal <= 50 && numOfHunterSoldTotal !== 0) {
-        hunterPrice = Math.min(796, hunterPrice * 1.5)
+        hunterPrice = Math.min(25000, hunterPrice * 1.5)
         hunterStocksUp.style.display = 'inline'
         hunterStocksDown.style.display = 'none'
     } else if (numOfHunterSoldTotal === 0) {
-        hunterPrice = Math.min(796, hunterPrice * 2)
+        hunterPrice = Math.min(25000, hunterPrice * 2)
         hunterStocksUp.style.display = 'inline'
         hunterStocksDown.style.display = 'none'
     }
@@ -1767,7 +1767,7 @@ function calcRaPS() {
 calcRaPS()
 
 let autoRadAmount = 0
-let radPrice = 518
+let radPrice = 12750
 
 function autoRad() {
     autoRadAmount = autoRadAmount + numOfRadSlimes * autoRadMultiplier
@@ -1807,23 +1807,23 @@ function radStocks() {
     if (isFirstTimeRad) {
         isFirstTimeRad = false
     } else if (numOfRadSoldTotal >= 2500) {
-        radPrice = 40
+        radPrice = 8500
         radStocksUp.style.display = 'none'
         radStocksDown.style.display = 'inline'
     } else if (numOfRadSoldTotal >= 400) {
-        radPrice = Math.max(40, radPrice / 2)
+        radPrice = Math.max(8500, radPrice / 2)
         radStocksUp.style.display = 'none'
         radStocksDown.style.display = 'inline'
     } else if (numOfRadSoldTotal >= 300) {
-        radPrice = Math.max(40, radPrice / 1.75)
+        radPrice = Math.max(8500, radPrice / 1.75)
         radStocksUp.style.display = 'none'
         radStocksDown.style.display = 'inline'
     } else if (numOfRadSoldTotal >= 200) {
-        radPrice = Math.max(40, radPrice / 1.5)
+        radPrice = Math.max(8500, radPrice / 1.5)
         radStocksUp.style.display = 'none'
         radStocksDown.style.display = 'inline'
     } else if (numOfRadSoldTotal >= 100) {
-        radPrice = Math.max(40, radPrice / 1.25)
+        radPrice = Math.max(8500, radPrice / 1.25)
         radStocksUp.style.display = 'none'
         radStocksDown.style.display = 'inline'
     } else if (numOfRadSoldTotal > 50) {
@@ -1831,11 +1831,11 @@ function radStocks() {
         radStocksUp.style.display = 'none'
         radStocksDown.style.display = 'none'
     } else if (numOfRadSoldTotal <= 50 && numOfRadSoldTotal !== 0) {
-        radPrice = Math.min(1194, radPrice * 1.5)
+        radPrice = Math.min(40000, radPrice * 1.5)
         radStocksUp.style.display = 'inline'
         radStocksDown.style.display = 'none'
     } else if (numOfRadSoldTotal === 0) {
-        radPrice = Math.min(1194, radPrice * 2)
+        radPrice = Math.min(40000, radPrice * 2)
         radStocksUp.style.display = 'inline'
         radStocksDown.style.display = 'none'
     }
@@ -1920,7 +1920,7 @@ function calcCPS() {
 calcCPS()
 
 let autoCrystalAmount = 0
-let crystalPrice = 777
+let crystalPrice = 15000
 
 function autoCrystal() {
     autoCrystalAmount = autoCrystalAmount + numOfCrystalSlimes * autoCrystalMultiplier
@@ -1959,23 +1959,23 @@ function crystalStocks() {
     if (isFirstTimeCrystal) {
         isFirstTimeCrystal = false
     } else if (numOfCrystalSoldTotal >= 2500) {
-        crystalPrice = 44
+        crystalPrice = 10000
         crystalStocksUp.style.display = 'none'
         crystalStocksDown.style.display = 'inline'
     } else if (numOfCrystalSoldTotal >= 400) {
-        crystalPrice = Math.max(44, crystalPrice / 2)
+        crystalPrice = Math.max(10000, crystalPrice / 2)
         crystalStocksUp.style.display = 'none'
         crystalStocksDown.style.display = 'inline'
     } else if (numOfCrystalSoldTotal >= 300) {
-        crystalPrice = Math.max(44, crystalPrice / 1.75)
+        crystalPrice = Math.max(10000, crystalPrice / 1.75)
         crystalStocksUp.style.display = 'none'
         crystalStocksDown.style.display = 'inline'
     } else if (numOfCrystalSoldTotal >= 200) {
-        crystalPrice = Math.max(44, crystalPrice / 1.5)
+        crystalPrice = Math.max(10000, crystalPrice / 1.5)
         crystalStocksUp.style.display = 'none'
         crystalStocksDown.style.display = 'inline'
     } else if (numOfCrystalSoldTotal >= 100) {
-        crystalPrice = Math.max(44, crystalPrice / 1.25)
+        crystalPrice = Math.max(10000, crystalPrice / 1.25)
         crystalStocksUp.style.display = 'none'
         crystalStocksDown.style.display = 'inline'
     } else if (numOfCrystalSoldTotal > 50) {
@@ -1983,11 +1983,11 @@ function crystalStocks() {
         crystalStocksUp.style.display = 'none'
         crystalStocksDown.style.display = 'none'
     } else if (numOfCrystalSoldTotal <= 50 && numOfCrystalSoldTotal !== 0) {
-        crystalPrice = Math.min(1791, crystalPrice * 1.5)
+        crystalPrice = Math.min(50000, crystalPrice * 1.5)
         crystalStocksUp.style.display = 'inline'
         crystalStocksDown.style.display = 'none'
     } else if (numOfCrystalSoldTotal === 0) {
-        crystalPrice = Math.min(1791, crystalPrice * 2)
+        crystalPrice = Math.min(50000, crystalPrice * 2)
         crystalStocksUp.style.display = 'inline'
         crystalStocksDown.style.display = 'none'
     }
@@ -2072,7 +2072,7 @@ function calcSPS() {
 calcSPS()
 
 let autoSaberAmount = 0
-let saberPrice = 1166
+let saberPrice = 18750
 
 function autoSaber() {
     autoSaberAmount = autoSaberAmount + numOfSaberSlimes * autoSaberMultiplier
@@ -2111,23 +2111,23 @@ function saberStocks() {
     if (isFirstTimeSaber) {
         isFirstTimeSaber = false
     } else if (numOfSaberSoldTotal >= 2500) {
-        saberPrice = 48
+        saberPrice = 12500
         saberStocksUp.style.display = 'none'
         saberStocksDown.style.display = 'inline'
     } else if (numOfSaberSoldTotal >= 400) {
-        saberPrice = Math.max(48, saberPrice / 2)
+        saberPrice = Math.max(12500, saberPrice / 2)
         saberStocksUp.style.display = 'none'
         saberStocksDown.style.display = 'inline'
     } else if (numOfSaberSoldTotal >= 300) {
-        saberPrice = Math.max(48, saberPrice / 1.75)
+        saberPrice = Math.max(12500, saberPrice / 1.75)
         saberStocksUp.style.display = 'none'
         saberStocksDown.style.display = 'inline'
     } else if (numOfSaberSoldTotal >= 200) {
-        saberPrice = Math.max(48, saberPrice / 1.5)
+        saberPrice = Math.max(12500, saberPrice / 1.5)
         saberStocksUp.style.display = 'none'
         saberStocksDown.style.display = 'inline'
     } else if (numOfSaberSoldTotal >= 100) {
-        saberPrice = Math.max(48, saberPrice / 1.25)
+        saberPrice = Math.max(12500, saberPrice / 1.25)
         saberStocksUp.style.display = 'none'
         saberStocksDown.style.display = 'inline'
     } else if (numOfSaberSoldTotal > 50) {
@@ -2135,11 +2135,11 @@ function saberStocks() {
         saberStocksUp.style.display = 'none'
         saberStocksDown.style.display = 'none'
     } else if (numOfSaberSoldTotal <= 50 && numOfSaberSoldTotal !== 0) {
-        saberPrice = Math.min(2687, saberPrice * 1.5)
+        saberPrice = Math.min(62500, saberPrice * 1.5)
         saberStocksUp.style.display = 'inline'
         saberStocksDown.style.display = 'none'
     } else if (numOfSaberSoldTotal === 0) {
-        saberPrice = Math.min(2687, saberPrice * 2)
+        saberPrice = Math.min(62500, saberPrice * 2)
         saberStocksUp.style.display = 'inline'
         saberStocksDown.style.display = 'none'
     }
@@ -2224,7 +2224,7 @@ function calcDPS() {
 calcDPS()
 
 let autoDervishAmount = 0
-let dervishPrice = 1749
+let dervishPrice = 22500
 
 function autoDervish() {
     autoDervishAmount = autoDervishAmount + numOfDervishSlimes * autoDervishMultiplier
@@ -2263,23 +2263,23 @@ function dervishStocks() {
     if (isFirstTimeDervish) {
         isFirstTimeDervish = false
     } else if (numOfDervishSoldTotal >= 2500) {
-        dervishPrice = 52
+        dervishPrice = 15000
         dervishStocksUp.style.display = 'none'
         dervishStocksDown.style.display = 'inline'
     } else if (numOfDervishSoldTotal >= 400) {
-        dervishPrice = Math.max(52, dervishPrice / 2)
+        dervishPrice = Math.max(15000, dervishPrice / 2)
         dervishStocksUp.style.display = 'none'
         dervishStocksDown.style.display = 'inline'
     } else if (numOfDervishSoldTotal >= 300) {
-        dervishPrice = Math.max(52, dervishPrice / 1.75)
+        dervishPrice = Math.max(15000, dervishPrice / 1.75)
         dervishStocksUp.style.display = 'none'
         dervishStocksDown.style.display = 'inline'
     } else if (numOfDervishSoldTotal >= 200) {
-        dervishPrice = Math.max(52, dervishPrice / 1.5)
+        dervishPrice = Math.max(15000, dervishPrice / 1.5)
         dervishStocksUp.style.display = 'none'
         dervishStocksDown.style.display = 'inline'
     } else if (numOfDervishSoldTotal >= 100) {
-        dervishPrice = Math.max(52, dervishPrice / 1.25)
+        dervishPrice = Math.max(15000, dervishPrice / 1.25)
         dervishStocksUp.style.display = 'none'
         dervishStocksDown.style.display = 'inline'
     } else if (numOfDervishSoldTotal > 50) {
@@ -2287,11 +2287,11 @@ function dervishStocks() {
         dervishStocksUp.style.display = 'none'
         dervishStocksDown.style.display = 'none'
     } else if (numOfDervishSoldTotal <= 50 && numOfDervishSoldTotal !== 0) {
-        dervishPrice = Math.min(4030, dervishPrice * 1.5)
+        dervishPrice = Math.min(75000, dervishPrice * 1.5)
         dervishStocksUp.style.display = 'inline'
         dervishStocksDown.style.display = 'none'
     } else if (numOfDervishSoldTotal === 0) {
-        dervishPrice = Math.min(4030, dervishPrice * 2)
+        dervishPrice = Math.min(75000, dervishPrice * 2)
         dervishStocksUp.style.display = 'inline'
         dervishStocksDown.style.display = 'none'
     }
@@ -2376,7 +2376,7 @@ function calcQPS() {
 calcQPS()
 
 let autoQuantumAmount = 0
-let quantumPrice = 2624
+let quantumPrice = 30000
 
 function autoQuantum() {
     autoQuantumAmount = autoQuantumAmount + numOfQuantumSlimes * autoQuantumMultiplier
@@ -2415,23 +2415,23 @@ function quantumStocks() {
     if (isFirstTimeQuantum) {
         isFirstTimeQuantum = false
     } else if (numOfQuantumSoldTotal >= 2500) {
-        quantumPrice = 56
+        quantumPrice = 20000
         quantumStocksUp.style.display = 'none'
         quantumStocksDown.style.display = 'inline'
     } else if (numOfQuantumSoldTotal >= 400) {
-        quantumPrice = Math.max(56, quantumPrice / 2)
+        quantumPrice = Math.max(20000, quantumPrice / 2)
         quantumStocksUp.style.display = 'none'
         quantumStocksDown.style.display = 'inline'
     } else if (numOfQuantumSoldTotal >= 300) {
-        quantumPrice = Math.max(56, quantumPrice / 1.75)
+        quantumPrice = Math.max(20000, quantumPrice / 1.75)
         quantumStocksUp.style.display = 'none'
         quantumStocksDown.style.display = 'inline'
     } else if (numOfQuantumSoldTotal >= 200) {
-        quantumPrice = Math.max(56, quantumPrice / 1.5)
+        quantumPrice = Math.max(20000, quantumPrice / 1.5)
         quantumStocksUp.style.display = 'none'
         quantumStocksDown.style.display = 'inline'
     } else if (numOfQuantumSoldTotal >= 100) {
-        quantumPrice = Math.max(56, quantumPrice / 1.25)
+        quantumPrice = Math.max(20000, quantumPrice / 1.25)
         quantumStocksUp.style.display = 'none'
         quantumStocksDown.style.display = 'inline'
     } else if (numOfQuantumSoldTotal > 50) {
@@ -2439,11 +2439,11 @@ function quantumStocks() {
         quantumStocksUp.style.display = 'none'
         quantumStocksDown.style.display = 'none'
     } else if (numOfQuantumSoldTotal <= 50 && numOfQuantumSoldTotal !== 0) {
-        quantumPrice = Math.min(6045, quantumPrice * 1.5)
+        quantumPrice = Math.min(100000, quantumPrice * 1.5)
         quantumStocksUp.style.display = 'inline'
         quantumStocksDown.style.display = 'none'
     } else if (numOfQuantumSoldTotal === 0) {
-        quantumPrice = Math.min(6045, quantumPrice * 2)
+        quantumPrice = Math.min(100000, quantumPrice * 2)
         quantumStocksUp.style.display = 'inline'
         quantumStocksDown.style.display = 'none'
     }
@@ -2528,7 +2528,7 @@ function calcTanPS() {
 calcTanPS()
 
 let autoTangleAmount = 0
-let tanglePrice = 3936
+let tanglePrice = 60000
 
 function autoTangle() {
     autoTangleAmount = autoTangleAmount + numOfTangleSlimes * autoTangleMultiplier
@@ -2567,23 +2567,23 @@ function tangleStocks() {
     if (isFirstTimeTangle) {
         isFirstTimeTangle = false
     } else if (numOfTangleSoldTotal >= 2500) {
-        tanglePrice = 60
+        tanglePrice = 40000
         tangleStocksUp.style.display = 'none'
         tangleStocksDown.style.display = 'inline'
     } else if (numOfTangleSoldTotal >= 400) {
-        tanglePrice = Math.max(60, tanglePrice / 2)
+        tanglePrice = Math.max(40000, tanglePrice / 2)
         tangleStocksUp.style.display = 'none'
         tangleStocksDown.style.display = 'inline'
     } else if (numOfTangleSoldTotal >= 300) {
-        tanglePrice = Math.max(60, tanglePrice / 1.75)
+        tanglePrice = Math.max(40000, tanglePrice / 1.75)
         tangleStocksUp.style.display = 'none'
         tangleStocksDown.style.display = 'inline'
     } else if (numOfTangleSoldTotal >= 200) {
-        tanglePrice = Math.max(60, tanglePrice / 1.5)
+        tanglePrice = Math.max(40000, tanglePrice / 1.5)
         tangleStocksUp.style.display = 'none'
         tangleStocksDown.style.display = 'inline'
     } else if (numOfTangleSoldTotal >= 100) {
-        tanglePrice = Math.max(60, tanglePrice / 1.25)
+        tanglePrice = Math.max(40000, tanglePrice / 1.25)
         tangleStocksUp.style.display = 'none'
         tangleStocksDown.style.display = 'inline'
     } else if (numOfTangleSoldTotal > 50) {
@@ -2591,11 +2591,11 @@ function tangleStocks() {
         tangleStocksUp.style.display = 'none'
         tangleStocksDown.style.display = 'none'
     } else if (numOfTangleSoldTotal <= 50 && numOfTangleSoldTotal !== 0) {
-        tanglePrice = Math.min(9068, tanglePrice * 1.5)
+        tanglePrice = Math.min(150000, tanglePrice * 1.5)
         tangleStocksUp.style.display = 'inline'
         tangleStocksDown.style.display = 'none'
     } else if (numOfTangleSoldTotal === 0) {
-        tanglePrice = Math.min(9068, tanglePrice * 2)
+        tanglePrice = Math.min(150000, tanglePrice * 2)
         tangleStocksUp.style.display = 'inline'
         tangleStocksDown.style.display = 'none'
     }
@@ -2679,7 +2679,7 @@ function calcMPS() {
 calcMPS()
 
 let autoMosaicAmount = 0
-let mosaicPrice = 5904
+let mosaicPrice = 97500
 
 function autoMosaic() {
     autoMosaicAmount = autoMosaicAmount + numOfMosaicSlimes * autoMosaicMultiplier
@@ -2718,23 +2718,23 @@ function mosaicStocks() {
     if (isFirstTimeMosaic) {
         isFirstTimeMosaic = false
     } else if (numOfMosaicSoldTotal >= 2500) {
-        mosaicPrice = 64
+        mosaicPrice = 65000
         mosaicStocksUp.style.display = 'none'
         mosaicStocksDown.style.display = 'inline'
     } else if (numOfMosaicSoldTotal >= 400) {
-        mosaicPrice = Math.max(64, mosaicPrice / 2)
+        mosaicPrice = Math.max(65000, mosaicPrice / 2)
         mosaicStocksUp.style.display = 'none'
         mosaicStocksDown.style.display = 'inline'
     } else if (numOfMosaicSoldTotal >= 300) {
-        mosaicPrice = Math.max(64, mosaicPrice / 1.75)
+        mosaicPrice = Math.max(65000, mosaicPrice / 1.75)
         mosaicStocksUp.style.display = 'none'
         mosaicStocksDown.style.display = 'inline'
     } else if (numOfMosaicSoldTotal >= 200) {
-        mosaicPrice = Math.max(64, mosaicPrice / 1.5)
+        mosaicPrice = Math.max(65000, mosaicPrice / 1.5)
         mosaicStocksUp.style.display = 'none'
         mosaicStocksDown.style.display = 'inline'
     } else if (numOfMosaicSoldTotal >= 100) {
-        mosaicPrice = Math.max(64, mosaicPrice / 1.25)
+        mosaicPrice = Math.max(65000, mosaicPrice / 1.25)
         mosaicStocksUp.style.display = 'none'
         mosaicStocksDown.style.display = 'inline'
     } else if (numOfMosaicSoldTotal > 50) {
@@ -2742,11 +2742,11 @@ function mosaicStocks() {
         mosaicStocksUp.style.display = 'none'
         mosaicStocksDown.style.display = 'none'
     } else if (numOfMosaicSoldTotal <= 50 && numOfMosaicSoldTotal !== 0) {
-        mosaicPrice = Math.min(13602, mosaicPrice * 1.5)
+        mosaicPrice = Math.min(300000, mosaicPrice * 1.5)
         mosaicStocksUp.style.display = 'inline'
         mosaicStocksDown.style.display = 'none'
     } else if (numOfMosaicSoldTotal === 0) {
-        mosaicPrice = Math.min(13602, mosaicPrice * 2)
+        mosaicPrice = Math.min(300000, mosaicPrice * 2)
         mosaicStocksUp.style.display = 'inline'
         mosaicStocksDown.style.display = 'none'
     }
@@ -2830,7 +2830,7 @@ function calcGPS() {
 calcGPS()
 
 let autoGoldAmount = 0
-let goldPrice = 8856
+let goldPrice = 150000
 
 function autoGold() {
     autoGoldAmount = autoGoldAmount + numOfGoldSlimes * autoGoldMultiplier
@@ -2869,23 +2869,23 @@ function goldStocks() {
     if (isFirstTimeGold) {
         isFirstTimeGold = false
     } else if (numOfGoldSoldTotal >= 2500) {
-        goldPrice = 68
+        goldPrice = 100000
         goldStocksUp.style.display = 'none'
         goldStocksDown.style.display = 'inline'
     } else if (numOfGoldSoldTotal >= 400) {
-        goldPrice = Math.max(68, goldPrice / 2)
+        goldPrice = Math.max(100000, goldPrice / 2)
         goldStocksUp.style.display = 'none'
         goldStocksDown.style.display = 'inline'
     } else if (numOfGoldSoldTotal >= 300) {
-        goldPrice = Math.max(68, goldPrice / 1.75)
+        goldPrice = Math.max(100000, goldPrice / 1.75)
         goldStocksUp.style.display = 'none'
         goldStocksDown.style.display = 'inline'
     } else if (numOfGoldSoldTotal >= 200) {
-        goldPrice = Math.max(68, goldPrice / 1.5)
+        goldPrice = Math.max(100000, goldPrice / 1.5)
         goldStocksUp.style.display = 'none'
         goldStocksDown.style.display = 'inline'
     } else if (numOfGoldSoldTotal >= 100) {
-        goldPrice = Math.max(68, goldPrice / 1.25)
+        goldPrice = Math.max(100000, goldPrice / 1.25)
         goldStocksUp.style.display = 'none'
         goldStocksDown.style.display = 'inline'
     } else if (numOfGoldSoldTotal > 50) {
@@ -2893,11 +2893,11 @@ function goldStocks() {
         goldStocksUp.style.display = 'none'
         goldStocksDown.style.display = 'none'
     } else if (numOfGoldSoldTotal <= 50 && numOfGoldSoldTotal !== 0) {
-        goldPrice = Math.min(30000, goldPrice * 1.5)
+        goldPrice = Math.min(1000000, goldPrice * 1.5)
         goldStocksUp.style.display = 'inline'
         goldStocksDown.style.display = 'none'
     } else if (numOfGoldSoldTotal === 0) {
-        goldPrice = Math.min(30000, goldPrice * 2)
+        goldPrice = Math.min(1000000, goldPrice * 2)
         goldStocksUp.style.display = 'inline'
         goldStocksDown.style.display = 'none'
     }
