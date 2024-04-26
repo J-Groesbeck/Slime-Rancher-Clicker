@@ -212,81 +212,114 @@ function checkRank() {
             clickerPink.style.display = 'none';
             clickerRock.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Rock';
+            clickRankCost = clickRankCost * 4
+            document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
             break;
         case 3:
             clickerPink.style.display = 'none';
             clickerPhosphor.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Phosphor';
+            clickRankCost = clickRankCost * 4 ** 2
+            document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
             break;
         case 4:
             clickerPink.style.display = 'none';
             clickerTabby.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Tabby';
+            clickRankCost = clickRankCost * 4 ** 3
+            document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
             break;
         case 5:
             clickerPink.style.display = 'none';
             clickerPuddle.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Puddle';
+            clickRankCost = clickRankCost * 4 ** 4
+            document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
             break;
         case 6:
             clickerPink.style.display = 'none';
             clickerFire.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Fire';
+            clickRankCost = clickRankCost * 4 ** 5
+            document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
             break;
         case 7:
             clickerPink.style.display = 'none';
             clickerHoney.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Honey';
+            clickRankCost = clickRankCost * 4 ** 6
+            document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
             break;
         case 8:
             clickerPink.style.display = 'none';
             clickerBoom.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Boom';
+            clickRankCost = clickRankCost * 4 ** 7
+            document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
             break;
         case 9:
             clickerPink.style.display = 'none';
             clickerHunter.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Hunter';
+            clickRankCost = clickRankCost * 4 ** 8
+            document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
             break;
         case 10:
             clickerPink.style.display = 'none';
             clickerRad.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Rad';
+            clickRankCost = clickRankCost * 4 ** 9
+            document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
             break;
         case 11:
             clickerPink.style.display = 'none';
             clickerCrystal.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Crystal';
+            clickRankCost = clickRankCost * 4 ** 10
+            document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
             break;
         case 12:
             clickerPink.style.display = 'none';
             clickerSaber.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Saber';
+            clickRankCost = clickRankCost * 4 ** 11
+            document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
             break;
         case 13:
             clickerPink.style.display = 'none';
             clickerDervish.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Dervish';
+            clickRankCost = clickRankCost * 4 ** 12
+            document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
             break;
         case 14:
             clickerPink.style.display = 'none';
             clickerQuantum.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Quantum';
+            clickRankCost = clickRankCost * 4 ** 13
+            document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
             break;
         case 15:
             clickerPink.style.display = 'none';
             clickerTangle.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Tangle';
+            clickRankCost = clickRankCost * 4 ** 14
+            document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
             break;
         case 16:
             clickerPink.style.display = 'none';
             clickerMosaic.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Mosaic';
+            clickRankCost = clickRankCost * 4 ** 15
+            document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
             break;
         case 17:
             clickerPink.style.display = 'none';
             clickerGold.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Gold';
+            clickRankCost = clickRankCost * 4 ** 16
+            document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
+            document.getElementById('rank-up-click').style.display = 'none'
             break;
     }
 }
@@ -375,7 +408,7 @@ function levelUpPink() {
     }
     if (pinkLevel === 5) {
         document.getElementById('level-up-pink').style.display = 'none'
-        document.getElementById('buy-pink-slimes').classList = 'w-100 h-100'
+        document.getElementById('buy-pink-slimes').classList.add = 'h-100'
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
@@ -542,7 +575,7 @@ function calcRPS() {
 calcRPS()
 
 let autoRockAmount = 0
-let rockPrice = 15
+let rockPrice = 23
 
 function autoRock() {
     autoRockAmount = autoRockAmount + numOfRockSlimes * autoRockMultiplier
@@ -2977,7 +3010,7 @@ function retractUpgrades() {
 function saveGame() {
     localStorage.setItem("money", currentMoney); // saves current money
 
-    localStorage.setItem("click-rank", clickRank); // saves current click rank, need to make variable for this to save
+    localStorage.setItem("click-rank", clickRank); // saves current click rank
     localStorage.setItem("click-level", clickLevel); // saves current click level
 
     let typeArray = ["pink", "rock", "phosphor", "tabby", "puddle", "fire", "honey", "boom", "hunter", "rad", "crystal", "saber", "dervish", "quantum", "tangle", "mosaic", "gold"];
