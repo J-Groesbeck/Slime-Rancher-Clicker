@@ -66,7 +66,9 @@ function rankUpClick() {
         clickRankCost = clickRankCost * 4;
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString();
         document.getElementById('click-rank').innerText = 'Rock';
-        clickRankBtn.style.display = 'none'
+        if (numOfRockSlimes < 50) {
+            clickRankBtn.style.display = 'none'
+        }
         playPurchaseUpgradeSound()
         clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerRock.style.display === 'inline') {
@@ -76,7 +78,9 @@ function rankUpClick() {
         clickRankCost = clickRankCost * 4;
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString();
         document.getElementById('click-rank').innerText = 'Phosphor';
-        clickRankBtn.style.display = 'none'
+        if (numOfPhosphorSlimes < 50) {
+            clickRankBtn.style.display = 'none'
+        }
         playPurchaseUpgradeSound()
         clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerPhosphor.style.display === 'inline') {
@@ -86,7 +90,9 @@ function rankUpClick() {
         clickRankCost = clickRankCost * 4;
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString();
         document.getElementById('click-rank').innerText = 'Tabby';
-        clickRankBtn.style.display = 'none'
+        if (numOfTabbySlimes < 50) {
+            clickRankBtn.style.display = 'none'
+        }
         playPurchaseUpgradeSound()
         clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerTabby.style.display === 'inline') {
@@ -96,7 +102,9 @@ function rankUpClick() {
         clickRankCost = clickRankCost * 4;
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString();
         document.getElementById('click-rank').innerText = 'Puddle';
-        clickRankBtn.style.display = 'none'
+        if (numOfPuddleSlimes < 50) {
+            clickRankBtn.style.display = 'none'
+        }
         playPurchaseUpgradeSound()
         clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerPuddle.style.display === 'inline') {
@@ -106,7 +114,9 @@ function rankUpClick() {
         clickRankCost = clickRankCost * 4;
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString();
         document.getElementById('click-rank').innerText = 'Fire';
-        clickRankBtn.style.display = 'none'
+        if (numOfFireSlimes < 50) {
+            clickRankBtn.style.display = 'none'
+        }
         playPurchaseUpgradeSound()
         clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerFire.style.display === 'inline') {
@@ -116,7 +126,9 @@ function rankUpClick() {
         clickRankCost = clickRankCost * 4;
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString();
         document.getElementById('click-rank').innerText = 'Honey';
-        clickRankBtn.style.display = 'none'
+        if (numOfHoneySlimes < 50) {
+            clickRankBtn.style.display = 'none'
+        }
         playPurchaseUpgradeSound()
         clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerHoney.style.display === 'inline') {
@@ -126,7 +138,9 @@ function rankUpClick() {
         clickRankCost = clickRankCost * 4;
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString();
         document.getElementById('click-rank').innerText = 'Boom';
-        clickRankBtn.style.display = 'none'
+        if (numOfBoomSlimes < 50) {
+            clickRankBtn.style.display = 'none'
+        }
         playPurchaseUpgradeSound()
         clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerBoom.style.display === 'inline') {
@@ -136,7 +150,9 @@ function rankUpClick() {
         clickRankCost = clickRankCost * 4;
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
         document.getElementById('click-rank').innerText = 'Hunter';
-        clickRankBtn.style.display = 'none'
+        if (numOfHunterSlimes < 50) {
+            clickRankBtn.style.display = 'none'
+        }
         playPurchaseUpgradeSound()
         clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerHunter.style.display === 'inline') {
@@ -146,7 +162,9 @@ function rankUpClick() {
         clickRankCost = clickRankCost * 4
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
         document.getElementById('click-rank').innerText = 'Rad';
-        clickRankBtn.style.display = 'none'
+        if (numOfRadSlimes < 50) {
+            clickRankBtn.style.display = 'none'
+        }
         playPurchaseUpgradeSound()
         clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerRad.style.display === 'inline') {
@@ -156,7 +174,9 @@ function rankUpClick() {
         clickRankCost = clickRankCost * 4
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
         document.getElementById('click-rank').innerText = 'Crystal';
-        clickRankBtn.style.display = 'none'
+        if (numOfCrystalSlimes < 50) {
+            clickRankBtn.style.display = 'none'
+        }
         playPurchaseUpgradeSound()
         clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerCrystal.style.display === 'inline') {
@@ -166,7 +186,9 @@ function rankUpClick() {
         clickRankCost = clickRankCost * 4
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
         document.getElementById('click-rank').innerText = 'Saber';
-        clickRankBtn.style.display = 'none'
+        if (numOfSaberSlimes < 50) {
+            clickRankBtn.style.display = 'none'
+        }
         playPurchaseUpgradeSound()
         clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerSaber.style.display === 'inline') {
@@ -176,7 +198,9 @@ function rankUpClick() {
         clickRankCost = clickRankCost * 4
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
         document.getElementById('click-rank').innerText = 'Dervish';
-        clickRankBtn.style.display = 'none'
+        if (numOfDervishSlimes < 50) {
+            clickRankBtn.style.display = 'none'
+        }
         playPurchaseUpgradeSound()
         clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerDervish.style.display === 'inline') {
@@ -186,7 +210,9 @@ function rankUpClick() {
         clickRankCost = clickRankCost * 4
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
         document.getElementById('click-rank').innerText = 'Quantum';
-        clickRankBtn.style.display = 'none'
+        if (numOfQuantumSlimes < 50) {
+            clickRankBtn.style.display = 'none'
+        }
         playPurchaseUpgradeSound()
         clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerQuantum.style.display === 'inline') {
@@ -196,7 +222,9 @@ function rankUpClick() {
         clickRankCost = clickRankCost * 4
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
         document.getElementById('click-rank').innerText = 'Tangle';
-        clickRankBtn.style.display = 'none'
+        if (numOfTangleSlimes < 50) {
+            clickRankBtn.style.display = 'none'
+        }
         playPurchaseUpgradeSound()
         clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerTangle.style.display === 'inline') {
@@ -206,7 +234,9 @@ function rankUpClick() {
         clickRankCost = clickRankCost * 4
         document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
         document.getElementById('click-rank').innerText = 'Mosaic';
-        clickRankBtn.style.display = 'none'
+        if (numOfMosaicSlimes < 50) {
+            clickRankBtn.style.display = 'none'
+        }
         playPurchaseUpgradeSound()
         clickRank = clickRank + 1
     } else if (currentMoney >= clickRankCost && clickerMosaic.style.display === 'inline') {
@@ -435,7 +465,7 @@ function levelUpPink() {
 
 function calcPPS() {
     let pinkPerSec = numOfPinkSlimes * autoPinkMultiplier
-    document.getElementById('pink-per-second').innerText = pinkPerSec
+    document.getElementById('pink-per-second').innerText = pinkPerSec.toFixed(1)
 }
 calcPPS()
 
@@ -594,7 +624,7 @@ function levelUpRock() {
 
 function calcRPS() {
     let rockPerSec = numOfRockSlimes * autoRockMultiplier
-    document.getElementById('rock-per-second').innerText = rockPerSec
+    document.getElementById('rock-per-second').innerText = rockPerSec.toFixed(1)
 }
 calcRPS()
 
@@ -751,7 +781,7 @@ function levelUpPhosphor() {
 
 function calcPhPS() {
     let phosphorPerSec = numOfPhosphorSlimes * autoPhosphorMultiplier
-    document.getElementById('phosphor-per-second').innerText = phosphorPerSec
+    document.getElementById('phosphor-per-second').innerText = phosphorPerSec.toFixed(1)
 }
 calcPhPS()
 
@@ -907,7 +937,7 @@ function levelUpTabby() {
 
 function calcTPS() {
     let tabbyPerSec = numOfTabbySlimes * autoTabbyMultiplier
-    document.getElementById('tabby-per-second').innerText = tabbyPerSec
+    document.getElementById('tabby-per-second').innerText = tabbyPerSec.toFixed(1)
 }
 calcTPS()
 
@@ -1063,7 +1093,7 @@ function levelUpPuddle() {
 
 function calcPuPS() {
     let puddlePerSec = numOfPuddleSlimes * autoPuddleMultiplier
-    document.getElementById('puddle-per-second').innerText = puddlePerSec
+    document.getElementById('puddle-per-second').innerText = puddlePerSec.toFixed(1)
 }
 calcPuPS()
 
@@ -1219,7 +1249,7 @@ function levelUpFire() {
 
 function calcFPS() {
     let firePerSec = numOfFireSlimes * autoFireMultiplier
-    document.getElementById('fire-per-second').innerText = firePerSec
+    document.getElementById('fire-per-second').innerText = firePerSec.toFixed(1)
 }
 calcFPS()
 
@@ -1348,7 +1378,7 @@ function buyHoneySlimes() {
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
     if (numOfHoneySlimes >= 50 && clickRank === 7 && clickRankBtn.style.display === 'none') {
         clickRankBtn.style.display = 'inline'
-    }    
+    }
 }
 
 let honeyLevel = 1
@@ -1375,7 +1405,7 @@ function levelUpHoney() {
 
 function calcHPS() {
     let honeyPerSec = numOfHoneySlimes * autoHoneyMultiplier
-    document.getElementById('honey-per-second').innerText = honeyPerSec
+    document.getElementById('honey-per-second').innerText = honeyPerSec.toFixed(1)
 }
 calcHPS()
 
@@ -1531,7 +1561,7 @@ function levelUpBoom() {
 
 function calcBPS() {
     let boomPerSec = numOfBoomSlimes * autoBoomMultiplier
-    document.getElementById('boom-per-second').innerText = boomPerSec
+    document.getElementById('boom-per-second').innerText = boomPerSec.toFixed(1)
 }
 calcBPS()
 
@@ -1687,7 +1717,7 @@ function levelUpHunter() {
 
 function calcHuPS() {
     let hunterPerSec = numOfHunterSlimes * autoHunterMultiplier
-    document.getElementById('hunter-per-second').innerText = hunterPerSec
+    document.getElementById('hunter-per-second').innerText = hunterPerSec.toFixed(1)
 }
 calcHuPS()
 
@@ -1843,7 +1873,7 @@ function levelUpRad() {
 
 function calcRaPS() {
     let radPerSec = numOfRadSlimes * autoRadMultiplier
-    document.getElementById('rad-per-second').innerText = radPerSec
+    document.getElementById('rad-per-second').innerText = radPerSec.toFixed(1)
 }
 calcRaPS()
 
@@ -2002,7 +2032,7 @@ function levelUpCrystal() {
 
 function calcCPS() {
     let crystalPerSec = numOfCrystalSlimes * autoCrystalMultiplier
-    document.getElementById('crystal-per-second').innerText = crystalPerSec
+    document.getElementById('crystal-per-second').innerText = crystalPerSec.toFixed(1)
 }
 calcCPS()
 
@@ -2154,7 +2184,7 @@ function levelUpSaber() {
 
 function calcSPS() {
     let saberPerSec = numOfSaberSlimes * autoSaberMultiplier
-    document.getElementById('saber-per-second').innerText = saberPerSec
+    document.getElementById('saber-per-second').innerText = saberPerSec.toFixed(1)
 }
 calcSPS()
 
@@ -2309,7 +2339,7 @@ function levelUpDervish() {
 
 function calcDPS() {
     let dervishPerSec = numOfDervishSlimes * autoDervishMultiplier
-    document.getElementById('dervish-per-second').innerText = dervishPerSec
+    document.getElementById('dervish-per-second').innerText = dervishPerSec.toFixed(1)
 }
 calcDPS()
 
@@ -2464,7 +2494,7 @@ function levelUpQuantum() {
 
 function calcQPS() {
     let quantumPerSec = numOfQuantumSlimes * autoQuantumMultiplier
-    document.getElementById('quantum-per-second').innerText = quantumPerSec
+    document.getElementById('quantum-per-second').innerText = quantumPerSec.toFixed(1)
 }
 calcQPS()
 
@@ -2619,7 +2649,7 @@ function levelUpTangle() {
 
 function calcTanPS() {
     let tanglePerSec = numOfTangleSlimes * autoTangleMultiplier
-    document.getElementById('tangle-per-second').innerText = tanglePerSec
+    document.getElementById('tangle-per-second').innerText = tanglePerSec.toFixed(1)
 }
 calcTanPS()
 
@@ -2773,7 +2803,7 @@ function levelUpMosaic() {
 
 function calcMPS() {
     let mosaicPerSec = numOfMosaicSlimes * autoMosaicMultiplier
-    document.getElementById('mosaic-per-second').innerText = mosaicPerSec
+    document.getElementById('mosaic-per-second').innerText = mosaicPerSec.toFixed(1)
 }
 calcMPS()
 
@@ -2927,7 +2957,7 @@ function levelUpGold() {
 
 function calcGPS() {
     let goldPerSec = numOfGoldSlimes * autoGoldMultiplier
-    document.getElementById('gold-per-second').innerText = goldPerSec
+    document.getElementById('gold-per-second').innerText = goldPerSec.toFixed(1)
 }
 calcGPS()
 
