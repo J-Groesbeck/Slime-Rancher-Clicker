@@ -255,12 +255,20 @@ function rankUpClick() {
 
 function checkRank() {
     switch (clickRank) {
+        case 1:
+            if (numOfPinkSlimes === 50) {
+                clickRankBtn.style.display = 'inline'
+            }
+            break;
         case 2:
             clickerPink.style.display = 'none';
             clickerRock.style.display = 'inline';
             document.getElementById('click-rank').innerText = 'Rock';
             clickRankCost = clickRankCost * 4
             document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
+            if (numOfRockSlimes >= 50) {
+                clickRankBtn.style.display = 'inline'
+            }
             break;
         case 3:
             clickerPink.style.display = 'none';
@@ -268,6 +276,9 @@ function checkRank() {
             document.getElementById('click-rank').innerText = 'Phosphor';
             clickRankCost = clickRankCost * 4 ** 2
             document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
+            if (numOfPhosphorSlimes >= 50) {
+                clickRankBtn.style.display = 'inline'
+            }
             break;
         case 4:
             clickerPink.style.display = 'none';
@@ -275,6 +286,9 @@ function checkRank() {
             document.getElementById('click-rank').innerText = 'Tabby';
             clickRankCost = clickRankCost * 4 ** 3
             document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
+            if (numOfTabbySlimes >= 50) {
+                clickRankBtn.style.display = 'inline'
+            }
             break;
         case 5:
             clickerPink.style.display = 'none';
@@ -282,6 +296,9 @@ function checkRank() {
             document.getElementById('click-rank').innerText = 'Puddle';
             clickRankCost = clickRankCost * 4 ** 4
             document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
+            if (numOfPuddleSlimes >= 50) {
+                clickRankBtn.style.display = 'inline'
+            }
             break;
         case 6:
             clickerPink.style.display = 'none';
@@ -289,6 +306,9 @@ function checkRank() {
             document.getElementById('click-rank').innerText = 'Fire';
             clickRankCost = clickRankCost * 4 ** 5
             document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
+            if (numOfFireSlimes >= 50) {
+                clickRankBtn.style.display = 'inline'
+            }
             break;
         case 7:
             clickerPink.style.display = 'none';
@@ -296,6 +316,9 @@ function checkRank() {
             document.getElementById('click-rank').innerText = 'Honey';
             clickRankCost = clickRankCost * 4 ** 6
             document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
+            if (numOfHoneySlimes >= 50) {
+                clickRankBtn.style.display = 'inline'
+            }
             break;
         case 8:
             clickerPink.style.display = 'none';
@@ -303,6 +326,9 @@ function checkRank() {
             document.getElementById('click-rank').innerText = 'Boom';
             clickRankCost = clickRankCost * 4 ** 7
             document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
+            if (numOfBoomSlimes >= 50) {
+                clickRankBtn.style.display = 'inline'
+            }
             break;
         case 9:
             clickerPink.style.display = 'none';
@@ -310,6 +336,9 @@ function checkRank() {
             document.getElementById('click-rank').innerText = 'Hunter';
             clickRankCost = clickRankCost * 4 ** 8
             document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
+            if (numOfHunterSlimes >= 50) {
+                clickRankBtn.style.display = 'inline'
+            }
             break;
         case 10:
             clickerPink.style.display = 'none';
@@ -317,6 +346,9 @@ function checkRank() {
             document.getElementById('click-rank').innerText = 'Rad';
             clickRankCost = clickRankCost * 4 ** 9
             document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
+            if (numOfRadSlimes >= 50) {
+                clickRankBtn.style.display = 'inline'
+            }
             break;
         case 11:
             clickerPink.style.display = 'none';
@@ -324,6 +356,9 @@ function checkRank() {
             document.getElementById('click-rank').innerText = 'Crystal';
             clickRankCost = clickRankCost * 4 ** 10
             document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
+            if (numOfCrystalSlimes >= 50) {
+                clickRankBtn.style.display = 'inline'
+            }
             break;
         case 12:
             clickerPink.style.display = 'none';
@@ -331,6 +366,9 @@ function checkRank() {
             document.getElementById('click-rank').innerText = 'Saber';
             clickRankCost = clickRankCost * 4 ** 11
             document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
+            if (numOfSaberSlimes >= 50) {
+                clickRankBtn.style.display = 'inline'
+            }
             break;
         case 13:
             clickerPink.style.display = 'none';
@@ -338,6 +376,9 @@ function checkRank() {
             document.getElementById('click-rank').innerText = 'Dervish';
             clickRankCost = clickRankCost * 4 ** 12
             document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
+            if (numOfDervishSlimes >= 50) {
+                clickRankBtn.style.display = 'inline'
+            }
             break;
         case 14:
             clickerPink.style.display = 'none';
@@ -345,6 +386,9 @@ function checkRank() {
             document.getElementById('click-rank').innerText = 'Quantum';
             clickRankCost = clickRankCost * 4 ** 13
             document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
+            if (numOfQuantumSlimes >= 50) {
+                clickRankBtn.style.display = 'inline'
+            }
             break;
         case 15:
             clickerPink.style.display = 'none';
@@ -352,6 +396,9 @@ function checkRank() {
             document.getElementById('click-rank').innerText = 'Tangle';
             clickRankCost = clickRankCost * 4 ** 14
             document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
+            if (numOfTangleSlimes >= 50) {
+                clickRankBtn.style.display = 'inline'
+            }
             break;
         case 16:
             clickerPink.style.display = 'none';
@@ -359,6 +406,9 @@ function checkRank() {
             document.getElementById('click-rank').innerText = 'Mosaic';
             clickRankCost = clickRankCost * 4 ** 15
             document.getElementById('click-rank-cost').innerText = clickRankCost.toLocaleString()
+            if (numOfMosaicSlimes >= 50) {
+                clickRankBtn.style.display = 'inline'
+            }
             break;
         case 17:
             clickerPink.style.display = 'none';
@@ -3137,7 +3187,6 @@ function loadSave() { //triggers on loading of page
         document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 
         clickRank = parseInt(localStorage.getItem("click-rank"));
-        checkRank()
         clickLevel = parseInt(localStorage.getItem("click-level"));
         document.getElementById('click-level').innerText = clickLevel
         if (clickLevel === 5) {
@@ -3445,6 +3494,7 @@ function loadSave() { //triggers on loading of page
         tangleTotal()
         mosaicTotal()
         goldTotal()
+        checkRank()
     } else {
         currentMoney = 0
     }
