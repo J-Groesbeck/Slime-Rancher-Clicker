@@ -3137,19 +3137,30 @@ function luckySlime() {
     }
 }
 
+let upgradeMenu = document.getElementById('upgrade-menu')
 let secondSection = document.getElementById('second-section')
 let expandMenuBtn = document.getElementById('expandMenu')
 let retractMenuBtn = document.getElementById('retractMenu')
 let upgradeMenu2 = document.getElementById('upgrade-menu2')
 function expandUpgrades() {
+    upgradeMenu.classList.add('expansion-anim')
+    upgradeMenu2.classList.add('expansion-anim')
+    upgradeMenu.classList.remove('retract-anim')
+    upgradeMenu2.classList.remove('retract-anim')
     secondSection.classList.add('d-none')
+    secondSection.classList.remove('fadein-anim')
     expandMenuBtn.classList.add('d-none')
     retractMenuBtn.classList.remove('d-none')
     upgradeMenu2.classList.remove('d-none')
 }
 
 function retractUpgrades() {
+    upgradeMenu.classList.remove('expansion-anim')
+    upgradeMenu2.classList.remove('expansion-anim')
+    upgradeMenu.classList.add('retract-anim')
+    upgradeMenu2.classList.add('retract-anim')
     secondSection.classList.remove('d-none')
+    secondSection.classList.add('fadein-anim')
     expandMenuBtn.classList.remove('d-none')
     retractMenuBtn.classList.add('d-none')
     upgradeMenu2.classList.add('d-none')

@@ -138,3 +138,42 @@ body {
     z-index: 99 !important;
     cursor: pointer;
 }
+
+.expansion-anim {
+    animation: expandAnimation 1s ease;
+}
+
+@keyframes expandAnimation {
+    from {
+        transform: translateX(100%)
+    }
+    to {
+        transform: translateX(0%)
+    }
+}
+
+.retract-anim {
+    animation: retractAnimation 1s ease;
+}
+
+@keyframes retractAnimation {
+    from {
+        transform: translateX(-100%)
+    }
+    to {
+        transform: translateX(0%)
+    }
+}
+
+.fadein-anim {
+    animation: fadeinAnimation 1s ease;
+}
+
+@keyframes fadeinAnimation {
+    from {
+        opacity: 0%;
+    }
+    to {
+        opacity: 100%;
+    }
+}
