@@ -509,6 +509,8 @@ function levelUpPink() {
     if (pinkLevel === 5) {
         document.getElementById('level-up-pink').style.display = 'none'
         document.getElementById('buy-pink-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+        console.log('hello')
+        document.getElementById('pink-purchase-section').classList = 'p-1 col-4'
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
@@ -668,6 +670,7 @@ function levelUpRock() {
     if (rockLevel === 5) {
         document.getElementById('level-up-rock').style.display = 'none'
         document.getElementById('buy-rock-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+        document.getElementById('rock-purchase-section').classList = 'p-1 col-4'
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
@@ -825,6 +828,7 @@ function levelUpPhosphor() {
     if (phosphorLevel === 5) {
         document.getElementById('level-up-phosphor').style.display = 'none'
         document.getElementById('buy-phosphor-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+        document.getElementById('phosphor-purchase-section').classList = 'p-1 col-4'
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
@@ -981,6 +985,7 @@ function levelUpTabby() {
     if (tabbyLevel === 5) {
         document.getElementById('level-up-tabby').style.display = 'none'
         document.getElementById('buy-tabby-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+        document.getElementById('tabby-purchase-section').classList = 'col-4 p-1'
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
@@ -1137,6 +1142,7 @@ function levelUpPuddle() {
     if (puddleLevel === 5) {
         document.getElementById('level-up-puddle').style.display = 'none'
         document.getElementById('buy-puddle-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+        document.getElementById('puddle-purchase-section').classList = 'p-1 col-4'
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
@@ -1293,6 +1299,7 @@ function levelUpFire() {
     if (fireLevel === 5) {
         document.getElementById('level-up-fire').style.display = 'none'
         document.getElementById('buy-fire-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+        document.getElementById('fire-purchase-section').classList = 'p-1 col-4'
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
@@ -1449,6 +1456,7 @@ function levelUpHoney() {
     if (honeyLevel === 5) {
         document.getElementById('level-up-honey').style.display = 'none'
         document.getElementById('buy-honey-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+        document.getElementById('honey-purchase-section').classList = 'p-1 col-4'
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
@@ -1605,6 +1613,7 @@ function levelUpBoom() {
     if (boomLevel === 5) {
         document.getElementById('level-up-boom').style.display = 'none'
         document.getElementById('buy-boom-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+        document.getElementById('boom-purchase-section').classList = 'p-1 col-4'
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
@@ -1761,6 +1770,7 @@ function levelUpHunter() {
     if (hunterLevel === 5) {
         document.getElementById('level-up-hunter').style.display = 'none'
         document.getElementById('buy-hunter-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+        document.getElementById('hunter-purchase-section').classList = 'p-1 col-4'
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
@@ -1917,6 +1927,7 @@ function levelUpRad() {
     if (radLevel === 5) {
         document.getElementById('level-up-rad').style.display = 'none'
         document.getElementById('buy-rad-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+        document.getElementById('rad-purchase-section').classList = 'p-1 col-4'
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
@@ -2073,6 +2084,7 @@ function levelUpCrystal() {
     if (crystalLevel === 5) {
         document.getElementById('level-up-crystal').style.display = 'none'
         document.getElementById('buy-crystal-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+        document.getElementById('crystal-purchase-section').classList = 'p-1 col-4'
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
     if (numOfSaberSlimes >= 50 && clickRank === 12 && clickRankBtn.style.display === 'none') {
@@ -2228,6 +2240,7 @@ function levelUpSaber() {
     if (saberLevel === 5) {
         document.getElementById('level-up-saber').style.display = 'none'
         document.getElementById('buy-saber-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+        document.getElementById('saber-purchase-section').classList = 'p-1 col-4'
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
@@ -2383,6 +2396,7 @@ function levelUpDervish() {
     if (dervishLevel === 5) {
         document.getElementById('level-up-dervish').style.display = 'none'
         document.getElementById('buy-dervish-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+        document.getElementById('dervish-purchase-section').classList = 'p-1 col-4'
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
@@ -2538,6 +2552,7 @@ function levelUpQuantum() {
     if (quantumLevel === 5) {
         document.getElementById('level-up-quantum').style.display = 'none'
         document.getElementById('buy-quantum-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+        document.getElementById('quantum-purchase-section').classList = 'p-1 col-4'
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
@@ -2693,6 +2708,7 @@ function levelUpTangle() {
     if (tangleLevel === 5) {
         document.getElementById('level-up-tangle').style.display = 'none'
         document.getElementById('buy-tangle-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+        document.getElementById('tangle-purchase-section').classList = 'p-1 col-4'
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
@@ -2847,6 +2863,7 @@ function levelUpMosaic() {
     if (mosaicLevel === 5) {
         document.getElementById('level-up-mosaic').style.display = 'none'
         document.getElementById('buy-mosaic-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+        document.getElementById('mosaic-purchase-section').classList = 'p-1 col-4'
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
@@ -3001,6 +3018,7 @@ function levelUpGold() {
     if (goldLevel === 5) {
         document.getElementById('level-up-gold').style.display = 'none'
         document.getElementById('buy-gold-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+        document.getElementById('gold-purchase-section').classList = 'p-1 col-4'
     }
     document.getElementById('current-money').innerText = currentMoney.toLocaleString()
 }
@@ -3217,6 +3235,7 @@ function loadSave() { //triggers on loading of page
         if (pinkLevel === 5) {
             document.getElementById('level-up-pink').style.display = 'none'
             document.getElementById('buy-pink-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+            document.getElementById('pink-purchase-section').classList = 'p-1 col-4'
         }
         pinkLevelCost = parseInt(localStorage.getItem("pink-level-price"));
         document.getElementById('pink-upgrade-price').innerText = pinkLevelCost.toLocaleString()
@@ -3234,6 +3253,7 @@ function loadSave() { //triggers on loading of page
         if (rockLevel === 5) {
             document.getElementById('level-up-rock').style.display = 'none'
             document.getElementById('buy-rock-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+            document.getElementById('rock-purchase-section').classList = 'p-1 col-4'
         }
         rockLevelCost = parseInt(localStorage.getItem("rock-level-price"));
         document.getElementById('rock-upgrade-price').innerText = rockLevelCost.toLocaleString()
@@ -3250,6 +3270,7 @@ function loadSave() { //triggers on loading of page
         if (phosphorLevel === 5) {
             document.getElementById('level-up-phosphor').style.display = 'none'
             document.getElementById('buy-phosphor-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+            document.getElementById('phosphor-purchase-section').classList = 'p-1 col-4'
         }
         phosphorLevelCost = parseInt(localStorage.getItem("phosphor-level-price"));
         document.getElementById('phosphor-upgrade-price').innerText = phosphorLevelCost.toLocaleString()
@@ -3266,6 +3287,7 @@ function loadSave() { //triggers on loading of page
         if (tabbyLevel === 5) {
             document.getElementById('level-up-tabby').style.display = 'none'
             document.getElementById('buy-tabby-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+            document.getElementById('tabby-purchase-section').classList = 'p-1 col-4'
         }
         tabbyLevelCost = parseInt(localStorage.getItem("tabby-level-price"));
         document.getElementById('tabby-upgrade-price').innerText = tabbyLevelCost.toLocaleString()
@@ -3283,6 +3305,7 @@ function loadSave() { //triggers on loading of page
         if (puddleLevel === 5) {
             document.getElementById('level-up-puddle').style.display = 'none'
             document.getElementById('buy-puddle-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+            document.getElementById('puddle-purchase-section').classList = 'p-1 col-4'
         }
         puddleLevelCost = parseInt(localStorage.getItem("puddle-level-price"));
         document.getElementById('puddle-upgrade-price').innerText = puddleLevelCost.toLocaleString()
@@ -3300,6 +3323,7 @@ function loadSave() { //triggers on loading of page
         if (fireLevel === 5) {
             document.getElementById('level-up-fire').style.display = 'none'
             document.getElementById('buy-fire-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+            document.getElementById('fire-purchase-section').classList = 'p-1 col-4'
         }
         fireLevelCost = parseInt(localStorage.getItem("fire-level-price"));
         document.getElementById('fire-upgrade-price').innerText = fireLevelCost.toLocaleString()
@@ -3317,6 +3341,7 @@ function loadSave() { //triggers on loading of page
         if (honeyLevel === 5) {
             document.getElementById('level-up-honey').style.display = 'none'
             document.getElementById('buy-honey-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+            document.getElementById('honey-purchase-section').classList = 'p-1 col-4'
         }
         honeyLevelCost = parseInt(localStorage.getItem("honey-level-price"));
         document.getElementById('honey-upgrade-price').innerText = honeyLevelCost.toLocaleString()
@@ -3334,6 +3359,7 @@ function loadSave() { //triggers on loading of page
         if (boomLevel === 5) {
             document.getElementById('level-up-boom').style.display = 'none'
             document.getElementById('buy-boom-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+            document.getElementById('boom-purchase-section').classList = 'p-1 col-4'
         }
         boomLevelCost = parseInt(localStorage.getItem("boom-level-price"));
         document.getElementById('boom-upgrade-price').innerText = boomLevelCost.toLocaleString()
@@ -3351,6 +3377,7 @@ function loadSave() { //triggers on loading of page
         if (hunterLevel === 5) {
             document.getElementById('level-up-hunter').style.display = 'none'
             document.getElementById('buy-hunter-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+            document.getElementById('hunter-purchase-section').classList = 'p-1 col-4'
         }
         hunterLevelCost = parseInt(localStorage.getItem("hunter-level-price"));
         document.getElementById('hunter-upgrade-price').innerText = hunterLevelCost.toLocaleString()
@@ -3366,6 +3393,7 @@ function loadSave() { //triggers on loading of page
         if (radLevel === 5) {
             document.getElementById('level-up-rad').style.display = 'none'
             document.getElementById('buy-rad-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+            document.getElementById('rad-purchase-section').classList = 'p-1 col-4'
         }
         radLevelCost = parseInt(localStorage.getItem("rad-level-price"));
         document.getElementById('rad-upgrade-price').innerText = radLevelCost.toLocaleString()
@@ -3383,6 +3411,7 @@ function loadSave() { //triggers on loading of page
         if (crystalLevel === 5) {
             document.getElementById('level-up-crystal').style.display = 'none'
             document.getElementById('buy-crystal-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+            document.getElementById('rock-purchase-section').classList = 'p-1 col-4'
         }
         crystalLevelCost = parseInt(localStorage.getItem("crystal-level-price"));
         document.getElementById('crystal-upgrade-price').innerText = crystalLevelCost.toLocaleString()
@@ -3400,6 +3429,7 @@ function loadSave() { //triggers on loading of page
         if (saberLevel === 5) {
             document.getElementById('level-up-saber').style.display = 'none'
             document.getElementById('buy-saber-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+            document.getElementById('rock-purchase-section').classList = 'p-1 col-4'
         }
         saberLevelCost = parseInt(localStorage.getItem("saber-level-price"));
         document.getElementById('saber-upgrade-price').innerText = saberLevelCost.toLocaleString()
@@ -3417,6 +3447,7 @@ function loadSave() { //triggers on loading of page
         if (dervishLevel === 5) {
             document.getElementById('level-up-dervish').style.display = 'none'
             document.getElementById('buy-dervish-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+            document.getElementById('rock-purchase-section').classList = 'p-1 col-4'
         }
         dervishLevelCost = parseInt(localStorage.getItem("dervish-level-price"));
         document.getElementById('dervish-upgrade-price').innerText = dervishLevelCost.toLocaleString()
@@ -3434,6 +3465,7 @@ function loadSave() { //triggers on loading of page
         if (quantumLevel === 5) {
             document.getElementById('level-up-quantum').style.display = 'none'
             document.getElementById('buy-quantum-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+            document.getElementById('rock-purchase-section').classList = 'p-1 col-4'
         }
         quantumLevelCost = parseInt(localStorage.getItem("quantum-level-price"));
         document.getElementById('quantum-upgrade-price').innerText = quantumLevelCost.toLocaleString()
@@ -3451,6 +3483,7 @@ function loadSave() { //triggers on loading of page
         if (tangleLevel === 5) {
             document.getElementById('level-up-tangle').style.display = 'none'
             document.getElementById('buy-tangle-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+            document.getElementById('rock-purchase-section').classList = 'p-1 col-4'
         }
         tangleLevelCost = parseInt(localStorage.getItem("tangle-level-price"));
         document.getElementById('tangle-upgrade-price').innerText = tangleLevelCost.toLocaleString()
@@ -3468,6 +3501,7 @@ function loadSave() { //triggers on loading of page
         if (mosaicLevel === 5) {
             document.getElementById('level-up-mosaic').style.display = 'none'
             document.getElementById('buy-mosaic-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+            document.getElementById('rock-purchase-section').classList = 'p-1 col-4'
         }
         mosaicLevelCost = parseInt(localStorage.getItem("mosaic-level-price"));
         document.getElementById('mosaic-upgrade-price').innerText = mosaicLevelCost.toLocaleString()
@@ -3485,6 +3519,7 @@ function loadSave() { //triggers on loading of page
         if (goldLevel === 5) {
             document.getElementById('level-up-gold').style.display = 'none'
             document.getElementById('buy-gold-slimes').classList = 'w-100 btn btn-light p-0 h-100'
+            document.getElementById('rock-purchase-section').classList = 'p-1 col-4'
         }
         goldLevelCost = parseInt(localStorage.getItem("gold-level-price"));
         document.getElementById('gold-upgrade-price').innerText = goldLevelCost.toLocaleString()
