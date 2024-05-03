@@ -177,3 +177,10 @@ body {
         opacity: 100%;
     }
 }
+
+#title-screen {
+    background-image: url(img/title-screen-bg.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
