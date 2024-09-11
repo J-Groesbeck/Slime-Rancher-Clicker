@@ -3184,12 +3184,13 @@ function retractUpgrades() {
     upgradeMenu2.classList.add('d-none')
 }
 
-// save the game when appropriate button is clicked, and before the page is closed
+// save the game when appropriate button is clicked
 function saveGame() {
     localStorage.setItem("money", currentMoney); // saves current money
 
     localStorage.setItem("click-rank", clickRank); // saves current click rank, need to make variable for this to save
     localStorage.setItem("click-level", clickLevel); // saves current click level
+    localStorage.setItem("click-level-cost", clickLevelCost);
 
     let typeArray = ["pink", "rock", "phosphor", "tabby", "puddle", "fire", "honey", "boom", "hunter", "rad", "crystal", "saber", "dervish", "quantum", "tangle", "mosaic", "gold"];
     let amountsTotal = [pinkAmountTotal, rockAmountTotal, phosphorAmountTotal, tabbyAmountTotal, puddleAmountTotal, fireAmountTotal, honeyAmountTotal, boomAmountTotal, hunterAmountTotal, radAmountTotal, crystalAmountTotal, saberAmountTotal, dervishAmountTotal, quantumAmountTotal, tangleAmountTotal, mosaicAmountTotal, goldAmountTotal];
@@ -3217,6 +3218,7 @@ function loadSave() { //triggers on loading of page
 
         clickRank = parseInt(localStorage.getItem("click-rank"));
         clickLevel = parseInt(localStorage.getItem("click-level"));
+        clickLevelCost = parseInt(localStorage.getItem("click-level-cost"));
         document.getElementById('click-level').innerText = clickLevel
         if (clickLevel === 5) {
             document.getElementById('level-up-click').style.display = 'none'
