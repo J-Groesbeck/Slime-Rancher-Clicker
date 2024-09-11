@@ -430,6 +430,23 @@ function countdown() {
     if (seconds < 0) {
         seconds = 60
         displayCountdown()
+        pinkStocks()
+        rockStocks()
+        phosphorStocks()
+        tabbyStocks()
+        puddleStocks()
+        fireStocks()
+        honeyStocks()
+        boomStocks()
+        hunterStocks()
+        radStocks()
+        crystalStocks()
+        saberStocks()
+        dervishStocks()
+        quantumStocks()
+        tangleStocks()
+        mosaicStocks()
+        goldStocks()
     } else {
         displayCountdown()
     }
@@ -603,7 +620,6 @@ function pinkStocks() {
 }
 
 pinkStocks()
-setInterval(pinkStocks, 61000);
 
 var calcPinkSellPrice = pinkAmountTotal * pinkPrice
 document.getElementById('pink-sell-total').innerText = calcPinkSellPrice.toLocaleString()
@@ -762,7 +778,6 @@ function rockStocks() {
 }
 
 rockStocks()
-setInterval(rockStocks, 61000);
 
 var calcRockSellPrice = rockAmountTotal * rockPrice
 document.getElementById('rock-sell-total').innerText = calcRockSellPrice.toLocaleString()
@@ -919,7 +934,6 @@ function phosphorStocks() {
 }
 
 phosphorStocks()
-setInterval(phosphorStocks, 61000);
 
 var calcPhosphorSellPrice = phosphorAmountTotal * phosphorPrice
 document.getElementById('phosphor-sell-total').innerText = calcPhosphorSellPrice.toLocaleString()
@@ -1076,7 +1090,6 @@ function tabbyStocks() {
 }
 
 tabbyStocks()
-setInterval(tabbyStocks, 61000);
 
 var calcTabbySellPrice = tabbyAmountTotal * tabbyPrice
 document.getElementById('tabby-sell-total').innerText = calcTabbySellPrice.toLocaleString()
@@ -1233,7 +1246,6 @@ function puddleStocks() {
 }
 
 puddleStocks()
-setInterval(puddleStocks, 61000);
 
 var calcPuddleSellPrice = puddleAmountTotal * puddlePrice
 document.getElementById('puddle-sell-total').innerText = calcPuddleSellPrice.toLocaleString()
@@ -1391,7 +1403,6 @@ function fireStocks() {
 }
 
 fireStocks()
-setInterval(fireStocks, 61000);
 
 var calcFireSellPrice = fireAmountTotal * firePrice
 document.getElementById('fire-sell-total').innerText = calcFireSellPrice.toLocaleString()
@@ -1548,7 +1559,6 @@ function honeyStocks() {
 }
 
 honeyStocks()
-setInterval(honeyStocks, 61000);
 
 var calcHoneySellPrice = honeyAmountTotal * honeyPrice
 document.getElementById('honey-sell-total').innerText = calcHoneySellPrice.toLocaleString()
@@ -1705,7 +1715,6 @@ function boomStocks() {
 }
 
 boomStocks()
-setInterval(boomStocks, 61000);
 
 var calcBoomSellPrice = boomAmountTotal * boomPrice
 document.getElementById('boom-sell-total').innerText = calcBoomSellPrice.toLocaleString()
@@ -1862,7 +1871,6 @@ function hunterStocks() {
 }
 
 hunterStocks()
-setInterval(hunterStocks, 61000);
 
 var calcHunterSellPrice = hunterAmountTotal * hunterPrice
 document.getElementById('hunter-sell-total').innerText = calcHunterSellPrice.toLocaleString()
@@ -2019,7 +2027,6 @@ function radStocks() {
 }
 
 radStocks()
-setInterval(radStocks, 61000);
 
 var calcRadSellPrice = radAmountTotal * radPrice
 document.getElementById('rad-sell-total').innerText = calcRadSellPrice.toLocaleString()
@@ -2178,7 +2185,6 @@ function crystalStocks() {
 }
 
 crystalStocks()
-setInterval(crystalStocks, 61000);
 
 var calcCrystalSellPrice = crystalAmountTotal * crystalPrice
 document.getElementById('crystal-sell-total').innerText = calcCrystalSellPrice.toLocaleString()
@@ -2331,7 +2337,6 @@ function saberStocks() {
 }
 
 saberStocks()
-setInterval(saberStocks, 61000);
 
 var calcSaberSellPrice = saberAmountTotal * saberPrice
 document.getElementById('saber-sell-total').innerText = calcSaberSellPrice.toLocaleString()
@@ -2487,7 +2492,6 @@ function dervishStocks() {
 }
 
 dervishStocks()
-setInterval(dervishStocks, 61000);
 
 var calcDervishSellPrice = dervishAmountTotal * dervishPrice
 document.getElementById('dervish-sell-total').innerText = calcDervishSellPrice.toLocaleString()
@@ -2643,7 +2647,6 @@ function quantumStocks() {
 }
 
 quantumStocks()
-setInterval(quantumStocks, 61000);
 
 var calcQuantumSellPrice = quantumAmountTotal * quantumPrice
 document.getElementById('quantum-sell-total').innerText = calcQuantumSellPrice.toLocaleString()
@@ -2798,7 +2801,6 @@ function tangleStocks() {
     document.getElementById('current-tangle-price').innerText = tanglePrice.toLocaleString()
 }
 tangleStocks()
-setInterval(tangleStocks, 61000);
 
 var calcTangleSellPrice = tangleAmountTotal * tanglePrice
 document.getElementById('tangle-sell-total').innerText = calcTangleSellPrice.toLocaleString()
@@ -2953,7 +2955,6 @@ function mosaicStocks() {
     document.getElementById('current-mosaic-price').innerText = mosaicPrice.toLocaleString()
 }
 mosaicStocks()
-setInterval(mosaicStocks, 61000);
 
 var calcMosaicSellPrice = mosaicAmountTotal * mosaicPrice
 document.getElementById('mosaic-sell-total').innerText = calcMosaicSellPrice.toLocaleString()
@@ -3108,7 +3109,6 @@ function goldStocks() {
     document.getElementById('current-gold-price').innerText = goldPrice.toLocaleString()
 }
 goldStocks()
-setInterval(goldStocks, 61000);
 
 var calcGoldSellPrice = goldAmountTotal * goldPrice
 document.getElementById('gold-sell-total').innerText = calcGoldSellPrice.toLocaleString()
