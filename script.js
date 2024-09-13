@@ -430,6 +430,23 @@ function countdown() {
     if (seconds < 0) {
         seconds = 60
         displayCountdown()
+        stocks('pink')
+        stocks('rock')
+        stocks('phosphor')
+        stocks('tabby')
+        stocks('puddle')
+        stocks('fire')
+        stocks('honey')
+        stocks('boom')
+        stocks('hunter')
+        stocks('rad')
+        stocks('crystal')
+        stocks('saber')
+        stocks('dervish')
+        stocks('quantum')
+        stocks('tangle')
+        stocks('mosaic')
+        stocks('gold')
     } else {
         displayCountdown()
     }
@@ -1361,7 +1378,7 @@ function loadSave() { //triggers on loading of page
         updateTotal('tangle')
         updateTotal('mosaic')
         updateTotal('gold')
-        
+
     } else {
         currentMoney = 0
     }
