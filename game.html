@@ -12,13 +12,12 @@
 </head>
 
 <body class="overflow-x-hidden">
-    <!-- This page will be a home page with a "start game" option, and the disclaimer that there is no way to save your data, and reloading the page will reset your progress -->
     <div class="container-fluid">
         <div id="luckyPopup" class="d-none">
             <div class="row text-center">
                 <div class="col-12"><img src="img/pink-slime.png" class="lucky-height"></div>
                 <h1>Congrats! You found a lucky slime!</h1>
-                <h3>It has multiplied the prices of all plorts by 10 until the next market reset!</h3>
+                <h3>It has multiplied the prices of all plorts by 10 until the next market update!</h3>
             </div>
         </div>
         <div class="row">
@@ -31,14 +30,14 @@
                 <h1><img src="img/coin.png" class="scales-h1"><span id="current-money"></span></h1>
             </div>
             <div class="col-3">
-                <h2>Market resets in <span id="timer"></span></h2>
+                <h2>Market updates in <span id="timer"></span></h2>
             </div>
             <div class="col-4">
                 <div class="text-center clicker-height">
                     <img src="img/pink-slime.png" class="h-100"
-                        onclick="clickPink(); playGenerationSound(); luckySlime()" id="click-pink"></img>
+                        onclick="clickSlime('pink'); playGenerationSound(); luckySlime()" id="click-pink"></img>
                     <img src="img/rock-slime.png" class="h-100"
-                        onclick="clickRock(); playGenerationSound(); luckySlime()" id="click-rock"></img>
+                        onclick="clickSlime('rock'); playGenerationSound(); luckySlime()" id="click-rock"></img>
                     <img src="img/phosphor-slime.png" class="h-100"
                         onclick="clickPhosphor(); playGenerationSound(); luckySlime()" id="click-phosphor"></img>
                     <img src="img/tabby-slime.png" class="h-100"
@@ -85,7 +84,7 @@
                         </h2>
                     </div>
                     <div class="col-4 d-flex align-items-center">
-                        <button onclick="pinkSell(); playSellSound()" class="w-100 h-75 btn btn-light p-0">
+                        <button onclick="sellSlimes('pink'); playSellSound()" class="w-100 h-75 btn btn-light p-0">
                             <h5 class="mb-0">
                                 Sell for<br><img src="img/coin.png" class="scales-h5"><span id="pink-sell-total"></span>
                             </h5>
@@ -107,7 +106,7 @@
                         </h2>
                     </div>
                     <div class="col-4 d-flex align-items-center">
-                        <button onclick="rockSell(); playSellSound()" class="w-100 h-75 btn btn-light p-0">
+                        <button onclick="sellSlimes('rock'); playSellSound()" class="w-100 h-75 btn btn-light p-0">
                             <h5 class="mb-0">
                                 Sell for<br><img src="img/coin.png" class="scales-h5"><span id="rock-sell-total"></span>
                             </h5>
@@ -129,7 +128,7 @@
                         </h2>
                     </div>
                     <div class="col-4 d-flex align-items-center">
-                        <button onclick="phosphorSell(); playSellSound()" class="w-100 h-75 btn btn-light p-0">
+                        <button onclick="sellSlimes('phosphor'); playSellSound()" class="w-100 h-75 btn btn-light p-0">
                             <h5 class="mb-0">
                                 Sell for<br><img src="img/coin.png" class="scales-h5"><span
                                     id="phosphor-sell-total"></span>
@@ -152,7 +151,7 @@
                         </h2>
                     </div>
                     <div class="col-4 d-flex align-items-center">
-                        <button onclick="tabbySell(); playSellSound()" class="w-100 h-75 btn btn-light p-0">
+                        <button onclick="sellSlimes('tabby'); playSellSound()" class="w-100 h-75 btn btn-light p-0">
                             <h5 class="mb-0">
                                 Sell for<br><img src="img/coin.png" class="scales-h5"><span
                                     id="tabby-sell-total"></span>
@@ -175,7 +174,7 @@
                         </h2>
                     </div>
                     <div class="col-4 d-flex align-items-center">
-                        <button onclick="puddleSell(); playSellSound()" class="w-100 h-75 btn btn-light p-0">
+                        <button onclick="sellSlimes('puddle'); playSellSound()" class="w-100 h-75 btn btn-light p-0">
                             <h5 class="mb-0">
                                 Sell for<br><img src="img/coin.png" class="scales-h5"><span
                                     id="puddle-sell-total"></span>
@@ -198,7 +197,7 @@
                         </h2>
                     </div>
                     <div class="col-4 d-flex align-items-center">
-                        <button onclick="fireSell(); playSellSound()" class="w-100 h-75 btn btn-light p-0">
+                        <button onclick="sellSlimes('fire'); playSellSound()" class="w-100 h-75 btn btn-light p-0">
                             <h5 class="mb-0">
                                 Sell for<br><img src="img/coin.png" class="scales-h5"><span id="fire-sell-total"></span>
                             </h5>
@@ -220,7 +219,7 @@
                         </h2>
                     </div>
                     <div class="col-4 d-flex align-items-center">
-                        <button onclick="honeySell(); playSellSound()" class="w-100 h-75 btn btn-light p-0">
+                        <button onclick="sellSlimes('honey'); playSellSound()" class="w-100 h-75 btn btn-light p-0">
                             <h5 class="mb-0">
                                 Sell for<br><img src="img/coin.png" class="scales-h5"><span
                                     id="honey-sell-total"></span>
@@ -245,7 +244,7 @@
                         </h2>
                     </div>
                     <div class="col-4 d-flex align-items-center">
-                        <button onclick="boomSell(); playSellSound()" class="w-100 h-75 btn btn-light p-0">
+                        <button onclick="sellSlimes('boom'); playSellSound()" class="w-100 h-75 btn btn-light p-0">
                             <h5 class="mb-0">
                                 Sell for<br><img src="img/coin.png" class="scales-h5"><span id="boom-sell-total"></span>
                             </h5>
@@ -267,7 +266,7 @@
                         </h2>
                     </div>
                     <div class="col-4 d-flex align-items-center">
-                        <button onclick="hunterSell(); playSellSound()" class="w-100 h-75 btn btn-light p-0">
+                        <button onclick="sellSlimes('hunter'); playSellSound()" class="w-100 h-75 btn btn-light p-0">
                             <h5 class="mb-0">
                                 Sell for<br><img src="img/coin.png" class="scales-h5"><span
                                     id="hunter-sell-total"></span>
@@ -290,7 +289,7 @@
                         </h2>
                     </div>
                     <div class="col-4 d-flex align-items-center">
-                        <button onclick="radSell(); playSellSound()" class="w-100 h-75 btn btn-light p-0">
+                        <button onclick="sellSlimes('rad'); playSellSound()" class="w-100 h-75 btn btn-light p-0">
                             <h5 class="mb-0">
                                 Sell for<br><img src="img/coin.png" class="scales-h5"><span id="rad-sell-total"></span>
                             </h5>
@@ -312,7 +311,7 @@
                         </h2>
                     </div>
                     <div class="col-4 d-flex align-items-center">
-                        <button onclick="crystalSell(); playSellSound()" class="w-100 h-75 btn btn-light p-0">
+                        <button onclick="sellSlimes('crystal'); playSellSound()" class="w-100 h-75 btn btn-light p-0">
                             <h5 class="mb-0">
                                 Sell for<br><img src="img/coin.png" class="scales-h5"><span
                                     id="crystal-sell-total"></span>
@@ -335,7 +334,7 @@
                         </h2>
                     </div>
                     <div class="col-4 d-flex align-items-center">
-                        <button onclick="saberSell(); playSellSound()" class="w-100 h-75 btn btn-light p-0">
+                        <button onclick="sellSlimes('saber'); playSellSound()" class="w-100 h-75 btn btn-light p-0">
                             <h5 class="mb-0">
                                 Sell for<br><img src="img/coin.png" class="scales-h5"><span
                                     id="saber-sell-total"></span>
@@ -358,7 +357,7 @@
                         </h2>
                     </div>
                     <div class="col-4 d-flex align-items-center">
-                        <button onclick="dervishSell(); playSellSound()" class="w-100 h-75 btn btn-light p-0">
+                        <button onclick="sellSlimes('dervish'); playSellSound()" class="w-100 h-75 btn btn-light p-0">
                             <h5 class="mb-0">
                                 Sell for<br><img src="img/coin.png" class="scales-h5"><span
                                     id="dervish-sell-total"></span>
@@ -381,7 +380,7 @@
                         </h2>
                     </div>
                     <div class="col-4 d-flex align-items-center">
-                        <button onclick="quantumSell(); playSellSound()" class="w-100 h-75 btn btn-light p-0">
+                        <button onclick="sellSlimes('quantum'); playSellSound()" class="w-100 h-75 btn btn-light p-0">
                             <h5 class="mb-0">
                                 Sell for<br><img src="img/coin.png" class="scales-h5"><span
                                     id="quantum-sell-total"></span>
@@ -404,7 +403,7 @@
                         </h2>
                     </div>
                     <div class="col-4 d-flex align-items-center">
-                        <button onclick="tangleSell(); playSellSound()" class="w-100 h-75 btn btn-light p-0">
+                        <button onclick="sellSlimes('tangle'); playSellSound()" class="w-100 h-75 btn btn-light p-0">
                             <h5 class="mb-0">
                                 Sell for<br><img src="img/coin.png" class="scales-h5"><span
                                     id="tangle-sell-total"></span>
@@ -427,7 +426,7 @@
                         </h2>
                     </div>
                     <div class="col-4 d-flex align-items-center">
-                        <button onclick="mosaicSell(); playSellSound()" class="w-100 h-75 btn btn-light p-0">
+                        <button onclick="sellSlimes('mosaic'); playSellSound()" class="w-100 h-75 btn btn-light p-0">
                             <h5 class="mb-0">
                                 Sell for<br><img src="img/coin.png" class="scales-h5"><span
                                     id="mosaic-sell-total"></span>
@@ -450,7 +449,7 @@
                         </h2>
                     </div>
                     <div class="col-4 d-flex align-items-center">
-                        <button onclick="goldSell(); playSellSound()" class="w-100 h-75 btn btn-light p-0">
+                        <button onclick="sellSlimes('gold'); playSellSound()" class="w-100 h-75 btn btn-light p-0">
                             <h5 class="mb-0">
                                 Sell for<br><img src="img/coin.png" class="scales-h5"><span id="gold-sell-total"></span>
                             </h5>
@@ -495,11 +494,11 @@
                         </h6>
                     </div>
                     <div class="col-4" id="pink-purchase-section">
-                        <button onclick="buyPinkSlimes()" class="w-100 btn btn-light p-0" id="buy-pink-slimes">
+                        <button onclick="buySlimes('pink')" class="w-100 btn btn-light p-0" id="buy-pink-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="pink-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpPink()" class="w-100 btn btn-light p-0" id="level-up-pink">
+                        <button onclick="levelUp('pink')" class="w-100 btn btn-light p-0" id="level-up-pink">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="pink-upgrade-price"></span></h6>
                         </button>
@@ -516,11 +515,11 @@
                         </h6>
                     </div>
                     <div class="col-4" id="rock-purchase-section">
-                        <button onclick="buyRockSlimes()" class="w-100 btn btn-light p-0" id="buy-rock-slimes">
+                        <button onclick="buySlimes('rock')" class="w-100 btn btn-light p-0" id="buy-rock-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="rock-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpRock()" class="w-100 btn btn-light p-0" id="level-up-rock">
+                        <button onclick="levelUp('rock')" class="w-100 btn btn-light p-0" id="level-up-rock">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="rock-upgrade-price"></span></h6>
                         </button>
@@ -537,11 +536,12 @@
                         </h6>
                     </div>
                     <div class="col-4" id="phosphor-purchase-section">
-                        <button onclick="buyPhosphorSlimes()" class="w-100 btn btn-light p-0" id="buy-phosphor-slimes">
+                        <button onclick="buySlimes('phosphor')" class="w-100 btn btn-light p-0"
+                            id="buy-phosphor-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="phosphor-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpPhosphor()" class="w-100 btn btn-light p-0" id="level-up-phosphor">
+                        <button onclick="levelUp('phosphor')" class="w-100 btn btn-light p-0" id="level-up-phosphor">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="phosphor-upgrade-price"></span></h6>
                         </button>
@@ -558,11 +558,11 @@
                         </h6>
                     </div>
                     <div class="col-4" id="tabby-purchase-section">
-                        <button onclick="buyTabbySlimes()" class="w-100 btn btn-light p-0" id="buy-tabby-slimes">
+                        <button onclick="buySlimes('tabby')" class="w-100 btn btn-light p-0" id="buy-tabby-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="tabby-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpTabby()" class="w-100 btn btn-light p-0" id="level-up-tabby">
+                        <button onclick="levelUp('tabby')" class="w-100 btn btn-light p-0" id="level-up-tabby">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="tabby-upgrade-price"></span></h6>
                         </button>
@@ -579,11 +579,11 @@
                         </h6>
                     </div>
                     <div class="col-4" id="puddle-purchase-section">
-                        <button onclick="buyPuddleSlimes()" class="w-100 btn btn-light p-0" id="buy-puddle-slimes">
+                        <button onclick="buySlimes('puddle')" class="w-100 btn btn-light p-0" id="buy-puddle-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="puddle-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpPuddle()" class="w-100 btn btn-light p-0" id="level-up-puddle">
+                        <button onclick="levelUp('puddle')" class="w-100 btn btn-light p-0" id="level-up-puddle">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="puddle-upgrade-price"></span></h6>
                         </button>
@@ -600,11 +600,11 @@
                         </h6>
                     </div>
                     <div class="col-4" id="fire-purchase-section">
-                        <button onclick="buyFireSlimes()" class="w-100 btn btn-light p-0" id="buy-fire-slimes">
+                        <button onclick="buySlimes('fire')" class="w-100 btn btn-light p-0" id="buy-fire-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="fire-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpFire()" class="w-100 btn btn-light p-0" id="level-up-fire">
+                        <button onclick="levelUp('fire')" class="w-100 btn btn-light p-0" id="level-up-fire">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="fire-upgrade-price"></span></h6>
                         </button>
@@ -621,11 +621,11 @@
                         </h6>
                     </div>
                     <div class="col-4" id="honey-purchase-section">
-                        <button onclick="buyHoneySlimes()" class="w-100 btn btn-light p-0" id="buy-honey-slimes">
+                        <button onclick="buySlimes('honey')" class="w-100 btn btn-light p-0" id="buy-honey-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="honey-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpHoney()" class="w-100 btn btn-light p-0" id="level-up-honey">
+                        <button onclick="levelUp('honey')" class="w-100 btn btn-light p-0" id="level-up-honey">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="honey-upgrade-price"></span></h6>
                         </button>
@@ -642,11 +642,11 @@
                         </h6>
                     </div>
                     <div class="col-4" id="boom-purchase-section">
-                        <button onclick="buyBoomSlimes()" class="w-100 btn btn-light p-0" id="buy-boom-slimes">
+                        <button onclick="buySlimes('boom')" class="w-100 btn btn-light p-0" id="buy-boom-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="boom-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpBoom()" class="w-100 btn btn-light p-0" id="level-up-boom">
+                        <button onclick="levelUp('boom')" class="w-100 btn btn-light p-0" id="level-up-boom">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="boom-upgrade-price"></span></h6>
                         </button>
@@ -665,11 +665,11 @@
                         </h6>
                     </div>
                     <div class="col-4" id="hunter-purchase-section">
-                        <button onclick="buyHunterSlimes()" class="w-100 btn btn-light p-0" id="buy-hunter-slimes">
+                        <button onclick="buySlimes('hunter')" class="w-100 btn btn-light p-0" id="buy-hunter-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="hunter-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpHunter()" class="w-100 btn btn-light p-0" id="level-up-hunter">
+                        <button onclick="levelUp('hunter')" class="w-100 btn btn-light p-0" id="level-up-hunter">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="hunter-upgrade-price"></span></h6>
                         </button>
@@ -686,11 +686,11 @@
                         </h6>
                     </div>
                     <div class="col-4" id="rad-purchase-section">
-                        <button onclick="buyRadSlimes()" class="w-100 btn btn-light p-0" id="buy-rad-slimes">
+                        <button onclick="buySlimes('rad')" class="w-100 btn btn-light p-0" id="buy-rad-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="rad-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpRad()" class="w-100 btn btn-light p-0" id="level-up-rad">
+                        <button onclick="levelUp('rad')" class="w-100 btn btn-light p-0" id="level-up-rad">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="rad-upgrade-price"></span></h6>
                         </button>
@@ -707,11 +707,11 @@
                         </h6>
                     </div>
                     <div class="col-4" id="crystal-purchase-section">
-                        <button onclick="buyCrystalSlimes()" class="w-100 btn btn-light p-0" id="buy-crystal-slimes">
+                        <button onclick="buySlimes('crystal')" class="w-100 btn btn-light p-0" id="buy-crystal-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="crystal-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpCrystal()" class="w-100 btn btn-light p-0" id="level-up-crystal">
+                        <button onclick="levelUp('crystal')" class="w-100 btn btn-light p-0" id="level-up-crystal">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="crystal-upgrade-price"></span></h6>
                         </button>
@@ -728,11 +728,11 @@
                         </h6>
                     </div>
                     <div class="col-4" id="saber-purchase-section">
-                        <button onclick="buySaberSlimes()" class="w-100 btn btn-light p-0" id="buy-saber-slimes">
+                        <button onclick="buySlimes('saber')" class="w-100 btn btn-light p-0" id="buy-saber-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="saber-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpSaber()" class="w-100 btn btn-light p-0" id="level-up-saber">
+                        <button onclick="levelUp('saber')" class="w-100 btn btn-light p-0" id="level-up-saber">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="saber-upgrade-price"></span></h6>
                         </button>
@@ -749,11 +749,11 @@
                         </h6>
                     </div>
                     <div class="col-4" id="dervish-purchase-section">
-                        <button onclick="buyDervishSlimes()" class="w-100 btn btn-light p-0" id="buy-dervish-slimes">
+                        <button onclick="buySlimes('dervish')" class="w-100 btn btn-light p-0" id="buy-dervish-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="dervish-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpDervish()" class="w-100 btn btn-light p-0" id="level-up-dervish">
+                        <button onclick="levelUp('dervish')" class="w-100 btn btn-light p-0" id="level-up-dervish">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="dervish-upgrade-price"></span></h6>
                         </button>
@@ -770,11 +770,11 @@
                         </h6>
                     </div>
                     <div class="col-4" id="quantum-purchase-section">
-                        <button onclick="buyQuantumSlimes()" class="w-100 btn btn-light p-0" id="buy-quantum-slimes">
+                        <button onclick="buySlimes('quantum')" class="w-100 btn btn-light p-0" id="buy-quantum-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="quantum-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpQuantum()" class="w-100 btn btn-light p-0" id="level-up-quantum">
+                        <button onclick="levelUp('quantum')" class="w-100 btn btn-light p-0" id="level-up-quantum">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="quantum-upgrade-price"></span></h6>
                         </button>
@@ -792,11 +792,11 @@
                         </h6>
                     </div>
                     <div class="col-4" id="tangle-purchase-section">
-                        <button onclick="buyTangleSlimes()" class="w-100 btn btn-light p-0" id="buy-tangle-slimes">
+                        <button onclick="buySlimes('tangle')" class="w-100 btn btn-light p-0" id="buy-tangle-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="tangle-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpTangle()" class="w-100 btn btn-light p-0" id="level-up-tangle">
+                        <button onclick="levelUp('tangle')" class="w-100 btn btn-light p-0" id="level-up-tangle">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="tangle-upgrade-price"></span></h6>
                         </button>
@@ -814,11 +814,11 @@
                         </h6>
                     </div>
                     <div class="col-4" id="mosaic-purchase-section">
-                        <button onclick="buyMosaicSlimes()" class="w-100 btn btn-light p-0" id="buy-mosaic-slimes">
+                        <button onclick="buySlimes('mosaic')" class="w-100 btn btn-light p-0" id="buy-mosaic-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="mosaic-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpMosaic()" class="w-100 btn btn-light p-0" id="level-up-mosaic">
+                        <button onclick="levelUp('mosaic')" class="w-100 btn btn-light p-0" id="level-up-mosaic">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="mosaic-upgrade-price"></span></h6>
                         </button>
@@ -836,11 +836,11 @@
                         </h6>
                     </div>
                     <div class="col-4" id="gold-purchase-section">
-                        <button onclick="buyGoldSlimes()" class="w-100 btn btn-light p-0" id="buy-gold-slimes">
+                        <button onclick="buySlimes('gold')" class="w-100 btn btn-light p-0" id="buy-gold-slimes">
                             <h6 class="mb-0">Buy for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="gold-slime-price"></span></h6>
                         </button>
-                        <button onclick="levelUpGold()" class="w-100 btn btn-light p-0" id="level-up-gold">
+                        <button onclick="levelUp('gold')" class="w-100 btn btn-light p-0" id="level-up-gold">
                             <h6 class="mb-0">Upgrade for<br><img src="img/coin.png" class="scales-h6"><span
                                     id="gold-upgrade-price"></span></h6>
                         </button>
