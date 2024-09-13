@@ -469,6 +469,7 @@ setInterval(countdown, 1000);
 
 const slimes = {
     pink: {
+        type: 'pink',
         amount: 0,
         totalAmount: 0,
         numOfSlimes: 0,
@@ -483,6 +484,7 @@ const slimes = {
         isFirstTime: true,
     },
     rock: {
+        type: 'rock',
         amount: 0,
         totalAmount: 0,
         numOfSlimes: 0,
@@ -497,6 +499,7 @@ const slimes = {
         isFirstTime: true,
     },
     phosphor: {
+        type: 'phosphor',
         amount: 0,
         totalAmount: 0,
         numOfSlimes: 0,
@@ -511,6 +514,7 @@ const slimes = {
         isFirstTime: true,
     },
     tabby: {
+        type: 'tabby',
         amount: 0,
         totalAmount: 0,
         numOfSlimes: 0,
@@ -525,6 +529,7 @@ const slimes = {
         isFirstTime: true,
     },
     puddle: {
+        type: 'puddle',
         amount: 0,
         totalAmount: 0,
         numOfSlimes: 0,
@@ -539,6 +544,7 @@ const slimes = {
         isFirstTime: true,
     },
     fire: {
+        type: 'fire',
         amount: 0,
         totalAmount: 0,
         numOfSlimes: 0,
@@ -553,6 +559,7 @@ const slimes = {
         isFirstTime: true,
     },
     honey: {
+        type: 'honey',
         amount: 0,
         totalAmount: 0,
         numOfSlimes: 0,
@@ -567,6 +574,7 @@ const slimes = {
         isFirstTime: true,
     },
     boom: {
+        type: 'boom',
         amount: 0,
         totalAmount: 0,
         numOfSlimes: 0,
@@ -581,6 +589,7 @@ const slimes = {
         isFirstTime: true,
     },
     hunter: {
+        type: 'hunter',
         amount: 0,
         totalAmount: 0,
         numOfSlimes: 0,
@@ -595,6 +604,7 @@ const slimes = {
         isFirstTime: true,
     },
     rad: {
+        type: 'rad',
         amount: 0,
         totalAmount: 0,
         numOfSlimes: 0,
@@ -609,6 +619,7 @@ const slimes = {
         isFirstTime: true,
     },
     crystal: {
+        type: 'crystal',
         amount: 0,
         totalAmount: 0,
         numOfSlimes: 0,
@@ -623,6 +634,7 @@ const slimes = {
         isFirstTime: true,
     },
     saber: {
+        type: 'saber',
         amount: 0,
         totalAmount: 0,
         numOfSlimes: 0,
@@ -637,6 +649,7 @@ const slimes = {
         isFirstTime: true,
     },
     dervish: {
+        type: 'dervish',
         amount: 0,
         totalAmount: 0,
         numOfSlimes: 0,
@@ -651,6 +664,7 @@ const slimes = {
         isFirstTime: true,
     },
     quantum: {
+        type: 'quantum',
         amount: 0,
         totalAmount: 0,
         numOfSlimes: 0,
@@ -665,6 +679,7 @@ const slimes = {
         isFirstTime: true,
     },
     tangle: {
+        type: 'tangle',
         amount: 0,
         totalAmount: 0,
         numOfSlimes: 0,
@@ -679,6 +694,7 @@ const slimes = {
         isFirstTime: true,
     },
     mosaic: {
+        type: 'mosaic',
         amount: 0,
         totalAmount: 0,
         numOfSlimes: 0,
@@ -693,6 +709,7 @@ const slimes = {
         isFirstTime: true,
     },
     gold: {
+        type: 'gold',
         amount: 0,
         totalAmount: 0,
         numOfSlimes: 0,
@@ -706,7 +723,7 @@ const slimes = {
         soldTotal: 0,
         isFirstTime: true,
     }
-};
+}
 
 function clickSlime(type) {
     slimes[type].amount += clickLevel;
@@ -1058,327 +1075,26 @@ function loadSave() { //triggers on loading of page
             document.getElementById('level-up-click').style.display = 'none'
         }
 
-        slimes['pink'].amount = parseInt(localStorage.getItem("pink-plorts"));
-        slimes['pink'].price = parseInt(localStorage.getItem("pink-price"));
-        document.getElementById('current-pink-price').innerText = slimes['pink'].price.toLocaleString()
-        slimes['pink'].numOfSlimes = parseInt(localStorage.getItem("pink-slimes"));
-        document.getElementById('pink-slime-amount').innerText = slimes['pink'].numOfSlimes.toLocaleString()
-        slimes['pink'].costOfSlimes = parseInt(localStorage.getItem("pink-slime-price"));
-        document.getElementById('pink-slime-price').innerText = slimes['pink'].costOfSlimes.toLocaleString()
-        slimes['pink'].level = parseInt(localStorage.getItem("pink-level"));
-        slimes['pink'].autoMultiplier = 0.2 * slimes['pink'].level
-        if (slimes['pink'].level === 5) {
-            document.getElementById('level-up-pink').style.display = 'none'
-            document.getElementById('buy-pink-slimes').classList = 'w-100 btn btn-light p-0 h-100'
-            document.getElementById('pink-purchase-section').classList = 'p-1 col-4'
-        }
-        slimes['pink'].levelCost = parseInt(localStorage.getItem("pink-level-price"));
-        document.getElementById('pink-upgrade-price').innerText = slimes['pink'].levelCost.toLocaleString()
-
-        slimes['rock'].amount = parseInt(localStorage.getItem("rock-plorts"));
-        slimes['rock'].price = parseInt(localStorage.getItem("rock-price"));
-        document.getElementById('current-rock-price').innerText = slimes['rock'].price.toLocaleString()
-        slimes['rock'].numOfSlimes = parseInt(localStorage.getItem("rock-slimes"));
-        document.getElementById('rock-slime-amount').innerText = slimes['rock'].numOfSlimes.toLocaleString()
-        slimes['rock'].costOfSlimes = parseInt(localStorage.getItem("rock-slime-price"));
-        document.getElementById('rock-slime-price').innerText = slimes['rock'].costOfSlimes.toLocaleString()
-        slimes['rock'].level = parseInt(localStorage.getItem("rock-level"));
-        slimes['rock'].autoMultiplier = 0.2 * slimes['rock'].level
-        if (slimes['rock'].level === 5) {
-            document.getElementById('level-up-rock').style.display = 'none'
-            document.getElementById('buy-rock-slimes').classList = 'w-100 btn btn-light p-0 h-100'
-            document.getElementById('rock-purchase-section').classList = 'p-1 col-4'
-        }
-        slimes['rock'].levelCost = parseInt(localStorage.getItem("rock-level-price"));
-        document.getElementById('rock-upgrade-price').innerText = slimes['rock'].levelCost.toLocaleString()
-
-        slimes['phosphor'].amount = parseInt(localStorage.getItem("phosphor-plorts"));
-        slimes['phosphor'].price = parseInt(localStorage.getItem("phosphor-price"));
-        document.getElementById('current-phosphor-price').innerText = slimes['phosphor'].price.toLocaleString()
-        slimes['phosphor'].numOfSlimes = parseInt(localStorage.getItem("phosphor-slimes"));
-        document.getElementById('phosphor-slime-amount').innerText = slimes['phosphor'].numOfSlimes.toLocaleString()
-        slimes['phosphor'].costOfSlimes = parseInt(localStorage.getItem("phosphor-slime-price"));
-        document.getElementById('phosphor-slime-price').innerText = slimes['phosphor'].costOfSlimes.toLocaleString()
-        slimes['phosphor'].autoMultiplier = 0.2 * slimes['phosphor'].level
-        if (slimes['phosphor'].level === 5) {
-            document.getElementById('level-up-phosphor').style.display = 'none'
-            document.getElementById('buy-phosphor-slimes').classList = 'w-100 btn btn-light p-0 h-100'
-            document.getElementById('phosphor-purchase-section').classList = 'p-1 col-4'
-        }
-        slimes['phosphor'].levelCost = parseInt(localStorage.getItem("phosphor-level-price"));
-        document.getElementById('phosphor-upgrade-price').innerText = slimes['phosphor'].levelCost.toLocaleString()
-
-        slimes['tabby'].amount = parseInt(localStorage.getItem("tabby-plorts"));
-        slimes['tabby'].price = parseInt(localStorage.getItem("tabby-price"));
-        document.getElementById('current-tabby-price').innerText = slimes['tabby'].price.toLocaleString()
-        slimes['tabby'].numOfSlimes = parseInt(localStorage.getItem("tabby-slimes"));
-        document.getElementById('tabby-slime-amount').innerText = slimes['tabby'].numOfSlimes.toLocaleString()
-        slimes['tabby'].costOfSlimes = parseInt(localStorage.getItem("tabby-slime-price"));
-        document.getElementById('tabby-slime-price').innerText = slimes['tabby'].costOfSlimes.toLocaleString()
-        slimes['tabby'].autoMultiplier = 0.2 * slimes['tabby'].level
-        if (slimes['tabby'].level === 5) {
-            document.getElementById('level-up-tabby').style.display = 'none'
-            document.getElementById('buy-tabby-slimes').classList = 'w-100 btn btn-light p-0 h-100'
-            document.getElementById('tabby-purchase-section').classList = 'p-1 col-4'
-        }
-        slimes['tabby'].levelCost = parseInt(localStorage.getItem("tabby-level-price"));
-        document.getElementById('tabby-upgrade-price').innerText = slimes['tabby'].levelCost.toLocaleString()
-
-        slimes['puddle'].amount = parseInt(localStorage.getItem("puddle-plorts"));
-        slimes['puddle'].price = parseInt(localStorage.getItem("puddle-price"));
-        document.getElementById('current-puddle-price').innerText = slimes['puddle'].price.toLocaleString()
-        slimes['puddle'].numOfSlimes = parseInt(localStorage.getItem("puddle-slimes"));
-        document.getElementById('puddle-slime-amount').innerText = slimes['puddle'].numOfSlimes.toLocaleString()
-        slimes['puddle'].costOfSlimes = parseInt(localStorage.getItem("puddle-slime-price"));
-        document.getElementById('puddle-slime-price').innerText = slimes['puddle'].costOfSlimes.toLocaleString()
-        slimes['puddle'].level = parseInt(localStorage.getItem("puddle-level"));
-        slimes['puddle'].autoMultiplier = 0.2 * slimes['puddle'].level
-        if (slimes['puddle'].level === 5) {
-            document.getElementById('level-up-puddle').style.display = 'none'
-            document.getElementById('buy-puddle-slimes').classList = 'w-100 btn btn-light p-0 h-100'
-            document.getElementById('puddle-purchase-section').classList = 'p-1 col-4'
-        }
-        slimes['puddle'].levelCost = parseInt(localStorage.getItem("puddle-level-price"));
-        document.getElementById('puddle-upgrade-price').innerText = slimes['puddle'].levelCost.toLocaleString()
-
-        slimes['fire'].amount = parseInt(localStorage.getItem("fire-plorts"));
-        slimes['fire'].price = parseInt(localStorage.getItem("fire-price"));
-        document.getElementById('current-fire-price').innerText = slimes['fire'].price.toLocaleString()
-        slimes['fire'].numOfSlimes = parseInt(localStorage.getItem("fire-slimes"));
-        document.getElementById('fire-slime-amount').innerText = slimes['fire'].numOfSlimes.toLocaleString()
-        slimes['fire'].costOfSlimes = parseInt(localStorage.getItem("fire-slime-price"));
-        document.getElementById('fire-slime-price').innerText = slimes['fire'].costOfSlimes.toLocaleString()
-        slimes['fire'].level = parseInt(localStorage.getItem("fire-level"));
-        slimes['fire'].autoMultiplier = 0.2 * slimes['fire'].level
-        if (slimes['fire'].level === 5) {
-            document.getElementById('level-up-fire').style.display = 'none'
-            document.getElementById('buy-fire-slimes').classList = 'w-100 btn btn-light p-0 h-100'
-            document.getElementById('fire-purchase-section').classList = 'p-1 col-4'
-        }
-        slimes['fire'].levelCost = parseInt(localStorage.getItem("fire-level-price"));
-        document.getElementById('fire-upgrade-price').innerText = slimes['fire'].levelCost.toLocaleString()
-
-        slimes['honey'].amount = parseInt(localStorage.getItem("honey-plorts"));
-        slimes['honey'].price = parseInt(localStorage.getItem("honey-price"));
-        document.getElementById('current-honey-price').innerText = slimes['honey'].price.toLocaleString()
-        slimes['honey'].numOfSlimes = parseInt(localStorage.getItem("honey-slimes"));
-        document.getElementById('honey-slime-amount').innerText = slimes['honey'].numOfSlimes.toLocaleString()
-        slimes['honey'].costOfSlimes = parseInt(localStorage.getItem("honey-slime-price"));
-        document.getElementById('honey-slime-price').innerText = slimes['honey'].costOfSlimes.toLocaleString()
-        slimes['honey'].level = parseInt(localStorage.getItem("honey-level"));
-        slimes['honey'].autoMultiplier = 0.2 * slimes['honey'].level
-        if (slimes['honey'].level === 5) {
-            document.getElementById('level-up-honey').style.display = 'none'
-            document.getElementById('buy-honey-slimes').classList = 'w-100 btn btn-light p-0 h-100'
-            document.getElementById('honey-purchase-section').classList = 'p-1 col-4'
-        }
-        slimes['honey'].levelCost = parseInt(localStorage.getItem("honey-level-price"));
-        document.getElementById('honey-upgrade-price').innerText = slimes['honey'].levelCost.toLocaleString()
-
-        slimes['boom'].amount = parseInt(localStorage.getItem("boom-plorts"));
-        slimes['boom'].price = parseInt(localStorage.getItem("boom-price"));
-        document.getElementById('current-boom-price').innerText = slimes['boom'].price.toLocaleString()
-        slimes['boom'].numOfSlimes = parseInt(localStorage.getItem("boom-slimes"));
-        document.getElementById('boom-slime-amount').innerText = slimes['boom'].numOfSlimes.toLocaleString()
-        slimes['boom'].costOfSlimes = parseInt(localStorage.getItem("boom-slime-price"));
-        document.getElementById('boom-slime-price').innerText = slimes['boom'].costOfSlimes.toLocaleString()
-        slimes['boom'].level = parseInt(localStorage.getItem("boom-level"));
-        slimes['boom'].autoMultiplier = 0.2 * slimes['boom'].level
-        if (slimes['boom'].level === 5) {
-            document.getElementById('level-up-boom').style.display = 'none'
-            document.getElementById('buy-boom-slimes').classList = 'w-100 btn btn-light p-0 h-100'
-            document.getElementById('boom-purchase-section').classList = 'p-1 col-4'
-        }
-        slimes['boom'].levelCost = parseInt(localStorage.getItem("boom-level-price"));
-        document.getElementById('boom-upgrade-price').innerText = slimes['boom'].levelCost.toLocaleString()
-
-        slimes['hunter'].amount = parseInt(localStorage.getItem("hunter-plorts"));
-        slimes['hunter'].price = parseInt(localStorage.getItem("hunter-price"));
-        document.getElementById('current-hunter-price').innerText = slimes['hunter'].price.toLocaleString()
-        slimes['hunter'].numOfSlimes = parseInt(localStorage.getItem("hunter-slimes"));
-        document.getElementById('hunter-slime-amount').innerText = slimes['hunter'].numOfSlimes.toLocaleString()
-        slimes['hunter'].costOfSlimes = parseInt(localStorage.getItem("hunter-slime-price"));
-        document.getElementById('hunter-slime-price').innerText = slimes['hunter'].costOfSlimes.toLocaleString()
-        slimes['hunter'].level = parseInt(localStorage.getItem("hunter-level"));
-        slimes['hunter'].autoMultiplier = 0.2 * slimes['hunter'].level
-        if (slimes['hunter'].level === 5) {
-            document.getElementById('level-up-hunter').style.display = 'none'
-            document.getElementById('buy-hunter-slimes').classList = 'w-100 btn btn-light p-0 h-100'
-            document.getElementById('hunter-purchase-section').classList = 'p-1 col-4'
-        }
-        slimes['hunter'].levelCost = parseInt(localStorage.getItem("hunter-level-price"));
-        document.getElementById('hunter-upgrade-price').innerText = slimes['hunter'].levelCost.toLocaleString()
-
-        slimes['rad'].amount = parseInt(localStorage.getItem("rad-plorts"));
-        slimes['rad'].price = parseInt(localStorage.getItem("rad-price"));
-        document.getElementById('current-rad-price').innerText = slimes['rad'].price.toLocaleString()
-        slimes['rad'].numOfSlimes = parseInt(localStorage.getItem("rad-slimes"));
-        document.getElementById('rad-slime-amount').innerText = slimes['rad'].numOfSlimes.toLocaleString()
-        slimes['rad'].costOfSlimes = parseInt(localStorage.getItem("rad-slime-price"));
-        document.getElementById('rad-slime-price').innerText = slimes['rad'].costOfSlimes.toLocaleString()
-        slimes['rad'].level = parseInt(localStorage.getItem("rad-level"));
-        slimes['rad'].autoMultiplier = 0.2 * slimes['hunter'].level
-        if (slimes['rad'].level === 5) {
-            document.getElementById('level-up-rad').style.display = 'none'
-            document.getElementById('buy-rad-slimes').classList = 'w-100 btn btn-light p-0 h-100'
-            document.getElementById('rad-purchase-section').classList = 'p-1 col-4'
-        }
-        slimes['rad'].levelCost = parseInt(localStorage.getItem("rad-level-price"));
-        document.getElementById('rad-upgrade-price').innerText = slimes['rad'].levelCost.toLocaleString()
-
-        slimes['crystal'].amount = parseInt(localStorage.getItem("crystal-plorts"));
-        slimes['crystal'].price = parseInt(localStorage.getItem("crystal-price"));
-        document.getElementById('current-crystal-price').innerText = slimes['crystal'].price.toLocaleString()
-        slimes['crystal'].numOfSlimes = parseInt(localStorage.getItem("crystal-slimes"));
-        document.getElementById('crystal-slime-amount').innerText = slimes['crystal'].numOfSlimes.toLocaleString()
-        slimes['crystal'].costOfSlimes = parseInt(localStorage.getItem("crystal-slime-price"));
-        document.getElementById('crystal-slime-price').innerText = slimes['crystal'].costOfSlimes.toLocaleString()
-        slimes['crystal'].level = parseInt(localStorage.getItem("crystal-level"));
-        slimes['crystal'].autoMultiplier = 0.2 * slimes['crystal'].level
-        if (slimes['crystal'].level === 5) {
-            document.getElementById('level-up-crystal').style.display = 'none'
-            document.getElementById('buy-crystal-slimes').classList = 'w-100 btn btn-light p-0 h-100'
-            document.getElementById('rock-purchase-section').classList = 'p-1 col-4'
-        }
-        slimes['crystal'].levelCost = parseInt(localStorage.getItem("crystal-level-price"));
-        document.getElementById('crystal-upgrade-price').innerText = slimes['crystal'].levelCost.toLocaleString()
-
-        slimes['saber'].amount = parseInt(localStorage.getItem("saber-plorts"));
-        slimes['saber'].price = parseInt(localStorage.getItem("saber-price"));
-        document.getElementById('current-saber-price').innerText = slimes['saber'].price.toLocaleString()
-        slimes['saber'].numOfSlimes = parseInt(localStorage.getItem("saber-slimes"));
-        document.getElementById('saber-slime-amount').innerText = slimes['saber'].numOfSlimes.toLocaleString()
-        slimes['saber'].costOfSlimes = parseInt(localStorage.getItem("saber-slime-price"));
-        document.getElementById('saber-slime-price').innerText = slimes['saber'].costOfSlimes.toLocaleString()
-        slimes['saber'].level = parseInt(localStorage.getItem("saber-level"));
-        slimes['saber'].autoMultiplier = 0.2 * slimes['saber'].level
-        if (slimes['saber'].level === 5) {
-            document.getElementById('level-up-saber').style.display = 'none'
-            document.getElementById('buy-saber-slimes').classList = 'w-100 btn btn-light p-0 h-100'
-            document.getElementById('rock-purchase-section').classList = 'p-1 col-4'
-        }
-        slimes['saber'].levelCost = parseInt(localStorage.getItem("saber-level-price"));
-        document.getElementById('saber-upgrade-price').innerText = slimes['saber'].levelCost.toLocaleString()
-
-        slimes['dervish'].amount = parseInt(localStorage.getItem("dervish-plorts"));
-        slimes['dervish'].price = parseInt(localStorage.getItem("dervish-price"));
-        document.getElementById('current-dervish-price').innerText = slimes['dervish'].price.toLocaleString()
-        slimes['dervish'].numOfSlimes = parseInt(localStorage.getItem("dervish-slimes"));
-        document.getElementById('dervish-slime-amount').innerText = slimes['dervish'].numOfSlimes.toLocaleString()
-        slimes['dervish'].costOfSlimes = parseInt(localStorage.getItem("dervish-slime-price"));
-        document.getElementById('dervish-slime-price').innerText = slimes['dervish'].costOfSlimes.toLocaleString()
-        slimes['dervish'].level = parseInt(localStorage.getItem("dervish-level"));
-        slimes['dervish'].autoMultiplier = 0.2 * slimes['dervish'].level
-        if (slimes['dervish'].level === 5) {
-            document.getElementById('level-up-dervish').style.display = 'none'
-            document.getElementById('buy-dervish-slimes').classList = 'w-100 btn btn-light p-0 h-100'
-            document.getElementById('rock-purchase-section').classList = 'p-1 col-4'
-        }
-        slimes['dervish'].levelCost = parseInt(localStorage.getItem("dervish-level-price"));
-        document.getElementById('dervish-upgrade-price').innerText = slimes['dervish'].levelCost.toLocaleString()
-
-        slimes['quantum'].amount = parseInt(localStorage.getItem("quantum-plorts"));
-        slimes['quantum'].price = parseInt(localStorage.getItem("quantum-price"));
-        document.getElementById('current-quantum-price').innerText = slimes['quantum'].price.toLocaleString()
-        slimes['quantum'].numOfSlimes = parseInt(localStorage.getItem("quantum-slimes"));
-        document.getElementById('quantum-slime-amount').innerText = slimes['quantum'].numOfSlimes.toLocaleString()
-        slimes['quantum'].costOfSlimes = parseInt(localStorage.getItem("quantum-slime-price"));
-        document.getElementById('quantum-slime-price').innerText = slimes['quantum'].costOfSlimes.toLocaleString()
-        slimes['quantum'].level = parseInt(localStorage.getItem("quantum-level"));
-        slimes['quantum'].autoMultiplier = 0.2 * slimes['quantum'].level
-        if (slimes['quantum'].level === 5) {
-            document.getElementById('level-up-quantum').style.display = 'none'
-            document.getElementById('buy-quantum-slimes').classList = 'w-100 btn btn-light p-0 h-100'
-            document.getElementById('rock-purchase-section').classList = 'p-1 col-4'
-        }
-        slimes['quantum'].levelCost = parseInt(localStorage.getItem("quantum-level-price"));
-        document.getElementById('quantum-upgrade-price').innerText = slimes['quantum'].levelCost.toLocaleString()
-
-        slimes['tangle'].amount = parseInt(localStorage.getItem("tangle-plorts"));
-        slimes['tangle'].price = parseInt(localStorage.getItem("tangle-price"));
-        document.getElementById('current-tangle-price').innerText = slimes['tangle'].price.toLocaleString()
-        slimes['tangle'].numOfSlimes = parseInt(localStorage.getItem("tangle-slimes"));
-        document.getElementById('tangle-slime-amount').innerText = slimes['tangle'].numOfSlimes.toLocaleString()
-        slimes['tangle'].costOfSlimes = parseInt(localStorage.getItem("tangle-slime-price"));
-        document.getElementById('tangle-slime-price').innerText = slimes['tangle'].costOfSlimes.toLocaleString()
-        slimes['tangle'].level = parseInt(localStorage.getItem("tangle-level"));
-        slimes['tangle'].autoMultiplier = 0.2 * slimes['tangle'].level
-        if (slimes['tangle'].level === 5) {
-            document.getElementById('level-up-tangle').style.display = 'none'
-            document.getElementById('buy-tangle-slimes').classList = 'w-100 btn btn-light p-0 h-100'
-            document.getElementById('rock-purchase-section').classList = 'p-1 col-4'
-        }
-        slimes['tangle'].levelCost = parseInt(localStorage.getItem("tangle-level-price"));
-        document.getElementById('tangle-upgrade-price').innerText = slimes['tangle'].levelCost.toLocaleString()
-
-        slimes['mosaic'].amount = parseInt(localStorage.getItem("mosaic-plorts"));
-        slimes['mosaic'].price = parseInt(localStorage.getItem("mosaic-price"));
-        document.getElementById('current-mosaic-price').innerText = slimes['mosaic'].price.toLocaleString()
-        slimes['mosaic'].numOfSlimes = parseInt(localStorage.getItem("mosaic-slimes"));
-        document.getElementById('mosaic-slime-amount').innerText = slimes['mosaic'].numOfSlimes.toLocaleString()
-        slimes['mosaic'].costOfSlimes = parseInt(localStorage.getItem("mosaic-slime-price"));
-        document.getElementById('mosaic-slime-price').innerText = slimes['mosaic'].costOfSlimes.toLocaleString()
-        slimes['mosaic'].level = parseInt(localStorage.getItem("mosaic-level"));
-        slimes['mosaic'].autoMultiplier = 0.2 * slimes['mosaic'].level
-        if (slimes['mosaic'].level === 5) {
-            document.getElementById('level-up-mosaic').style.display = 'none'
-            document.getElementById('buy-mosaic-slimes').classList = 'w-100 btn btn-light p-0 h-100'
-            document.getElementById('rock-purchase-section').classList = 'p-1 col-4'
-        }
-        slimes['mosaic'].levelCost = parseInt(localStorage.getItem("mosaic-level-price"));
-        document.getElementById('mosaic-upgrade-price').innerText = slimes['mosaic'].levelCost.toLocaleString()
-
-        slimes['gold'].amount = parseInt(localStorage.getItem("gold-plorts"));
-        slimes['gold'].price = parseInt(localStorage.getItem("gold-price"));
-        document.getElementById('current-gold-price').innerText = slimes['gold'].price.toLocaleString()
-        slimes['gold'].numOfSlimes = parseInt(localStorage.getItem("gold-slimes"));
-        document.getElementById('gold-slime-amount').innerText = slimes['gold'].numOfSlimes.toLocaleString()
-        slimes['gold'].costOfSlimes = parseInt(localStorage.getItem("gold-slime-price"));
-        document.getElementById('gold-slime-price').innerText = slimes['gold'].costOfSlimes.toLocaleString()
-        slimes['gold'].level = parseInt(localStorage.getItem("gold-level"));
-        slimes['gold'].autoMultiplier = 0.2 * slimes['gold'].level
-        if (slimes['gold'].level === 5) {
-            document.getElementById('level-up-gold').style.display = 'none'
-            document.getElementById('buy-gold-slimes').classList = 'w-100 btn btn-light p-0 h-100'
-            document.getElementById('rock-purchase-section').classList = 'p-1 col-4'
-        }
-        slimes['gold'].levelCost = parseInt(localStorage.getItem("gold-level-price"));
-        document.getElementById('gold-upgrade-price').innerText = slimes['gold'].levelCost.toLocaleString()
-        calcPPS('pink')
-        calcPPS('rock')
-        calcPPS('phosphor')
-        calcPPS('tabby')
-        calcPPS('puddle')
-        calcPPS('fire')
-        calcPPS('honey')
-        calcPPS('boom')
-        calcPPS('hunter')
-        calcPPS('rad')
-        calcPPS('crystal')
-        calcPPS('saber')
-        calcPPS('dervish')
-        calcPPS('quantum')
-        calcPPS('tangle')
-        calcPPS('mosaic')
-        calcPPS('gold')
-        updateTotal('pink')
-        updateTotal('rock')
-        updateTotal('phosphor')
-        updateTotal('tabby')
-        updateTotal('puddle')
-        updateTotal('fire')
-        updateTotal('honey')
-        updateTotal('boom')
-        updateTotal('hunter')
-        updateTotal('rad')
-        updateTotal('crystal')
-        updateTotal('saber')
-        updateTotal('dervish')
-        updateTotal('quantum')
-        updateTotal('tangle')
-        updateTotal('mosaic')
-        updateTotal('gold')
-
+        Object.values(slimes).forEach(slime => {
+            slime.amount = parseInt(localStorage.getItem(`${slime.type}-plorts`));
+            slime.price = parseInt(localStorage.getItem(`${slime.type}-price`));
+            document.getElementById(`current-${slime.type}-price`).innerText = slime.price.toLocaleString();
+            slime.numOfSlimes = parseInt(localStorage.getItem(`${slime.type}-slimes`));
+            document.getElementById(`${slime.type}-slime-amount`).innerText = slime.numOfSlimes.toLocaleString();
+            slime.costOfSlimes = parseInt(localStorage.getItem(`${slime.type}-slime-price`));
+            document.getElementById(`${slime.type}-slime-price`).innerText = slime.costOfSlimes.toLocaleString();
+            slime.level = parseInt(localStorage.getItem(`${slime.type}-level`));
+            slime.autoMultiplier = 0.2 * slime.level;
+            if (slime.level === 5) {
+                document.getElementById(`level-up-${slime.type}`).style.display = 'none';
+                document.getElementById(`buy-${slime.type}-slimes`).classList = 'w-100 btn btn-light p-0 h-100';
+                document.getElementById(`${slime.type}-purchase-section`).classList = 'p-1 col-4';
+            }
+            slime.levelCost = parseInt(localStorage.getItem(`${slime.type}-level-price`));
+            document.getElementById(`${slime.type}-upgrade-price`).innerText = slime.levelCost.toLocaleString();
+            calcPPS(`${slime.type}`);
+            updateTotal(`${slime.type}`);
+        });        
     } else {
         currentMoney = 0
     }
