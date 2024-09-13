@@ -430,23 +430,6 @@ function countdown() {
     if (seconds < 0) {
         seconds = 60
         displayCountdown()
-        stocks('pink')
-        stocks('rock')
-        stocks('phosphor')
-        stocks('tabby')
-        stocks('puddle')
-        stocks('fire')
-        stocks('honey')
-        stocks('boom')
-        stocks('hunter')
-        stocks('rad')
-        stocks('crystal')
-        stocks('saber')
-        stocks('dervish')
-        stocks('quantum')
-        stocks('tangle')
-        stocks('mosaic')
-        stocks('gold')
     } else {
         displayCountdown()
     }
@@ -476,7 +459,7 @@ const slimes = {
         level: 1,
         autoMultiplier: 0.2,
         levelCost: 1000,
-        price: 700000000000000,
+        price: 7,
         minPrice: 4,
         maxPrice: 25,
         soldTotal: 0,
